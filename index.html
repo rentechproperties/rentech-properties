@@ -301,14 +301,14 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             text-decoration: none;
             cursor: pointer;
         }
 
         .logo-img {
-            width: 48px;
-            height: 48px;
+            width: 60px;
+            height: 60px;
             animation: spinLogo 0.8s ease-in-out;
             transition: all 0.3s ease;
         }
@@ -321,7 +321,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 4px 12px var(--emerald-glow));
         }
 
         @keyframes spinLogo {
@@ -332,14 +332,14 @@
         .logo-text {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
         }
 
         .logo-text span {
-            font-size: 0.8rem;
-            margin-left: 4px;
-            letter-spacing: 0.5px;
+            font-size: 1rem;
+            margin-left: 6px;
+            letter-spacing: 1px;
             color: var(--emerald);
         }
 
@@ -466,24 +466,6 @@
             transform: translate(-50%, -50%);
             z-index: 0;
             pointer-events: none;
-        }
-
-        .stats-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--card);
-            padding: 8px 20px;
-            border-radius: 100px;
-            border: 1px solid var(--border);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-
-        .stats-badge .emerald {
-            color: var(--emerald);
-            font-weight: 600;
         }
 
         .pulse-dot {
@@ -1774,50 +1756,6 @@
         <div class="hero-glow"></div>
         
         <div class="container" style="position: relative; z-index: 2;">
-            <!-- Top Badge Strip - Row 1 -->
-            <div class="reveal flex flex-wrap justify-center gap-3 mb-4" style="transition-delay: 0s;">
-                <div class="glass px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm">
-                    <span class="text-emerald">✓</span>
-                    <span class="text-muted">Verified Landlords Since 2025</span>
-                </div>
-                <div class="glass px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm">
-                    <span class="text-yellow-400">⚡</span>
-                    <span class="text-muted">WhatsApp-Fast Response — 24hr</span>
-                </div>
-                <div class="glass px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm">
-                    <span class="text-blue">📍</span>
-                    <span class="text-muted">From Eastleigh to Karen — All Nairobi</span>
-                </div>
-                <div class="glass px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm">
-                    <span class="text-purple">🛡️</span>
-                    <span class="text-muted">0 Scam Agents on Platform</span>
-                </div>
-                <div class="glass px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm">
-                    <span class="text-emerald">💰</span>
-                    <span class="text-muted">M-Pesa Secure Deposits</span>
-                </div>
-                <div class="glass px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm">
-                    <span class="text-pink">🎯</span>
-                    <span class="text-muted">Free for Tenants — Always</span>
-                </div>
-            </div>
-            
-            <!-- Stats Row - Row 2 -->
-            <div class="reveal flex flex-wrap justify-center gap-4 mb-8" style="transition-delay: 0.1s;">
-                <div class="glass px-6 py-3 rounded-full flex items-center gap-2 border border-emerald/30 glow-emerald">
-                    <span class="text-emerald font-bold text-lg">500+</span>
-                    <span class="text-sm text-muted">Verified Properties Across Nairobi</span>
-                </div>
-                <div class="glass px-6 py-3 rounded-full flex items-center gap-2">
-                    <span class="text-emerald">✓</span>
-                    <span class="text-sm text-muted font-medium">No Scam Agents — Guaranteed</span>
-                </div>
-                <div class="glass px-6 py-3 rounded-full flex items-center gap-2">
-                    <span class="text-blue">🤖</span>
-                    <span class="text-sm text-muted font-medium">AI-Verified Landlords Since 2025</span>
-                </div>
-            </div>
-            
             <!-- Main Badge -->
             <div class="reveal inline-flex items-center px-4 py-2 rounded-full glass border border-emerald/30 mb-6" style="transition-delay: 0.2s;">
                 <span class="relative flex h-3 w-3 mr-3">
@@ -2585,10 +2523,10 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo" style="margin-bottom: 18px;">
-                        <div class="logo-img" style="width: 40px; height: 40px;">
+                        <div class="logo-img" style="width: 50px; height: 50px;">
                             <img src="assets/logo.png" alt="Rentech Logo">
                         </div>
-                        <div class="logo-text" style="font-size: 1.2rem;">RENTECH<span style="font-size: 0.7rem;">PROPERTIES</span></div>
+                        <div class="logo-text" style="font-size: 1.4rem;">RENTECH<span style="font-size: 0.8rem;">PROPERTIES</span></div>
                     </div>
                     <p>Nairobi's AI-powered rental marketplace. Verified landlords, serious tenants. Fast, fair, transparent. Built to eliminate rental scams in Kenya.</p>
                     <p style="margin-top: 14px;">
