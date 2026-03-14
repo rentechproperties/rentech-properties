@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Properties | Rentech</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .browse-layout { display: grid; grid-template-columns: 280px 1fr; gap: 32px; padding-top: 100px; }
+    .sidebar { position: sticky; top: 90px; height: calc(100vh - 100px); overflow-y: auto; padding-right: 16px; }
+    .sidebar::-webkit-scrollbar { width: 6px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    .filter-group { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .filter-group label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 0.9rem; }
+    .filter-input { width: 100%; padding: 12px; background: var(--bg-2); border: 1px solid var(--border); color: #fff; border-radius: var(--radius); font-family: inherit; }
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 6px 12px; font-size: 0.85rem; border-radius: 50px; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--text); transition: all 0.2s; }
+    .chip.active { background: var(--emerald); border-color: var(--emerald); color: #fff; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; background: var(--card); padding: 16px 24px; border-radius: var(--radius); border: 1px solid var(--border); }
+    
+    @media (max-width: 900px) {
+      .browse-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; /* In a full build, toggle via JS drawer */ }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="glass" style="background: rgba(15, 23, 42, 0.98);">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">RT</div>
+        <span class="syne" style="font-weight:800">RENTECH <span class="text-emerald">PROPERTIES</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="properties.html" class="active">Browse</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div>
+        <a href="list-property.html" class="btn btn-emerald">List Property Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container browse-layout">
+    <aside class="sidebar">
+      <div class="filter-group">
+        <label>🔍 Search</label>
+        <input type="text" id="filter-search" class="filter-input" placeholder="e.g. Kilimani 2BR">
+      </div>
+      
+      <div class="filter-group">
+        <label>📍 Location</label>
+        <select id="filter-area" class="filter-input">
+          <option value="">All Nairobi Areas</option>
+          <option value="Kilimani">Kilimani</option>
+          <option value="Westlands">Westlands</option>
+          <option value="Kasarani">Kasarani</option>
+          <option value="South B">South B</option>
+          <option value="South C">South C</option>
+          <option value="Lang’ata">Lang’ata</option>
+          <option value="Lavington">Lavington</option>
+          <option value="Karen">Karen</option>
+          <option value="Eastleigh">Eastleigh</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>💰 Max Price: <span id="price-display" class="text-emerald font-weight-600">KSh 300,000</span></label>
+        <input type="range" id="filter-price" min="5000" max="300000" step="5000" value="300000" style="width: 100%; accent-color: var(--emerald);">
+      </div>
+
+      <div class="filter-group">
+        <label>🏢 Property Type</label>
+        <div class="chip-grid">
+          <button class="chip type-chip active btn-emerald" data-val="All" onclick="toggleChip(this, 'type-chip', 'All')">All</button>
+          <button class="chip type-chip btn-outline" data-val="Bedsitter" onclick="toggleChip(this, 'type-chip', 'Bedsitter')">Bedsitter</button>
+          <button class="chip type-chip btn-outline" data-val="Studio" onclick="toggleChip(this, 'type-chip', 'Studio')">Studio</button>
+          <button class="chip type-chip btn-outline" data-val="1BR" onclick="toggleChip(this, 'type-chip', '1BR')">1BR</button>
+          <button class="chip type-chip btn-outline" data-val="2BR" onclick="toggleChip(this, 'type-chip', '2BR')">2BR</button>
+          <button class="chip type-chip btn-outline" data-val="3BR" onclick="toggleChip(this, 'type-chip', '3BR')">3BR+</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>🛏️ Bedrooms</label>
+        <div class="chip-grid">
+          <button class="chip beds-chip active btn-emerald" data-val="Any" onclick="toggleChip(this, 'beds-chip', 'Any')">Any</button>
+          <button class="chip beds-chip btn-outline" data-val="1" onclick="toggleChip(this, 'beds-chip', '1')">1</button>
+          <button class="chip beds-chip btn-outline" data-val="2" onclick="toggleChip(this, 'beds-chip', '2')">2</button>
+          <button class="chip beds-chip btn-outline" data-val="3" onclick="toggleChip(this, 'beds-chip', '3')">3</button>
+          <button class="chip beds-chip btn-outline" data-val="4+" onclick="toggleChip(this, 'beds-chip', '4+')">4+</button>
+        </div>
+      </div>
+
+      <div class="filter-group" style="border:none;">
+        <label>✨ Amenities</label>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:12px;">
+          <label style="display:flex; gap:8px; align-items:center; margin:0;"><input type="checkbox" class="amenity-check" value="Furnished"> Furnished</label>
+          <label style="display:flex; gap:8px; align-items:center; margin:0;"><input type="checkbox" class="amenity-check" value="Security"> 24hr Security</label>
+          <label style="display:flex; gap:8px; align-items:center; margin:0;"><input type="checkbox" class="amenity-check" value="Borehole"> Borehole Water</label>
+          <label style="display:flex; gap:8px; align-items:center; margin:0;"><input type="checkbox" class="amenity-check" value="Parking"> Parking</label>
+        </div>
+      </div>
+
+      <button id="reset-filters" class="btn btn-outline" style="width:100%;">↺ Reset All</button>
+    </aside>
+
+    <div>
+      <div class="top-bar">
+        <span id="results-count" class="text-muted">Loading properties...</span>
+        <div style="display:flex; gap:16px; align-items:center;">
+          <select id="sort-results" class="filter-input" style="width:auto; padding:8px 16px;">
+            <option value="featured">⭐ Featured First</option>
+            <option value="newest">🆕 Newest</option>
+            <option value="price-low">💰 Price: Low to High</option>
+            <option value="price-high">💰 Price: High to Low</option>
+          </select>
+          <div style="display:flex; gap:4px;">
+            <button class="view-btn" onclick="setView('grid', this)" style="background:transparent; border:none; color:#fff; cursor:pointer; font-size:1.2rem; opacity:1;">⊞</button>
+            <button class="view-btn" onclick="setView('list', this)" style="background:transparent; border:none; color:#fff; cursor:pointer; font-size:1.2rem; opacity:0.5;">☰</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="properties-grid" class="grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+        </div>
+    </div>
+  </main>
+
+  <script src="js/properties.js"></script>
+  <script src="js/filters.js"></script>
+</body>
+</html>

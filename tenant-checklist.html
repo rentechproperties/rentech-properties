@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Move-In Checklist | Rentech</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .checklist-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; max-width: 800px; margin: 100px auto 40px; position: relative; }
+    .check-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); transition: all 0.3s; }
+    .check-item:last-child { border-bottom: none; }
+    .check-item input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--emerald); cursor: pointer; margin-top: 2px; }
+    .check-item.done { opacity: 0.5; }
+    .check-item.done span { text-decoration: line-through; }
+    
+    .category-label { color: var(--emerald); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-top: 32px; display: block; }
+    
+    @media print {
+      .btn, nav, .no-print { display: none !important; }
+      .checklist-card { margin: 0; border: none; box-shadow: none; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="glass no-print">
+    <div class="container">
+      <a href="index.html" class="logo"><div class="logo-icon">RT</div> RENTECH</a>
+      <button onclick="window.print()" class="btn btn-outline">🖨️ Print to PDF</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="checklist-card" id="checklist-content">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h1 class="syne" style="font-size: 2.2rem; margin-bottom: 8px;">Move-In Readiness Checklist</h1>
+        <p class="text-muted">Property: <b>Rhapta Road 3BR, Westlands</b></p>
+      </div>
+
+      <span class="category-label">1. Legal & Financial</span>
+      <div class="check-item">
+        <input type="checkbox" id="c1">
+        <div>
+          <label for="c1"><b>Sign Tenancy Agreement</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Ensure all clauses regarding deposit refund and notice period are clear.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c2">
+        <div>
+          <label for="c2"><b>Pay Deposit & First Month Rent</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Keep M-Pesa transaction codes or bank slips as permanent records.</p>
+        </div>
+      </div>
+
+      <span class="category-label">2. Utilities & Services</span>
+      <div class="check-item">
+        <input type="checkbox" id="c3">
+        <div>
+          <label for="c3"><b>KPLC Token Transfer / Reading</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Check existing tokens. If post-paid, take a photo of the meter reading with the caretaker.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c4">
+        <div>
+          <label for="c4"><b>Water Meter Confirmation</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Verify the current Nairobi Water meter reading to avoid previous tenant's bills.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c5">
+        <div>
+          <label for="c5"><b>Internet Setup (Safaricom Home/Zuku)</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Request a relocation or new installation at least 3 days before moving.</p>
+        </div>
+      </div>
+
+      <span class="category-label">3. Day of Move</span>
+      <div class="check-item">
+        <input type="checkbox" id="c6">
+        <div>
+          <label for="c6"><b>Move-In Inspection (Snag List)</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Take photos of any scratches, leaking taps, or broken tiles and email them to the landlord/agent.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c7">
+        <div>
+          <label for="c7"><b>Estate/Service Gate Clearance</b></label>
+          <p class="text-muted" style="font-size: 0.9rem;">Inform the security desk of your move-in date to allow moving trucks access.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px; padding: 24px; background: rgba(16,185,129,0.05); border-radius: var(--radius); border: 1px dashed var(--emerald);">
+        <p style="text-align: center; font-size: 0.9rem; margin: 0;">
+          <b>Need help moving?</b> Contact our partner movers for a 10% Rentech discount.<br>
+          <a href="#" class="text-emerald" style="text-decoration: underline;">Get Moving Quote →</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Simple state persistence
+    document.querySelectorAll('input[type="checkbox"]').forEach(item => {
+      item.addEventListener('change', (e) => {
+        if(e.target.checked) {
+          e.target.closest('.check-item').classList.add('done');
+        } else {
+          e.target.closest('.check-item').classList.remove('done');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
