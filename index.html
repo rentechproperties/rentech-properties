@@ -1,19 +1,20 @@
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rentech Properties | Find Rental Homes Faster in Nairobi</title>
-  <meta name="description" content="Nairobi’s first AI-powered, scam-free rental marketplace. Verified landlords, pre-qualified tenants. From Eastleigh to Karen.">
-  <meta name="keywords" content="apartments for rent Nairobi, Kilimani apartments, Westlands rentals, Rentech, verified landlords Kenya">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="Nairobi’s first AI-powered, scam-free rental marketplace.">
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 
-  <nav>
+  <nav class="glass">
     <div class="container">
       <a href="index.html" class="logo">
         <div class="logo-icon">RT</div>
@@ -21,133 +22,56 @@
       </a>
       <div class="nav-links">
         <a href="properties.html">Browse</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#areas">Areas</a>
-        <a href="#faq">FAQ</a>
+        <a href="tenant-dashboard.html">Dashboard</a>
+        <a href="list-property.html">List Property</a>
       </div>
-      <div style="display: flex; gap:16px;">
-        <a href="list-property.html" class="btn btn-emerald" style="display:none; @media(min-width:768px){display:inline-block}">List Property Free</a>
-        <button class="hamburger">☰</button>
-      </div>
+      <button class="hamburger">☰</button>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="container fade-up" style="z-index: 2;">
-      <div class="hero-badge">
-        <div class="dot"></div>
-        AI-Verified Since 2025 🛡️
-      </div>
-      <h1>
-        Find Your Home.<br>
+    <div class="container fade-up">
+      <div class="hero-badge"><div class="dot"></div> AI-Verified Since 2025 🛡️</div>
+      <h1>Find Your Home.<br>
         <span class="text-gradient rotating-text">
           <span class="active">Trust Verified.</span>
-          <span>No Scam Agents. Guaranteed.</span>
-          <span>AI-Matched. WhatsApp-Fast.</span>
-          <span>Nairobi’s Safest Platform.</span>
+          <span>No Scam Agents.</span>
+          <span>AI-Matched.</span>
         </span>
       </h1>
-      <p class="subtitle fade-up" style="transition-delay: 100ms;">
-        No scam agents. No wasted trips. 500+ verified landlords, AI-matched properties, WhatsApp-fast response across all of Nairobi — from Eastleigh to Karen.
-      </p>
-      <div class="hero-ctas fade-up" style="transition-delay: 200ms;">
-        <a href="properties.html" class="btn btn-emerald">🏠 Find a Rental</a>
-        <a href="list-property.html" class="btn btn-outline">📋 List Your Property</a>
-      </div>
+      <p class="subtitle">Nairobi’s safest rental platform. From Eastleigh to Karen.</p>
       
-      <div class="search-card fade-up" style="transition-delay: 300ms;">
-        <select id="hero-area">
-          <option value="">All Nairobi</option>
-          <option value="Kilimani">Kilimani</option>
-          <option value="Westlands">Westlands</option>
-          <option value="Kasarani">Kasarani</option>
-          <option value="Karen">Karen</option>
-        </select>
-        <select id="hero-type">
-          <option value="">Any Type</option>
-          <option value="Bedsitter">Bedsitter</option>
-          <option value="1BR">1 Bedroom</option>
-          <option value="2BR">2 Bedrooms</option>
-        </select>
-        <select id="hero-budget">
-          <option value="">Any Budget</option>
-          <option value="20000">Under 20K</option>
-          <option value="50000">20K - 50K</option>
-        </select>
+      <div class="search-card">
+        <select id="hero-area"><option value="">All Nairobi</option><option value="Kilimani">Kilimani</option></select>
         <button onclick="window.location.href='properties.html'" class="btn btn-emerald">Search →</button>
       </div>
     </div>
   </header>
 
-  <section class="container" style="padding-bottom: 0;">
-    <div class="stats-bar">
-      <div>
-        <div class="stat-num" data-target="500" data-suffix="+">0</div>
-        <div class="stat-label">Verified Properties</div>
-      </div>
-      <div>
-        <div class="stat-num" data-target="98" data-suffix="%">0</div>
-        <div class="stat-label">Happy Tenants</div>
-      </div>
-      <div>
-        <div class="stat-num" data-target="24" data-suffix="hr">0</div>
-        <div class="stat-label">Response Time</div>
-      </div>
-      <div>
-        <div class="stat-num" data-target="100" data-suffix="%">0</div>
-        <div class="stat-label">Verified Landlords</div>
-      </div>
-    </div>
-  </section>
-
   <section class="section container">
-    <div class="section-header fade-up">
-      <div>
-        <span class="text-emerald font-weight-600">Featured Properties</span>
-        <h2>Verified Homes Ready to Move In</h2>
-      </div>
-      <a href="properties.html" class="text-emerald" style="font-weight:600">View All →</a>
-    </div>
-    <div class="grid" id="featured-grid">
-      </div>
+    <h2>Verified Properties</h2>
+    <div class="grid" id="featured-grid"></div>
   </section>
 
   <section class="section" style="background: var(--bg-2)">
-    <div class="container grid" style="grid-template-columns: 1fr 1fr; align-items: center;">
-      <div class="fade-up">
-        <h2>💰 Rent Affordability Calculator</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">See what rent you can comfortably afford based on your income.</p>
-        <div style="background: var(--card); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border);">
-          <label class="text-muted" style="display:block; margin-bottom: 8px;">Monthly Income (KSh)</label>
-          <input type="number" id="calc-income" placeholder="e.g. 100000" style="width:100%; padding:12px; border-radius:var(--radius); background:var(--bg); color:#fff; border:1px solid var(--border); margin-bottom: 16px;">
-          
-          <label class="text-muted" style="display:block; margin-bottom: 8px;">Spend on Rent</label>
-          <select id="calc-percent" style="width:100%; padding:12px; border-radius:var(--radius); background:var(--bg); color:#fff; border:1px solid var(--border); margin-bottom: 24px;">
-            <option value="20">20% (Conservative)</option>
-            <option value="30" selected>30% (Recommended)</option>
-            <option value="40">40% (Aggressive)</option>
-          </select>
-          
-          <div style="border-top: 1px solid var(--border); padding-top: 16px;">
-            <div class="text-muted">Recommended Budget</div>
-            <div id="calc-output" class="text-emerald syne" style="font-size: 2rem; font-weight:800;">KSh 0</div>
-            <div class="text-muted" style="font-size:0.85rem; margin-top:8px;">Suggested: <span id="calc-areas" class="text-text">Enter income</span></div>
-          </div>
-        </div>
+    <div class="container grid" style="grid-template-columns: 1fr 1fr;">
+      <div>
+        <h2>💰 Rent Calculator</h2>
+        <input type="number" id="calc-income" placeholder="Monthly Income (KSh)">
+        <div id="calc-output">KSh 0</div>
       </div>
-      <div class="fade-up" style="transition-delay: 200ms;" id="areas">
-        <h2>We Cover All of Nairobi</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">From Eastleigh to Karen — every neighbourhood represented.</p>
-        <iframe src="https://googleusercontent.com/maps.google.com/0" width="100%" height="350" style="border:0;border-radius:var(--radius-lg);filter:invert(90%) hue-rotate(180deg)" allowfullscreen loading="lazy"></iframe>
+      <div id="areas">
+        <h2>Our Coverage</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="350" style="border:0;filter:invert(90%)"></iframe>
       </div>
     </div>
   </section>
 
-  <a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties%21%20I%20need%20help." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.031 0C5.385 0 0 5.388 0 12.04c0 2.12.553 4.186 1.603 6L.51 24l6.115-1.603A11.967 11.967 0 0012.031 24c6.645 0 12.03-5.388 12.03-12.04S18.676 0 12.031 0zm0 22A9.962 9.962 0 017.063 20.6l-.357-.212-3.642.955.973-3.55-.233-.37A9.957 9.957 0 012 12.04C2 6.502 6.505 2 12.031 2 17.556 2 22.06 6.502 22.06 12.04c0 5.536-4.504 10.04-10.03 10.04v-.08zM17.54 15.65c-.302-.152-1.782-.88-2.057-.98-.276-.101-.478-.152-.678.152-.201.303-.78 1.002-.955 1.203-.176.202-.352.227-.654.075-.302-.15-1.272-.468-2.42-1.493-.893-.797-1.497-1.781-1.673-2.083-.176-.303-.018-.466.133-.618.136-.135.302-.352.453-.528.151-.176.201-.302.302-.503.1-.202.05-.378-.025-.528-.076-.151-.678-1.636-.93-2.241-.242-.589-.489-.508-.677-.517h-.578c-.2 0-.528.075-.805.378-.277.302-1.056 1.03-1.056 2.513s1.08 2.915 1.232 3.116c.15.202 2.126 3.245 5.148 4.546 2.06.886 2.822 1.002 3.93 1.002.956 0 2.212-.426 2.613-.98.403-.554.403-1.056.277-1.157-.126-.101-.478-.152-.78-.302z"/></svg>
-  </a>
+  <a href="https://wa.me/254723783337" class="wa-float" target="_blank">Chat</a>
 
-  <script src="js/properties.js"></script>
-  <script src="js/app.js"></script>
+  <script src="./js/properties.js"></script>
+  <script src="./js/ai-chat.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>
