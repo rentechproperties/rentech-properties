@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RENTECH PROPERTIES - AI-Powered Rentals in Nairobi</title>
+    <title>Rentech Properties | AI-Verified Rentals in Nairobi</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rentech-properties.vercel.app/">
+    <meta property="og:title" content="Rentech Properties | AI-Verified Rentals in Nairobi">
+    <meta property="og:description" content="No scam agents. No wasted trips. 500+ verified landlords across Nairobi. Find your next home safely.">
+    <meta property="og:image" content="https://rentech-properties.vercel.app/assets/logo.png">
+    <meta name="theme-color" content="#10B981">
+    
     <style>
+        /* ========== SMOOTH SCROLLING ========== */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         /* ========== ROOT VARIABLES ========== */
         :root {
             /* Dark mode (default) */
@@ -24,18 +38,22 @@
             --border: rgba(255,255,255,0.05);
             --border-light: rgba(255,255,255,0.1);
             
-            /* Brand colors */
+            /* Brand colors - brighter! */
             --emerald: #10B981;
             --emerald-dim: rgba(16,185,129,0.1);
-            --emerald-glow: rgba(16,185,129,0.3);
+            --emerald-glow: rgba(16,185,129,0.5);
             --blue: #3b82f6;
             --blue-dim: rgba(59,130,246,0.1);
-            --blue-glow: rgba(59,130,246,0.3);
+            --blue-glow: rgba(59,130,246,0.5);
             --purple: #8b5cf6;
             --purple-dim: rgba(139,92,246,0.1);
-            --purple-glow: rgba(139,92,246,0.3);
+            --purple-glow: rgba(139,92,246,0.5);
             --pink: #ec4899;
+            --pink-glow: rgba(236,72,153,0.5);
             --orange: #F59E0B;
+            --orange-glow: rgba(245,158,11,0.5);
+            --gold: #FFD700;
+            --gold-glow: rgba(255,215,0,0.5);
             --wa-green: #25D366;
             
             /* Utils */
@@ -138,17 +156,29 @@
             border-bottom: 1px solid var(--border);
         }
 
-        /* Glow Effects */
+        /* Glow Effects - Brighter! */
         .glow-emerald {
-            box-shadow: 0 0 20px var(--emerald-glow);
+            box-shadow: 0 0 30px var(--emerald-glow);
         }
         
         .glow-blue {
-            box-shadow: 0 0 40px rgba(59,130,246,0.15);
+            box-shadow: 0 0 30px var(--blue-glow);
         }
         
         .glow-purple {
-            box-shadow: 0 0 40px rgba(139,92,246,0.15);
+            box-shadow: 0 0 30px var(--purple-glow);
+        }
+        
+        .glow-pink {
+            box-shadow: 0 0 30px var(--pink-glow);
+        }
+        
+        .glow-orange {
+            box-shadow: 0 0 30px var(--orange-glow);
+        }
+        
+        .glow-gold {
+            box-shadow: 0 0 30px var(--gold-glow);
         }
         
         .text-glow {
@@ -156,10 +186,29 @@
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, var(--emerald), var(--blue), var(--purple));
+            background: linear-gradient(135deg, var(--emerald), var(--blue), var(--purple), var(--pink));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            background-size: 300% 300%;
+            animation: gradient 6s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Gold hover effect */
+        .gold-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .gold-hover:hover {
+            border-color: var(--gold) !important;
+            box-shadow: 0 0 30px var(--gold-glow) !important;
+            transform: translateY(-5px) scale(1.02);
         }
 
         /* ========== SECTION GLOW EFFECTS ========== */
@@ -184,7 +233,7 @@
         }
 
         .properties-section::after {
-            background: radial-gradient(circle at 50% 50%, var(--emerald) 0%, #0ff 50%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, var(--emerald) 0%, var(--blue) 50%, transparent 70%);
         }
 
         .how-section::after {
@@ -192,15 +241,15 @@
         }
 
         .ai-section::after {
-            background: radial-gradient(circle at 80% 20%, var(--blue) 0%, #0ff 50%, transparent 70%);
+            background: radial-gradient(circle at 80% 20%, var(--blue) 0%, var(--purple) 50%, transparent 70%);
         }
 
         .calc-section::after {
-            background: radial-gradient(circle at 20% 80%, var(--purple) 0%, #f0f 50%, transparent 70%);
+            background: radial-gradient(circle at 20% 80%, var(--purple) 0%, var(--pink) 50%, transparent 70%);
         }
 
         .areas-section::after {
-            background: radial-gradient(circle at 90% 90%, #0ff 0%, var(--emerald) 50%, transparent 70%);
+            background: radial-gradient(circle at 90% 90%, var(--gold) 0%, var(--emerald) 50%, transparent 70%);
         }
 
         .testimonials-section::after {
@@ -222,7 +271,7 @@
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             border: none;
             font-family: 'DM Sans', sans-serif;
             white-space: nowrap;
@@ -236,8 +285,8 @@
 
         .btn-primary:hover {
             background: #0EA271;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px var(--emerald-glow);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px var(--emerald-glow);
         }
 
         .btn-outline {
@@ -247,9 +296,10 @@
         }
 
         .btn-outline:hover {
-            border-color: var(--emerald);
-            background: var(--emerald-dim);
-            transform: translateY(-2px);
+            border-color: var(--gold);
+            background: rgba(255,215,0,0.1);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 30px var(--gold-glow);
         }
 
         .btn-blue {
@@ -354,7 +404,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
             position: relative;
             padding: 5px 0;
         }
@@ -371,7 +421,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--emerald);
+            background: var(--gold);
             transition: width 0.3s ease;
         }
 
@@ -459,19 +509,26 @@
             position: absolute;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(59,130,246,0.1) 40%, transparent 70%);
+            background: radial-gradient(circle, var(--gold-glow) 0%, var(--emerald-glow) 40%, transparent 70%);
             border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 0;
             pointer-events: none;
+            animation: pulse-glow 4s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+            100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
         }
 
         .pulse-dot {
             width: 8px;
             height: 8px;
-            background: var(--emerald);
+            background: var(--gold);
             border-radius: 50%;
             position: relative;
         }
@@ -482,7 +539,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: var(--emerald);
+            background: var(--gold);
             animation: pulse 2s infinite;
         }
 
@@ -498,9 +555,10 @@
         }
 
         .hero-subheadline {
-            font-size: 1.5rem;
-            color: var(--emerald);
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
 
         .search-card {
@@ -528,141 +586,67 @@
             font-family: 'DM Sans', sans-serif;
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: var(--dim);
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-20px) translateX(-50%); }
-            60% { transform: translateY(-10px) translateX(-50%); }
-        }
-
-        /* ========== MARQUEE ========== */
-        .marquee {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            padding: 20px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            background: var(--bg-2);
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: scroll 30s linear infinite;
-            font-size: 1.2rem;
-            color: var(--muted);
-        }
-
-        .marquee-content span {
-            color: var(--emerald);
-            margin: 0 20px;
-        }
-
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        /* ========== STATS ========== */
-        .stats-bar {
+        /* ========== SECTIONS GRID ========== */
+        .sections-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            color: var(--emerald);
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-        }
-
-        .stat-label {
-            color: var(--dim);
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
-
-        /* ========== FEATURES GRID ========== */
-        .section-tag {
-            display: inline-block;
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--emerald);
-            margin-bottom: 1rem;
-            border: 1px solid var(--emerald-dim);
-            padding: 4px 12px;
-            border-radius: 100px;
-            background: rgba(16, 185, 129, 0.05);
-        }
-
-        .tabs {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 16px;
-        }
-
-        .tab-btn {
-            padding: 8px 24px;
-            background: transparent;
-            border: none;
-            color: var(--muted);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: var(--radius);
-            font-size: 1rem;
-        }
-
-        .tab-btn:hover {
-            color: var(--text);
-            background: var(--emerald-dim);
-        }
-
-        .tab-btn.active {
-            background: var(--emerald-dim);
-            color: var(--emerald);
-        }
-
-        .tab-pane {
-            display: none;
-        }
-
-        .tab-pane.active {
-            display: block;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            margin: 60px 0;
         }
 
-        .feature-card {
+        .section-card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--emerald), var(--gold), var(--purple));
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
             display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--muted);
         }
 
-        .feature-icon {
-            font-size: 2rem;
+        .feature-list li::before {
+            content: '✓';
+            color: var(--emerald);
+            font-weight: 600;
         }
 
         /* ========== PROPERTY CARDS ========== */
@@ -686,8 +670,8 @@
 
         .property-card:hover {
             transform: translateY(-5px);
-            border-color: var(--emerald);
-            box-shadow: 0 0 30px var(--emerald-glow);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
         }
 
         .property-image {
@@ -727,41 +711,12 @@
         }
 
         .badge.featured {
-            background: var(--orange);
+            background: var(--gold);
             color: black;
         }
 
-        .badge.new {
-            background: var(--blue);
-        }
-
-        .save-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 32px;
-            height: 32px;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            z-index: 2;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .save-btn:hover {
+        .badge.verified {
             background: var(--emerald);
-            transform: scale(1.1);
-        }
-
-        .save-btn.saved {
-            color: var(--orange);
         }
 
         .property-content {
@@ -806,32 +761,6 @@
             gap: 16px;
             color: var(--dim);
             font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .property-amenities {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .amenity-pill {
-            background: var(--bg-2);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            color: var(--muted);
-        }
-
-        .property-status {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--emerald-dim);
-            color: var(--emerald);
-            border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 600;
             margin-bottom: 16px;
         }
 
@@ -842,16 +771,69 @@
             margin-top: auto;
         }
 
-        .verified-strip {
-            background: var(--emerald-dim);
-            padding: 8px 16px;
-            color: var(--emerald);
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border-top: 1px solid var(--emerald-dim);
+        .btn-wa {
+            background: var(--wa-green);
+            color: white;
+        }
+
+        .btn-wa:hover {
+            background: #128C7E;
+        }
+
+        /* ========== TRUST SECTION ========== */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .trust-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+
+        .trust-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .trust-card h3 {
+            margin-bottom: 10px;
+        }
+
+        /* ========== LOCATIONS GRID ========== */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 40px 0;
+        }
+
+        .location-tag {
+            background: var(--card);
+            padding: 15px;
+            border-radius: var(--radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .location-tag:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px var(--gold-glow);
         }
 
         /* ========== HOW IT WORKS ========== */
@@ -869,31 +851,159 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .step-card:hover {
             transform: translateY(-5px);
-            border-color: var(--emerald);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
         }
 
-        .step-num-bg {
-            font-size: 4rem;
+        .step-number {
+            font-size: 3rem;
             font-weight: 800;
-            opacity: 0.07;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: var(--text);
+            color: var(--emerald);
+            opacity: 0.3;
+            margin-bottom: 10px;
         }
 
         .step-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            display: block;
         }
 
-        /* ========== AI MATCH CARD ========== */
-        .ai-card {
+        /* ========== FLOATING ELEMENTS ========== */
+        .wa-float {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--wa-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            animation: bounce 3s infinite ease-in-out;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .wa-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        .wa-tip {
+            position: absolute;
+            right: 75px;
+            background: var(--card);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .wa-float:hover .wa-tip {
+            opacity: 1;
+            right: 85px;
+        }
+
+        .ai-fab {
+            position: fixed;
+            bottom: 90px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .ai-fab:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
+        }
+
+        .ai-fab-lbl {
+            position: absolute;
+            left: 75px;
+            background: var(--card);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .ai-fab:hover .ai-fab-lbl {
+            opacity: 1;
+            left: 85px;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 90px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--emerald), var(--gold));
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px var(--gold-glow);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ========== AI MATCH FORM ========== */
+        .ai-match-form {
             background: var(--card);
             border-radius: var(--radius-lg);
             padding: 40px;
@@ -924,377 +1034,7 @@
         .ai-mesh-2 {
             bottom: -100px;
             right: -100px;
-            background: var(--purple);
-        }
-
-        /* ========== CALCULATOR ========== */
-        .calc-wrap {
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            border: 1px solid var(--border);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .calc-amt {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--emerald);
-            font-family: 'Syne', sans-serif;
-        }
-
-        /* ========== AREA GRID ========== */
-        .area-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            margin: 40px 0;
-        }
-
-        .area-tile {
-            background: var(--card);
-            padding: 20px;
-            border-radius: var(--radius);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-
-        .area-tile:hover {
-            transform: translateY(-3px);
-            border-color: var(--emerald);
-        }
-
-        .at-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .at-range {
-            color: var(--dim);
-            font-size: 0.8rem;
-            margin-bottom: 4px;
-        }
-
-        .at-count {
-            color: var(--emerald);
-            font-size: 0.8rem;
-        }
-
-        /* ========== WHY GRID ========== */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .why-card {
-            background: var(--card);
-            padding: 30px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .why-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--emerald);
-        }
-
-        .why-icon-wrap {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .wc-cyan:hover { border-color: var(--blue); }
-        .wc-green:hover { border-color: var(--emerald); }
-        .wc-orange:hover { border-color: var(--orange); }
-        .wc-purple:hover { border-color: var(--purple); }
-
-        /* ========== TESTIMONIALS ========== */
-        .tslide {
-            display: none;
-        }
-
-        .tslide.active {
-            display: block;
-        }
-
-        .t-stars {
-            color: var(--orange);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .t-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-        }
-
-        .t-quote {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: var(--muted);
-        }
-
-        .t-name {
-            font-weight: 600;
-        }
-
-        .t-role {
-            color: var(--dim);
-            font-size: 0.85rem;
-        }
-
-        .carousel-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .car-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .car-btn:hover {
-            background: var(--emerald);
-            color: white;
-        }
-
-        .car-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .car-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--dim);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .car-dot.active {
-            background: var(--emerald);
-            transform: scale(1.2);
-        }
-
-        /* ========== FAQ ========== */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .faq-hdr {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.open .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-body p {
-            padding-bottom: 20px;
-            color: var(--dim);
-        }
-
-        /* ========== APP SECTION ========== */
-        .app-card {
-            background: linear-gradient(135deg, var(--card), var(--bg-2));
-            border-radius: var(--radius-lg);
-            padding: 60px;
-            border: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-bg-1,
-        .app-bg-2 {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .app-bg-1 {
-            top: -100px;
-            left: -100px;
-            background: var(--blue);
-        }
-
-        .app-bg-2 {
-            bottom: -100px;
-            right: -100px;
-            background: var(--purple);
-        }
-
-        .app-check {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .app-check::before {
-            content: '✓';
-            color: var(--emerald);
-            font-weight: 600;
-        }
-
-        .btn-app-store,
-        .btn-google-play {
-            padding: 12px 24px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: none;
-            opacity: 0.7;
-        }
-
-        .btn-app-store {
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            color: white;
-        }
-
-        .btn-google-play {
-            background: linear-gradient(135deg, var(--emerald), var(--blue));
-            color: white;
-        }
-
-        .btn-app-store:hover,
-        .btn-google-play:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        /* ========== CTA BANNER ========== */
-        .cta-banner {
-            background: linear-gradient(135deg, var(--card), var(--bg-2));
-            border-radius: var(--radius-lg);
-            padding: 60px;
-            border: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-bg-1,
-        .cta-bg-2 {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .cta-bg-1 {
-            top: -100px;
-            left: -100px;
-            background: var(--emerald);
-        }
-
-        .cta-bg-2 {
-            bottom: -100px;
-            right: -100px;
-            background: var(--blue);
-        }
-
-        .gt-multi {
-            background: linear-gradient(135deg, var(--emerald), var(--blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* ========== ALERTS ========== */
-        .alerts-form {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .form-ctrl {
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 12px 16px;
-            border-radius: var(--radius);
-            outline: none;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .form-ctrl:focus {
-            border-color: var(--emerald);
-        }
-
-        .btn-green {
-            background: var(--emerald);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-green:hover {
-            background: #0EA271;
-            transform: translateY(-2px);
+            background: var(--gold);
         }
 
         /* ========== FOOTER ========== */
@@ -1313,7 +1053,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            background: radial-gradient(circle at 50% 0%, var(--emerald-dim), transparent 70%);
+            background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 70%);
             pointer-events: none;
             opacity: 0.2;
         }
@@ -1335,6 +1075,7 @@
         .footer-col h5 {
             font-size: 1.1rem;
             margin-bottom: 20px;
+            color: var(--gold);
         }
 
         .footer-col ul li {
@@ -1348,7 +1089,8 @@
         }
 
         .footer-col ul li a:hover {
-            color: var(--emerald);
+            color: var(--gold);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -1376,259 +1118,8 @@
         }
 
         .social-row a:hover {
-            color: var(--emerald);
-        }
-
-        /* ========== FLOATING ELEMENTS ========== */
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 56px;
-            height: 56px;
-            background: var(--wa-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-            z-index: 99;
-            animation: bounce 3s infinite ease-in-out;
-            transition: all 0.2s ease;
-        }
-
-        .wa-float:hover {
-            transform: scale(1.12);
-            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
-        }
-
-        .wa-tip {
-            position: absolute;
-            right: 70px;
-            background: var(--card);
-            color: white;
-            padding: 8px 16px;
-            border-radius: var(--radius);
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .wa-float:hover .wa-tip {
-            opacity: 1;
-            right: 80px;
-        }
-
-        .ai-fab {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-            z-index: 99;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .ai-fab:hover {
-            transform: scale(1.12);
-        }
-
-        .ai-fab-lbl {
-            position: absolute;
-            left: 70px;
-            background: var(--card);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.2s ease;
-        }
-
-        .ai-fab:hover .ai-fab-lbl {
-            opacity: 1;
-            left: 80px;
-        }
-
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 100px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--emerald), var(--blue));
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 99;
-            transition: all 0.2s ease;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-            animation: pulse-glow 2s infinite;
-        }
-
-        .scroll-top.visible {
-            display: flex;
-        }
-
-        .scroll-top:hover {
-            transform: scale(1.12);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-        }
-
-        /* ========== AI CHAT PANEL ========== */
-        .chat-panel {
-            position: fixed;
-            bottom: 100px;
-            left: 30px;
-            width: 320px;
-            height: 450px;
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            z-index: 100;
-            overflow: hidden;
-            transform: translateY(20px);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        .chat-panel.open {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .chat-hdr {
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            padding: 16px;
-        }
-
-        .chat-hdr h4 {
-            margin-bottom: 4px;
-        }
-
-        .chat-hdr p {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .chat-msgs {
-            flex: 1;
-            padding: 16px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .cmsg {
-            max-width: 85%;
-            padding: 10px 14px;
-            border-radius: 18px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .cmsg.user {
-            background: var(--emerald);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-
-        .cmsg.bot {
-            background: var(--bg-2);
-            color: var(--muted);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .chat-inp-row {
-            display: flex;
-            padding: 12px;
-            gap: 8px;
-            border-top: 1px solid var(--border);
-        }
-
-        .chat-inp-row input {
-            flex: 1;
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 8px 12px;
-            color: var(--text);
-            outline: none;
-        }
-
-        .chat-inp-row input:focus {
-            border-color: var(--emerald);
-        }
-
-        .chat-inp-row button {
-            background: var(--emerald);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            padding: 8px 16px;
-            cursor: pointer;
-        }
-
-        .chat-qchips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 8px 12px 12px;
-            border-top: 1px solid var(--border);
-        }
-
-        .chip {
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            padding: 4px 12px;
-            font-size: 0.8rem;
-            color: var(--muted);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .chip:hover {
-            background: var(--card-hover);
-            border-color: var(--emerald);
-            color: var(--text);
+            color: var(--gold);
+            transform: translateY(-3px);
         }
 
         /* ========== UTILITIES ========== */
@@ -1657,15 +1148,11 @@
         /* ========== MEDIA QUERIES ========== */
         @media (max-width: 1024px) {
             .property-grid,
-            .why-grid,
-            .stats-bar {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .sections-grid,
+            .trust-grid,
+            .locations-grid,
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .area-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1680,21 +1167,15 @@
             .mobile-menu {
                 display: block;
             }
-            .features-grid,
-            .steps-grid,
-            .app-card,
-            .cta-banner {
+            .sections-grid {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
             .property-grid,
-            .why-grid,
-            .stats-bar,
-            .area-grid {
-                grid-template-columns: 1fr;
-            }
+            .trust-grid,
+            .locations-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
             }
@@ -1722,9 +1203,9 @@
             
             <div class="nav-links">
                 <a href="index.html" class="active">Home</a>
-                <a href="properties.html">Browse</a>
+                <a href="#browse">Browse</a>
                 <a href="#how">How It Works</a>
-                <a href="#areas">Areas</a>
+                <a href="#locations">Areas</a>
                 <a href="#faq">FAQ</a>
             </div>
             
@@ -1743,253 +1224,139 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mob-menu">
         <a href="index.html">Home</a>
-        <a href="properties.html">Browse</a>
+        <a href="#browse">Browse</a>
         <a href="#how">How It Works</a>
-        <a href="#areas">Areas</a>
+        <a href="#locations">Areas</a>
         <a href="#faq">FAQ</a>
         <a href="list-property.html" class="btn btn-primary">List Property Free</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero hero-section" id="hero">
-        <!-- Background Glow -->
         <div class="hero-glow"></div>
         
         <div class="container" style="position: relative; z-index: 2;">
             <!-- Main Badge -->
-            <div class="reveal inline-flex items-center px-4 py-2 rounded-full glass border border-emerald/30 mb-6" style="transition-delay: 0.2s;">
+            <div class="reveal inline-flex items-center px-4 py-2 rounded-full glass border border-gold/30 mb-6 gold-hover" style="transition-delay: 0.2s;">
                 <span class="relative flex h-3 w-3 mr-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-gold"></span>
                 </span>
-                <span class="text-sm font-semibold text-emerald tracking-wide">Verified Since 2025 🛡️</span>
+                <span class="text-sm font-semibold text-gold tracking-wide">Verified Since 2025 🛡️</span>
             </div>
             
-            <!-- Main Headline -->
+            <!-- Main Headline - Powerful Branding -->
             <h1 class="reveal text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4" style="transition-delay: 0.3s;">
-                <span class="block text-white mb-2">Find Rental Homes</span>
-                <span class="block gradient-text text-glow">Faster in Nairobi</span>
+                <span class="block text-white mb-2">Find Verified Rental Homes</span>
+                <span class="block gradient-text text-glow">in Nairobi — Fast</span>
             </h1>
             
-            <!-- Subheadline -->
-            <p class="reveal text-xl sm:text-2xl font-semibold text-emerald mb-4" style="transition-delay: 0.4s;">
-                Every Landlord Verified. Every Time.
-            </p>
-            
-            <!-- Description -->
-            <p class="reveal max-w-2xl mx-auto text-base sm:text-lg text-muted mb-10 leading-relaxed" style="transition-delay: 0.5s;">
-                No scam agents. No wasted trips. 500+ verified landlords, AI-matched properties, WhatsApp-fast response — from Eastleigh to Karen, Kasarani to South C.
+            <!-- Subtext - Clear Value Prop -->
+            <p class="reveal text-xl text-muted max-w-2xl mx-auto mb-8" style="transition-delay: 0.4s;">
+                RENTECH connects serious tenants with verified landlords. No scams. No agents. Just real homes.
             </p>
             
             <!-- CTA Buttons -->
-            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.6s;">
-                <a href="properties.html" class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-emerald rounded-full hover:bg-emerald/90 hover:scale-105 hover:shadow-lg hover:shadow-emerald/25 glow-emerald overflow-hidden">
-                    <span class="relative flex items-center">
-                        🏠 Find a Rental
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </span>
-                </a>
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.5s;">
+                <a href="#browse" class="btn btn-primary">Browse Homes</a>
+                <a href="list-property.html" class="btn btn-outline">List Your Property</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections Grid - For Tenants, For Landlords, Why Rentech -->
+    <section class="section" id="browse">
+        <div class="container">
+            <div class="sections-grid">
+                <!-- For Tenants -->
+                <div class="section-card gold-hover reveal" data-rev>
+                    <div class="section-icon">🔍</div>
+                    <h2 class="section-title">Find Your Next Home</h2>
+                    <ul class="feature-list">
+                        <li>Search by location</li>
+                        <li>Filter by price</li>
+                        <li>WhatsApp landlord instantly</li>
+                        <li>Verified listings only</li>
+                    </ul>
+                    <a href="properties.html" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Browse Homes →</a>
+                </div>
                 
-                <a href="list-property.html" class="group inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 border-2 border-white/20 rounded-full hover:border-emerald hover:bg-emerald/10 hover:scale-105 backdrop-blur-sm">
-                    <span class="flex items-center">
-                        📋 List Your Property
-                    </span>
-                </a>
-            </div>
-            
-            <!-- Search Card -->
-            <div class="search-card reveal" style="transition-delay: 0.7s;">
-                <select id="s-area">
-                    <option value="All Nairobi">All Nairobi</option>
-                    <option value="Kilimani">Kilimani</option>
-                    <option value="Westlands">Westlands</option>
-                    <option value="Kasarani">Kasarani</option>
-                    <option value="South B">South B</option>
-                    <option value="South C">South C</option>
-                    <option value="Karen">Karen</option>
-                </select>
-                <select id="s-type">
-                    <option value="Any Type">Any Type</option>
-                    <option value="Bedsitter">Bedsitter</option>
-                    <option value="Studio">Studio</option>
-                    <option value="1BR">1 Bedroom</option>
-                    <option value="2BR">2 Bedrooms</option>
-                    <option value="3BR">3 Bedrooms</option>
-                </select>
-                <select id="s-budget">
-                    <option value="Any Budget">Any Budget</option>
-                    <option value="Under 15K">Under 15K</option>
-                    <option value="15K-30K">15K-30K</option>
-                    <option value="30K-60K">30K-60K</option>
-                    <option value="60K-100K">60K-100K</option>
-                    <option value="Over 100K">Over 100K</option>
-                </select>
-                <button class="btn btn-primary search-btn">Search →</button>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" onclick="document.getElementById('marquee').scrollIntoView({behavior: 'smooth'})">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Marquee -->
-    <div class="marquee" id="marquee">
-        <div class="marquee-content">
-            Verified Landlords ✦ Zero Scam Agents ✦ WhatsApp-Fast Tours ✦ M-Pesa Secure Payments ✦ AI-Powered Matching ✦ From Eastleigh to Karen ✦ 
-            Verified Landlords ✦ Zero Scam Agents ✦ WhatsApp-Fast Tours ✦ M-Pesa Secure Payments ✦ AI-Powered Matching ✦ From Eastleigh to Karen ✦
-        </div>
-    </div>
-
-    <!-- Stats -->
-    <section class="container">
-        <div class="stats-bar">
-            <div class="fade-up" data-rev>
-                <div class="stat-number"><span class="counter" data-target="500" data-suffix="+">0</span></div>
-                <div class="stat-label">Verified Properties</div>
-            </div>
-            <div class="fade-up" data-rev data-d1>
-                <div class="stat-number"><span class="counter" data-target="98" data-suffix="%">0</span></div>
-                <div class="stat-label">Happy Tenants</div>
-            </div>
-            <div class="fade-up" data-rev data-d2>
-                <div class="stat-number"><span class="counter" data-target="24" data-suffix="hr">0</span></div>
-                <div class="stat-label">Response Time</div>
-            </div>
-            <div class="fade-up" data-rev data-d3>
-                <div class="stat-number"><span class="counter" data-target="100" data-suffix="%">0</span></div>
-                <div class="stat-label">Verified Landlords</div>
+                <!-- For Landlords -->
+                <div class="section-card gold-hover reveal" data-rev data-d1>
+                    <div class="section-icon">📋</div>
+                    <h2 class="section-title">List Your Property</h2>
+                    <ul class="feature-list">
+                        <li>Reach thousands of tenants</li>
+                        <li>AI-generated descriptions</li>
+                        <li>Verified tenant leads</li>
+                        <li>No middlemen</li>
+                    </ul>
+                    <a href="list-property.html" class="btn btn-primary" style="width: 100%; margin-top: 20px;">List Property →</a>
+                </div>
+                
+                <!-- Why Rentech -->
+                <div class="section-card gold-hover reveal" data-rev data-d2>
+                    <div class="section-icon">🛡️</div>
+                    <h2 class="section-title">Why Rentech</h2>
+                    <ul class="feature-list">
+                        <li>Verified listings</li>
+                        <li>No scam agents</li>
+                        <li>Fast WhatsApp contact</li>
+                        <li>Nairobi focused</li>
+                    </ul>
+                    <a href="#trust" class="btn btn-outline" style="width: 100%; margin-top: 20px;">Learn More →</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Tabs -->
-    <section class="section features-section">
+    <!-- Property Listings -->
+    <section class="section properties-section">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
-                <div class="section-tag">Built for Every Side</div>
-                <h2>Built for Every Side of the Rental Market</h2>
+            <div class="text-center mb-4">
+                <div class="section-tag">Featured Properties</div>
+                <h2>Available Homes in Nairobi</h2>
             </div>
             
-            <div class="tabs fade-up" data-rev>
-                <button class="tab-btn active" data-tab="tenants-tab">🏠 For Tenants</button>
-                <button class="tab-btn" data-tab="landlords-tab">🏗️ For Landlords</button>
+            <div id="prop-grid" class="property-grid">
+                <!-- Properties loaded by JavaScript -->
             </div>
             
-            <div class="tab-pane active" id="tenants-tab">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔍</div>
-                        <div>
-                            <h3>Smart Search</h3>
-                            <p style="color: var(--dim);">Filter by area, price, beds, amenities across all 20+ Nairobi neighbourhoods instantly.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <div>
-                            <h3>AI Property Match</h3>
-                            <p style="color: var(--dim);">Answer 5 quick questions and our AI finds your perfect home match instantly via WhatsApp.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">❤️</div>
-                        <div>
-                            <h3>Save Properties</h3>
-                            <p style="color: var(--dim);">Bookmark and compare your favourites. Saved properties sync across your sessions.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📅</div>
-                        <div>
-                            <h3>Schedule Viewings</h3>
-                            <p style="color: var(--dim);">Book tours via WhatsApp in one tap. Direct line to the verified landlord only.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📋</div>
-                        <div>
-                            <h3>Track Applications</h3>
-                            <p style="color: var(--dim);">See your status: Pending → Under Review → Approved. Full transparency always.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔔</div>
-                        <div>
-                            <h3>Instant WhatsApp Alerts</h3>
-                            <p style="color: var(--dim);">Get notified the moment a matching property goes live. Never miss the right home.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-pane" id="landlords-tab">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📝</div>
-                        <div>
-                            <h3>List in 10 Minutes</h3>
-                            <p style="color: var(--dim);">Simple upload form. AI writes your description. Your property goes live within 24 hours.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛡️</div>
-                        <div>
-                            <h3>AI Verification</h3>
-                            <p style="color: var(--dim);">Submit ID and title deed. Verified within 24-48 hours. ✓ Verified badge awarded to your listing.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">👥</div>
-                        <div>
-                            <h3>Pre-Qualified Leads</h3>
-                            <p style="color: var(--dim);">Only serious, AI-scored tenants reach your WhatsApp. Zero time-wasters guaranteed.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <div>
-                            <h3>Listing Analytics</h3>
-                            <p style="color: var(--dim);">Track views, inquiries, and days on market. See exactly how your property performs.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💬</div>
-                        <div>
-                            <h3>Inquiry Manager</h3>
-                            <p style="color: var(--dim);">All WhatsApp leads in one organised place. Never miss a serious inquiry again.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💰</div>
-                        <div>
-                            <h3>Commission Tracker</h3>
-                            <p style="color: var(--dim);">5% commission only on confirmed move-in. Track deals and M-Pesa payments easily.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mt-4">
+                <a href="properties.html" class="btn btn-outline">View All Properties →</a>
             </div>
         </div>
     </section>
 
-    <!-- Properties Grid -->
-    <section class="section properties-section" id="properties">
+    <!-- Trust Section -->
+    <section class="section" id="trust">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;" class="fade-up" data-rev>
-                <div>
-                    <div class="section-tag">Featured Properties</div>
-                    <h2>Verified Homes Ready to Move In</h2>
-                </div>
-                <a href="properties.html" class="btn btn-outline">View All →</a>
+            <div class="text-center mb-4">
+                <div class="section-tag">Why People Trust RENTECH</div>
+                <h2>No Scams. Just Real Homes.</h2>
             </div>
             
-            <div id="prop-grid" class="property-grid fade-up" data-rev>
-                <!-- Dynamically populated by JS -->
+            <div class="trust-grid">
+                <div class="trust-card gold-hover reveal" data-rev>
+                    <div class="trust-icon">✅</div>
+                    <h3>Verified Landlords</h3>
+                    <p class="text-muted">Every landlord is ID and title deed verified</p>
+                </div>
+                <div class="trust-card gold-hover reveal" data-rev data-d1>
+                    <div class="trust-icon">🚫</div>
+                    <h3>No Agent Scams</h3>
+                    <p class="text-muted">Zero tolerance for fake agents</p>
+                </div>
+                <div class="trust-card gold-hover reveal" data-rev data-d2>
+                    <div class="trust-icon">📸</div>
+                    <h3>Real Property Photos</h3>
+                    <p class="text-muted">All photos physically verified</p>
+                </div>
+                <div class="trust-card gold-hover reveal" data-rev data-d3>
+                    <div class="trust-icon">💬</div>
+                    <h3>Direct Contact</h3>
+                    <p class="text-muted">Connect instantly via WhatsApp</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1997,354 +1364,118 @@
     <!-- How It Works -->
     <section class="section how-section" id="how">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
+            <div class="text-center mb-4">
                 <div class="section-tag">Simple Process</div>
-                <h2>From Search to Keys — 3 Steps</h2>
+                <h2>How RENTECH Works</h2>
             </div>
             
-            <div style="display: flex; justify-content: center; margin-bottom: 32px;" class="fade-up" data-rev>
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="tenant-steps">For Tenants</button>
-                    <button class="tab-btn" data-tab="landlord-steps">For Landlords</button>
+            <div class="steps-grid">
+                <div class="step-card gold-hover reveal" data-rev>
+                    <div class="step-number">01</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Search Homes</h3>
+                    <p class="text-muted">Browse verified listings across Nairobi with smart filters.</p>
                 </div>
-            </div>
-            
-            <div class="tab-pane active" id="tenant-steps">
-                <div class="steps-grid">
-                    <div class="step-card fade-up" data-rev>
-                        <div class="step-num-bg">01</div>
-                        <span class="step-icon">🔍</span>
-                        <h3>Search & Filter</h3>
-                        <p style="color: var(--dim);">Browse 500+ verified listings by location, price, bedrooms. Every property physically confirmed before listing.</p>
-                    </div>
-                    <div class="step-card fade-up" data-rev data-d1>
-                        <div class="step-num-bg">02</div>
-                        <span class="step-icon">💬</span>
-                        <h3>Tour & Connect</h3>
-                        <p style="color: var(--dim);">Book in-person or virtual tour. Direct WhatsApp to verified landlords. No agents. No fees. No scams.</p>
-                    </div>
-                    <div class="step-card fade-up" data-rev data-d2>
-                        <div class="step-num-bg">03</div>
-                        <span class="step-icon">🏡</span>
-                        <h3>Apply & Move In</h3>
-                        <p style="color: var(--dim);">Digital application. M-Pesa deposit. Move in fast. Commission only charged to landlord on confirmed move-in.</p>
-                    </div>
+                <div class="step-card gold-hover reveal" data-rev data-d1>
+                    <div class="step-number">02</div>
+                    <div class="step-icon">💬</div>
+                    <h3>Contact Landlord</h3>
+                    <p class="text-muted">Chat instantly on WhatsApp with verified landlords.</p>
                 </div>
-            </div>
-            
-            <div class="tab-pane" id="landlord-steps">
-                <div class="steps-grid">
-                    <div class="step-card fade-up" data-rev>
-                        <div class="step-num-bg">01</div>
-                        <span class="step-icon">📝</span>
-                        <h3>List Your Property</h3>
-                        <p style="color: var(--dim);">Complete the 4-step form in 10 minutes. Upload photos, ID, title deed. Zero upfront cost — completely free.</p>
-                    </div>
-                    <div class="step-card fade-up" data-rev data-d1>
-                        <div class="step-num-bg">02</div>
-                        <span class="step-icon">🛡️</span>
-                        <h3>Get Verified</h3>
-                        <p style="color: var(--dim);">We verify your ID and title deed within 24–48 hours. Your listing gets the ✓ Verified badge instantly.</p>
-                    </div>
-                    <div class="step-card fade-up" data-rev data-d2>
-                        <div class="step-num-bg">03</div>
-                        <span class="step-icon">👥</span>
-                        <h3>Receive Tenants</h3>
-                        <p style="color: var(--dim);">Pre-screened, AI-scored tenants arrive in your WhatsApp. 5% commission only when they move in.</p>
-                    </div>
+                <div class="step-card gold-hover reveal" data-rev data-d2>
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🏡</div>
+                    <h3>Schedule Viewing</h3>
+                    <p class="text-muted">Book a viewing and secure your new home.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Match -->
+    <!-- AI Match Section -->
     <section class="section ai-section">
         <div class="container">
-            <div class="ai-card fade-up" data-rev>
+            <div class="ai-match-form fade-up" data-rev>
                 <div class="ai-mesh-1"></div>
                 <div class="ai-mesh-2"></div>
-                <div style="text-align: center; margin-bottom: 28px; position: relative;">
-                    <div class="section-tag" style="margin-bottom: 12px;">🤖 AI Powered</div>
-                    <h3 style="font-size: 1.7rem; margin-bottom: 8px;">Get AI-Matched Properties</h3>
-                    <p style="font-size: 0.9rem; color: var(--dim);">Answer 5 quick questions and our AI finds your perfect home in seconds.</p>
+                <div class="text-center mb-4" style="position: relative; z-index: 1;">
+                    <div class="section-tag">🤖 AI Powered</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Get AI-Matched Properties</h3>
+                    <p class="text-muted">Tell us what you're looking for and we'll find your perfect match</p>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative;">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1;">
                     <div>
-                        <div style="color: var(--dim); margin-bottom: 6px;">💰 Monthly Budget</div>
-                        <select id="ai-bud" class="form-ctrl">
+                        <label class="text-muted" style="display: block; margin-bottom: 5px;">💰 Budget</label>
+                        <select id="match-budget" class="form-ctrl">
                             <option>Under 15K</option>
                             <option>15K–30K</option>
-                            <option>KSh 30K–60K</option>
+                            <option>30K–60K</option>
                             <option>60K–100K</option>
                             <option>Over 100K</option>
                         </select>
                     </div>
                     <div>
-                        <div style="color: var(--dim); margin-bottom: 6px;">📍 Preferred Area</div>
-                        <select id="ai-area" class="form-ctrl">
-                            <option>Any area</option>
+                        <label class="text-muted" style="display: block; margin-bottom: 5px;">📍 Area</label>
+                        <select id="match-area" class="form-ctrl">
                             <option>Kilimani</option>
                             <option>Westlands</option>
                             <option>Kasarani</option>
                             <option>South B/C</option>
                             <option>Karen</option>
                             <option>Eastleigh</option>
+                            <option>Lavington</option>
                         </select>
                     </div>
                     <div>
-                        <div style="color: var(--dim); margin-bottom: 6px;">🛏️ Bedrooms</div>
-                        <select id="ai-bed" class="form-ctrl">
-                            <option>1 Bedroom</option>
+                        <label class="text-muted" style="display: block; margin-bottom: 5px;">🛏️ Bedrooms</label>
+                        <select id="match-beds" class="form-ctrl">
                             <option>Bedsitter</option>
                             <option>Studio</option>
-                            <option>2BR</option>
-                            <option>3BR+</option>
+                            <option>1 Bedroom</option>
+                            <option>2 Bedrooms</option>
+                            <option>3+ Bedrooms</option>
                         </select>
                     </div>
                     <div>
-                        <div style="color: var(--dim); margin-bottom: 6px;">📅 Move-in Date</div>
-                        <select id="ai-mov" class="form-ctrl">
-                            <option>This Month</option>
+                        <label class="text-muted" style="display: block; margin-bottom: 5px;">📅 Move-in</label>
+                        <select id="match-movein" class="form-ctrl">
                             <option>Immediately</option>
+                            <option>This Month</option>
                             <option>Next Month</option>
                             <option>Just Looking</option>
                         </select>
                     </div>
-                    <div style="grid-column: 1/-1;">
-                        <div style="color: var(--dim); margin-bottom: 6px;">💼 Employment</div>
-                        <select id="ai-emp" class="form-ctrl">
-                            <option>Employed</option>
-                            <option>Self-Employed</option>
-                            <option>Student</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                </div>
-                <button id="ai-btn" class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 14px;">🤖 Find My Matches →</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rent Calculator -->
-    <section class="section calc-section">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;" class="fade-up" data-rev>
-                <div class="section-tag">💰 Smart Finance</div>
-                <h2>Rent Affordability Calculator</h2>
-                <p style="max-width: 420px; margin: 0 auto; color: var(--dim);">See what rent you can comfortably afford based on your income.</p>
-            </div>
-            
-            <div class="calc-wrap fade-up" data-rev>
-                <div style="margin-bottom: 18px;">
-                    <div style="color: var(--dim); margin-bottom: 7px;">Monthly Income (KSh)</div>
-                    <input type="number" id="c-inc" class="form-ctrl" placeholder="e.g. 80,000">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <div style="color: var(--dim); margin-bottom: 10px;">Spend on rent:</div>
-                    <div style="display: flex; gap: 8px;">
-                        <button class="chip calc-pct-btn" data-pct="20">20%</button>
-                        <button class="chip calc-pct-btn active" data-pct="30">30%</button>
-                        <button class="chip calc-pct-btn" data-pct="40">40%</button>
-                    </div>
-                </div>
-                <div class="calc-out">
-                    <div style="color: var(--dim); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">Recommended rent budget</div>
-                    <div id="c-res" class="calc-amt">KSh 0/month</div>
-                    <div style="color: var(--dim); font-size: 0.72rem; margin: 14px 0 8px;">Suggested areas:</div>
-                    <div id="c-chips" style="display: flex; flex-wrap: wrap; gap: 7px; justify-content: center;">
-                        <span style="color: var(--dim);">Enter income above</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Areas Coverage -->
-    <section class="section areas-section" id="areas">
-        <div class="container">
-            <div style="margin-bottom: 40px;" class="fade-up" data-rev>
-                <div class="section-tag">📍 Coverage</div>
-                <h2>We Cover All of Nairobi</h2>
-                <p style="color: var(--dim);">From Eastleigh to Karen — every neighbourhood represented and verified.</p>
-            </div>
-            
-            <div class="area-grid fade-up" data-rev>
-                <div class="area-tile" onclick="location.href='properties.html?area=Kilimani'">
-                    <div class="at-name">Kilimani</div>
-                    <div class="at-range">KSh 35K–120K</div>
-                    <div class="at-count">3 listings</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=Westlands'">
-                    <div class="at-name">Westlands</div>
-                    <div class="at-range">KSh 35K–120K</div>
-                    <div class="at-count">2 listings</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=Kasarani'">
-                    <div class="at-name">Kasarani</div>
-                    <div class="at-range">KSh 8K–22K</div>
-                    <div class="at-count">2 listings</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=South B'">
-                    <div class="at-name">South B</div>
-                    <div class="at-range">KSh 20K–35K</div>
-                    <div class="at-count">1 listing</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=South C'">
-                    <div class="at-name">South C</div>
-                    <div class="at-range">KSh 15K–25K</div>
-                    <div class="at-count">1 listing</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=Karen'">
-                    <div class="at-name">Karen</div>
-                    <div class="at-range">KSh 75K–180K</div>
-                    <div class="at-count">2 listings</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=Lavington'">
-                    <div class="at-name">Lavington</div>
-                    <div class="at-range">KSh 50K–90K</div>
-                    <div class="at-count">1 listing</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=Eastleigh'">
-                    <div class="at-name">Eastleigh</div>
-                    <div class="at-range">KSh 7K–15K</div>
-                    <div class="at-count">1 listing</div>
-                </div>
-                <div class="area-tile" onclick="location.href='properties.html?area=Lang%27ata'">
-                    <div class="at-name">Lang'ata</div>
-                    <div class="at-range">KSh 60K–100K</div>
-                    <div class="at-count">1 listing</div>
-                </div>
-                <div class="area-tile" style="opacity: 0.6;">
-                    <div class="at-name">Embakasi</div>
-                    <div class="at-range">KSh 8K–20K</div>
-                    <div class="at-count" style="color: var(--dim);">Coming soon</div>
-                </div>
-                <div class="area-tile" style="opacity: 0.6;">
-                    <div class="at-name">Ruaka</div>
-                    <div class="at-range">KSh 15K–35K</div>
-                    <div class="at-count" style="color: var(--dim);">Coming soon</div>
-                </div>
-                <div class="area-tile" style="opacity: 0.6;">
-                    <div class="at-name">Parklands</div>
-                    <div class="at-range">KSh 30K–70K</div>
-                    <div class="at-count" style="color: var(--dim);">Coming soon</div>
-                </div>
-                <div class="area-tile" style="opacity: 0.6;">
-                    <div class="at-name">Upperhill</div>
-                    <div class="at-range">KSh 40K–80K</div>
-                    <div class="at-count" style="color: var(--dim);">Coming soon</div>
-                </div>
-                <div class="area-tile" style="opacity: 0.6;">
-                    <div class="at-name">Ngong Road</div>
-                    <div class="at-range">KSh 20K–60K</div>
-                    <div class="at-count" style="color: var(--dim);">Coming soon</div>
-                </div>
-                <div class="area-tile" style="opacity: 0.6;">
-                    <div class="at-name">Runda</div>
-                    <div class="at-range">KSh 100K–250K</div>
-                    <div class="at-count" style="color: var(--dim);">Coming soon</div>
-                </div>
-            </div>
-            
-            <!-- Google Map -->
-            <div style="border-radius: var(--radius-lg); overflow: hidden; margin-top: 28px; border: 1px solid var(--border);" class="fade-up" data-rev>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19!2d36.6826!3d-1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1700000000000"
-                    width="100%" height="340" style="border:0; filter: invert(92%) hue-rotate(180deg); display: block;" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Rentech -->
-    <section class="section">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
-                <div class="section-tag">🛡️ Why Rentech</div>
-                <h2>Why 500+ Landlords Trust Rentech</h2>
-            </div>
-            
-            <div class="why-grid">
-                <div class="why-card fade-up" data-rev>
-                    <div class="why-icon-wrap">🤖</div>
-                    <h3>AI-Powered Verification</h3>
-                    <p style="color: var(--dim);">Every landlord ID and title deed digitally verified. Zero unverified listings. Zero tolerance for scams.</p>
-                </div>
-                <div class="why-card wc-cyan fade-up" data-rev data-d1>
-                    <div class="why-icon-wrap">💬</div>
-                    <h3>Direct WhatsApp Tours</h3>
-                    <p style="color: var(--dim);">Schedule viewings instantly. Direct connection to the actual landlord — not a middleman.</p>
-                </div>
-                <div class="why-card wc-green fade-up" data-rev data-d2>
-                    <div class="why-icon-wrap">📋</div>
-                    <h3>Digital Applications</h3>
-                    <p style="color: var(--dim);">No paperwork, no printing, no agent fees. Apply, track, and move in digitally.</p>
-                </div>
-                <div class="why-card wc-orange fade-up" data-rev data-d3>
-                    <div class="why-icon-wrap">💰</div>
-                    <h3>Rent Calculator</h3>
-                    <p style="color: var(--dim);">See exactly what you can afford. AI-suggested areas matched to your income.</p>
-                </div>
-                <div class="why-card fade-up" data-rev data-d4>
-                    <div class="why-icon-wrap">📱</div>
-                    <h3>M-Pesa Integration</h3>
-                    <p style="color: var(--dim);">Pay deposits and rent securely via M-Pesa. Traceable, safe, no cash risk.</p>
-                </div>
-                <div class="why-card wc-purple fade-up" data-rev data-d5>
-                    <div class="why-icon-wrap">🤖</div>
-                    <h3>24/7 AI Assistant</h3>
-                    <p style="color: var(--dim);">Our AI chatbot answers property questions instantly — day or night.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section testimonials-section">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
-                <div class="section-tag">⭐ Reviews</div>
-                <h2>Real Stories from Nairobi</h2>
-            </div>
-            
-            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-                <div class="tslide active">
-                    <div class="t-stars">★★★★★</div>
-                    <div class="t-avatar">AM</div>
-                    <p class="t-quote">"Found my 2-bedroom in Kilimani within 3 days. No agent fees, no runaround. Rentech matched me directly with the landlord over WhatsApp. Moved in the same week. This platform is a genuine lifesaver."</p>
-                    <div class="t-name">Amina M.</div>
-                    <div class="t-role">Kilimani Tenant · ✓ Verified</div>
-                </div>
-                <div class="tslide">
-                    <div class="t-stars">★★★★★</div>
-                    <div class="t-avatar">JK</div>
-                    <p class="t-quote">"Tired of fake agents taking commission from my tenants. Rentech listed my Westlands apartment and I had a verified, employed tenant in 10 days. The AI screening saved me enormous time and headaches."</p>
-                    <div class="t-name">James K.</div>
-                    <div class="t-role">Westlands Landlord · ✓ Verified</div>
-                </div>
-                <div class="tslide">
-                    <div class="t-stars">★★★★★</div>
-                    <div class="t-avatar">GW</div>
-                    <p class="t-quote">"The AI description Rentech wrote got 5 inquiries on day one. One confirmed, moved in 2 weeks later. I've now listed all 4 of my units here. The admin dashboard is incredible."</p>
-                    <div class="t-name">Grace W.</div>
-                    <div class="t-role">Kasarani Landlord · ✓ Verified</div>
-                </div>
-                <div class="tslide">
-                    <div class="t-stars">★★★★★</div>
-                    <div class="t-avatar">BO</div>
-                    <p class="t-quote">"Was almost scammed by a fake agent in South B. Found Rentech — all landlords verified with actual ID. Got my 1BR within a week for KSh 28,000. Thank God for this platform."</p>
-                    <div class="t-name">Brian O.</div>
-                    <div class="t-role">South B Tenant · ✓ Verified</div>
                 </div>
                 
-                <div class="carousel-row">
-                    <button class="car-btn" id="cp">←</button>
-                    <div class="car-dots">
-                        <span class="car-dot active"></span>
-                        <span class="car-dot"></span>
-                        <span class="car-dot"></span>
-                        <span class="car-dot"></span>
-                    </div>
-                    <button class="car-btn" id="cn">→</button>
-                </div>
+                <button id="ai-match-btn" class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 14px;">
+                    🤖 Find My Matches →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nairobi Locations -->
+    <section class="section" id="locations">
+        <div class="container">
+            <div class="text-center mb-4">
+                <div class="section-tag">📍 Popular Areas</div>
+                <h2>Find Homes Across Nairobi</h2>
+            </div>
+            
+            <div class="locations-grid">
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Kilimani'">Kilimani</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Westlands'">Westlands</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Kileleshwa'">Kileleshwa</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=South B'">South B</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=South C'">South C</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Lavington'">Lavington</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Parklands'">Parklands</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Ngong Road'">Ngong Road</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Kasarani'">Kasarani</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Karen'">Karen</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Langata'">Lang'ata</div>
+                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Eastleigh'">Eastleigh</div>
             </div>
         </div>
     </section>
@@ -2352,7 +1483,7 @@
     <!-- FAQ -->
     <section class="section faq-section" id="faq">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
+            <div class="text-center mb-4">
                 <div class="section-tag">❓ FAQ</div>
                 <h2>Frequently Asked Questions</h2>
             </div>
@@ -2364,7 +1495,7 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-body">
-                        <p>Every landlord submits their National ID and property title deed. Our team cross-checks records and conducts a physical property inspection. We also run AI scam detection on every submission before it goes live.</p>
+                        <p>Every landlord submits their National ID and property title deed. Our team cross-checks records and conducts a physical property inspection.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -2373,149 +1504,21 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-body">
-                        <p>Yes — 100% free for tenants. No application fees, no viewing fees, no hidden charges. You deal directly with the verified landlord.</p>
+                        <p>Yes — 100% free for tenants. No application fees, no viewing fees, no hidden charges.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-hdr">
-                        <span>What happens if I find a scam listing?</span>
+                        <span>How do I contact a landlord?</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-body">
-                        <p>Report it immediately via WhatsApp (+254 723 783 337). We investigate within 2 hours and remove the listing. Zero tolerance policy. We'll also help you find an alternative.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>How do I apply for a property?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-body">
-                        <p>Click the WhatsApp button on any listing to connect directly with the verified landlord. Our AI bot guides you through the application — no forms, no printing, all on WhatsApp.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>Can I list my property today?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-body">
-                        <p>Yes! Click "List Property Free" and complete our 4-step form. Your listing goes live within 24 hours after verification. Zero upfront cost — we only earn 5% on confirmed move-in.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>Do you work with agents?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-body">
-                        <p>Only fully verified, licensed agents with valid Nairobi business registration. No anonymous agents. Every listing shows the verified landlord or agent's identity clearly.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>How does M-Pesa deposit work?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-body">
-                        <p>Once you've agreed with the landlord, the deposit is paid directly via M-Pesa. Rentech facilitates and confirms — both parties receive a payment confirmation for security.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>Which areas in Nairobi do you cover?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-body">
-                        <p>All of Nairobi — from Eastleigh to Karen, Kasarani to South C, Westlands to Embakasi, and everywhere in between. 20+ areas listed and actively growing.</p>
+                        <p>Click the WhatsApp button on any listing to connect directly with the verified landlord.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- App Section -->
-    <section class="section">
-        <div class="container">
-            <div class="app-card fade-up" data-rev>
-                <div class="app-bg-1"></div>
-                <div class="app-bg-2"></div>
-                <div style="position: relative; z-index: 1;">
-                    <div class="section-tag" style="margin-bottom: 16px;">📱 Coming Soon</div>
-                    <h2 style="margin-bottom: 12px;">Find Your Next Home <span class="gt-blue">on the Go</span></h2>
-                    <p style="max-width: 460px; margin-bottom: 28px; color: var(--dim);">Download the Rentech app for push notifications, saved searches, and instant landlord chat.</p>
-                    <div class="app-check">Push notifications for new listings</div>
-                    <div class="app-check">Saved properties synced across devices</div>
-                    <div class="app-check">Direct WhatsApp integration</div>
-                    <div class="app-check">M-Pesa payment confirmation alerts</div>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
-                        <button class="btn-app-store" onclick="notifyApp('iOS')">📱 Coming soon to App Store</button>
-                        <button class="btn-google-play" onclick="notifyApp('Android')">🤖 Coming soon to Google Play</button>
-                    </div>
-                </div>
-                <div style="position: relative; z-index: 1; text-align: center;">
-                    <div style="font-size: 7rem; line-height: 1; margin-bottom: 14px; filter: drop-shadow(0 0 30px var(--blue-glow));">📱</div>
-                    <div class="glass-card" style="padding: 18px 24px; display: inline-block; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border);">
-                        <div style="font-size: 0.68rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">Latest Match</div>
-                        <div style="font-weight: 600;">2BR · Kilimani</div>
-                        <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; margin: 4px 0; color: var(--blue);">KSh 65,000/mo</div>
-                        <div style="color: var(--emerald); font-size: 0.72rem;">✓ Verified · Available Now</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <section class="section">
-        <div class="container">
-            <div class="cta-banner fade-up" data-rev>
-                <div class="cta-bg-1"></div>
-                <div class="cta-bg-2"></div>
-                <div style="position: relative; z-index: 1;">
-                    <div class="section-tag" style="margin-bottom: 16px;">Start Today</div>
-                    <h2 style="margin-bottom: 12px;">Ready to Find Your <span class="gt-multi">Home in Nairobi?</span></h2>
-                    <p style="max-width: 500px; margin-bottom: 28px; color: var(--dim);">Join 500+ landlords and thousands of tenants who trust Rentech to make Nairobi rentals safe, fast, and transparent.</p>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <a href="properties.html" class="btn btn-primary" style="padding: 13px 28px;">Browse Properties →</a>
-                        <a href="list-property.html" class="btn btn-outline" style="padding: 13px 28px;">List Property Free</a>
-                    </div>
-                </div>
-                <div style="position: relative; z-index: 1; text-align: center;">
-                    <div style="font-size: 6rem; margin-bottom: 12px; filter: drop-shadow(0 0 40px var(--blue-glow));">🏠</div>
-                    <div class="glass-card" style="padding: 16px 22px; display: inline-block; min-width: 200px; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border);">
-                        <div style="font-size: 0.68rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px;">🔥 Hot Listing</div>
-                        <div style="font-weight: 600;">3BR · Westlands</div>
-                        <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; margin: 4px 0; color: var(--orange);">KSh 120,000/mo</div>
-                        <div style="color: var(--emerald); font-size: 0.72rem;">✓ Verified · Available Now</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Alerts -->
-    <div style="background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 48px 0;">
-        <div class="container">
-            <div style="max-width: 600px; margin: 0 auto; text-align: center;" class="fade-up" data-rev>
-                <div class="section-tag" style="margin-bottom: 12px;">🔔 Alerts</div>
-                <h3 style="margin-bottom: 8px;">Get Notified — New Listings Daily</h3>
-                <p style="margin-bottom: 22px; color: var(--dim);">Enter your WhatsApp number to receive alerts when new properties match your criteria.</p>
-                <div class="alerts-form">
-                    <input type="tel" class="form-ctrl" id="alert-phone" placeholder="07XX XXX XXX" style="max-width: 190px;">
-                    <select class="form-ctrl" id="alert-area" style="max-width: 160px;">
-                        <option>Any area</option>
-                        <option>Kilimani</option>
-                        <option>Westlands</option>
-                        <option>Kasarani</option>
-                        <option>South B</option>
-                        <option>Karen</option>
-                    </select>
-                    <button class="btn-green" onclick="subscribeAlerts()">🔔 Subscribe →</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -2528,59 +1531,46 @@
                         </div>
                         <div class="logo-text" style="font-size: 1.4rem;">RENTECH<span style="font-size: 0.8rem;">PROPERTIES</span></div>
                     </div>
-                    <p>Nairobi's AI-powered rental marketplace. Verified landlords, serious tenants. Fast, fair, transparent. Built to eliminate rental scams in Kenya.</p>
+                    <p>Nairobi's AI-powered rental marketplace. Verified landlords, serious tenants.</p>
                     <p style="margin-top: 14px;">
                         📞 +254 723 783 337<br>
-                        💬 WhatsApp Business: +254 723 783 337<br>
                         ✉️ rentechproperties.ke@gmail.com<br>
-                        📍 Nairobi City, Kenya
+                        📍 Nairobi, Kenya
                     </p>
-                    <div style="display: flex; gap: 8px; margin-top: 18px;">
-                        <input type="tel" class="form-ctrl" placeholder="07XX XXX XXX" style="max-width: 170px;" id="footer-alert-phone">
-                        <button class="btn btn-primary" style="padding: 10px 16px;" onclick="subscribeFooter()">Get Listing Alerts →</button>
-                    </div>
                 </div>
                 <div class="footer-col">
-                    <h5>Browse</h5>
+                    <h5>Quick Links</h5>
                     <ul>
-                        <li><a href="properties.html?area=Kilimani">Kilimani Apartments</a></li>
-                        <li><a href="properties.html?area=Westlands">Westlands Rentals</a></li>
-                        <li><a href="properties.html?area=Kasarani">Kasarani Bedsitters</a></li>
-                        <li><a href="properties.html?area=South B">South B Houses</a></li>
-                        <li><a href="properties.html?area=Eastleigh">Eastleigh Rooms</a></li>
-                        <li><a href="properties.html?area=Karen">Karen Homes</a></li>
-                        <li><a href="properties.html">All Nairobi Properties</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="list-property.html">List Property</a></li>
+                        <li><a href="#how">How It Works</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h5>Company</h5>
+                    <h5>Popular Areas</h5>
                     <ul>
-                        <li><a href="#">About Rentech</a></li>
-                        <li><a href="#how">How It Works</a></li>
-                        <li><a href="list-property.html">List a Property</a></li>
-                        <li><a href="admin.html">Admin Dashboard</a></li>
-                        <li><a href="#">Blog & Guides</a></li>
-                        <li><a href="#faq">Contact Us</a></li>
+                        <li><a href="properties.html?area=Kilimani">Kilimani</a></li>
+                        <li><a href="properties.html?area=Westlands">Westlands</a></li>
+                        <li><a href="properties.html?area=Kileleshwa">Kileleshwa</a></li>
+                        <li><a href="properties.html?area=Lavington">Lavington</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h5>Legal</h5>
                     <ul>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Commission Agreement</a></li>
-                        <li><a href="#">ODPC Compliance</a></li>
-                        <li><a href="#">Landlord Charter</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Commission</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2026 Rentech Properties Ltd. Nairobi, Kenya. All rights reserved.</div>
+                <div>© 2026 Rentech Properties. All rights reserved.</div>
                 <div class="social-row">
-                    <a href="https://wa.me/254723783337" target="_blank">💬 WhatsApp</a>
-                    <a href="#">📸 Instagram</a>
-                    <a href="#">👥 Facebook</a>
-                    <a href="#">🎵 TikTok</a>
+                    <a href="https://wa.me/254723783337">💬</a>
+                    <a href="#">📸</a>
+                    <a href="#">👥</a>
                 </div>
             </div>
         </div>
@@ -2618,7 +1608,6 @@
         </div>
     </div>
 
-    <!-- ========== JAVASCRIPT - COMPLETE BRAIN ========== -->
     <script>
         // Generate Stars
         function createStars() {
@@ -2647,189 +1636,79 @@
         
         createStars();
 
-        // ---------- PROPERTIES DATA (12 AI-GENERATED HOMES) ----------
+        // ---------- PROPERTIES DATA ----------
         const PROPS = [
-            {id:1, title:"Modern 2BR Apartment", area:"Kilimani", price:65000, beds:2, baths:1, size:85, type:"2BR", furnished:true, badge:"Featured", 
+            {id:1, title:"Modern Apartment", area:"Kilimani", price:45000, beds:2, baths:1, size:85, type:"2BR", furnished:true, badge:"Featured", 
              img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80", 
-             amenities:["Security","Parking","Generator","CCTV"]},
+             amenities:["Security","Parking"]},
             {id:2, title:"Executive Studio", area:"Westlands", price:35000, beds:1, baths:1, size:45, type:"Studio", furnished:true, badge:"New", 
              img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80", 
-             amenities:["Borehole","Security","Lift","CCTV"]},
+             amenities:["Security","Lift"]},
             {id:3, title:"Affordable Bedsitter", area:"Kasarani", price:12000, beds:1, baths:1, size:25, type:"Bedsitter", furnished:false, badge:"", 
              img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80", 
-             amenities:["Parking","Borehole"]},
-            {id:4, title:"3BR Family Maisonette", area:"Lang'ata", price:85000, beds:3, baths:2, size:140, type:"Maisonette", furnished:false, badge:"Featured", 
+             amenities:["Parking"]},
+            {id:4, title:"Family Home", area:"Lang'ata", price:85000, beds:3, baths:2, size:140, type:"Maisonette", furnished:false, badge:"Featured", 
              img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80", 
-             amenities:["DSQ","Security","Parking","Generator"]},
-            {id:5, title:"1BR South B Apartment", area:"South B", price:28000, beds:1, baths:1, size:55, type:"1BR", furnished:false, badge:"New", 
+             amenities:["Security","Parking"]},
+            {id:5, title:"1BR Apartment", area:"South B", price:28000, beds:1, baths:1, size:55, type:"1BR", furnished:false, badge:"New", 
              img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80", 
-             amenities:["Lift","Security","Parking"]},
-            {id:6, title:"Luxury Furnished Studio", area:"Lavington", price:55000, beds:1, baths:1, size:50, type:"Studio", furnished:true, badge:"", 
+             amenities:["Security"]},
+            {id:6, title:"Luxury Studio", area:"Lavington", price:55000, beds:1, baths:1, size:50, type:"Studio", furnished:true, badge:"", 
              img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=600&q=80", 
-             amenities:["Pool","Gym","Security","Parking"]},
-            {id:7, title:"Budget Bedsitter", area:"Eastleigh", price:8000, beds:1, baths:1, size:20, type:"Bedsitter", furnished:false, badge:"", 
-             img:"https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=600&q=80", 
-             amenities:["Security","Borehole"]},
-            {id:8, title:"Premium 3BR Apartment", area:"Westlands", price:120000, beds:3, baths:2, size:165, type:"3BR", furnished:true, badge:"Featured", 
-             img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80", 
-             amenities:["Pool","Gym","Security","Generator"]},
-            {id:9, title:"New 2BR Kasarani", area:"Kasarani", price:22000, beds:2, baths:1, size:70, type:"2BR", furnished:false, badge:"New", 
-             img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", 
-             amenities:["Parking","Borehole","Security"]},
-            {id:10, title:"Garden View 1BR", area:"Karen", price:75000, beds:1, baths:1, size:65, type:"1BR", furnished:true, badge:"", 
-             img:"https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=600&q=80", 
-             amenities:["Garden","Security","Parking"]},
-            {id:11, title:"Studio Near South C", area:"South C", price:18000, beds:1, baths:1, size:35, type:"Studio", furnished:false, badge:"New", 
-             img:"https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&q=80", 
-             amenities:["Security","Borehole","Parking"]},
-            {id:12, title:"4BR Executive Home", area:"Karen", price:180000, beds:4, baths:3, size:250, type:"4BR+", furnished:true, badge:"Featured", 
-             img:"https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=600&q=80", 
-             amenities:["Pool","Garden","DSQ","Generator"]}
+             amenities:["Pool","Gym"]}
         ];
 
-        // ---------- HELPERS ----------
         const wa = (msg) => `https://wa.me/254723783337?text=${encodeURIComponent(msg)}`;
         const fmt = (n) => `KSh ${Number(n).toLocaleString('en-KE')}`;
 
-        // ---------- PROPERTY CARD RENDERER ----------
         function buildCard(p) {
-            const saved = JSON.parse(localStorage.getItem('rt_sv') || '[]').includes(p.id);
-            let badges = `<span class="badge">✓ Verified</span>`;
-            if (p.badge === 'Featured') badges += `<span class="badge featured">⭐ Featured</span>`;
-            if (p.badge === 'New') badges += `<span class="badge new">🆕 New</span>`;
-            
-            const amenities = p.amenities.slice(0,3).map(a => `<span class="amenity-pill">${a}</span>`).join('');
-            const msg = `I'm interested in ${p.title} in ${p.area} at ${fmt(p.price)}/month. Can you arrange a viewing?`;
+            const msg = `Hi! I'm interested in ${p.title} in ${p.area} at ${fmt(p.price)}/month. Is it still available?`;
             
             return `
                 <div class="property-card">
                     <div class="property-image">
                         <img src="${p.img}" alt="${p.title}" loading="lazy">
-                        <div class="property-badges">${badges}</div>
-                        <button class="save-btn${saved ? ' saved' : ''}" onclick="toggleSave(${p.id}, this)">${saved ? '❤️' : '🤍'}</button>
+                        <div class="property-badges">
+                            <span class="badge verified">✓ Verified</span>
+                            ${p.badge === 'Featured' ? '<span class="badge featured">⭐ Featured</span>' : ''}
+                        </div>
                     </div>
                     <div class="property-content">
-                        <div class="property-location">
-                            <span>📍</span>
-                            <span>${p.area} · ${p.furnished ? 'Furnished' : 'Unfurnished'}</span>
-                        </div>
+                        <div class="property-location">📍 ${p.area}</div>
                         <h3 class="property-title">${p.title}</h3>
                         <div class="property-price">${fmt(p.price)}<em>/month</em></div>
                         <div class="property-specs">
-                            <span>🛏️ ${p.beds} Beds</span>
+                            <span>🛏️ ${p.beds} Bed${p.beds > 1 ? 's' : ''}</span>
                             <span>🚿 ${p.baths} Bath</span>
-                            <span>📐 ${p.size}m²</span>
                         </div>
-                        <div class="property-amenities">${amenities}</div>
-                        <div class="property-status">⚡ Available Now</div>
                         <div class="property-actions">
-                            <a href="${wa(msg)}" target="_blank" class="btn btn-outline" style="font-size: 0.9rem;">📋 Details</a>
-                            <a href="${wa(msg)}" target="_blank" class="btn btn-primary" style="font-size: 0.9rem; background: var(--wa-green);">💬 WhatsApp</a>
+                            <a href="property-detail.html?id=${p.id}" class="btn btn-outline" style="font-size: 0.9rem;">View Details</a>
+                            <a href="${wa(msg)}" target="_blank" class="btn btn-wa" style="font-size: 0.9rem;">💬 WhatsApp</a>
                         </div>
-                    </div>
-                    <div class="verified-strip">
-                        <span>✓ ID Verified</span>
-                        <span>· ✓ Inspected</span>
                     </div>
                 </div>
             `;
         }
 
-        function renderGrid(id, props) {
-            const el = document.getElementById(id);
+        function renderGrid() {
+            const el = document.getElementById('prop-grid');
             if (!el) return;
-            el.innerHTML = props.map(p => buildCard(p)).join('');
+            el.innerHTML = PROPS.slice(0, 6).map(p => buildCard(p)).join('');
         }
 
-        // ---------- SAVE TOGGLE ----------
-        window.toggleSave = function(id, btn) {
-            let saved = JSON.parse(localStorage.getItem('rt_sv') || '[]');
-            const idx = saved.indexOf(id);
-            if (idx === -1) saved.push(id);
-            else saved.splice(idx, 1);
-            localStorage.setItem('rt_sv', JSON.stringify(saved));
-            btn.classList.toggle('saved');
-            btn.textContent = btn.classList.contains('saved') ? '❤️' : '🤍';
-        };
-
-        // ---------- TABS LOGIC ----------
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const tabId = this.getAttribute('data-tab');
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-                document.getElementById(tabId)?.classList.add('active');
-            });
-        });
-
-        // ---------- RENT CALCULATOR ----------
-        let currentPct = 30;
-        window.setPct = function(el) {
-            document.querySelectorAll('.calc-pct-btn').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
-            currentPct = parseInt(el.getAttribute('data-pct'));
-            calcRent();
-        };
-
-        document.querySelectorAll('.calc-pct-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.calc-pct-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentPct = parseInt(this.getAttribute('data-pct'));
-                calcRent();
-            });
-        });
-
-        const incomeInp = document.getElementById('c-inc');
-        if (incomeInp) incomeInp.addEventListener('input', calcRent);
-
-        function calcRent() {
-            const inc = parseFloat(incomeInp?.value) || 0;
-            const budget = inc * (currentPct / 100);
-            document.getElementById('c-res').textContent = fmt(budget) + '/month';
+        // AI Match Button
+        document.getElementById('ai-match-btn')?.addEventListener('click', function() {
+            const budget = document.getElementById('match-budget')?.value || 'Not specified';
+            const area = document.getElementById('match-area')?.value || 'Any';
+            const beds = document.getElementById('match-beds')?.value || 'Any';
+            const moveIn = document.getElementById('match-movein')?.value || 'Anytime';
             
-            const chips = document.getElementById('c-chips');
-            let areas = [];
-            if (budget < 15000) areas = ["Kasarani", "Eastleigh", "Embakasi"];
-            else if (budget < 40000) areas = ["South B/C", "Ruaka", "Lang'ata"];
-            else if (budget < 80000) areas = ["Kilimani", "Westlands", "Lavington"];
-            else areas = ["Karen", "Runda", "Muthaiga"];
+            const message = `*NEW AI MATCH REQUEST* 🤖%0A%0A📍 *Area:* ${area}%0A💰 *Budget:* ${budget}%0A🛏️ *Beds:* ${beds}%0A📅 *Move-in:* ${moveIn}%0A%0APlease send me matching properties!`;
             
-            chips.innerHTML = areas.map(a => `<span class="chip" onclick="location.href='properties.html?area=${a}'">${a}</span>`).join('');
-        }
-
-        // ---------- AI MATCH ----------
-        document.getElementById('ai-btn')?.addEventListener('click', function() {
-            const msg = `Hi Rentech! Budget: ${document.getElementById('ai-bud').value}, Area: ${document.getElementById('ai-area').value}, Beds: ${document.getElementById('ai-bed').value}, Move: ${document.getElementById('ai-mov').value}, Job: ${document.getElementById('ai-emp').value}. Please match me!`;
-            window.open(wa(msg), '_blank');
+            window.open(`https://wa.me/254723783337?text=${message}`, '_blank');
         });
 
-        // ---------- TESTIMONIAL CAROUSEL ----------
-        let tIdx = 0;
-        const slides = document.querySelectorAll('.tslide');
-        const dots = document.querySelectorAll('.car-dot');
-        
-        function showSlide(n) {
-            slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
-            tIdx = (n + slides.length) % slides.length;
-            slides[tIdx]?.classList.add('active');
-            dots[tIdx]?.classList.add('active');
-        }
-        
-        document.getElementById('cn')?.addEventListener('click', () => showSlide(tIdx + 1));
-        document.getElementById('cp')?.addEventListener('click', () => showSlide(tIdx - 1));
-        
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => showSlide(i));
-        });
-
-        setInterval(() => {
-            showSlide(tIdx + 1);
-        }, 5000);
-
-        // ---------- FAQ ACCORDION ----------
+        // FAQ Accordion
         document.querySelectorAll('.faq-hdr').forEach(header => {
             header.addEventListener('click', function() {
                 const item = this.parentElement;
@@ -2848,84 +1727,7 @@
             });
         });
 
-        // ---------- SEARCH ----------
-        document.querySelector('.search-btn')?.addEventListener('click', function() {
-            const area = document.getElementById('s-area').value;
-            const type = document.getElementById('s-type').value;
-            const budget = document.getElementById('s-budget').value;
-            
-            const params = new URLSearchParams();
-            if (area !== 'All Nairobi') params.set('area', area);
-            if (type !== 'Any Type') params.set('type', type);
-            if (budget !== 'Any Budget') params.set('budget', budget);
-            
-            window.location.href = 'properties.html' + (params.toString() ? '?' + params : '');
-        });
-
-        // ---------- AI CHAT ----------
-        window.toggleChat = function() {
-            document.getElementById('cpanel').classList.toggle('open');
-        };
-
-        window.quickChat = function(txt) {
-            document.getElementById('cinp').value = txt;
-            handleSend();
-        };
-
-        const csend = document.getElementById('csend');
-        const cinp = document.getElementById('cinp');
-        const cmsgs = document.getElementById('cmsgs');
-
-        function handleSend() {
-            const val = cinp.value.trim();
-            if (!val) return;
-            
-            cmsgs.innerHTML += `<div class="cmsg user">${val}</div>`;
-            cinp.value = '';
-            cmsgs.scrollTop = cmsgs.scrollHeight;
-            
-            setTimeout(() => {
-                let reply = "I'm looking into that for you! Based on your request, I recommend checking our verified listings in Kilimani or Westlands.";
-                if (val.toLowerCase().includes('list')) reply = "Great! Click 'List Property' in the menu to start our 4-step verification process.";
-                else if (val.toLowerCase().includes('verif')) reply = "Every landlord submits ID and title deed. We verify within 24 hours and award the ✓ Verified badge.";
-                else if (val.toLowerCase().includes('scam')) reply = "We have a zero-tolerance policy. Report immediately on WhatsApp and we'll remove within 2 hours.";
-                
-                cmsgs.innerHTML += `<div class="cmsg bot"><b>AI:</b> ${reply}</div>`;
-                cmsgs.scrollTop = cmsgs.scrollHeight;
-            }, 800);
-        }
-
-        csend?.addEventListener('click', handleSend);
-        cinp?.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSend();
-        });
-
-        // ---------- APP NOTIFY ----------
-        window.notifyApp = function(platform) {
-            window.open(wa(`Notify me when the Rentech app launches on ${platform}`), '_blank');
-        };
-
-        // ---------- ALERTS ----------
-        window.subscribeAlerts = function() {
-            const phone = document.getElementById('alert-phone').value;
-            const area = document.getElementById('alert-area').value;
-            if (!phone) {
-                alert('Please enter your WhatsApp number');
-                return;
-            }
-            window.open(wa(`Hi Rentech! Please add me to alerts. Area: ${area}. Number: ${phone}`), '_blank');
-        };
-
-        window.subscribeFooter = function() {
-            const phone = document.getElementById('footer-alert-phone').value;
-            if (!phone) {
-                alert('Please enter your WhatsApp number');
-                return;
-            }
-            window.open(wa(`Hi Rentech! Please add me to alerts. My number: ${phone}`), '_blank');
-        };
-
-        // ---------- SCROLL REVEAL ----------
+        // Scroll Reveal
         const revObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2934,47 +1736,9 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('[data-rev]').forEach(el => revObs.observe(el));
-        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+        document.querySelectorAll('[data-rev], .reveal').forEach(el => revObs.observe(el));
 
-        // ---------- COUNTER ANIMATION ----------
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.dataset.counted) {
-                    entry.target.dataset.counted = 'true';
-                    const target = parseInt(entry.target.dataset.target);
-                    const suffix = entry.target.dataset.suffix || '';
-                    let current = 0;
-                    const steps = 50;
-                    const increment = target / steps;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            entry.target.textContent = target + suffix;
-                            clearInterval(timer);
-                        } else {
-                            entry.target.textContent = Math.floor(current) + suffix;
-                        }
-                    }, 30);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-        // ---------- ROTATING HEADLINES ----------
-        const headlines = document.querySelectorAll('.rotating-headline');
-        if (headlines.length) {
-            let hIndex = 0;
-            setInterval(() => {
-                headlines[hIndex]?.classList.remove('active');
-                hIndex = (hIndex + 1) % headlines.length;
-                headlines[hIndex]?.classList.add('active');
-            }, 3500);
-        }
-
-        // ---------- NAVBAR SCROLL ----------
+        // Navbar Scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (nav) {
@@ -2989,7 +1753,7 @@
             }
         });
 
-        // ---------- HAMBURGER MENU ----------
+        // Hamburger Menu
         const ham = document.getElementById('ham');
         const mob = document.getElementById('mob-menu');
         ham?.addEventListener('click', () => {
@@ -3005,7 +1769,7 @@
             }
         });
 
-        // ---------- THEME TOGGLE ----------
+        // Theme Toggle
         const themeBtn = document.getElementById('theme-btn');
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
@@ -3021,14 +1785,9 @@
         const savedTheme = localStorage.getItem('rt_theme');
         if (savedTheme) applyTheme(savedTheme);
 
-        // ---------- INIT ----------
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            renderGrid('prop-grid', PROPS.slice(0, 6));
-            calcRent();
-            
-            if (cmsgs) {
-                cmsgs.innerHTML = '<div class="cmsg bot">👋 Hi! I\'m Rentech AI. Ask me anything about Nairobi rentals — or try: "2BR in Kilimani under 70K"</div>';
-            }
+            renderGrid();
         });
     </script>
 </body>
