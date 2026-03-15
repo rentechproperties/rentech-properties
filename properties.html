@@ -4,253 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse Properties | Rentech Properties Nairobi</title>
-    <meta name="description" content="Browse verified rental properties across Nairobi. No scams, no agents. Direct WhatsApp contact with landlords. Kilimani, Westlands, Kasarani & more.">
+    <meta name="description" content="Browse verified rental properties across Nairobi. No scams, no agents. Direct WhatsApp contact with landlords.">
     <link rel="icon" href="favicon-32x32.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-
     <style>
-        /* ===== PROPERTIES PAGE OVERRIDES ===== */
+        /* ── PAGE-SPECIFIC STYLES ── */
         .browse-hero {
-            padding: 120px 0 40px;
+            padding: 130px 0 50px;
             text-align: center;
             background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
             border-bottom: 1px solid var(--border);
         }
-
         .browse-hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 800;
             margin-bottom: 12px;
         }
-
-        .browse-hero h1 span {
-            color: var(--gold);
-        }
-
-        .browse-hero p {
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-bottom: 28px;
-        }
-
+        .browse-hero h1 span { color: var(--gold); }
+        .browse-hero p { color: var(--muted); font-size: 1.05rem; margin-bottom: 32px; }
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 48px;
             flex-wrap: wrap;
         }
-
-        .hero-stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         .hero-stat strong {
+            display: block;
             font-family: 'Syne', sans-serif;
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--gold);
         }
+        .hero-stat span { font-size: 0.82rem; color: var(--muted); }
 
-        .hero-stat span {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        /* ===== BROWSE LAYOUT ===== */
-        .browse-layout {
+        /* ── LAYOUT ── */
+        .browse-wrap {
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 270px 1fr;
             gap: 32px;
-            padding: 40px 0 80px;
+            padding: 40px 0 100px;
             align-items: start;
         }
 
-        /* ===== SIDEBAR ===== */
+        /* ── SIDEBAR ── */
         .sidebar {
             position: sticky;
             top: 90px;
             background: var(--card);
-            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             padding: 24px;
-            overflow-y: auto;
             max-height: calc(100vh - 110px);
+            overflow-y: auto;
         }
-
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-
-        .sidebar-title {
+        .sidebar-heading {
             font-family: 'Syne', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             margin-bottom: 24px;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
-
         .filter-group {
-            margin-bottom: 24px;
-            padding-bottom: 24px;
+            margin-bottom: 22px;
+            padding-bottom: 22px;
             border-bottom: 1px solid var(--border);
         }
-
-        .filter-group:last-of-type {
-            border-bottom: none;
-            margin-bottom: 16px;
-        }
-
+        .filter-group:last-of-type { border-bottom: none; margin-bottom: 12px; }
         .filter-label {
-            font-size: 0.8rem;
-            font-weight: 600;
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--muted);
             margin-bottom: 12px;
-            display: block;
         }
-
         .filter-input {
             width: 100%;
-            padding: 10px 14px;
+            padding: 10px 13px;
             background: var(--bg-2);
             border: 1px solid var(--border);
             color: var(--text);
             border-radius: var(--radius);
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             outline: none;
             transition: border-color 0.2s;
         }
-
         .filter-input:focus { border-color: var(--gold); }
-
-        .chip-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
+        .chip-grid { display: flex; flex-wrap: wrap; gap: 7px; }
         .chip {
-            padding: 6px 14px;
-            font-size: 0.8rem;
-            border-radius: 50px;
+            padding: 6px 13px;
+            font-size: 0.78rem;
+            border-radius: 100px;
             cursor: pointer;
             border: 1px solid var(--border);
             background: transparent;
             color: var(--muted);
-            transition: all 0.2s ease;
             font-family: 'DM Sans', sans-serif;
+            transition: all 0.18s;
         }
-
         .chip:hover { border-color: var(--gold); color: var(--gold); }
         .chip.active { background: var(--gold); border-color: var(--gold); color: #0a0a0a; font-weight: 600; }
-
-        .price-display {
+        .price-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             margin-top: 10px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
-
-        .price-display .current {
-            font-weight: 700;
-            color: var(--emerald);
-            font-family: 'Syne', sans-serif;
-        }
-
-        .amenity-row {
+        .price-row .val { font-weight: 700; color: var(--emerald); font-family: 'Syne', sans-serif; }
+        .amenity-label {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 10px;
-            cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--muted);
+            cursor: pointer;
         }
+        .amenity-label input { accent-color: var(--gold); width: 15px; height: 15px; }
 
-        .amenity-row input[type="checkbox"] {
-            accent-color: var(--gold);
-            width: 16px;
-            height: 16px;
-        }
-
-        /* ===== TOP BAR ===== */
+        /* ── RESULTS BAR ── */
         .results-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
             gap: 12px;
         }
-
-        .results-count {
-            font-size: 0.95rem;
-            color: var(--muted);
-        }
-
-        .results-count strong {
-            color: var(--text);
-            font-weight: 700;
-        }
-
-        .results-controls {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .sort-select {
-            padding: 8px 14px;
+        .results-count { font-size: 0.92rem; color: var(--muted); }
+        .results-count strong { color: var(--text); font-weight: 700; }
+        .bar-right { display: flex; align-items: center; gap: 10px; }
+        .sort-sel {
+            padding: 8px 13px;
             background: var(--card);
             border: 1px solid var(--border);
             color: var(--text);
             border-radius: var(--radius);
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             cursor: pointer;
             outline: none;
         }
-
-        .view-toggles {
-            display: flex;
-            gap: 4px;
-        }
-
-        .view-btn {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .view-btns { display: flex; gap: 4px; }
+        .vbtn {
+            width: 34px; height: 34px;
+            display: flex; align-items: center; justify-content: center;
             background: var(--card);
             border: 1px solid var(--border);
             color: var(--muted);
             border-radius: var(--radius);
             cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.2s;
+            font-size: 1rem;
+            transition: all 0.18s;
         }
+        .vbtn.active { border-color: var(--gold); color: var(--gold); background: rgba(255,215,0,0.08); }
 
-        .view-btn.active { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+        /* ── FILTER PILLS ── */
+        .active-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,215,0,0.08);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 4px 11px;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+        .pill-x { cursor: pointer; font-size: 1rem; opacity: 0.7; line-height: 1; }
+        .pill-x:hover { opacity: 1; }
 
-        /* ===== MOBILE FILTER BAR ===== */
-        .mobile-filter-bar {
+        /* ── MOBILE FILTER BTN ── */
+        .mob-filter-btn {
             display: none;
-            margin-bottom: 20px;
-        }
-
-        .mobile-filter-btn {
             width: 100%;
             padding: 12px;
             background: var(--card);
@@ -258,1264 +191,737 @@
             color: var(--text);
             border-radius: var(--radius);
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             cursor: pointer;
-            display: flex;
+            margin-bottom: 18px;
+            gap: 8px;
             align-items: center;
             justify-content: center;
-            gap: 8px;
         }
 
-        /* ===== ACTIVE FILTER PILLS ===== */
-        .active-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .filter-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255,215,0,0.1);
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .filter-pill .pill-remove {
-            cursor: pointer;
-            font-size: 1rem;
-            line-height: 1;
-            opacity: 0.7;
-        }
-
-        .filter-pill .pill-remove:hover { opacity: 1; }
-
-        /* ===== PROPERTY GRID ===== */
-        .property-grid {
+        /* ── PROPERTY GRID ── */
+        .prop-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 22px;
         }
+        .prop-grid.list { grid-template-columns: 1fr; }
 
-        .property-grid.list-view {
-            grid-template-columns: 1fr;
-        }
-
-        /* ===== PROPERTY CARD ===== */
-        .property-card {
+        /* ── PROPERTY CARD ── */
+        .prop-card {
             background: var(--card);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
         }
-
-        .property-card:hover {
+        .prop-card:hover {
             transform: translateY(-6px);
             border-color: var(--gold);
-            box-shadow: 0 12px 40px rgba(255,215,0,0.12);
+            box-shadow: 0 12px 36px rgba(255,215,0,0.1);
         }
-
-        .list-view .property-card {
-            flex-direction: row;
-        }
-
-        .prop-img {
+        .prop-grid.list .prop-card { flex-direction: row; }
+        .card-img {
             position: relative;
-            height: 210px;
+            height: 205px;
             overflow: hidden;
             flex-shrink: 0;
         }
-
-        .list-view .prop-img {
-            width: 260px;
-            height: 100%;
-        }
-
-        .prop-img img {
-            width: 100%;
-            height: 100%;
+        .prop-grid.list .card-img { width: 250px; height: auto; }
+        .card-img img {
+            width: 100%; height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.45s ease;
         }
-
-        .property-card:hover .prop-img img {
-            transform: scale(1.06);
-        }
-
-        .prop-badges {
+        .prop-card:hover .card-img img { transform: scale(1.06); }
+        .card-badges {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
+            top: 11px; left: 11px;
+            display: flex; gap: 6px;
         }
-
-        .badge {
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.72rem;
+        .bdg {
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-size: 0.68rem;
             font-weight: 700;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.02em;
             backdrop-filter: blur(6px);
         }
-
-        .badge-verified { background: rgba(16,185,129,0.9); color: white; }
-        .badge-featured { background: rgba(255,215,0,0.95); color: #0a0a0a; }
-        .badge-new { background: rgba(99,102,241,0.9); color: white; }
-
-        .prop-body {
-            padding: 20px;
+        .bdg-v { background: rgba(16,185,129,0.92); color: #fff; }
+        .bdg-f { background: rgba(255,215,0,0.96); color: #0a0a0a; }
+        .bdg-n { background: rgba(99,102,241,0.92); color: #fff; }
+        .card-body {
+            padding: 18px 20px 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-
-        .prop-location {
-            font-size: 0.82rem;
-            color: var(--muted);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 8px;
-        }
-
-        .prop-title {
+        .card-loc { font-size: 0.8rem; color: var(--muted); margin-bottom: 7px; }
+        .card-title {
             font-family: 'Syne', sans-serif;
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             margin-bottom: 6px;
             line-height: 1.3;
         }
-
-        .prop-price {
+        .card-price {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             color: var(--emerald);
-            margin-bottom: 12px;
+            margin-bottom: 11px;
         }
-
-        .prop-price em {
+        .card-price em {
             font-style: normal;
             font-family: 'DM Sans', sans-serif;
             font-weight: 400;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--muted);
         }
-
-        .prop-specs {
-            display: flex;
-            gap: 16px;
+        .card-specs {
+            display: flex; gap: 14px;
             color: var(--muted);
-            font-size: 0.85rem;
-            margin-bottom: 16px;
+            font-size: 0.82rem;
+            margin-bottom: 13px;
             flex-wrap: wrap;
         }
-
-        .prop-spec {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .prop-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-
-        .prop-tag {
-            font-size: 0.75rem;
-            padding: 3px 10px;
+        .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+        .ctag {
+            font-size: 0.72rem;
+            padding: 3px 9px;
             background: var(--bg-2);
             border: 1px solid var(--border);
             border-radius: 100px;
             color: var(--muted);
         }
-
-        .prop-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .btn-details {
-            flex: 1;
-            padding: 10px;
+        .card-actions { display: flex; gap: 9px; margin-top: auto; }
+        .btn-det {
+            flex: 1; padding: 10px;
             background: transparent;
             border: 1px solid var(--border);
             color: var(--text);
             border-radius: var(--radius);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             text-align: center;
             font-family: 'DM Sans', sans-serif;
             font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
+            transition: all 0.18s;
         }
-
-        .btn-details:hover { border-color: var(--gold); color: var(--gold); }
-
+        .btn-det:hover { border-color: var(--gold); color: var(--gold); }
         .btn-wa {
-            flex: 1;
-            padding: 10px;
+            flex: 1; padding: 10px;
             background: #25D366;
-            color: white;
+            color: #fff;
             border: none;
             border-radius: var(--radius);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             text-align: center;
             font-family: 'DM Sans', sans-serif;
             font-weight: 600;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
+            transition: all 0.18s;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
         }
+        .btn-wa:hover { background: #128C7E; }
 
-        .btn-wa:hover { background: #128C7E; transform: scale(1.02); }
-
-        /* ===== EMPTY STATE ===== */
-        .no-results {
-            grid-column: 1 / -1;
+        /* ── EMPTY STATE ── */
+        .empty-state {
+            grid-column: 1/-1;
             text-align: center;
             padding: 80px 20px;
             color: var(--muted);
         }
-
-        .no-results .no-icon { font-size: 3.5rem; margin-bottom: 16px; }
-        .no-results h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; margin-bottom: 8px; color: var(--text); }
-
-        /* ===== LOAD MORE ===== */
-        .load-more-wrap {
-            text-align: center;
-            margin-top: 48px;
+        .empty-state .ei { font-size: 3.5rem; margin-bottom: 14px; }
+        .empty-state h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; color: var(--text); margin-bottom: 8px; }
+        .empty-state button {
+            background: none; border: none;
+            color: var(--gold); cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem; padding: 0;
+            text-decoration: underline;
         }
 
-        /* ===== SKELETON LOADING ===== */
-        .skeleton {
-            background: linear-gradient(90deg, var(--bg-2) 25%, var(--border) 50%, var(--bg-2) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: 6px;
-        }
+        /* ── LOAD MORE ── */
+        .load-more-wrap { text-align: center; margin-top: 48px; }
 
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* ===== RESPONSIVE ===== */
+        /* ── RESPONSIVE ── */
         @media (max-width: 960px) {
-            .browse-layout {
-                grid-template-columns: 1fr;
-            }
-
+            .browse-wrap { grid-template-columns: 1fr; }
             .sidebar {
                 display: none;
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 85vw;
-                max-width: 340px;
-                height: 100vh;
-                max-height: 100vh;
-                z-index: 500;
+                top: 0; left: 0;
+                width: 82vw; max-width: 320px;
+                height: 100vh; max-height: 100vh;
+                z-index: 600;
                 border-radius: 0;
-                overflow-y: auto;
-                padding-top: 70px;
+                padding-top: 72px;
             }
-
-            .sidebar.sidebar-open {
-                display: block;
-            }
-
-            .sidebar-overlay {
+            .sidebar.open { display: block; }
+            .mob-overlay {
                 display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(0,0,0,0.6);
-                z-index: 499;
+                position: fixed; inset: 0;
+                background: rgba(0,0,0,0.55);
+                z-index: 599;
             }
-
-            .sidebar-overlay.active { display: block; }
-
-            .mobile-filter-bar { display: block; }
-
-            .prop-img { height: 180px; }
+            .mob-overlay.show { display: block; }
+            .mob-filter-btn { display: flex; }
         }
-
         @media (max-width: 600px) {
             .hero-stats { gap: 24px; }
-            .prop-img { height: 160px; }
+            .prop-grid.list .prop-card { flex-direction: column; }
+            .prop-grid.list .card-img { width: 100%; height: 170px; }
+        }
+
+        /* ── AI CHAT ── */
+        .chat-trigger {
+            position: fixed;
+            bottom: 108px; left: 28px;
+            width: 54px; height: 54px;
+            background: linear-gradient(135deg, var(--gold), var(--emerald));
+            border: none; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 900;
+            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
+            transition: transform 0.2s;
+        }
+        .chat-trigger:hover { transform: scale(1.1); }
+        .chat-panel {
+            position: fixed;
+            bottom: 174px; left: 28px;
+            width: 320px; height: 440px;
+            background: var(--card);
+            border: 1px solid var(--gold);
+            border-radius: 18px;
+            display: flex; flex-direction: column;
+            z-index: 901;
+            overflow: hidden;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.4);
+            transform: translateY(14px) scale(0.97);
+            opacity: 0; pointer-events: none;
+            transition: all 0.22s ease;
+        }
+        .chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
+        .chat-hdr {
+            background: linear-gradient(135deg, var(--gold), var(--emerald));
+            padding: 13px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-shrink: 0;
+        }
+        .chat-hdr-info { display: flex; align-items: center; gap: 10px; }
+        .chat-hdr-icon {
+            width: 34px; height: 34px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .chat-hdr-name { font-weight: 700; color: #0a0a0a; font-size: 0.9rem; }
+        .chat-hdr-status { font-size: 0.7rem; color: #0a0a0a; opacity: 0.75; }
+        .chat-close-btn {
+            background: rgba(0,0,0,0.1); border: none;
+            color: #0a0a0a; font-size: 1.2rem;
+            cursor: pointer; width: 30px; height: 30px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+        .chat-msgs {
+            flex: 1; padding: 14px;
+            overflow-y: auto;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .chat-msgs::-webkit-scrollbar { width: 3px; }
+        .chat-msgs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .msg {
+            max-width: 84%;
+            padding: 9px 13px;
+            border-radius: 14px;
+            font-size: 0.86rem;
+            line-height: 1.5;
+        }
+        .msg.bot { background: var(--bg-2); border: 1px solid var(--border); border-bottom-left-radius: 3px; align-self: flex-start; color: var(--text); }
+        .msg.user { background: var(--emerald); color: #fff; border-bottom-right-radius: 3px; align-self: flex-end; }
+        .chat-quick {
+            padding: 7px 12px;
+            display: flex; flex-wrap: wrap; gap: 5px;
+            border-top: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .chat-quick button {
+            padding: 4px 9px;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--muted);
+            font-size: 0.73rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.15s;
+        }
+        .chat-quick button:hover { border-color: var(--gold); color: var(--gold); }
+        .chat-inp-row {
+            padding: 11px 12px;
+            border-top: 1px solid var(--border);
+            display: flex; gap: 7px;
+            flex-shrink: 0;
+        }
+        .chat-inp-row input {
+            flex: 1; padding: 9px 13px;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.86rem;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .chat-inp-row input:focus { border-color: var(--gold); }
+        .chat-inp-row button {
+            width: 42px; height: 42px;
+            background: var(--gold); color: #0a0a0a;
+            border: none; border-radius: 9px;
+            font-size: 1.1rem; font-weight: 700;
+            cursor: pointer; flex-shrink: 0;
+        }
+
+        /* ── SCROLL TOP ── */
+        #stbtn {
+            position: fixed;
+            bottom: 28px; left: 28px;
+            width: 42px; height: 42px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 898;
+            opacity: 0; pointer-events: none;
+            transition: all 0.25s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #stbtn.show { opacity: 1; pointer-events: all; }
+        #stbtn:hover { border-color: var(--gold); color: var(--gold); }
+
+        @media (max-width: 600px) {
+            .chat-panel { width: calc(100vw - 36px); left: 18px; }
+            .chat-trigger { bottom: 100px; left: 18px; }
+            #stbtn { bottom: 18px; left: 18px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== NAVIGATION (matches index.html exactly) ===== -->
-    <nav class="navbar" id="nav">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-img">
-                    <img src="assets/logo.png" alt="Rentech Logo" width="40" height="40">
-                </div>
-                <div class="logo-text">RENTECH<span>PROPERTIES</span></div>
-            </a>
-
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="properties.html" class="active">Browse</a>
-                <a href="index.html#how">How It Works</a>
-                <a href="index.html#locations">Areas</a>
-                <a href="index.html#faq">FAQ</a>
+<!-- NAV — identical to index.html -->
+<nav class="navbar" id="nav">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-img">
+                <img src="assets/logo.png" alt="Rentech Logo" width="40" height="40">
             </div>
-
-            <div class="nav-actions">
-                <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
-                <a href="list-property.html" class="btn btn-primary">List Property Free</a>
-                <button class="hamburger" id="ham" aria-label="Menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
+            <div class="logo-text">RENTECH<span>PROPERTIES</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="properties.html" class="active">Browse</a>
+            <a href="index.html#how">How It Works</a>
+            <a href="index.html#locations">Areas</a>
+            <a href="index.html#faq">FAQ</a>
         </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mob-menu">
-        <a href="index.html">Home</a>
-        <a href="properties.html" class="active">Browse</a>
-        <a href="index.html#how">How It Works</a>
-        <a href="index.html#locations">Areas</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="list-property.html" class="btn btn-primary" style="margin-top: 8px;">List Property Free</a>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
+            <a href="list-property.html" class="btn btn-primary">List Property Free</a>
+            <button class="hamburger" id="ham" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </div>
+</nav>
 
-    <!-- ===== BROWSE HERO ===== -->
-    <section class="browse-hero">
-        <div class="container">
-            <h1>Browse <span>Verified</span> Rentals</h1>
-            <p>Real homes. Real landlords. No agents. No scams.</p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <strong id="stat-count">120+</strong>
-                    <span>Active Listings</span>
-                </div>
-                <div class="hero-stat">
-                    <strong>12</strong>
-                    <span>Nairobi Areas</span>
-                </div>
-                <div class="hero-stat">
-                    <strong>100%</strong>
-                    <span>Verified Landlords</span>
-                </div>
-                <div class="hero-stat">
-                    <strong>Free</strong>
-                    <span>For Tenants</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="mobile-menu" id="mob-menu">
+    <a href="index.html">Home</a>
+    <a href="properties.html" class="active">Browse</a>
+    <a href="index.html#how">How It Works</a>
+    <a href="index.html#locations">Areas</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="list-property.html" class="btn btn-primary" style="margin-top:10px;">List Property Free</a>
+</div>
 
-    <!-- ===== MAIN BROWSE LAYOUT ===== -->
+<!-- HERO -->
+<section class="browse-hero">
     <div class="container">
-        <div class="browse-layout">
+        <h1>Browse <span>Verified</span> Rentals</h1>
+        <p>Real homes. Real landlords. No agents. No scams.</p>
+        <div class="hero-stats">
+            <div class="hero-stat"><strong>120+</strong><span>Active Listings</span></div>
+            <div class="hero-stat"><strong>12</strong><span>Nairobi Areas</span></div>
+            <div class="hero-stat"><strong>100%</strong><span>Verified Landlords</span></div>
+            <div class="hero-stat"><strong>Free</strong><span>For Tenants</span></div>
+        </div>
+    </div>
+</section>
 
-            <!-- Sidebar overlay for mobile -->
-            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+<!-- BROWSE LAYOUT -->
+<div class="container">
+    <div class="browse-wrap">
+        <div class="mob-overlay" id="mob-overlay"></div>
 
-            <!-- ===== SIDEBAR ===== -->
-            <aside class="sidebar" id="sidebar">
-                <div class="sidebar-title">⚙️ Filter Properties</div>
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-heading">⚙️ Filter Properties</div>
 
-                <!-- Search -->
-                <div class="filter-group">
-                    <label class="filter-label">🔍 Search</label>
-                    <input type="text" id="filter-search" class="filter-input" placeholder="Area, property name…">
+            <div class="filter-group">
+                <label class="filter-label">🔍 Search</label>
+                <input type="text" id="f-search" class="filter-input" placeholder="Area or property name…">
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">📍 Area</label>
+                <select id="f-area" class="filter-input">
+                    <option value="">All Nairobi Areas</option>
+                    <option>Kilimani</option>
+                    <option>Westlands</option>
+                    <option>Kasarani</option>
+                    <option>South B</option>
+                    <option>South C</option>
+                    <option>Karen</option>
+                    <option>Lavington</option>
+                    <option>Eastleigh</option>
+                    <option>Lang'ata</option>
+                    <option>Kileleshwa</option>
+                    <option>Parklands</option>
+                    <option>Ngong Road</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">💰 Max Price</label>
+                <input type="range" id="f-price" min="5000" max="300000" step="5000" value="300000" style="width:100%;accent-color:var(--gold)">
+                <div class="price-row">
+                    <span style="color:var(--muted);font-size:0.8rem;">KSh 5K</span>
+                    <span class="val" id="price-val">KSh 300K</span>
                 </div>
+            </div>
 
-                <!-- Location -->
-                <div class="filter-group">
-                    <label class="filter-label">📍 Area</label>
-                    <select id="filter-area" class="filter-input">
-                        <option value="">All Nairobi Areas</option>
-                        <option>Kilimani</option>
-                        <option>Westlands</option>
-                        <option>Kasarani</option>
-                        <option>South B</option>
-                        <option>South C</option>
-                        <option>Karen</option>
-                        <option>Lavington</option>
-                        <option>Eastleigh</option>
-                        <option>Lang'ata</option>
-                        <option>Kileleshwa</option>
-                        <option>Parklands</option>
-                        <option>Ngong Road</option>
+            <div class="filter-group">
+                <label class="filter-label">🏢 Type</label>
+                <div class="chip-grid">
+                    <button class="chip tc active" data-v="All">All</button>
+                    <button class="chip tc" data-v="Bedsitter">Bedsitter</button>
+                    <button class="chip tc" data-v="Studio">Studio</button>
+                    <button class="chip tc" data-v="1BR">1BR</button>
+                    <button class="chip tc" data-v="2BR">2BR</button>
+                    <button class="chip tc" data-v="3BR">3BR+</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">✨ Amenities</label>
+                <label class="amenity-label"><input type="checkbox" class="ac" value="Furnished"> Furnished</label>
+                <label class="amenity-label"><input type="checkbox" class="ac" value="Security"> 24hr Security</label>
+                <label class="amenity-label"><input type="checkbox" class="ac" value="Parking"> Parking</label>
+                <label class="amenity-label"><input type="checkbox" class="ac" value="Generator"> Generator</label>
+                <label class="amenity-label"><input type="checkbox" class="ac" value="Borehole"> Borehole Water</label>
+                <label class="amenity-label"><input type="checkbox" class="ac" value="CCTV"> CCTV</label>
+            </div>
+
+            <button id="reset-btn" class="btn btn-outline" style="width:100%;">↺ Reset All Filters</button>
+        </aside>
+
+        <!-- MAIN -->
+        <div>
+            <button class="mob-filter-btn" id="mob-filter-btn">⚙️ Filters &amp; Sort</button>
+
+            <div class="results-bar">
+                <div class="results-count">Showing <strong id="res-count">0</strong> properties</div>
+                <div class="bar-right">
+                    <select id="sort-sel" class="sort-sel">
+                        <option value="featured">⭐ Featured First</option>
+                        <option value="newest">🆕 Newest</option>
+                        <option value="price-low">💰 Price: Low → High</option>
+                        <option value="price-high">💰 Price: High → Low</option>
                     </select>
-                </div>
-
-                <!-- Price Range -->
-                <div class="filter-group">
-                    <label class="filter-label">💰 Max Price</label>
-                    <input type="range" id="filter-price" min="5000" max="300000" step="5000" value="300000" style="width:100%; accent-color: var(--gold);">
-                    <div class="price-display">
-                        <span style="color: var(--muted); font-size: 0.82rem;">KSh 5K</span>
-                        <span class="current" id="price-display">KSh 300K</span>
+                    <div class="view-btns">
+                        <button class="vbtn active" id="vgrid" title="Grid">⊞</button>
+                        <button class="vbtn" id="vlist" title="List">☰</button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Property Type -->
-                <div class="filter-group">
-                    <label class="filter-label">🏢 Type</label>
-                    <div class="chip-grid">
-                        <button class="chip type-chip active" data-val="All">All</button>
-                        <button class="chip type-chip" data-val="Bedsitter">Bedsitter</button>
-                        <button class="chip type-chip" data-val="Studio">Studio</button>
-                        <button class="chip type-chip" data-val="1BR">1BR</button>
-                        <button class="chip type-chip" data-val="2BR">2BR</button>
-                        <button class="chip type-chip" data-val="3BR">3BR+</button>
+            <div class="active-pills" id="pills"></div>
+            <div class="prop-grid" id="grid"></div>
+
+            <div class="load-more-wrap">
+                <button id="load-more" class="btn btn-outline" style="min-width:200px;display:none;">Load More Properties</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER — identical to index.html -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo" style="margin-bottom:18px;">
+                    <div class="logo-img" style="width:40px;height:40px;">
+                        <img src="assets/logo.png" alt="Rentech" width="40" height="40">
                     </div>
+                    <div class="logo-text" style="font-size:1.1rem;">RENTECH<span style="font-size:0.65rem;">PROPERTIES</span></div>
                 </div>
+                <p style="color:var(--muted);font-size:0.9rem;margin-bottom:14px;">Nairobi's AI-powered rental marketplace. Verified landlords, serious tenants.</p>
+                <p style="color:var(--muted);font-size:0.86rem;line-height:2;">
+                    📞 +254 723 783 337<br>
+                    ✉️ rentechproperties.ke@gmail.com<br>
+                    📍 Nairobi, Kenya
+                </p>
+            </div>
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Browse Properties</a></li>
+                    <li><a href="list-property.html">List Property</a></li>
+                    <li><a href="index.html#how">How It Works</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Popular Areas</h5>
+                <ul>
+                    <li><a href="properties.html?area=Kilimani">Kilimani</a></li>
+                    <li><a href="properties.html?area=Westlands">Westlands</a></li>
+                    <li><a href="properties.html?area=Kasarani">Kasarani</a></li>
+                    <li><a href="properties.html?area=Karen">Karen</a></li>
+                    <li><a href="properties.html?area=Lavington">Lavington</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Commission Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Rentech Properties. All rights reserved.</div>
+            <div class="social-row">
+                <a href="https://wa.me/254723783337" target="_blank" rel="noopener">💬</a>
+                <a href="https://x.com/rentech_ke" target="_blank" rel="noopener">𝕏</a>
+                <a href="https://tiktok.com/@rentech.ke" target="_blank" rel="noopener">🎵</a>
+                <a href="https://instagram.com/rentech.ke" target="_blank" rel="noopener">📸</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
-                <!-- Amenities -->
-                <div class="filter-group">
-                    <label class="filter-label">✨ Amenities</label>
-                    <label class="amenity-row"><input type="checkbox" class="amenity-check" value="Furnished"> Furnished</label>
-                    <label class="amenity-row"><input type="checkbox" class="amenity-check" value="Security"> 24hr Security</label>
-                    <label class="amenity-row"><input type="checkbox" class="amenity-check" value="Parking"> Parking</label>
-                    <label class="amenity-row"><input type="checkbox" class="amenity-check" value="Generator"> Generator</label>
-                    <label class="amenity-row"><input type="checkbox" class="amenity-check" value="Borehole"> Borehole Water</label>
-                    <label class="amenity-row"><input type="checkbox" class="amenity-check" value="CCTV"> CCTV</label>
-                </div>
+<!-- WhatsApp float — ONE only -->
+<a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%27d%20like%20help%20finding%20a%20rental%20in%20Nairobi."
+   class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 
-                <button id="reset-btn" class="btn btn-outline" style="width:100%; margin-top: 4px;">↺ Reset All Filters</button>
-            </aside>
-
-            <!-- ===== MAIN CONTENT ===== -->
+<!-- AI Chat -->
+<button class="chat-trigger" id="chat-trigger" aria-label="AI Assistant">🤖</button>
+<div class="chat-panel" id="chat-panel">
+    <div class="chat-hdr">
+        <div class="chat-hdr-info">
+            <div class="chat-hdr-icon">🤖</div>
             <div>
-
-                <!-- Mobile filter toggle -->
-                <div class="mobile-filter-bar">
-                    <button class="mobile-filter-btn" id="mobile-filter-btn">
-                        ⚙️ Filters &amp; Sort
-                    </button>
-                </div>
-
-                <!-- Results bar -->
-                <div class="results-bar">
-                    <div class="results-count">
-                        Showing <strong id="results-count">8</strong> properties
-                    </div>
-                    <div class="results-controls">
-                        <select id="sort-select" class="sort-select">
-                            <option value="featured">⭐ Featured First</option>
-                            <option value="newest">🆕 Newest</option>
-                            <option value="price-low">💰 Price: Low → High</option>
-                            <option value="price-high">💰 Price: High → Low</option>
-                        </select>
-                        <div class="view-toggles">
-                            <button class="view-btn active" id="grid-btn" title="Grid view">⊞</button>
-                            <button class="view-btn" id="list-btn" title="List view">☰</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Active filters -->
-                <div class="active-filters" id="active-filters"></div>
-
-                <!-- Properties Grid -->
-                <div class="property-grid" id="properties-grid">
-                    <!-- Injected by JS -->
-                </div>
-
-                <!-- Load More -->
-                <div class="load-more-wrap">
-                    <button id="load-more-btn" class="btn btn-outline" style="min-width: 200px; display: none;">
-                        Load More Properties
-                    </button>
-                </div>
+                <div class="chat-hdr-name">Rentech AI</div>
+                <div class="chat-hdr-status">● Online — always here</div>
             </div>
         </div>
+        <button class="chat-close-btn" id="chat-close">✕</button>
     </div>
-
-    <!-- ===== FOOTER (matches index.html) ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo" style="margin-bottom: 18px;">
-                        <div class="logo-img" style="width: 40px; height: 40px;">
-                            <img src="assets/logo.png" alt="Rentech" width="40" height="40">
-                        </div>
-                        <div class="logo-text" style="font-size: 1.1rem;">RENTECH<span style="font-size: 0.65rem;">PROPERTIES</span></div>
-                    </div>
-                    <p style="color: var(--muted); margin-bottom: 16px; font-size: 0.92rem;">Nairobi's AI-powered rental marketplace. Verified landlords, serious tenants.</p>
-                    <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.8;">
-                        📞 +254 723 783 337<br>
-                        ✉️ rentechproperties.ke@gmail.com<br>
-                        📍 Nairobi, Kenya
-                    </p>
-                </div>
-                <div class="footer-col">
-                    <h5>Quick Links</h5>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="properties.html">Browse Properties</a></li>
-                        <li><a href="list-property.html">List Property</a></li>
-                        <li><a href="index.html#how">How It Works</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Popular Areas</h5>
-                    <ul>
-                        <li><a href="properties.html?area=Kilimani">Kilimani</a></li>
-                        <li><a href="properties.html?area=Westlands">Westlands</a></li>
-                        <li><a href="properties.html?area=Kasarani">Kasarani</a></li>
-                        <li><a href="properties.html?area=Karen">Karen</a></li>
-                        <li><a href="properties.html?area=Lavington">Lavington</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Commission Policy</a></li>
-                        <li><a href="admin.html" style="color: var(--muted); opacity: 0.4; font-size: 0.8rem;">Admin</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>© 2026 Rentech Properties. All rights reserved.</div>
-                <div class="social-row">
-                    <a href="https://wa.me/254723783337" target="_blank" rel="noopener">💬</a>
-                    <a href="https://x.com/rentech_ke" target="_blank" rel="noopener">𝕏</a>
-                    <a href="https://tiktok.com/@rentech.ke" target="_blank" rel="noopener">🎵</a>
-                    <a href="https://instagram.com/rentech.ke" target="_blank" rel="noopener">📸</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== FLOATING: WhatsApp (1 only) ===== -->
-    <a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%27d%20like%20help%20finding%20a%20rental%20in%20Nairobi."
-       class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp us">
-        💬
-    </a>
-
-    <!-- ===== FLOATING: AI Chat (1 only) ===== -->
-    <button class="ai-chat-trigger" id="chat-trigger" aria-label="AI Assistant">🤖</button>
-
-    <div class="ai-chat-panel" id="chat-panel">
-        <div class="ai-chat-header">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 36px; height: 36px; background: rgba(0,0,0,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">🤖</div>
-                <div>
-                    <div style="font-weight: 700; color: #0a0a0a; font-size: 0.95rem;">Rentech AI</div>
-                    <div style="font-size: 0.72rem; color: #0a0a0a; opacity: 0.7;">● Online — always here</div>
-                </div>
-            </div>
-            <button onclick="toggleChat()" style="background: rgba(0,0,0,0.1); border: none; color: #0a0a0a; font-size: 1.3rem; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✕</button>
-        </div>
-
-        <div class="ai-chat-messages" id="chat-messages"></div>
-
-        <div class="ai-quick-btns" id="quick-btns">
-            <button onclick="quickAsk('Find home under 30K')">🏠 Under 30K</button>
-            <button onclick="quickAsk('2BR in Kilimani')">📍 Kilimani 2BR</button>
-            <button onclick="quickAsk('How does verification work?')">🛡️ Verification</button>
-            <button onclick="quickAsk('List my property')">📋 List Property</button>
-        </div>
-
-        <div class="ai-chat-input-row">
-            <input type="text" id="chat-input" placeholder="Ask about any area or property type…" autocomplete="off">
-            <button onclick="sendChat()" id="chat-send">→</button>
-        </div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="chat-quick" id="chat-quick">
+        <button onclick="qAsk('Under 30K homes')">🏠 Under 30K</button>
+        <button onclick="qAsk('2BR in Kilimani')">📍 Kilimani 2BR</button>
+        <button onclick="qAsk('How does verification work')">🛡️ Verification</button>
+        <button onclick="qAsk('List my property')">📋 List Property</button>
     </div>
+    <div class="chat-inp-row">
+        <input type="text" id="chat-in" placeholder="Ask about any area or budget…" autocomplete="off">
+        <button id="chat-send">→</button>
+    </div>
+</div>
 
-    <!-- ===== SCROLL TO TOP ===== -->
-    <button class="scroll-top" id="stbtn" aria-label="Back to top">↑</button>
+<!-- Scroll to top -->
+<button id="stbtn" aria-label="Back to top">↑</button>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script>
-    // ============================================================
-    //  PROPERTY DATA — 12 realistic Nairobi listings
-    // ============================================================
-    const PROPERTIES = [
-        {
-            id: 1,
-            title: "Modern 2BR Apartment",
-            area: "Kilimani",
-            price: 65000,
-            beds: 2, baths: 2,
-            type: "2BR",
-            amenities: ["Furnished", "Security", "Parking", "CCTV"],
-            badge: "Featured",
-            img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80",
-            desc: "Stylish 2-bedroom apartment with open-plan kitchen, DSQ, and secure parking."
-        },
-        {
-            id: 2,
-            title: "Executive Studio",
-            area: "Westlands",
-            price: 38000,
-            beds: 1, baths: 1,
-            type: "Studio",
-            amenities: ["Furnished", "Security", "Borehole"],
-            badge: "New",
-            img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80",
-            desc: "Compact executive studio, fully furnished, 5 mins from Westgate Mall."
-        },
-        {
-            id: 3,
-            title: "Affordable Bedsitter",
-            area: "Kasarani",
-            price: 12000,
-            beds: 1, baths: 1,
-            type: "Bedsitter",
-            amenities: ["Security"],
-            badge: "",
-            img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80",
-            desc: "Budget-friendly bedsitter, clean and secure, close to Kasarani Stadium."
-        },
-        {
-            id: 4,
-            title: "Spacious Family Home",
-            area: "Lang'ata",
-            price: 90000,
-            beds: 4, baths: 3,
-            type: "3BR",
-            amenities: ["Security", "Parking", "Generator", "CCTV"],
-            badge: "Featured",
-            img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80",
-            desc: "4-bedroom standalone home with mature garden, DSQ, and ample parking."
-        },
-        {
-            id: 5,
-            title: "1BR Cozy Apartment",
-            area: "South B",
-            price: 28000,
-            beds: 1, baths: 1,
-            type: "1BR",
-            amenities: ["Security", "Borehole"],
-            badge: "New",
-            img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80",
-            desc: "Well-maintained 1-bedroom in a quiet South B compound with borehole water."
-        },
-        {
-            id: 6,
-            title: "Luxury Studio Apartment",
-            area: "Lavington",
-            price: 58000,
-            beds: 1, baths: 1,
-            type: "Studio",
-            amenities: ["Furnished", "Security", "Parking", "CCTV"],
-            badge: "",
-            img: "https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=700&q=80",
-            desc: "High-end studio with rooftop terrace access and premium finishes."
-        },
-        {
-            id: 7,
-            title: "Garden View 2BR",
-            area: "Karen",
-            price: 110000,
-            beds: 2, baths: 2,
-            type: "2BR",
-            amenities: ["Furnished", "Security", "Parking", "Generator"],
-            badge: "Featured",
-            img: "https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=700&q=80",
-            desc: "Peaceful 2BR with large garden, ideal for families. Karen country feel."
-        },
-        {
-            id: 8,
-            title: "3BR City Apartment",
-            area: "Westlands",
-            price: 120000,
-            beds: 3, baths: 2,
-            type: "3BR",
-            amenities: ["Furnished", "Security", "Parking", "Generator", "CCTV"],
-            badge: "Featured",
-            img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80",
-            desc: "Premium 3BR in the heart of Westlands. Views, finishes, and convenience."
-        },
-        {
-            id: 9,
-            title: "Bedsitter — Student Friendly",
-            area: "Eastleigh",
-            price: 8500,
-            beds: 1, baths: 1,
-            type: "Bedsitter",
-            amenities: ["Security"],
-            badge: "New",
-            img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=700&q=80",
-            desc: "Clean bedsitter ideal for students. Close to bus routes and markets."
-        },
-        {
-            id: 10,
-            title: "1BR Kileleshwa Gem",
-            area: "Kileleshwa",
-            price: 42000,
-            beds: 1, baths: 1,
-            type: "1BR",
-            amenities: ["Security", "Borehole", "Parking"],
-            badge: "",
-            img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80",
-            desc: "Quiet 1-bedroom in Kileleshwa's tree-lined streets. Borehole + parking."
-        },
-        {
-            id: 11,
-            title: "Maisonette — South C",
-            area: "South C",
-            price: 75000,
-            beds: 3, baths: 2,
-            type: "3BR",
-            amenities: ["Security", "Parking", "Borehole"],
-            badge: "",
-            img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80",
-            desc: "Roomy 3-bedroom maisonette with its own compound. Great for families."
-        },
-        {
-            id: 12,
-            title: "2BR Parklands Apartment",
-            area: "Parklands",
-            price: 55000,
-            beds: 2, baths: 1,
-            type: "2BR",
-            amenities: ["Security", "Parking", "CCTV"],
-            badge: "New",
-            img: "https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?w=700&q=80",
-            desc: "Bright 2-bedroom close to Aga Khan hospital and city centre."
-        }
-    ];
+<script>
+const DATA = [
+    { id:1,  title:"Modern 2BR Apartment",   area:"Kilimani",  price:65000,  beds:2, baths:2, type:"2BR",       amenities:["Furnished","Security","Parking","CCTV"],            badge:"Featured", img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" },
+    { id:2,  title:"Executive Studio",        area:"Westlands", price:38000,  beds:1, baths:1, type:"Studio",    amenities:["Furnished","Security","Borehole"],                  badge:"New",      img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80" },
+    { id:3,  title:"Affordable Bedsitter",    area:"Kasarani",  price:12000,  beds:1, baths:1, type:"Bedsitter", amenities:["Security"],                                         badge:"",         img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80" },
+    { id:4,  title:"Spacious Family Home",    area:"Lang'ata",  price:90000,  beds:4, baths:3, type:"3BR",       amenities:["Security","Parking","Generator","CCTV"],            badge:"Featured", img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" },
+    { id:5,  title:"1BR Cosy Apartment",      area:"South B",   price:28000,  beds:1, baths:1, type:"1BR",       amenities:["Security","Borehole"],                              badge:"New",      img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80" },
+    { id:6,  title:"Luxury Studio",           area:"Lavington", price:58000,  beds:1, baths:1, type:"Studio",    amenities:["Furnished","Security","Parking","CCTV"],            badge:"",         img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=700&q=80" },
+    { id:7,  title:"Garden View 2BR",         area:"Karen",     price:110000, beds:2, baths:2, type:"2BR",       amenities:["Furnished","Security","Parking","Generator"],       badge:"Featured", img:"https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=700&q=80" },
+    { id:8,  title:"3BR City Apartment",      area:"Westlands", price:120000, beds:3, baths:2, type:"3BR",       amenities:["Furnished","Security","Parking","Generator","CCTV"],badge:"Featured", img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" },
+    { id:9,  title:"Budget Bedsitter",        area:"Eastleigh", price:8500,   beds:1, baths:1, type:"Bedsitter", amenities:["Security"],                                         badge:"New",      img:"https://images.unsplash.com/photo-1554995207-c18c203602cb?w=700&q=80" },
+    { id:10, title:"1BR Kileleshwa Gem",      area:"Kileleshwa",price:42000,  beds:1, baths:1, type:"1BR",       amenities:["Security","Borehole","Parking"],                    badge:"",         img:"https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80" },
+    { id:11, title:"3BR Maisonette",          area:"South C",   price:75000,  beds:3, baths:2, type:"3BR",       amenities:["Security","Parking","Borehole"],                    badge:"",         img:"https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80" },
+    { id:12, title:"2BR Parklands Apartment", area:"Parklands", price:55000,  beds:2, baths:1, type:"2BR",       amenities:["Security","Parking","CCTV"],                        badge:"New",      img:"https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?w=700&q=80" }
+];
 
-    // ============================================================
-    //  STATE
-    // ============================================================
-    let activeType = "All";
-    let visibleCount = 8;
-    const PAGE_SIZE = 8;
+let activeType='All', shown=8;
+const PAGE=8;
 
-    // ============================================================
-    //  CARD BUILDER
-    // ============================================================
-    function waLink(p) {
-        return `https://wa.me/254723783337?text=${encodeURIComponent(`Hi Rentech! I'm interested in the ${p.title} in ${p.area} at KSh ${p.price.toLocaleString()}/month. Is it available?`)}`;
-    }
+const wa = p=>`https://wa.me/254723783337?text=${encodeURIComponent(`Hi Rentech! I'm interested in ${p.title} in ${p.area} at KSh ${p.price.toLocaleString()}/month. Still available?`)}`;
 
-    function buildCard(p) {
-        const badges = [
-            `<span class="badge badge-verified">✓ Verified</span>`,
-            p.badge === "Featured" ? `<span class="badge badge-featured">⭐ Featured</span>` : "",
-            p.badge === "New"      ? `<span class="badge badge-new">🆕 New</span>` : ""
-        ].join("");
+function card(p){
+    const badges=`<span class="bdg bdg-v">✓ Verified</span>${p.badge==='Featured'?'<span class="bdg bdg-f">⭐ Featured</span>':''}${p.badge==='New'?'<span class="bdg bdg-n">🆕 New</span>':''}`;
+    const tags=p.amenities.slice(0,3).map(a=>`<span class="ctag">${a}</span>`).join('');
+    return `<div class="prop-card"><div class="card-img"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=60'"><div class="card-badges">${badges}</div></div><div class="card-body"><div class="card-loc">📍 ${p.area}</div><h3 class="card-title">${p.title}</h3><div class="card-price">KSh ${p.price.toLocaleString()} <em>/month</em></div><div class="card-specs"><span>🛏️ ${p.beds} Bed${p.beds>1?'s':''}</span><span>🚿 ${p.baths} Bath</span><span>📐 ${p.type}</span></div><div class="card-tags">${tags}</div><div class="card-actions"><a href="property-detail.html?id=${p.id}" class="btn-det">View Details</a><a href="${wa(p)}" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a></div></div></div>`;
+}
 
-        const tags = p.amenities.slice(0, 3).map(a => `<span class="prop-tag">${a}</span>`).join("");
+function filtered(){
+    const q=document.getElementById('f-search').value.toLowerCase().trim();
+    const area=document.getElementById('f-area').value;
+    const maxP=+document.getElementById('f-price').value;
+    const sort=document.getElementById('sort-sel').value;
+    const amen=[...document.querySelectorAll('.ac:checked')].map(c=>c.value);
+    let list=DATA.filter(p=>{
+        if(q&&!p.title.toLowerCase().includes(q)&&!p.area.toLowerCase().includes(q))return false;
+        if(area&&p.area!==area)return false;
+        if(p.price>maxP)return false;
+        if(activeType!=='All'&&p.type!==activeType)return false;
+        if(amen.length&&!amen.every(a=>p.amenities.includes(a)))return false;
+        return true;
+    });
+    if(sort==='price-low')list.sort((a,b)=>a.price-b.price);
+    if(sort==='price-high')list.sort((a,b)=>b.price-a.price);
+    if(sort==='featured')list.sort((a,b)=>(b.badge==='Featured'?1:0)-(a.badge==='Featured'?1:0));
+    return list;
+}
 
-        return `
-        <div class="property-card" data-id="${p.id}">
-            <div class="prop-img">
-                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=60'">
-                <div class="prop-badges">${badges}</div>
-            </div>
-            <div class="prop-body">
-                <div class="prop-location">📍 ${p.area}</div>
-                <h3 class="prop-title">${p.title}</h3>
-                <div class="prop-price">KSh ${p.price.toLocaleString()} <em>/month</em></div>
-                <div class="prop-specs">
-                    <span class="prop-spec">🛏️ ${p.beds} Bed${p.beds > 1 ? "s" : ""}</span>
-                    <span class="prop-spec">🚿 ${p.baths} Bath</span>
-                    <span class="prop-spec">📐 ${p.type}</span>
-                </div>
-                <div class="prop-tags">${tags}</div>
-                <div class="prop-actions">
-                    <a href="property-detail.html?id=${p.id}" class="btn-details">View Details</a>
-                    <a href="${waLink(p)}" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a>
-                </div>
-            </div>
-        </div>`;
-    }
+function render(){
+    const list=filtered(),slice=list.slice(0,shown);
+    const grid=document.getElementById('grid');
+    document.getElementById('res-count').textContent=list.length;
+    grid.innerHTML=slice.length?slice.map(card).join(''):`<div class="empty-state"><div class="ei">🔍</div><h3>No properties match your filters</h3><p>Try adjusting or <button onclick="reset()">reset all filters</button></p></div>`;
+    document.getElementById('load-more').style.display=list.length>shown?'inline-flex':'none';
+    renderPills();
+}
 
-    // ============================================================
-    //  FILTER + RENDER
-    // ============================================================
-    function getFiltered() {
-        const search  = document.getElementById("filter-search").value.toLowerCase().trim();
-        const area    = document.getElementById("filter-area").value;
-        const maxP    = parseInt(document.getElementById("filter-price").value);
-        const sort    = document.getElementById("sort-select").value;
-        const checked = [...document.querySelectorAll(".amenity-check:checked")].map(c => c.value);
+function pill(t,fn){return `<span class="pill">${t}<span class="pill-x" onclick="${fn}">×</span></span>`;}
+function renderPills(){
+    const q=document.getElementById('f-search').value.trim();
+    const area=document.getElementById('f-area').value;
+    const maxP=+document.getElementById('f-price').value;
+    const amen=[...document.querySelectorAll('.ac:checked')].map(c=>c.value);
+    let h='';
+    if(q)h+=pill(`🔍 "${q}"`,'clrSearch()');
+    if(area)h+=pill(`📍 ${area}`,'clrArea()');
+    if(maxP<300000)h+=pill(`💰 Max KSh ${(maxP/1000).toFixed(0)}K`,'clrPrice()');
+    if(activeType!=='All')h+=pill(`🏢 ${activeType}`,'clrType()');
+    amen.forEach(a=>{h+=pill(`✨ ${a}`,`clrAmen('${a}')`)});
+    document.getElementById('pills').innerHTML=h;
+}
+function clrSearch(){document.getElementById('f-search').value='';render();}
+function clrArea(){document.getElementById('f-area').value='';render();}
+function clrPrice(){document.getElementById('f-price').value=300000;document.getElementById('price-val').textContent='KSh 300K';render();}
+function clrType(){activeType='All';document.querySelectorAll('.tc').forEach(c=>c.classList.toggle('active',c.dataset.v==='All'));render();}
+function clrAmen(a){document.querySelector(`.ac[value="${a}"]`).checked=false;render();}
+function reset(){clrSearch();clrArea();clrPrice();clrType();document.querySelectorAll('.ac').forEach(c=>c.checked=false);shown=PAGE;render();}
 
-        let list = PROPERTIES.filter(p => {
-            if (search && !p.title.toLowerCase().includes(search) && !p.area.toLowerCase().includes(search)) return false;
-            if (area && p.area !== area) return false;
-            if (p.price > maxP) return false;
-            if (activeType !== "All" && p.type !== activeType) return false;
-            if (checked.length && !checked.every(a => p.amenities.includes(a))) return false;
-            return true;
-        });
+document.addEventListener('DOMContentLoaded',()=>{
+    render();
 
-        if (sort === "price-low")  list.sort((a,b) => a.price - b.price);
-        if (sort === "price-high") list.sort((a,b) => b.price - a.price);
-        if (sort === "featured")   list.sort((a,b) => (b.badge === "Featured" ? 1:0) - (a.badge === "Featured" ? 1:0));
+    const urlArea=new URLSearchParams(location.search).get('area');
+    if(urlArea){document.getElementById('f-area').value=urlArea;render();}
 
-        return list;
-    }
-
-    function render() {
-        const grid  = document.getElementById("properties-grid");
-        const list  = getFiltered();
-        const shown = list.slice(0, visibleCount);
-        const lmbtn = document.getElementById("load-more-btn");
-
-        document.getElementById("results-count").textContent = list.length;
-
-        if (shown.length === 0) {
-            grid.innerHTML = `
-                <div class="no-results">
-                    <div class="no-icon">🔍</div>
-                    <h3>No properties match your filters</h3>
-                    <p>Try adjusting your search or <button onclick="resetFilters()" style="background:none;border:none;color:var(--gold);cursor:pointer;font-family:inherit;font-size:1rem;padding:0;">reset all filters</button></p>
-                </div>`;
-        } else {
-            grid.innerHTML = shown.map(buildCard).join("");
-        }
-
-        lmbtn.style.display = list.length > visibleCount ? "inline-flex" : "none";
-        renderPills(list);
-    }
-
-    function renderPills(list) {
-        const wrap = document.getElementById("active-filters");
-        const pills = [];
-        const search = document.getElementById("filter-search").value.trim();
-        const area   = document.getElementById("filter-area").value;
-        const maxP   = parseInt(document.getElementById("filter-price").value);
-        const checked = [...document.querySelectorAll(".amenity-check:checked")].map(c => c.value);
-
-        if (search)          pills.push(`<span class="filter-pill">🔍 "${search}" <span class="pill-remove" onclick="clearSearch()">×</span></span>`);
-        if (area)            pills.push(`<span class="filter-pill">📍 ${area} <span class="pill-remove" onclick="clearArea()">×</span></span>`);
-        if (maxP < 300000)   pills.push(`<span class="filter-pill">💰 Max KSh ${(maxP/1000).toFixed(0)}K <span class="pill-remove" onclick="clearPrice()">×</span></span>`);
-        if (activeType !== "All") pills.push(`<span class="filter-pill">🏢 ${activeType} <span class="pill-remove" onclick="clearType()">×</span></span>`);
-        checked.forEach(a => pills.push(`<span class="filter-pill">✨ ${a} <span class="pill-remove" onclick="clearAmenity('${a}')">×</span></span>`));
-
-        wrap.innerHTML = pills.join("");
-    }
-
-    // pill clear helpers
-    function clearSearch() { document.getElementById("filter-search").value = ""; render(); }
-    function clearArea()   { document.getElementById("filter-area").value = ""; render(); }
-    function clearPrice()  { document.getElementById("filter-price").value = 300000; document.getElementById("price-display").textContent = "KSh 300K"; render(); }
-    function clearType()   { activeType = "All"; document.querySelectorAll(".type-chip").forEach(c => c.classList.toggle("active", c.dataset.val === "All")); render(); }
-    function clearAmenity(a) { document.querySelector(`.amenity-check[value="${a}"]`).checked = false; render(); }
-
-    function resetFilters() {
-        document.getElementById("filter-search").value = "";
-        document.getElementById("filter-area").value = "";
-        document.getElementById("filter-price").value = 300000;
-        document.getElementById("price-display").textContent = "KSh 300K";
-        document.querySelectorAll(".amenity-check").forEach(c => c.checked = false);
-        activeType = "All";
-        document.querySelectorAll(".type-chip").forEach(c => c.classList.toggle("active", c.dataset.val === "All"));
-        visibleCount = PAGE_SIZE;
+    document.getElementById('f-search').addEventListener('input',()=>{shown=PAGE;render();});
+    document.getElementById('f-area').addEventListener('change',()=>{shown=PAGE;render();});
+    document.getElementById('sort-sel').addEventListener('change',render);
+    document.getElementById('f-price').addEventListener('input',function(){
+        const v=+this.value;
+        document.getElementById('price-val').textContent=v>=300000?'KSh 300K':`KSh ${(v/1000).toFixed(0)}K`;
         render();
-    }
+    });
+    document.querySelectorAll('.tc').forEach(btn=>btn.addEventListener('click',()=>{
+        activeType=btn.dataset.v;
+        document.querySelectorAll('.tc').forEach(c=>c.classList.toggle('active',c===btn));
+        shown=PAGE;render();
+    }));
+    document.querySelectorAll('.ac').forEach(c=>c.addEventListener('change',()=>{shown=PAGE;render();}));
+    document.getElementById('reset-btn').addEventListener('click',reset);
+    document.getElementById('load-more').addEventListener('click',()=>{shown+=PAGE;render();});
 
-    // ============================================================
-    //  INIT
-    // ============================================================
-    document.addEventListener("DOMContentLoaded", () => {
-
-        render();
-
-        // URL param pre-filter (e.g. ?area=Kilimani)
-        const urlArea = new URLSearchParams(window.location.search).get("area");
-        if (urlArea) {
-            const sel = document.getElementById("filter-area");
-            sel.value = urlArea;
-            render();
-        }
-
-        // Filters
-        document.getElementById("filter-search").addEventListener("input", () => { visibleCount = PAGE_SIZE; render(); });
-        document.getElementById("filter-area").addEventListener("change", () => { visibleCount = PAGE_SIZE; render(); });
-        document.getElementById("sort-select").addEventListener("change", render);
-
-        document.getElementById("filter-price").addEventListener("input", function() {
-            const v = parseInt(this.value);
-            document.getElementById("price-display").textContent = v >= 300000 ? "KSh 300K" : `KSh ${(v/1000).toFixed(0)}K`;
-            render();
-        });
-
-        // Type chips
-        document.querySelectorAll(".type-chip").forEach(btn => {
-            btn.addEventListener("click", () => {
-                activeType = btn.dataset.val;
-                document.querySelectorAll(".type-chip").forEach(c => c.classList.toggle("active", c === btn));
-                visibleCount = PAGE_SIZE;
-                render();
-            });
-        });
-
-        // Amenity checkboxes
-        document.querySelectorAll(".amenity-check").forEach(c => c.addEventListener("change", () => { visibleCount = PAGE_SIZE; render(); }));
-
-        // Reset
-        document.getElementById("reset-btn").addEventListener("click", resetFilters);
-
-        // Load more
-        document.getElementById("load-more-btn").addEventListener("click", () => {
-            visibleCount += PAGE_SIZE;
-            render();
-        });
-
-        // View toggle
-        document.getElementById("grid-btn").addEventListener("click", () => {
-            document.getElementById("properties-grid").classList.remove("list-view");
-            document.getElementById("grid-btn").classList.add("active");
-            document.getElementById("list-btn").classList.remove("active");
-        });
-
-        document.getElementById("list-btn").addEventListener("click", () => {
-            document.getElementById("properties-grid").classList.add("list-view");
-            document.getElementById("list-btn").classList.add("active");
-            document.getElementById("grid-btn").classList.remove("active");
-        });
-
-        // Mobile sidebar toggle
-        const mobileBtn = document.getElementById("mobile-filter-btn");
-        const sidebar   = document.getElementById("sidebar");
-        const overlay   = document.getElementById("sidebar-overlay");
-
-        function openSidebar() {
-            sidebar.classList.add("sidebar-open");
-            overlay.classList.add("active");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeSidebar() {
-            sidebar.classList.remove("sidebar-open");
-            overlay.classList.remove("active");
-            document.body.style.overflow = "";
-        }
-
-        mobileBtn?.addEventListener("click", openSidebar);
-        overlay?.addEventListener("click", closeSidebar);
-
-        // Hamburger
-        const ham = document.getElementById("ham");
-        const mob = document.getElementById("mob-menu");
-        ham?.addEventListener("click", () => {
-            ham.classList.toggle("open");
-            mob.classList.toggle("open");
-        });
-
-        // Theme
-        const themeBtn = document.getElementById("theme-btn");
-        function applyTheme(t) {
-            document.documentElement.setAttribute("data-theme", t);
-            themeBtn.textContent = t === "dark" ? "🌙" : "☀️";
-            localStorage.setItem("rt_theme", t);
-        }
-        const saved = localStorage.getItem("rt_theme");
-        if (saved) applyTheme(saved);
-        themeBtn?.addEventListener("click", () => {
-            applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-        });
-
-        // Scroll to top
-        const stbtn = document.getElementById("stbtn");
-        window.addEventListener("scroll", () => {
-            stbtn.classList.toggle("show", window.scrollY > 400);
-        });
-        stbtn?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-        // Navbar scroll
-        window.addEventListener("scroll", () => {
-            document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 50);
-        });
+    document.getElementById('vgrid').addEventListener('click',()=>{
+        document.getElementById('grid').classList.remove('list');
+        document.getElementById('vgrid').classList.add('active');
+        document.getElementById('vlist').classList.remove('active');
+    });
+    document.getElementById('vlist').addEventListener('click',()=>{
+        document.getElementById('grid').classList.add('list');
+        document.getElementById('vlist').classList.add('active');
+        document.getElementById('vgrid').classList.remove('active');
     });
 
-    // ============================================================
-    //  AI CHAT (single, clean implementation)
-    // ============================================================
-    const RESPONSES = {
-        kilimani:  "Kilimani is one of Nairobi's best rental zones! We have 2BR apartments from KSh 65,000 — great security and close to Junction Mall.",
-        westlands: "Westlands is perfect for professionals. Studios from KSh 38K, 3BR up to KSh 120K. Fast city access!",
-        kasarani:  "Kasarani has the most affordable options — bedsitters from KSh 12K. Great for students and young professionals.",
-        karen:     "Karen is green and peaceful. Expect to pay KSh 90K–150K for a family home. Worth every shilling!",
-        lavington: "Lavington — quiet, leafy, and secure. Studios from KSh 58K. Popular with NGO workers and executives.",
-        "south b": "South B has great value 1BR and 2BR units — roughly KSh 28K–75K. Calm neighbourhood, easy access to the CBD.",
-        "south c": "South C has roomy maisonettes. 3BR options around KSh 75K. Family-friendly with good infrastructure.",
-        furnished: "We have 6 fully furnished listings right now — from Westlands to Karen. Use the Furnished filter on the left!",
-        cheap:     "Cheapest options: Eastleigh bedsitters from KSh 8,500 and Kasarani from KSh 12K. All verified!",
-        budget:    "What's your budget? We have options from KSh 8,500 all the way to KSh 150K+. Tell me your range!",
-        verify:    "Every landlord submits their National ID and property title deed. Our team physically inspects each property before listing.",
-        list:      "Listing is FREE! Click 'List Property Free' at the top and fill in the form. We'll contact you within 24 hours.",
-        agent:     "No agents needed — ever. You contact the landlord directly via WhatsApp. Zero middlemen, zero commission from tenants.",
-        mpesa:     "Rent is paid directly between tenant and landlord via M-Pesa. We're building an integrated M-Pesa escrow feature — coming soon!",
-        contact:   "Reach us on 📞 +254 723 783 337 or 💬 WhatsApp the same number. We're also at rentechproperties.ke@gmail.com.",
-        default:   "I can help you find the perfect rental! Try asking: 'Show me 2BR in Kilimani' or 'Budget under KSh 30K' — or use the filters on the left."
+    const sidebar=document.getElementById('sidebar'),overlay=document.getElementById('mob-overlay');
+    const openSB=()=>{sidebar.classList.add('open');overlay.classList.add('show');document.body.style.overflow='hidden';};
+    const closeSB=()=>{sidebar.classList.remove('open');overlay.classList.remove('show');document.body.style.overflow='';};
+    document.getElementById('mob-filter-btn').addEventListener('click',openSB);
+    overlay.addEventListener('click',closeSB);
+
+    const ham=document.getElementById('ham'),mob=document.getElementById('mob-menu');
+    ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+
+    const themeBtn=document.getElementById('theme-btn');
+    const applyTheme=t=>{document.documentElement.setAttribute('data-theme',t);themeBtn.textContent=t==='dark'?'🌙':'☀️';localStorage.setItem('rt_theme',t);};
+    const saved=localStorage.getItem('rt_theme');
+    if(saved)applyTheme(saved);
+    themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+    window.addEventListener('scroll',()=>{
+        document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
+        document.getElementById('stbtn').classList.toggle('show',scrollY>400);
+    });
+    document.getElementById('stbtn').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // AI Chat
+    let chatOpen=false,chatInited=false;
+    const panel=document.getElementById('chat-panel'),msgs=document.getElementById('chat-msgs');
+    const botMsg=t=>{const d=document.createElement('div');d.className='msg bot';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;};
+    const userMsg=t=>{const d=document.createElement('div');d.className='msg user';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;document.getElementById('chat-quick').style.display='none';};
+
+    const R={
+        'kilimani':"Kilimani has great 2BR apartments from KSh 65K. Fantastic security, close to Junction Mall!",
+        'westlands':"Westlands suits professionals — studios from KSh 38K, 3BR up to KSh 120K.",
+        'kasarani':"Kasarani is most affordable — bedsitters from KSh 12K. Great for students.",
+        'karen':"Karen is peaceful and green. Family homes from KSh 90K–150K.",
+        'lavington':"Lavington is quiet and leafy. Studios from KSh 58K.",
+        'south b':"South B has value 1BR units from KSh 28K. Calm area, easy CBD access.",
+        'south c':"South C has roomy maisonettes. 3BR around KSh 75K.",
+        'eastleigh':"Eastleigh — most budget friendly. Bedsitters from KSh 8,500.",
+        '30k':"Under 30K: Kasarani bedsitter (12K), South B 1BR (28K), Eastleigh studio (8.5K).",
+        'verif':"Every landlord submits National ID + title deed. We physically inspect each property.",
+        'list':"Listing is FREE! Click 'List Property Free' at the top. We respond within 24 hours.",
+        'agent':"No agents ever. You contact landlords directly via WhatsApp. Zero fees for tenants.",
+        'contact':"Call/WhatsApp: +254 723 783 337 or email rentechproperties.ke@gmail.com",
     };
+    const getReply=m=>{const l=m.toLowerCase();for(const[k,v]of Object.entries(R))if(l.includes(k))return v;return "I can help! Try: '2BR in Kilimani', 'Budget under 30K', or use the filters on the left.";};
 
-    function chatResponse(msg) {
-        const m = msg.toLowerCase();
-        for (const [key, reply] of Object.entries(RESPONSES)) {
-            if (m.includes(key)) return reply;
-        }
-        return RESPONSES.default;
+    function sendChat(){
+        const inp=document.getElementById('chat-in'),m=inp.value.trim();
+        if(!m)return;userMsg(m);inp.value='';setTimeout(()=>botMsg(getReply(m)),650);
     }
 
-    let chatOpen = false;
-    let chatInited = false;
+    window.qAsk=t=>{document.getElementById('chat-in').value=t;sendChat();};
 
-    function toggleChat() {
-        chatOpen = !chatOpen;
-        const panel = document.getElementById("chat-panel");
-        panel.classList.toggle("open", chatOpen);
-
-        if (chatOpen && !chatInited) {
-            chatInited = true;
-            addBotMsg("👋 Hi! I'm Rentech AI. Ask me about any area, budget, or property type in Nairobi!");
-        }
-    }
-
-    function addBotMsg(text) {
-        const msgs = document.getElementById("chat-messages");
-        const d = document.createElement("div");
-        d.className = "chat-msg bot";
-        d.textContent = text;
-        msgs.appendChild(d);
-        msgs.scrollTop = msgs.scrollHeight;
-    }
-
-    function addUserMsg(text) {
-        const msgs = document.getElementById("chat-messages");
-        const d = document.createElement("div");
-        d.className = "chat-msg user";
-        d.textContent = text;
-        msgs.appendChild(d);
-        msgs.scrollTop = msgs.scrollHeight;
-    }
-
-    function sendChat() {
-        const inp = document.getElementById("chat-input");
-        const msg = inp.value.trim();
-        if (!msg) return;
-        addUserMsg(msg);
-        inp.value = "";
-        document.getElementById("quick-btns").style.display = "none";
-        setTimeout(() => addBotMsg(chatResponse(msg)), 650);
-    }
-
-    function quickAsk(q) {
-        document.getElementById("chat-input").value = q;
-        sendChat();
-    }
-
-    document.getElementById("chat-trigger").addEventListener("click", toggleChat);
-    document.getElementById("chat-input").addEventListener("keydown", e => { if (e.key === "Enter") sendChat(); });
-    </script>
-
-    <!-- Chat panel styles (keeps index.html styles.css clean) -->
-    <style>
-        /* AI CHAT PANEL */
-        .ai-chat-trigger {
-            position: fixed;
-            bottom: 110px;
-            left: 28px;
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--gold), var(--emerald));
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            cursor: pointer;
-            z-index: 998;
-            box-shadow: 0 6px 20px rgba(255,215,0,0.35);
-            transition: transform 0.2s;
-        }
-
-        .ai-chat-trigger:hover { transform: scale(1.1); }
-
-        .ai-chat-panel {
-            position: fixed;
-            bottom: 180px;
-            left: 28px;
-            width: 330px;
-            height: 460px;
-            background: var(--card);
-            border: 1px solid var(--gold);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            z-index: 999;
-            overflow: hidden;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-            transform: translateY(16px) scale(0.96);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.25s ease;
-        }
-
-        .ai-chat-panel.open {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .ai-chat-header {
-            background: linear-gradient(135deg, var(--gold), var(--emerald));
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .ai-chat-messages {
-            flex: 1;
-            padding: 14px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .ai-chat-messages::-webkit-scrollbar { width: 4px; }
-        .ai-chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-
-        .chat-msg {
-            max-width: 85%;
-            padding: 10px 14px;
-            border-radius: 16px;
-            font-size: 0.88rem;
-            line-height: 1.5;
-        }
-
-        .chat-msg.bot {
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            border-bottom-left-radius: 4px;
-            align-self: flex-start;
-            color: var(--text);
-        }
-
-        .chat-msg.user {
-            background: var(--emerald);
-            color: white;
-            border-bottom-right-radius: 4px;
-            align-self: flex-end;
-        }
-
-        .ai-quick-btns {
-            padding: 8px 12px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            border-top: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-
-        .ai-quick-btns button {
-            padding: 5px 10px;
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            color: var(--muted);
-            font-size: 0.75rem;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.2s;
-        }
-
-        .ai-quick-btns button:hover { border-color: var(--gold); color: var(--gold); }
-
-        .ai-chat-input-row {
-            padding: 12px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-
-        .ai-chat-input-row input {
-            flex: 1;
-            padding: 10px 14px;
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.88rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .ai-chat-input-row input:focus { border-color: var(--gold); }
-
-        .ai-chat-input-row button {
-            width: 44px;
-            height: 44px;
-            background: var(--gold);
-            color: #0a0a0a;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.2s;
-            flex-shrink: 0;
-        }
-
-        .ai-chat-input-row button:hover { background: var(--gold-dim); }
-
-        /* SCROLL TO TOP */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            left: 28px;
-            width: 44px;
-            height: 44px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 997;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .scroll-top.show { opacity: 1; pointer-events: all; }
-        .scroll-top:hover { border-color: var(--gold); color: var(--gold); }
-
-        @media (max-width: 600px) {
-            .ai-chat-panel { width: calc(100vw - 40px); left: 20px; bottom: 160px; }
-            .ai-chat-trigger { bottom: 100px; left: 20px; }
-            .scroll-top { bottom: 20px; left: 20px; }
-        }
-    </style>
+    const toggleChat=()=>{chatOpen=!chatOpen;panel.classList.toggle('open',chatOpen);if(chatOpen&&!chatInited){chatInited=true;botMsg("👋 Hi! I'm Rentech AI. Ask me about any area, budget, or property type in Nairobi!");}};
+    document.getElementById('chat-trigger').addEventListener('click',toggleChat);
+    document.getElementById('chat-close').addEventListener('click',toggleChat);
+    document.getElementById('chat-send').addEventListener('click',sendChat);
+    document.getElementById('chat-in').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat();});
+});
+</script>
 </body>
 </html>
