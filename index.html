@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rentech Properties | AI-Verified Rentals in Nairobi</title>
     
-    <!-- Fonts -->
+    <!-- Fonts - Playfair Display & Outfit + Syne & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rentech-properties.vercel.app/">
     <meta property="og:title" content="Rentech Properties | AI-Verified Rentals in Nairobi">
@@ -20,10 +21,11 @@
     <meta property="og:image" content="https://rentech-properties.vercel.app/assets/logo.png">
     <meta name="theme-color" content="#10B981">
     
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- LOADER -->
+    <!-- LOADER ANIMATION -->
     <div id="loader">
         <div class="loader-logo-wrap">
             <div class="loader-logo-icon">RT</div>
@@ -55,7 +57,7 @@
             </div>
             
             <div class="nav-right">
-                <button class="theme-toggle" id="theme-btn">🌙</button>
+                <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
                 <a href="list-property.html" class="btn btn-primary">List Property Free</a>
                 <div class="hamburger" id="ham">
                     <span></span>
@@ -76,107 +78,37 @@
         <a href="list-property.html" class="btn btn-primary">List Property Free</a>
     </div>
 
-    <!-- ========================================== -->
-    <!-- HERO SECTION - AMAZING DESIGN -->
-    <!-- ========================================== -->
+    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-glow"></div>
         
         <div class="container">
-            <!-- Premium Badge -->
+            <!-- Main Badge -->
             <div class="hero-badge reveal">
                 <span class="pulse-dot"></span>
-                <span>🇰🇪 Nairobi's #1 Verified Platform</span>
+                <span>AI-Verified Since 2025 🛡️</span>
             </div>
             
-            <!-- Two Column Layout -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; text-align: left;">
-                
-                <!-- Left Column - Text -->
-                <div>
-                    <h1 class="hero-headline reveal" style="text-align: left;">
-                        <span class="line">Find Your</span>
-                        <span class="line gradient-text">Dream Home</span>
-                        <span class="line">in Nairobi</span>
-                    </h1>
-                    
-                    <p class="hero-subtitle reveal" style="text-align: left; margin-left: 0;">
-                        Join thousands of happy tenants who found their perfect home through Rentech. No scams. No agents. Just real, verified properties.
-                    </p>
-                    
-                    <!-- Feature Pills -->
-                    <div class="reveal" style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px;">
-                        <span style="background: var(--gold-dim); padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; border: 1px solid var(--gold);">✅ 500+ Verified</span>
-                        <span style="background: var(--emerald-dim); padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; border: 1px solid var(--emerald);">🤖 AI Powered</span>
-                        <span style="background: var(--gold-dim); padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; border: 1px solid var(--gold);">💬 Direct WhatsApp</span>
-                    </div>
-                    
-                    <!-- CTA Buttons -->
-                    <div class="hero-ctas reveal" style="justify-content: flex-start;">
-                        <a href="#browse" class="btn btn-primary" style="padding: 16px 32px;">🔍 Start Searching</a>
-                        <a href="list-property.html" class="btn btn-outline" style="padding: 16px 32px;">📋 List Your Property</a>
-                    </div>
-                    
-                    <!-- Stats Row -->
-                    <div class="reveal" style="display: flex; gap: 30px; margin-top: 40px;">
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 800; color: var(--gold);">500+</div>
-                            <div style="color: var(--dim);">Properties</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 800; color: var(--gold);">98%</div>
-                            <div style="color: var(--dim);">Happy Tenants</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 800; color: var(--gold);">24hr</div>
-                            <div style="color: var(--dim);">Response</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Column - Visual -->
-                <div class="reveal" style="position: relative;">
-                    <div style="background: linear-gradient(135deg, var(--emerald-dim), var(--gold-dim)); border-radius: 30px; padding: 30px; border: 1px solid var(--gold); position: relative; overflow: hidden;">
-                        
-                        <!-- Decorative circles -->
-                        <div style="position: absolute; top: -20px; right: -20px; width: 150px; height: 150px; background: var(--gold); border-radius: 50%; opacity: 0.1;"></div>
-                        <div style="position: absolute; bottom: -20px; left: -20px; width: 150px; height: 150px; background: var(--emerald); border-radius: 50%; opacity: 0.1;"></div>
-                        
-                        <!-- Property Card Mockup -->
-                        <div style="background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid var(--border);">
-                            <div style="height: 180px; background: linear-gradient(135deg, var(--navy), var(--emerald)); position: relative;">
-                                <div style="position: absolute; top: 15px; left: 15px; background: var(--gold); color: black; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 600;">⭐ FEATURED</div>
-                                <div style="position: absolute; bottom: 15px; left: 15px; color: white; font-size: 2rem;">🏡</div>
-                            </div>
-                            <div style="padding: 20px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <span style="color: var(--dim);">📍 Kilimani</span>
-                                    <span style="color: var(--gold);">✓ Verified</span>
-                                </div>
-                                <h4 style="margin-bottom: 5px;">Modern 2BR Apartment</h4>
-                                <div style="font-size: 1.3rem; font-weight: 700; color: var(--emerald); margin-bottom: 10px;">KSh 65,000<span style="font-size: 0.9rem; color: var(--dim);">/month</span></div>
-                                <div style="display: flex; gap: 15px; color: var(--dim);">
-                                    <span>🛏️ 2 Beds</span>
-                                    <span>🚿 1 Bath</span>
-                                    <span>📐 85m²</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Floating badges -->
-                        <div style="position: absolute; top: 10%; right: -10px; background: var(--emerald); color: white; padding: 8px 15px; border-radius: 50px; font-size: 0.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                            ⚡ Available Now
-                        </div>
-                        <div style="position: absolute; bottom: 20%; left: -10px; background: var(--gold); color: black; padding: 8px 15px; border-radius: 50px; font-size: 0.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                            🤖 AI Matched
-                        </div>
-                    </div>
-                </div>
+            <!-- Main Headline -->
+            <h1 class="hero-headline reveal">
+                <span class="line">Find Verified Rental Homes</span>
+                <span class="line line-2">in Nairobi — Fast</span>
+            </h1>
+            
+            <!-- Subtext -->
+            <p class="hero-subtitle reveal">
+                Rentech connects serious tenants with verified landlords. No scams. No agents. Just real homes.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="hero-ctas reveal">
+                <a href="properties.html" class="btn btn-primary">Browse Homes</a>
+                <a href="list-property.html" class="btn btn-outline">List Your Property</a>
             </div>
         </div>
     </section>
 
-    <!-- TICKER -->
+    <!-- TICKER - Moving Text -->
     <div class="ticker-wrap">
         <div class="ticker-inner">
             <span class="ticker-item">GOVERNMENT TENDERS <span class="ticker-dot">✦</span></span>
@@ -186,6 +118,7 @@
             <span class="ticker-item">INVESTMENT <span class="ticker-dot">✦</span></span>
             <span class="ticker-item">CONSTRUCTION <span class="ticker-dot">✦</span></span>
             <span class="ticker-item">TENANT SOURCING <span class="ticker-dot">✦</span></span>
+            <!-- Duplicate for seamless loop -->
             <span class="ticker-item">GOVERNMENT TENDERS <span class="ticker-dot">✦</span></span>
             <span class="ticker-item">NGO PROCUREMENT <span class="ticker-dot">✦</span></span>
         </div>
@@ -215,7 +148,7 @@
         </div>
     </div>
 
-    <!-- Why Choose Us Section -->
+    <!-- Sections Grid - For Tenants, For Landlords, Why Rentech -->
     <section class="section" id="browse">
         <div class="container">
             <div class="section-header">
@@ -265,7 +198,7 @@
         </div>
     </section>
 
-    <!-- Featured Properties -->
+    <!-- Property Listings -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -556,9 +489,10 @@
     <footer class="modern-footer">
         <div class="footer-main">
             <div class="footer-grid">
+                <!-- Brand Column -->
                 <div class="footer-col footer-brand-col">
                     <div class="footer-logo-wrapper">
-                        <img src="assets/logo.png" alt="Rentech Logo" style="height: 45px; width: auto;">
+                        <div class="footer-logo-icon">RT</div>
                         <div class="footer-logo-text">
                             <span class="footer-logo-rentech">RENTECH</span>
                             <span class="footer-logo-properties">PROPERTIES</span>
@@ -566,13 +500,14 @@
                     </div>
                     <p>Nairobi's trusted property marketplace. Verified listings, serious tenants, zero scams.</p>
                     <div class="footer-social">
-                        <a href="https://wa.me/254723783337"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/254723783337" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
+                <!-- Quick Links -->
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
@@ -584,6 +519,7 @@
                     </ul>
                 </div>
                 
+                <!-- Areas -->
                 <div class="footer-col">
                     <h4>Popular Areas</h4>
                     <ul>
@@ -595,6 +531,7 @@
                     </ul>
                 </div>
                 
+                <!-- Contact -->
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <div class="footer-contact-item">
@@ -607,7 +544,7 @@
                     </div>
                     <div class="footer-contact-item">
                         <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/254723783337">WhatsApp</a>
+                        <a href="https://wa.me/254723783337" target="_blank">WhatsApp Us</a>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -634,17 +571,19 @@
     </a>
     
     <div class="ai-chat-trigger" onclick="toggleChat()">
-        <div class="ai-chat-btn">🤖</div>
+        <div class="ai-chat-btn">
+            <i class="fas fa-robot"></i>
+        </div>
         <span class="ai-chat-lbl">AI Assistant</span>
     </div>
     
     <div class="ai-chat-panel" id="chatPanel">
         <div class="ai-chat-header">
             <div>
-                <h4>🤖 Rentech Assistant</h4>
+                <h4><i class="fas fa-magic" style="margin-right: 8px;"></i> Rentech Assistant</h4>
                 <p>Ask about properties in Nairobi</p>
             </div>
-            <button class="ai-chat-close" onclick="toggleChat()">✕</button>
+            <button class="ai-chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
         </div>
         
         <div class="ai-chat-messages" id="chatBody">
@@ -663,15 +602,227 @@
         
         <div class="ai-chat-input-area">
             <input type="text" class="ai-chat-input" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')sendChat()">
-            <button class="ai-chat-send" onclick="sendChat()">📤</button>
+            <button class="ai-chat-send" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
     
     <button class="scroll-top" id="stbtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
-    <script src="js/script.js"></script>
-    <script src="js/properties.js"></script>
-    <script src="js/ai-chat.js"></script>
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // ---------- PROPERTIES DATA ----------
+        const PROPS = [
+            {id:1, title:"Modern Apartment", area:"Kilimani", price:45000, beds:2, baths:1, size:85, type:"2BR", furnished:true, badge:"Featured", 
+             img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80"},
+            {id:2, title:"Executive Studio", area:"Westlands", price:35000, beds:1, baths:1, size:45, type:"Studio", furnished:true, badge:"New", 
+             img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80"},
+            {id:3, title:"Affordable Bedsitter", area:"Kasarani", price:12000, beds:1, baths:1, size:25, type:"Bedsitter", furnished:false, badge:"", 
+             img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80"},
+            {id:4, title:"Family Home", area:"Lang'ata", price:85000, beds:3, baths:2, size:140, type:"Maisonette", furnished:false, badge:"Featured", 
+             img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"},
+            {id:5, title:"1BR Apartment", area:"South B", price:28000, beds:1, baths:1, size:55, type:"1BR", furnished:false, badge:"New", 
+             img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80"},
+            {id:6, title:"Luxury Studio", area:"Lavington", price:55000, beds:1, baths:1, size:50, type:"Studio", furnished:true, badge:"", 
+             img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=600&q=80"}
+        ];
+
+        function formatKSh(n) {
+            return `KSh ${Number(n).toLocaleString('en-KE')}`;
+        }
+
+        function buildCard(p) {
+            const msg = `Hi! I'm interested in ${p.title} in ${p.area} at ${formatKSh(p.price)}/month. Is it still available?`;
+            
+            return `
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="${p.img}" alt="${p.title}" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge verified">✓ Verified</span>
+                            ${p.badge === 'Featured' ? '<span class="badge featured">⭐ Featured</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-location">📍 ${p.area}</div>
+                        <h3 class="property-title">${p.title}</h3>
+                        <div class="property-price">${formatKSh(p.price)}<em>/month</em></div>
+                        <div class="property-specs">
+                            <span>🛏️ ${p.beds} Bed${p.beds > 1 ? 's' : ''}</span>
+                            <span>🚿 ${p.baths} Bath</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-detail.html?id=${p.id}" class="btn-details">View Details</a>
+                            <a href="https://wa.me/254723783337?text=${encodeURIComponent(msg)}" target="_blank" class="btn-wa">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGrid() {
+            const el = document.getElementById('prop-grid');
+            if (el) {
+                el.innerHTML = PROPS.map(p => buildCard(p)).join('');
+            }
+        }
+
+        // AI Match Button
+        document.getElementById('ai-match-btn')?.addEventListener('click', function() {
+            const budget = document.getElementById('match-budget')?.value || 'Not specified';
+            const area = document.getElementById('match-area')?.value || 'Any';
+            const beds = document.getElementById('match-beds')?.value || 'Any';
+            const moveIn = document.getElementById('match-movein')?.value || 'Anytime';
+            
+            const message = `*NEW AI MATCH REQUEST* 🤖%0A%0A📍 *Area:* ${area}%0A💰 *Budget:* ${budget}%0A🛏️ *Beds:* ${beds}%0A📅 *Move-in:* ${moveIn}%0A%0APlease send me matching properties!`;
+            
+            window.open(`https://wa.me/254723783337?text=${message}`, '_blank');
+        });
+
+        // FAQ Toggle
+        function toggleFaq(header) {
+            const item = header.closest('.faq-item');
+            const body = item.querySelector('.faq-body');
+            const icon = header.querySelector('.faq-icon');
+            const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+            
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.faq-body').style.maxHeight = '0';
+                    otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            if (isOpen) {
+                body.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+            }
+        }
+
+        // Scroll Effects
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            }
+            
+            const stbtn = document.getElementById('stbtn');
+            if (stbtn) {
+                if (window.scrollY > 300) stbtn.classList.add('visible');
+                else stbtn.classList.remove('visible');
+            }
+        });
+
+        // Hamburger Menu
+        const ham = document.getElementById('ham');
+        const mob = document.getElementById('mob-menu');
+        ham?.addEventListener('click', () => {
+            const open = mob.classList.toggle('open');
+            if (open) {
+                ham.children[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+                ham.children[1].style.opacity = '0';
+                ham.children[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+            } else {
+                ham.children[0].style.transform = '';
+                ham.children[1].style.opacity = '';
+                ham.children[2].style.transform = '';
+            }
+        });
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-btn');
+        function applyTheme(theme) {
+            document.documentElement.classList.toggle('light-mode', theme === 'light');
+            themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('rt_theme', theme);
+        }
+        
+        themeBtn?.addEventListener('click', () => {
+            const current = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+        
+        const savedTheme = localStorage.getItem('rt_theme') || 'dark';
+        applyTheme(savedTheme);
+
+        // LOADER
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                loader.classList.add('gone');
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 800);
+            }, 2800);
+        });
+
+        // CHATBOT FUNCTIONS
+        function toggleChat() {
+            document.getElementById('chatPanel').classList.toggle('open');
+        }
+
+        const chatAnswers = {
+            properties: "We have properties across Nairobi:\n• Kilimani: 2BR from 65K\n• Westlands: Studios from 35K\n• Kasarani: Bedsitters from 12K\n• Karen: Luxury homes from 75K\n\nWhich area interests you?",
+            areas: "We cover all Nairobi:\n📍 Kilimani • Westlands • Kasarani\n📍 South B/C • Lang'ata • Lavington\n📍 Karen • Eastleigh • Embakasi\n📍 Ruaka • Parklands • Runda",
+            contact: "📞 +254 723 783 337\n📧 rentechproperties.ke@gmail.com\n💬 WhatsApp: wa.me/254723783337\n📍 Nairobi City, Kenya",
+            list: "To list your property:\n1. Click 'List Property Free'\n2. Fill the 4-step form\n3. Get verified in 24hrs\n4. Receive qualified tenants\n\nZero upfront cost! Only 5% on move-in."
+        };
+
+        function chatAnswer(type) {
+            const chatBody = document.getElementById('chatBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'ai-message bot';
+            msgDiv.innerHTML = '<strong>Assistant</strong><br>' + (chatAnswers[type] || "How can I help you?");
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendChat() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            if (!msg) return;
+            
+            const chatBody = document.getElementById('chatBody');
+            
+            const userDiv = document.createElement('div');
+            userDiv.className = 'ai-message user';
+            userDiv.textContent = msg;
+            chatBody.appendChild(userDiv);
+            input.value = '';
+            
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'ai-message bot';
+                let response = "Thanks for your message! Our team will respond shortly. For urgent help, WhatsApp +254 723 783 337";
+                
+                const lowerMsg = msg.toLowerCase();
+                if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
+                    response = "Hello! 👋 Welcome to Rentech Properties. Looking for a home or want to list your property?";
+                } else if (lowerMsg.includes('price') || lowerMsg.includes('cost')) {
+                    response = "Our properties range from KSh 8,000 (bedsitters) to KSh 180,000+ (luxury homes).";
+                } else if (lowerMsg.includes('kilimani') || lowerMsg.includes('westlands')) {
+                    response = "We have several properties in that area! Visit rentech.co.ke/properties.html to see available listings.";
+                }
+                
+                botDiv.innerHTML = '<strong>Assistant</strong><br>' + response;
+                chatBody.appendChild(botDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 800);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGrid();
+        });
+
+        // Make functions global
+        window.toggleChat = toggleChat;
+        window.chatAnswer = chatAnswer;
+        window.sendChat = sendChat;
+        window.toggleFaq = toggleFaq;
+    </script>
 </body>
 </html>
