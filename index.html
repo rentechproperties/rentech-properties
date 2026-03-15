@@ -3,86 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rentech Properties | AI-Verified Rentals in Nairobi – No Scams, No Agents</title>
-<meta name="description" content="Find verified rental homes in Nairobi. Kilimani, Westlands, Kasarani, Karen & more. Direct WhatsApp with landlords. No scams, no agents, 100% free for tenants.">
-<meta name="keywords" content="apartments Nairobi, rentals Kilimani, apartments Westlands, bedsitters Kasarani, houses Karen, rental Nairobi">
+<title>Rentech Properties | Verified Rentals in Nairobi – No Scams, No Agents</title>
+<meta name="description" content="Find verified rental homes in Nairobi. Kilimani, Westlands, Kasarani, Karen & more. Direct WhatsApp with landlords. No agents, no scams. 100% free for tenants.">
+<meta name="keywords" content="apartments Nairobi, rentals Kilimani, apartments Westlands, bedsitters Kasarani, houses Karen Nairobi, rental Nairobi no agent">
 <link rel="icon" href="favicon-32x32.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-/* ═══════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════ */
+/* ═══ HERO ═══════════════════════════════ */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(255,215,0,.09) 0,transparent 60%),radial-gradient(ellipse 60% 50% at 20% 70%,rgba(16,185,129,.07) 0,transparent 55%),var(--bg);z-index:0;}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000,transparent);z-index:0;}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.16;animation:orb-float 9s ease-in-out infinite;z-index:0;pointer-events:none;}
-.orb1{width:520px;height:520px;background:var(--gold);top:-120px;right:-100px;animation-delay:0s;}
-.orb2{width:380px;height:380px;background:var(--emerald);bottom:-80px;left:-80px;animation-delay:-3.5s;}
-.orb3{width:260px;height:260px;background:var(--gold);top:55%;left:42%;animation-delay:-6s;}
-@keyframes orb-float{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-28px) scale(1.04);}}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(255,215,0,.09),transparent 60%),radial-gradient(ellipse 60% 50% at 20% 70%,rgba(16,185,129,.07),transparent 55%),var(--bg);z-index:0;}
+.hero-grid-pat{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000,transparent);z-index:0;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;animation:ofloat 9s ease-in-out infinite;z-index:0;pointer-events:none;}
+.o1{width:500px;height:500px;background:var(--gold);top:-120px;right:-80px;}
+.o2{width:360px;height:360px;background:var(--emerald);bottom:-80px;left:-60px;animation-delay:-3.5s;}
+.o3{width:240px;height:240px;background:var(--gold);top:55%;left:42%;animation-delay:-6s;}
+@keyframes ofloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-28px) scale(1.04);}}
 .hero-inner{position:relative;z-index:2;width:100%;}
-.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:64px 0 80px;}
+.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:64px 0 80px;}
+
+/* Hero left */
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);border-radius:100px;padding:7px 18px;font-size:.78rem;font-weight:700;color:var(--gold);margin-bottom:28px;letter-spacing:.05em;}
-.hero-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:dot-pulse 2s ease-in-out infinite;}
-@keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.65);}}
+.hdot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:hdp 2s ease-in-out infinite;}
+@keyframes hdp{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.6);}}
 .hero-h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:800;line-height:1.06;margin-bottom:24px;letter-spacing:-.025em;}
-.hero-h1 .g{color:var(--gold);display:block;}
-.hero-h1 .e{color:var(--emerald);display:block;}
-.hero-sub{font-size:1.07rem;color:var(--muted);line-height:1.72;margin-bottom:36px;max-width:480px;}
+.hero-h1 .hg{color:var(--gold);display:block;}
+.hero-h1 .he{color:var(--emerald);display:block;}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.72;margin-bottom:36px;max-width:480px;}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
 .btn-hp{padding:15px 32px;background:var(--gold);color:#0a0a0a;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s;box-shadow:0 8px 24px rgba(255,215,0,.3);}
 .btn-hp:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(255,215,0,.45);}
 .btn-hs{padding:15px 32px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.98rem;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s;}
 .btn-hs:hover{border-color:var(--gold);color:var(--gold);}
 .hero-trust{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
-.trust-avs{display:flex;}
-.trust-av{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:.95rem;margin-left:-10px;}
-.trust-av:first-child{margin-left:0;}
-.trust-txt{font-size:.8rem;color:var(--muted);line-height:1.55;}
-.trust-txt strong{color:var(--text);font-weight:600;}
+.t-avs{display:flex;}
+.t-av{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:.95rem;margin-left:-10px;}
+.t-av:first-child{margin-left:0;}
+.t-txt{font-size:.8rem;color:var(--muted);line-height:1.55;}
+.t-txt strong{color:var(--text);font-weight:600;}
 
-/* Search Card */
-.search-card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:32px;width:100%;max-width:430px;box-shadow:0 24px 60px rgba(0,0,0,.28);position:relative;}
-.search-card::before{content:'';position:absolute;top:-1px;left:40px;right:40px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:100px;}
-.sc-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
-.sc-field{margin-bottom:13px;}
-.sc-field label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px;}
-.sc-field select,.sc-field input{width:100%;padding:11px 13px;background:var(--bg-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;box-sizing:border-box;}
-.sc-field select:focus,.sc-field input:focus{border-color:var(--gold);}
+/* Search card */
+.sc{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:32px;width:100%;max-width:430px;box-shadow:0 24px 60px rgba(0,0,0,.3);position:relative;}
+.sc::before{content:'';position:absolute;top:-1px;left:40px;right:40px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.sc-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:20px;}
+.sc-f{margin-bottom:13px;}
+.sc-f label{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px;}
+.sc-f select,.sc-f input{width:100%;padding:11px 13px;background:var(--bg-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;box-sizing:border-box;}
+.sc-f select:focus,.sc-f input:focus{border-color:var(--gold);}
 .sc-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
 .btn-sc{width:100%;padding:14px;background:var(--gold);color:#0a0a0a;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;cursor:pointer;margin-top:8px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .btn-sc:hover{box-shadow:0 8px 20px rgba(255,215,0,.35);transform:translateY(-1px);}
-.sc-note{text-align:center;margin-top:11px;font-size:.75rem;color:var(--muted);}
+.sc-note{text-align:center;margin-top:11px;font-size:.74rem;color:var(--muted);}
 
-/* Stats Strip */
-.stats-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card);padding:28px 0;}
+/* ═══ STATS STRIP ═══ */
+.stats-strip{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 0;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
 .stat-item{text-align:center;padding:0 20px;border-right:1px solid var(--border);}
 .stat-item:last-child{border-right:none;}
 .stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:5px;}
-.stat-lbl{font-size:.8rem;color:var(--muted);}
+.stat-lbl{font-size:.78rem;color:var(--muted);}
 
-/* Sections */
+/* ═══ SECTION BASE ═══ */
 .sec{padding:96px 0;}
 .sec-alt{padding:96px 0;background:var(--bg-2);}
 .sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:14px;}
 .sec-tag::before{content:'';width:18px;height:2px;background:var(--gold);border-radius:1px;}
 .sec-h{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.12;margin-bottom:14px;}
 .sec-h span{color:var(--gold);}
-.sec-p{color:var(--muted);font-size:.97rem;line-height:1.72;max-width:560px;margin-bottom:52px;}
+.sec-p{color:var(--muted);font-size:.95rem;line-height:1.72;max-width:560px;margin-bottom:48px;}
 
-/* ─── LISTINGS ─── */
-.listings-tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;}
-.ltab{padding:9px 20px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.85rem;cursor:pointer;transition:all .2s;}
+/* ═══ LISTINGS ═══ */
+.ltabs{display:flex;gap:7px;margin-bottom:28px;flex-wrap:wrap;}
+.ltab{padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.82rem;cursor:pointer;transition:all .18s;}
 .ltab:hover{border-color:var(--gold);color:var(--gold);}
 .ltab.active{background:var(--gold);border-color:var(--gold);color:#0a0a0a;font-weight:700;}
-.listings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-bottom:48px;}
+.listings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:22px;margin-bottom:44px;}
+
+/* Property card */
 .prop-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:transform .28s,border-color .28s,box-shadow .28s;display:flex;flex-direction:column;}
 .prop-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 12px 36px rgba(255,215,0,.1);}
-.pc-img{position:relative;height:210px;overflow:hidden;flex-shrink:0;}
+.pc-img{position:relative;height:205px;overflow:hidden;flex-shrink:0;}
 .pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s;}
 .prop-card:hover .pc-img img{transform:scale(1.06);}
 .pc-badges{position:absolute;top:11px;left:11px;display:flex;gap:6px;}
@@ -92,30 +94,30 @@
 .bdg-n{background:rgba(99,102,241,.92);color:#fff;}
 .pc-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;}
 .pc-loc{font-size:.78rem;color:var(--muted);margin-bottom:6px;}
-.pc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.08rem;margin-bottom:6px;line-height:1.3;}
-.pc-price{font-family:'Syne',sans-serif;font-weight:800;font-size:1.28rem;color:var(--emerald);margin-bottom:10px;}
-.pc-price em{font-style:normal;font-family:'DM Sans',sans-serif;font-weight:400;font-size:.76rem;color:var(--muted);}
-.pc-specs{display:flex;gap:12px;color:var(--muted);font-size:.8rem;margin-bottom:12px;flex-wrap:wrap;}
-.pc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
-.ptag{font-size:.7rem;padding:3px 9px;background:var(--bg-2);border:1px solid var(--border);border-radius:100px;color:var(--muted);}
+.pc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.07rem;margin-bottom:5px;line-height:1.3;}
+.pc-price{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--emerald);margin-bottom:10px;}
+.pc-price em{font-style:normal;font-family:'DM Sans',sans-serif;font-weight:400;font-size:.75rem;color:var(--muted);}
+.pc-specs{display:flex;gap:12px;color:var(--muted);font-size:.8rem;margin-bottom:11px;flex-wrap:wrap;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:13px;}
+.ptag{font-size:.7rem;padding:2px 8px;background:var(--bg-2);border:1px solid var(--border);border-radius:100px;color:var(--muted);}
 .pc-actions{display:flex;gap:8px;margin-top:auto;}
-.btn-det{flex:1;padding:10px;background:transparent;border:1px solid var(--border);color:var(--text);border-radius:var(--radius);text-decoration:none;font-size:.83rem;text-align:center;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .18s;}
+.btn-det{flex:1;padding:9px;background:transparent;border:1px solid var(--border);color:var(--text);border-radius:var(--radius);text-decoration:none;font-size:.82rem;text-align:center;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .18s;}
 .btn-det:hover{border-color:var(--gold);color:var(--gold);}
-.btn-wa{flex:1;padding:10px;background:#25D366;color:#fff;border:none;border-radius:var(--radius);text-decoration:none;font-size:.83rem;text-align:center;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:5px;}
+.btn-wa{flex:1;padding:9px;background:#25D366;color:#fff;border:none;border-radius:var(--radius);text-decoration:none;font-size:.82rem;text-align:center;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:4px;}
 .btn-wa:hover{background:#128C7E;}
 .view-all{text-align:center;}
 
-/* ─── FEATURES ─── */
+/* ═══ FEATURES ═══ */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .feat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:30px;transition:all .3s;position:relative;overflow:hidden;}
-.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--emerald));transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--emerald));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
 .feat-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 30px rgba(255,215,0,.07);}
 .feat-card:hover::after{transform:scaleX(1);}
 .feat-icon{width:50px;height:50px;border-radius:13px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.2);display:flex;align-items:center;justify-content:center;font-size:1.45rem;margin-bottom:18px;}
 .feat-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:9px;}
 .feat-desc{color:var(--muted);font-size:.87rem;line-height:1.65;}
 
-/* ─── HOW IT WORKS ─── */
+/* ═══ HOW IT WORKS ═══ */
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;}
 .steps-grid::before{content:'';position:absolute;top:36px;left:18%;right:18%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--emerald),transparent);}
 .step-card{text-align:center;padding:0 12px;}
@@ -124,75 +126,87 @@
 .step-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:9px;}
 .step-desc{color:var(--muted);font-size:.87rem;line-height:1.65;}
 
-/* ─── FOR TENANTS ─── */
-.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-.audience-card{border-radius:24px;padding:48px;position:relative;overflow:hidden;}
+/* ═══ AUDIENCE ═══ */
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.aud-card{border-radius:24px;padding:48px;position:relative;overflow:hidden;}
 .aud-tenant{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(16,185,129,.02));border:1px solid rgba(16,185,129,.2);}
 .aud-landlord{background:linear-gradient(135deg,rgba(255,215,0,.08),rgba(255,215,0,.02));border:1px solid rgba(255,215,0,.2);}
 .aud-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:100px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;}
 .aud-tenant .aud-badge{background:rgba(16,185,129,.12);color:var(--emerald);border:1px solid rgba(16,185,129,.25);}
 .aud-landlord .aud-badge{background:rgba(255,215,0,.1);color:var(--gold);border:1px solid rgba(255,215,0,.25);}
-.aud-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:14px;line-height:1.2;}
-.aud-desc{color:var(--muted);font-size:.92rem;line-height:1.7;margin-bottom:24px;}
-.aud-list{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:10px;}
-.aud-list li{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--muted);}
-.aud-list li::before{content:'✓';color:var(--emerald);font-weight:700;flex-shrink:0;}
+.aud-title{font-family:'Syne',sans-serif;font-size:1.55rem;font-weight:800;margin-bottom:13px;line-height:1.2;}
+.aud-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:22px;}
+.aud-list{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:9px;}
+.aud-list li{display:flex;align-items:center;gap:10px;font-size:.87rem;color:var(--muted);}
+.aud-list li::before{content:'✓';font-weight:700;flex-shrink:0;}
+.aud-tenant .aud-list li::before{color:var(--emerald);}
 .aud-landlord .aud-list li::before{color:var(--gold);}
-.btn-tenant{padding:13px 28px;background:var(--emerald);color:#fff;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
-.btn-tenant:hover{background:#059669;transform:translateY(-2px);}
-.btn-landlord{padding:13px 28px;background:var(--gold);color:#0a0a0a;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
-.btn-landlord:hover{box-shadow:0 8px 20px rgba(255,215,0,.35);transform:translateY(-2px);}
-.aud-big-num{position:absolute;bottom:-20px;right:24px;font-family:'Syne',sans-serif;font-size:8rem;font-weight:800;opacity:.05;pointer-events:none;line-height:1;}
+.btn-t{padding:13px 28px;background:var(--emerald);color:#fff;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-t:hover{background:#059669;transform:translateY(-2px);}
+.btn-l{padding:13px 28px;background:var(--gold);color:#0a0a0a;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-l:hover{box-shadow:0 8px 20px rgba(255,215,0,.35);transform:translateY(-2px);}
+.aud-bg-emoji{position:absolute;bottom:-10px;right:20px;font-size:8rem;opacity:.05;pointer-events:none;}
 
-/* ─── TESTIMONIALS ─── */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:border-color .2s,transform .2s;}
+/* ═══ TESTIMONIALS ═══ */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;transition:border-color .2s,transform .2s;}
 .testi-card:hover{border-color:var(--gold);transform:translateY(-3px);}
-.testi-stars{color:var(--gold);font-size:1rem;margin-bottom:14px;letter-spacing:2px;}
-.testi-quote{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:20px;font-style:italic;}
-.testi-quote::before{content:'"';font-family:'Syne',sans-serif;font-size:2rem;color:var(--gold);line-height:0;vertical-align:-.5rem;margin-right:3px;}
-.testi-person{display:flex;align-items:center;gap:12px;}
-.testi-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.testi-stars{color:var(--gold);font-size:.95rem;letter-spacing:2px;margin-bottom:13px;}
+.testi-quote{font-size:.88rem;color:var(--text);line-height:1.72;margin-bottom:18px;font-style:italic;}
+.testi-quote::before{content:'"';font-family:'Syne',sans-serif;font-size:2rem;color:var(--gold);line-height:0;vertical-align:-.5rem;margin-right:2px;}
+.testi-person{display:flex;align-items:center;gap:11px;}
+.testi-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
 .tav-t{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.2);}
 .tav-l{background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.2);}
-.testi-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;}
-.testi-role{font-size:.75rem;color:var(--muted);}
-.testi-tag{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:100px;font-size:.65rem;font-weight:700;margin-left:auto;}
+.testi-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;}
+.testi-role{font-size:.73rem;color:var(--muted);}
+.testi-tag{margin-left:auto;padding:2px 9px;border-radius:100px;font-size:.64rem;font-weight:700;}
 .ttag-t{background:rgba(16,185,129,.12);color:var(--emerald);border:1px solid rgba(16,185,129,.2);}
 .ttag-l{background:rgba(255,215,0,.1);color:var(--gold);border:1px solid rgba(255,215,0,.2);}
 
-/* ─── AREAS ─── */
-.areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;}
-.area-chip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:15px 18px;text-decoration:none;color:var(--text);display:flex;justify-content:space-between;align-items:center;font-size:.88rem;font-weight:500;transition:all .2s;}
+/* ═══ AREAS ═══ */
+.areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.area-chip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;text-decoration:none;color:var(--text);display:flex;justify-content:space-between;align-items:center;font-size:.87rem;font-weight:500;transition:all .2s;}
 .area-chip:hover{border-color:var(--gold);color:var(--gold);background:rgba(255,215,0,.04);}
-.area-count{font-size:.72rem;color:var(--muted);background:var(--bg-2);padding:2px 8px;border-radius:100px;}
+.acnt{font-size:.7rem;color:var(--muted);background:var(--bg-2);padding:2px 8px;border-radius:100px;}
 
-/* ─── TRUST ─── */
-.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-.trust-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
-.trust-card:hover{border-color:var(--gold);}
-.trust-ico{width:46px;height:46px;flex-shrink:0;border-radius:11px;background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.18);display:flex;align-items:center;justify-content:center;font-size:1.25rem;}
-.trust-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.97rem;margin-bottom:5px;}
-.trust-desc{color:var(--muted);font-size:.85rem;line-height:1.6;}
+/* ═══ PRICING / PLANS ═══ */
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.plan-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;position:relative;transition:all .3s;}
+.plan-card.featured-plan{border-color:var(--gold);box-shadow:0 0 40px rgba(255,215,0,.1);}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0a0a0a;padding:4px 18px;border-radius:100px;font-size:.72rem;font-weight:700;white-space:nowrap;}
+.plan-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
+.plan-price{font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;margin-bottom:4px;}
+.plan-price span{font-size:.9rem;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--muted);}
+.plan-desc{font-size:.82rem;color:var(--muted);margin-bottom:22px;line-height:1.55;}
+.plan-features{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:9px;}
+.plan-features li{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:9px;}
+.plan-features li .pf-yes{color:var(--emerald);}
+.plan-features li .pf-no{color:var(--border);}
+.btn-plan{width:100%;padding:13px;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;display:block;transition:all .2s;}
+.btn-plan-free{background:transparent;border:1px solid var(--border);color:var(--text);}
+.btn-plan-free:hover{border-color:var(--gold);color:var(--gold);}
+.btn-plan-paid{background:var(--gold);border:none;color:#0a0a0a;}
+.btn-plan-paid:hover{box-shadow:0 8px 20px rgba(255,215,0,.35);transform:translateY(-1px);}
 
-/* ─── FAQ ─── */
+/* ═══ FAQ ═══ */
 .faq-wrap{max-width:760px;margin:0 auto;}
 .faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px;transition:border-color .2s;}
 .faq-item.open{border-color:var(--gold);}
-.faq-q{padding:19px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:.93rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;}
+.faq-q{padding:19px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;}
 .faq-ico{color:var(--gold);font-size:1.3rem;flex-shrink:0;transition:transform .25s;}
 .faq-item.open .faq-ico{transform:rotate(45deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.faq-body{padding:0 22px 18px;color:var(--muted);font-size:.88rem;line-height:1.7;border-top:1px solid var(--border);padding-top:14px;}
+.faq-body{padding:0 22px 18px;color:var(--muted);font-size:.87rem;line-height:1.7;border-top:1px solid var(--border);padding-top:14px;}
 
-/* ─── CTA BANNER ─── */
+/* ═══ CTA BANNER ═══ */
 .cta-banner{background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(16,185,129,.07));border:1px solid rgba(255,215,0,.18);border-radius:24px;padding:72px 56px;text-align:center;}
 .cta-banner h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;margin-bottom:14px;}
 .cta-banner h2 span{color:var(--gold);}
 .cta-banner p{color:var(--muted);font-size:.97rem;margin-bottom:34px;max-width:480px;margin-left:auto;margin-right:auto;}
 .cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
 
-/* ─── AI CHAT ─── */
+/* ═══ CHAT ═══ */
 .chat-trigger{position:fixed;bottom:108px;left:28px;width:54px;height:54px;background:linear-gradient(135deg,var(--gold),var(--emerald));border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;z-index:900;box-shadow:0 6px 20px rgba(255,215,0,.3);transition:transform .2s;}
 .chat-trigger:hover{transform:scale(1.1);}
 .chat-panel{position:fixed;bottom:174px;left:28px;width:320px;height:440px;background:var(--card);border:1px solid var(--gold);border-radius:18px;display:flex;flex-direction:column;z-index:901;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.4);transform:translateY(14px) scale(.97);opacity:0;pointer-events:none;transition:all .22s ease;}
@@ -220,25 +234,28 @@
 #stbtn.show{opacity:1;pointer-events:all;}
 #stbtn:hover{border-color:var(--gold);color:var(--gold);}
 
-/* ─── RESPONSIVE ─── */
+/* ═══ RESPONSIVE ═══ */
 @media(max-width:1024px){
   .hero-content{grid-template-columns:1fr;gap:40px;}
   .feat-grid{grid-template-columns:repeat(2,1fr);}
   .areas-grid{grid-template-columns:repeat(3,1fr);}
   .audience-grid{grid-template-columns:1fr;}
+  .plans-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr 1fr;}
   .steps-grid::before{display:none;}
 }
 @media(max-width:768px){
   .stats-grid{grid-template-columns:repeat(2,1fr);}
   .stat-item:nth-child(2){border-right:none;}
-  .feat-grid,.trust-grid,.testi-grid{grid-template-columns:1fr;}
-  .steps-grid{grid-template-columns:1fr;}
+  .feat-grid,.testi-grid,.steps-grid{grid-template-columns:1fr;}
   .areas-grid{grid-template-columns:repeat(2,1fr);}
   .cta-banner{padding:44px 24px;}
-  .audience-card{padding:32px 24px;}
+  .aud-card{padding:32px 24px;}
+  .sc-row{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
-  .hero-h1{font-size:2.3rem;}
+  .hero-h1{font-size:2.4rem;}
+  .areas-grid{grid-template-columns:1fr 1fr;}
   .chat-panel{width:calc(100vw - 36px);left:18px;}
   .chat-trigger{bottom:100px;left:18px;}
   #stbtn{bottom:18px;left:18px;}
@@ -277,40 +294,42 @@
   <a href="list-property.html" class="btn btn-primary" style="margin-top:10px;">List Property Free</a>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- ═══ EPIC HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="hero-grid-pat"></div>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
   <div class="hero-inner container">
     <div class="hero-content">
-      <div class="hero-left">
-        <div class="hero-badge"><span class="hero-dot"></span>Nairobi's #1 Verified Rental Platform</div>
+      <div>
+        <div class="hero-badge"><span class="hdot"></span>Nairobi's #1 Verified Rental Platform</div>
         <h1 class="hero-h1">
           Find Your<br>
-          <span class="g">Perfect Home</span>
-          <span class="e">in Nairobi.</span>
+          <span class="hg">Perfect Home</span>
+          <span class="he">in Nairobi.</span>
         </h1>
-        <p class="hero-sub">RENTECH connects serious tenants with verified landlords across Nairobi. No scam agents, no fake listings — just real homes with direct WhatsApp access to real landlords.</p>
+        <p class="hero-sub">RENTECH connects serious tenants with verified landlords across Nairobi. No scam agents, no fake listings — just real homes and direct WhatsApp access to real landlords.</p>
         <div class="hero-ctas">
           <a href="properties.html" class="btn-hp">🔍 Browse Verified Homes</a>
           <a href="list-property.html" class="btn-hs">📋 List My Property</a>
         </div>
         <div class="hero-trust">
-          <div class="trust-avs">
-            <div class="trust-av">🏠</div><div class="trust-av">👨</div>
-            <div class="trust-av">👩</div><div class="trust-av">🏡</div>
+          <div class="t-avs">
+            <div class="t-av">🏠</div><div class="t-av">👩</div>
+            <div class="t-av">👨</div><div class="t-av">🏡</div>
           </div>
-          <div class="trust-txt">
+          <div class="t-txt">
             <strong>500+ tenants</strong> found their home this month<br>
             ⭐⭐⭐⭐⭐ Trusted by landlords across Nairobi
           </div>
         </div>
       </div>
-      <div class="hero-right">
-        <div class="search-card">
+
+      <!-- Quick Search Card -->
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <div class="sc">
           <div class="sc-title">🔍 Quick Property Search</div>
-          <div class="sc-field">
+          <div class="sc-f">
             <label>📍 Area</label>
             <select id="qs-area">
               <option value="">All Nairobi Areas</option>
@@ -321,16 +340,18 @@
             </select>
           </div>
           <div class="sc-row">
-            <div class="sc-field">
+            <div class="sc-f">
               <label>🏢 Type</label>
               <select id="qs-type">
                 <option value="">Any Type</option>
-                <option value="Bedsitter">Bedsitter</option><option value="Studio">Studio</option>
-                <option value="1BR">1 Bedroom</option><option value="2BR">2 Bedrooms</option>
+                <option value="Bedsitter">Bedsitter</option>
+                <option value="Studio">Studio</option>
+                <option value="1BR">1 Bedroom</option>
+                <option value="2BR">2 Bedrooms</option>
                 <option value="3BR">3BR+</option>
               </select>
             </div>
-            <div class="sc-field">
+            <div class="sc-f">
               <label>💰 Max Budget</label>
               <select id="qs-budget">
                 <option value="">Any Budget</option>
@@ -367,14 +388,14 @@
   <div class="container">
     <div class="sec-tag">Live Listings</div>
     <h2 class="sec-h">Available <span>Verified Homes</span></h2>
-    <p class="sec-p">All properties physically inspected. All landlords ID and title deed verified. Filter by type below.</p>
-    <div class="listings-tabs">
-      <button class="ltab active" data-filter="all">All Types</button>
-      <button class="ltab" data-filter="Bedsitter">Bedsitter</button>
-      <button class="ltab" data-filter="Studio">Studio</button>
-      <button class="ltab" data-filter="1BR">1 Bedroom</button>
-      <button class="ltab" data-filter="2BR">2 Bedrooms</button>
-      <button class="ltab" data-filter="3BR">3BR+</button>
+    <p class="sec-p">Every property physically inspected. Every landlord ID and title deed verified. Filter by type below.</p>
+    <div class="ltabs">
+      <button class="ltab active" data-f="all">All Types</button>
+      <button class="ltab" data-f="Bedsitter">Bedsitter</button>
+      <button class="ltab" data-f="Studio">Studio</button>
+      <button class="ltab" data-f="1BR">1 Bedroom</button>
+      <button class="ltab" data-f="2BR">2 Bedrooms</button>
+      <button class="ltab" data-f="3BR">3BR+</button>
     </div>
     <div class="listings-grid" id="home-grid"></div>
     <div class="view-all">
@@ -388,14 +409,14 @@
   <div class="container">
     <div class="sec-tag">Why Choose Us</div>
     <h2 class="sec-h">Built to Eliminate <span>Rental Scams</span></h2>
-    <p class="sec-p">Nairobi's rental market is flooded with fake agents and fraudulent listings. RENTECH solves this with AI verification, direct landlord contact, and physical property inspection.</p>
+    <p class="sec-p">Nairobi's rental market is full of fake agents and fraudulent listings. RENTECH fixes this with AI verification, direct landlord contact, and physical property inspection.</p>
     <div class="feat-grid">
-      <div class="feat-card"><div class="feat-icon">🛡️</div><div class="feat-title">Verified Landlords</div><div class="feat-desc">Every landlord submits National ID and property title deed. Our team cross-checks and physically inspects before any listing goes live.</div></div>
-      <div class="feat-card"><div class="feat-icon">💬</div><div class="feat-title">Direct WhatsApp</div><div class="feat-desc">Contact landlords directly via WhatsApp — no agent middlemen, no commission, no delays. Real people, real properties, real conversations.</div></div>
-      <div class="feat-card"><div class="feat-icon">🤖</div><div class="feat-title">AI-Powered Matching</div><div class="feat-desc">Our AI matches your budget, preferred area and bedroom count to the best available verified listings across Nairobi instantly.</div></div>
-      <div class="feat-card"><div class="feat-icon">📸</div><div class="feat-title">Real Verified Photos</div><div class="feat-desc">All photos taken during our physical inspection visit. No stock photos, no catfishing. What you see is exactly what you'll get.</div></div>
-      <div class="feat-card"><div class="feat-icon">🚫</div><div class="feat-title">Zero Agent Scams</div><div class="feat-desc">We have absolute zero tolerance for fake agents. Our platform connects tenants and landlords directly — always. No exceptions.</div></div>
-      <div class="feat-card"><div class="feat-icon">📱</div><div class="feat-title">M-Pesa Ready</div><div class="feat-desc">Rent payments via M-Pesa directly between you and your landlord. M-Pesa escrow integration launching soon for added security.</div></div>
+      <div class="feat-card"><div class="feat-icon">🛡️</div><div class="feat-title">Verified Landlords</div><div class="feat-desc">Every landlord submits National ID and property title deed. Our team physically inspects before any listing goes live.</div></div>
+      <div class="feat-card"><div class="feat-icon">💬</div><div class="feat-title">Direct WhatsApp</div><div class="feat-desc">Contact landlords directly via WhatsApp — no agent middlemen, no commission, no delays. Real people, real homes.</div></div>
+      <div class="feat-card"><div class="feat-icon">🤖</div><div class="feat-title">AI-Powered Matching</div><div class="feat-desc">Our AI matches your budget, area and bedroom count to the best available verified listings instantly.</div></div>
+      <div class="feat-card"><div class="feat-icon">📸</div><div class="feat-title">Real Verified Photos</div><div class="feat-desc">All photos taken during our physical inspection visit. No stock photos, no catfishing. What you see is what you get.</div></div>
+      <div class="feat-card"><div class="feat-icon">🚫</div><div class="feat-title">Zero Agent Scams</div><div class="feat-desc">Zero tolerance for fake agents. Tenants and landlords connect directly — always. No exceptions, ever.</div></div>
+      <div class="feat-card"><div class="feat-icon">📱</div><div class="feat-title">M-Pesa Ready</div><div class="feat-desc">Rent via M-Pesa directly between you and your landlord. M-Pesa escrow integration coming soon.</div></div>
     </div>
   </div>
 </section>
@@ -405,19 +426,19 @@
   <div class="container">
     <div class="sec-tag">Simple Process</div>
     <h2 class="sec-h">How <span>RENTECH</span> Works</h2>
-    <p class="sec-p">From search to move-in in 3 simple steps. No agents, no paperwork headaches, no hidden fees ever.</p>
+    <p class="sec-p">From search to move-in in 3 simple steps. No agents, no paperwork headaches, no hidden fees.</p>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">01</div>
         <div class="step-ico">🔍</div>
         <div class="step-title">Search &amp; Filter</div>
-        <div class="step-desc">Browse verified listings across Nairobi. Filter by area, price, type and amenities. Every listing is physically verified before going live.</div>
+        <div class="step-desc">Browse verified listings across Nairobi. Filter by area, price, type and amenities. Every listing is physically verified before it goes live.</div>
       </div>
       <div class="step-card">
         <div class="step-num">02</div>
         <div class="step-ico">💬</div>
         <div class="step-title">WhatsApp Landlord</div>
-        <div class="step-desc">Click WhatsApp to contact the verified landlord directly. No agent involved — ever. Arrange your viewing instantly, on your schedule.</div>
+        <div class="step-desc">Click WhatsApp to contact the verified landlord directly. No agent involved — ever. Arrange your viewing instantly.</div>
       </div>
       <div class="step-card">
         <div class="step-num">03</div>
@@ -434,41 +455,36 @@
   <div class="container">
     <div class="sec-tag">Who We Serve</div>
     <h2 class="sec-h">Built for <span>Both Sides</span></h2>
-    <p class="sec-p">Whether you're searching for your next home or renting out your property — RENTECH makes it safe, fast, and free of middlemen.</p>
+    <p class="sec-p">Whether you're searching for your next home or filling a vacancy — RENTECH makes it safe, fast, and free of middlemen.</p>
     <div class="audience-grid">
-
-      <!-- TENANTS -->
-      <div class="audience-card aud-tenant">
+      <div class="aud-card aud-tenant">
         <div class="aud-badge">🏠 For Tenants</div>
         <h3 class="aud-title">Find Your Home<br>Without the Stress</h3>
-        <p class="aud-desc">Stop losing money to fake agents. Browse 120+ verified homes across Nairobi, contact landlords directly, and move in with confidence.</p>
+        <p class="aud-desc">Stop losing money to fake agents. Browse 120+ verified homes, contact landlords directly, and move in with confidence.</p>
         <ul class="aud-list">
-          <li>Browse verified listings for free — always</li>
-          <li>WhatsApp landlords directly, no middlemen</li>
-          <li>AI-powered matching to your budget &amp; area</li>
+          <li>Browse verified listings — completely free</li>
+          <li>WhatsApp landlords directly, zero middlemen</li>
+          <li>AI matching to your budget and area</li>
           <li>All photos physically verified on-site</li>
-          <li>Secure M-Pesa payment coming soon</li>
+          <li>Save favourites and set new listing alerts</li>
         </ul>
-        <a href="properties.html" class="btn-tenant">🔍 Find My Home →</a>
-        <div class="aud-big-num">🏠</div>
+        <a href="properties.html" class="btn-t">🔍 Find My Home →</a>
+        <div class="aud-bg-emoji">🏠</div>
       </div>
-
-      <!-- LANDLORDS -->
-      <div class="audience-card aud-landlord">
+      <div class="aud-card aud-landlord">
         <div class="aud-badge">🏢 For Landlords</div>
         <h3 class="aud-title">Fill Vacancies<br>Faster. For Free.</h3>
-        <p class="aud-desc">List your property for free and reach thousands of verified, serious tenants across Nairobi. No fake leads, no time-wasters.</p>
+        <p class="aud-desc">List your property free and reach thousands of verified, serious tenants. No fake leads, no time-wasters, no agent fees.</p>
         <ul class="aud-list">
           <li>List your property completely free</li>
           <li>Reach thousands of verified tenants</li>
           <li>AI-generated listing descriptions</li>
-          <li>Tenant screening &amp; verification</li>
-          <li>We only earn on successful move-ins</li>
+          <li>Tenant screening and verification</li>
+          <li>Premium placement available for faster results</li>
         </ul>
-        <a href="list-property.html" class="btn-landlord">📋 List My Property →</a>
-        <div class="aud-big-num">🏢</div>
+        <a href="list-property.html" class="btn-l">📋 List My Property →</a>
+        <div class="aud-bg-emoji">🏢</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -478,87 +494,62 @@
   <div class="container">
     <div class="sec-tag">Real Reviews</div>
     <h2 class="sec-h">What People <span>Are Saying</span></h2>
-    <p class="sec-p">Real stories from real tenants and landlords across Nairobi who found and filled homes through RENTECH.</p>
+    <p class="sec-p">Real stories from real tenants and landlords who found and filled homes through RENTECH.</p>
     <div class="testi-grid">
-
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">I found my 2BR in Kilimani within 3 days. No agent fees, no runaround — I WhatsApp'd the landlord directly and moved in the following week. RENTECH is a game changer.</div>
+        <div class="testi-quote">Found my 2BR in Kilimani in 3 days. No agent fees, no runaround — I WhatsApp'd the landlord directly and moved in the next week. Total game changer.</div>
         <div class="testi-person">
           <div class="testi-av tav-t">👩</div>
-          <div>
-            <div class="testi-name">Amina Odhiambo</div>
-            <div class="testi-role">Tenant · Kilimani</div>
-          </div>
+          <div><div class="testi-name">Amina Odhiambo</div><div class="testi-role">Tenant · Kilimani</div></div>
           <span class="testi-tag ttag-t">✓ Tenant</span>
         </div>
       </div>
-
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">I listed my 3 apartments and had serious tenants contacting me within 48 hours. No fake leads, no time-wasters. All three units filled in under 2 weeks. Incredible.</div>
+        <div class="testi-quote">I listed 3 apartments and had serious tenants contacting me within 48 hours. All three units filled in under 2 weeks. No fake leads, no time-wasters.</div>
         <div class="testi-person">
           <div class="testi-av tav-l">🏢</div>
-          <div>
-            <div class="testi-name">James Mwangi</div>
-            <div class="testi-role">Landlord · Westlands</div>
-          </div>
+          <div><div class="testi-name">James Mwangi</div><div class="testi-role">Landlord · Westlands</div></div>
           <span class="testi-tag ttag-l">✓ Landlord</span>
         </div>
       </div>
-
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">Lost KSh 30,000 to a fake agent last year. With RENTECH I viewed 4 properties, spoke directly to landlords, and moved into my bedsitter in Kasarani in one week. Never again.</div>
+        <div class="testi-quote">Lost KSh 30,000 to a fake agent last year. With RENTECH I spoke directly to landlords and moved into my bedsitter in Kasarani in one week. Never again.</div>
         <div class="testi-person">
           <div class="testi-av tav-t">👨</div>
-          <div>
-            <div class="testi-name">Brian Otieno</div>
-            <div class="testi-role">Tenant · Kasarani</div>
-          </div>
+          <div><div class="testi-name">Brian Otieno</div><div class="testi-role">Tenant · Kasarani</div></div>
           <span class="testi-tag ttag-t">✓ Tenant</span>
         </div>
       </div>
-
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">The verification process gave me real peace of mind as a tenant. I knew the landlord was legitimate before I even viewed the property. That kind of trust is priceless in Nairobi.</div>
+        <div class="testi-quote">The verification process gave me real peace of mind. I knew the landlord was legitimate before I even viewed the property. That trust is priceless in Nairobi.</div>
         <div class="testi-person">
           <div class="testi-av tav-t">👩</div>
-          <div>
-            <div class="testi-name">Grace Wanjiku</div>
-            <div class="testi-role">Tenant · Lavington</div>
-          </div>
+          <div><div class="testi-name">Grace Wanjiku</div><div class="testi-role">Tenant · Lavington</div></div>
           <span class="testi-tag ttag-t">✓ Tenant</span>
         </div>
       </div>
-
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">As a landlord I was tired of agents who collected fees and disappeared. RENTECH listed my Karen home, verified my documents, and brought me 6 genuine tenants in one month.</div>
+        <div class="testi-quote">Tired of agents who collected fees and disappeared. RENTECH listed my Karen home, verified my documents, and brought 6 genuine tenants in one month.</div>
         <div class="testi-person">
           <div class="testi-av tav-l">🏡</div>
-          <div>
-            <div class="testi-name">Margaret Kariuki</div>
-            <div class="testi-role">Landlord · Karen</div>
-          </div>
+          <div><div class="testi-name">Margaret Kariuki</div><div class="testi-role">Landlord · Karen</div></div>
           <span class="testi-tag ttag-l">✓ Landlord</span>
         </div>
       </div>
-
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">Moved from Mombasa to Nairobi and was terrified of rental scams. Found my 1BR in South B through RENTECH — photos were accurate, landlord was genuine. Settled in perfectly.</div>
+        <div class="testi-quote">Moved from Mombasa to Nairobi and was terrified of scams. Found my 1BR in South B through RENTECH — photos were accurate, landlord was genuine. Settled perfectly.</div>
         <div class="testi-person">
           <div class="testi-av tav-t">👨</div>
-          <div>
-            <div class="testi-name">Hassan Abdullahi</div>
-            <div class="testi-role">Tenant · South B</div>
-          </div>
+          <div><div class="testi-name">Hassan Abdullahi</div><div class="testi-role">Tenant · South B</div></div>
           <span class="testi-tag ttag-t">✓ Tenant</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -568,47 +559,104 @@
   <div class="container">
     <div class="sec-tag">Nairobi Areas</div>
     <h2 class="sec-h">Find Homes Across <span>Nairobi</span></h2>
-    <p class="sec-p">We cover 12 areas across Nairobi with verified listings. Click any area to browse available properties.</p>
+    <p class="sec-p">12 verified areas. Click any area to browse available properties — or visit the dedicated area page for detailed guides and listings.</p>
     <div class="areas-grid">
-      <a href="properties.html?area=Kilimani"   class="area-chip">📍 Kilimani    <span class="area-count">18 listings</span></a>
-      <a href="properties.html?area=Westlands"  class="area-chip">📍 Westlands   <span class="area-count">14 listings</span></a>
-      <a href="properties.html?area=Kasarani"   class="area-chip">📍 Kasarani    <span class="area-count">22 listings</span></a>
-      <a href="properties.html?area=South+B"    class="area-chip">📍 South B     <span class="area-count">11 listings</span></a>
-      <a href="properties.html?area=South+C"    class="area-chip">📍 South C     <span class="area-count">9 listings</span></a>
-      <a href="properties.html?area=Karen"      class="area-chip">📍 Karen       <span class="area-count">8 listings</span></a>
-      <a href="properties.html?area=Lavington"  class="area-chip">📍 Lavington   <span class="area-count">7 listings</span></a>
-      <a href="properties.html?area=Kileleshwa" class="area-chip">📍 Kileleshwa  <span class="area-count">10 listings</span></a>
-      <a href="properties.html?area=Eastleigh"  class="area-chip">📍 Eastleigh   <span class="area-count">16 listings</span></a>
-      <a href="properties.html?area=Lang'ata"   class="area-chip">📍 Lang'ata    <span class="area-count">6 listings</span></a>
-      <a href="properties.html?area=Parklands"  class="area-chip">📍 Parklands   <span class="area-count">5 listings</span></a>
-      <a href="properties.html?area=Ngong+Road" class="area-chip">📍 Ngong Road  <span class="area-count">4 listings</span></a>
+      <a href="kilimani-apartments.html" class="area-chip">📍 Kilimani <span class="acnt">18 listings</span></a>
+      <a href="westlands-rentals.html" class="area-chip">📍 Westlands <span class="acnt">14 listings</span></a>
+      <a href="properties.html?area=Kasarani" class="area-chip">📍 Kasarani <span class="acnt">22 listings</span></a>
+      <a href="properties.html?area=South+B" class="area-chip">📍 South B <span class="acnt">11 listings</span></a>
+      <a href="properties.html?area=South+C" class="area-chip">📍 South C <span class="acnt">9 listings</span></a>
+      <a href="properties.html?area=Karen" class="area-chip">📍 Karen <span class="acnt">8 listings</span></a>
+      <a href="properties.html?area=Lavington" class="area-chip">📍 Lavington <span class="acnt">7 listings</span></a>
+      <a href="properties.html?area=Kileleshwa" class="area-chip">📍 Kileleshwa <span class="acnt">10 listings</span></a>
+      <a href="properties.html?area=Eastleigh" class="area-chip">📍 Eastleigh <span class="acnt">16 listings</span></a>
+      <a href="properties.html?area=Lang'ata" class="area-chip">📍 Lang'ata <span class="acnt">6 listings</span></a>
+      <a href="properties.html?area=Parklands" class="area-chip">📍 Parklands <span class="acnt">5 listings</span></a>
+      <a href="properties.html?area=Ngong+Road" class="area-chip">📍 Ngong Road <span class="acnt">4 listings</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LANDLORD PRICING ═══ -->
+<section class="sec" id="pricing">
+  <div class="container" style="text-align:center;">
+    <div class="sec-tag" style="justify-content:center;">Landlord Plans</div>
+    <h2 class="sec-h">Simple, <span>Transparent</span> Pricing</h2>
+    <p class="sec-p" style="margin:0 auto 48px;">List for free. Upgrade for more visibility. We only earn when you succeed.</p>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-name" style="color:var(--muted);">Basic</div>
+        <div class="plan-price">Free <span>/ always</span></div>
+        <div class="plan-desc">Perfect for getting started. List your property and start receiving tenant enquiries.</div>
+        <ul class="plan-features">
+          <li><span class="pf-yes">✓</span> 1 active listing</li>
+          <li><span class="pf-yes">✓</span> WhatsApp enquiries</li>
+          <li><span class="pf-yes">✓</span> Verified landlord badge</li>
+          <li><span class="pf-yes">✓</span> Basic listing page</li>
+          <li><span class="pf-no">✗</span> Featured placement</li>
+          <li><span class="pf-no">✗</span> AI-generated description</li>
+          <li><span class="pf-no">✗</span> Priority support</li>
+        </ul>
+        <a href="list-property.html" class="btn-plan btn-plan-free">Get Started Free</a>
+      </div>
+      <div class="plan-card featured-plan">
+        <div class="plan-badge">⭐ Most Popular</div>
+        <div class="plan-name" style="color:var(--gold);">Premium</div>
+        <div class="plan-price">KSh 2,500 <span>/ month</span></div>
+        <div class="plan-desc">For landlords who want to fill vacancies faster with maximum visibility and AI tools.</div>
+        <ul class="plan-features">
+          <li><span class="pf-yes">✓</span> Up to 5 active listings</li>
+          <li><span class="pf-yes">✓</span> WhatsApp enquiries</li>
+          <li><span class="pf-yes">✓</span> Verified landlord badge</li>
+          <li><span class="pf-yes">✓</span> Enhanced listing page</li>
+          <li><span class="pf-yes">✓</span> Featured homepage placement</li>
+          <li><span class="pf-yes">✓</span> AI-generated description</li>
+          <li><span class="pf-yes">✓</span> Priority support</li>
+        </ul>
+        <a href="list-property.html" class="btn-plan btn-plan-paid">Get Premium →</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name" style="color:var(--emerald);">Agency</div>
+        <div class="plan-price">KSh 8,000 <span>/ month</span></div>
+        <div class="plan-desc">For verified agencies and developers with multiple properties across Nairobi.</div>
+        <ul class="plan-features">
+          <li><span class="pf-yes">✓</span> Unlimited listings</li>
+          <li><span class="pf-yes">✓</span> WhatsApp enquiries</li>
+          <li><span class="pf-yes">✓</span> Verified agency badge</li>
+          <li><span class="pf-yes">✓</span> Premium listing pages</li>
+          <li><span class="pf-yes">✓</span> Top of search results</li>
+          <li><span class="pf-yes">✓</span> AI tools suite</li>
+          <li><span class="pf-yes">✓</span> Dedicated account manager</li>
+        </ul>
+        <a href="https://wa.me/254723783337?text=Hi%20Rentech!%20I%27m%20interested%20in%20the%20Agency%20plan." target="_blank" class="btn-plan btn-plan-free">Contact Us</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ FAQ ═══ -->
-<section class="sec" id="faq">
+<section class="sec-alt" id="faq">
   <div class="container" style="text-align:center;">
     <div class="sec-tag" style="justify-content:center;">❓ FAQ</div>
     <h2 class="sec-h">Frequently Asked <span>Questions</span></h2>
     <p class="sec-p" style="margin:0 auto 44px;">Everything you need to know about finding or listing a home on RENTECH.</p>
     <div class="faq-wrap">
-      <div class="faq-item"><div class="faq-q">How do you verify landlords?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Every landlord submits their National ID and property title deed. Our team cross-checks records with land registries and conducts a physical property inspection before any listing goes live. The green Verified badge means we have been there in person.</div></div></div>
+      <div class="faq-item"><div class="faq-q">How do you verify landlords?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Every landlord submits their National ID and property title deed. Our team cross-checks records and conducts a physical property inspection before any listing goes live. The green Verified badge means we have been there in person.</div></div></div>
       <div class="faq-item"><div class="faq-q">Is RENTECH free for tenants?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">100% free for tenants. No application fees, no viewing fees, no hidden charges — ever. You pay absolutely nothing to find your home on RENTECH.</div></div></div>
-      <div class="faq-item"><div class="faq-q">How do I contact a landlord?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Click the WhatsApp button on any listing. Your message goes directly to the verified landlord with the property details pre-filled. No middlemen, no delays — just a direct conversation.</div></div></div>
-      <div class="faq-item"><div class="faq-q">How much does it cost to list a property?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Basic listings are completely free. We earn a small commission only when a tenant successfully moves in through RENTECH. No upfront costs, no monthly fees. Premium listing tiers are available for higher visibility.</div></div></div>
-      <div class="faq-item"><div class="faq-q">What areas do you cover?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">We cover 12 Nairobi areas: Kilimani, Westlands, Kasarani, South B, South C, Karen, Lavington, Kileleshwa, Parklands, Eastleigh, Lang'ata, and Ngong Road. More areas are added monthly.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Can I pay rent through RENTECH?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Currently rent is paid directly between tenant and landlord via M-Pesa. We are building an integrated M-Pesa escrow feature for additional security and dispute resolution — launching soon.</div></div></div>
+      <div class="faq-item"><div class="faq-q">How do I contact a landlord?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Click the WhatsApp button on any listing. Your message goes directly to the verified landlord with the property details pre-filled. No middlemen, no delays.</div></div></div>
+      <div class="faq-item"><div class="faq-q">How much does it cost to list a property?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Basic listings are completely free. We earn a small commission only when a tenant successfully moves in. Premium and Agency plans are available for more visibility and tools.</div></div></div>
+      <div class="faq-item"><div class="faq-q">What areas do you cover?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">We cover 12 Nairobi areas: Kilimani, Westlands, Kasarani, South B, South C, Karen, Lavington, Kileleshwa, Parklands, Eastleigh, Lang'ata, and Ngong Road. More areas added monthly.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Can I pay rent through RENTECH?<span class="faq-ico">+</span></div><div class="faq-a"><div class="faq-body">Currently rent is paid directly between tenant and landlord via M-Pesa. We are building an integrated M-Pesa escrow feature for additional security — launching soon.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA BANNER ═══ -->
-<section class="sec-alt">
+<!-- ═══ CTA ═══ -->
+<section class="sec">
   <div class="container">
     <div class="cta-banner">
       <h2>Ready to Find Your <span>Dream Home?</span></h2>
-      <p>Join thousands of Nairobi tenants who found their perfect verified rental through RENTECH — scam-free, agent-free, stress-free.</p>
+      <p>Join thousands of Nairobi tenants who found their verified rental through RENTECH — scam-free, agent-free, stress-free.</p>
       <div class="cta-btns">
         <a href="properties.html" class="btn btn-primary" style="padding:14px 36px;font-size:1rem;">🔍 Browse Properties</a>
         <a href="list-property.html" class="btn btn-outline" style="padding:14px 36px;font-size:1rem;">📋 List Your Property</a>
@@ -636,14 +684,14 @@
           <li><a href="properties.html">Browse Properties</a></li>
           <li><a href="list-property.html">List Property</a></li>
           <li><a href="#how">How It Works</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#pricing">Pricing</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Popular Areas</h5>
         <ul>
-          <li><a href="properties.html?area=Kilimani">Kilimani Apartments</a></li>
-          <li><a href="properties.html?area=Westlands">Westlands Rentals</a></li>
+          <li><a href="kilimani-apartments.html">Kilimani Apartments</a></li>
+          <li><a href="westlands-rentals.html">Westlands Rentals</a></li>
           <li><a href="properties.html?area=Kasarani">Kasarani Bedsitters</a></li>
           <li><a href="properties.html?area=Karen">Karen Houses</a></li>
           <li><a href="properties.html?area=Lavington">Lavington Studios</a></li>
@@ -671,11 +719,8 @@
   </div>
 </footer>
 
-<!-- WhatsApp float -->
-<a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%27d%20like%20help%20finding%20a%20rental%20in%20Nairobi." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp us">💬</a>
-
-<!-- AI Chat -->
-<button class="chat-trigger" id="chat-trigger" aria-label="AI Assistant">🤖</button>
+<a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%27d%20like%20help%20finding%20a%20rental%20in%20Nairobi." class="wa-float" target="_blank" rel="noopener">💬</a>
+<button class="chat-trigger" id="chat-trigger">🤖</button>
 <div class="chat-panel" id="chat-panel">
   <div class="chat-hdr">
     <div class="chat-hdr-info">
@@ -696,89 +741,68 @@
     <button id="chat-send">→</button>
   </div>
 </div>
-<button id="stbtn" aria-label="Back to top">↑</button>
+<button id="stbtn">↑</button>
 
 <script>
-// ── LISTINGS DATA ──
-const ALL = [
-  {id:1, title:"Modern 2BR Apartment",   area:"Kilimani",   price:65000,  beds:2,baths:2, type:"2BR",       tags:["Furnished","Security","Parking"],      badge:"Featured", img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80"},
-  {id:2, title:"Executive Studio",       area:"Westlands",  price:38000,  beds:1,baths:1, type:"Studio",    tags:["Furnished","Security","Borehole"],      badge:"New",      img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80"},
-  {id:3, title:"Affordable Bedsitter",   area:"Kasarani",   price:12000,  beds:1,baths:1, type:"Bedsitter", tags:["Security"],                             badge:"",         img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80"},
-  {id:4, title:"Spacious Family Home",   area:"Lang'ata",   price:90000,  beds:4,baths:3, type:"3BR",       tags:["Security","Parking","Generator"],       badge:"Featured", img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80"},
-  {id:5, title:"1BR Cosy Apartment",     area:"South B",    price:28000,  beds:1,baths:1, type:"1BR",       tags:["Security","Borehole"],                  badge:"New",      img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80"},
-  {id:6, title:"Luxury Studio",          area:"Lavington",  price:58000,  beds:1,baths:1, type:"Studio",    tags:["Furnished","Security","Parking"],       badge:"",         img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=700&q=80"},
-  {id:7, title:"Garden View 2BR",        area:"Karen",      price:110000, beds:2,baths:2, type:"2BR",       tags:["Furnished","Security","Parking"],       badge:"Featured", img:"https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=700&q=80"},
-  {id:8, title:"Budget Bedsitter",       area:"Eastleigh",  price:8500,   beds:1,baths:1, type:"Bedsitter", tags:["Security"],                             badge:"New",      img:"https://images.unsplash.com/photo-1554995207-c18c203602cb?w=700&q=80"},
-  {id:9, title:"1BR Kileleshwa Gem",     area:"Kileleshwa", price:42000,  beds:1,baths:1, type:"1BR",       tags:["Security","Borehole","Parking"],        badge:"",         img:"https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80"},
+const LISTINGS=[
+  {id:1,title:"Modern 2BR Apartment",area:"Kilimani",price:65000,beds:2,baths:2,type:"2BR",tags:["Furnished","Security","Parking"],badge:"Featured",img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80"},
+  {id:2,title:"Executive Studio",area:"Westlands",price:38000,beds:1,baths:1,type:"Studio",tags:["Furnished","Security"],badge:"New",img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80"},
+  {id:3,title:"Affordable Bedsitter",area:"Kasarani",price:12000,beds:1,baths:1,type:"Bedsitter",tags:["Security"],badge:"",img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80"},
+  {id:4,title:"Spacious Family Home",area:"Lang'ata",price:90000,beds:4,baths:3,type:"3BR",tags:["Security","Parking","Generator"],badge:"Featured",img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80"},
+  {id:5,title:"1BR Cosy Apartment",area:"South B",price:28000,beds:1,baths:1,type:"1BR",tags:["Security","Borehole"],badge:"New",img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80"},
+  {id:6,title:"Luxury Studio",area:"Lavington",price:58000,beds:1,baths:1,type:"Studio",tags:["Furnished","Security","Parking"],badge:"",img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=700&q=80"},
+  {id:7,title:"Garden View 2BR",area:"Karen",price:110000,beds:2,baths:2,type:"2BR",tags:["Furnished","Security","Parking"],badge:"Featured",img:"https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=700&q=80"},
+  {id:8,title:"Budget Bedsitter",area:"Eastleigh",price:8500,beds:1,baths:1,type:"Bedsitter",tags:["Security"],badge:"New",img:"https://images.unsplash.com/photo-1554995207-c18c203602cb?w=700&q=80"},
+  {id:9,title:"1BR Kileleshwa Gem",area:"Kileleshwa",price:42000,beds:1,baths:1,type:"1BR",tags:["Security","Borehole","Parking"],badge:"",img:"https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80"},
 ];
 
-const wa = p=>`https://wa.me/254723783337?text=${encodeURIComponent(`Hi Rentech! Interested in ${p.title} in ${p.area} at KSh ${p.price.toLocaleString()}/month. Still available?`)}`;
+const wa=p=>`https://wa.me/254723783337?text=${encodeURIComponent(`Hi Rentech! Interested in ${p.title} in ${p.area} at KSh ${p.price.toLocaleString()}/month. Still available?`)}`;
 
 function card(p){
   const badges=`<span class="bdg bdg-v">✓ Verified</span>${p.badge==='Featured'?'<span class="bdg bdg-f">⭐ Featured</span>':''}${p.badge==='New'?'<span class="bdg bdg-n">🆕 New</span>':''}`;
   const tags=p.tags.slice(0,3).map(t=>`<span class="ptag">${t}</span>`).join('');
-  return `<div class="prop-card" data-type="${p.type}">
-    <div class="pc-img"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=60'"><div class="pc-badges">${badges}</div></div>
-    <div class="pc-body">
-      <div class="pc-loc">📍 ${p.area}</div>
-      <h3 class="pc-title">${p.title}</h3>
-      <div class="pc-price">KSh ${p.price.toLocaleString()} <em>/month</em></div>
-      <div class="pc-specs"><span>🛏️ ${p.beds} Bed${p.beds>1?'s':''}</span><span>🚿 ${p.baths} Bath</span><span>📐 ${p.type}</span></div>
-      <div class="pc-tags">${tags}</div>
-      <div class="pc-actions">
-        <a href="property-detail.html?id=${p.id}" class="btn-det">View Details</a>
-        <a href="${wa(p)}" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a>
-      </div>
-    </div>
-  </div>`;
+  return `<div class="prop-card" data-type="${p.type}"><div class="pc-img"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=60'"><div class="pc-badges">${badges}</div></div><div class="pc-body"><div class="pc-loc">📍 ${p.area}</div><h3 class="pc-title">${p.title}</h3><div class="pc-price">KSh ${p.price.toLocaleString()} <em>/month</em></div><div class="pc-specs"><span>🛏️ ${p.beds} Bed${p.beds>1?'s':''}</span><span>🚿 ${p.baths} Bath</span><span>📐 ${p.type}</span></div><div class="pc-tags">${tags}</div><div class="pc-actions"><a href="property-detail.html?id=${p.id}" class="btn-det">View Details</a><a href="${wa(p)}" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a></div></div></div>`;
 }
 
-function renderGrid(filter='all'){
-  const list = filter==='all' ? ALL : ALL.filter(p=>p.type===filter);
-  document.getElementById('home-grid').innerHTML = list.map(card).join('');
+function renderGrid(f='all'){
+  const list=f==='all'?LISTINGS:LISTINGS.filter(p=>p.type===f);
+  document.getElementById('home-grid').innerHTML=list.map(card).join('');
 }
 
-// ── AI CHAT ──
 const R={
-  'kilimani':"Kilimani 2BR apartments start at KSh 65K. Great security, close to Junction Mall!",
-  'westlands':"Westlands studios from KSh 38K, 3BR up to KSh 120K. Perfect for professionals.",
-  'kasarani':"Kasarani bedsitters from KSh 12K — most affordable area we cover.",
-  'karen':"Karen family homes from KSh 90K–150K. Green, peaceful, and prestigious.",
-  'lavington':"Lavington studios from KSh 58K. Quiet, leafy, popular with NGO workers.",
-  'south b':"South B 1BR from KSh 28K. Calm neighbourhood, easy CBD access.",
-  'south c':"South C maisonettes around KSh 75K. Spacious and family-friendly.",
-  'eastleigh':"Eastleigh bedsitters from KSh 8,500 — lowest prices we have.",
-  '30k':"Under 30K: Kasarani bedsitter (12K), South B 1BR (28K), Eastleigh (8.5K). All verified!",
+  'kilimani':"Kilimani 2BR from KSh 65K. Great security, close to Junction Mall!",
+  'westlands':"Westlands studios from KSh 38K, 3BR up to KSh 120K.",
+  'kasarani':"Kasarani bedsitters from KSh 12K — most affordable we cover.",
+  'karen':"Karen family homes from KSh 90K–150K. Green and peaceful.",
+  'lavington':"Lavington studios from KSh 58K. Quiet, leafy, popular.",
+  'south b':"South B 1BR from KSh 28K. Calm neighbourhood.",
+  'eastleigh':"Eastleigh bedsitters from KSh 8,500 — lowest prices.",
+  '30k':"Under 30K: Kasarani (12K), South B 1BR (28K), Eastleigh (8.5K).",
   'verif':"Every landlord submits National ID + title deed. We physically inspect each property.",
-  'list':"Listing is FREE! Click 'List Property Free' at the top. We respond within 24 hours.",
-  'agent':"No agents ever. Tenants contact landlords directly via WhatsApp. Zero fees for tenants.",
-  'contact':"Call/WhatsApp: +254 723 783 337 or email rentechproperties.ke@gmail.com",
+  'list':"Listing is FREE! Click 'List Property Free' above. We respond within 24 hours.",
+  'agent':"No agents ever. You contact landlords directly. Zero fees for tenants.",
+  'contact':"Call/WhatsApp: +254 723 783 337",
 };
-const reply=m=>{const l=m.toLowerCase();for(const[k,v]of Object.entries(R))if(l.includes(k))return v;return "I can help find your perfect rental! Try: '2BR in Kilimani', 'Budget under 30K', or browse verified properties.";};
+const reply=m=>{const l=m.toLowerCase();for(const[k,v]of Object.entries(R))if(l.includes(k))return v;return "I can help! Try: '2BR in Kilimani' or 'Budget under 30K'.";};
 
 document.addEventListener('DOMContentLoaded',()=>{
   renderGrid();
 
-  // Listing tabs
   document.querySelectorAll('.ltab').forEach(btn=>btn.addEventListener('click',()=>{
     document.querySelectorAll('.ltab').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    renderGrid(btn.dataset.filter);
+    renderGrid(btn.dataset.f);
   }));
 
-  // Quick search
   document.getElementById('qs-btn').addEventListener('click',()=>{
-    const area=document.getElementById('qs-area').value;
-    const type=document.getElementById('qs-type').value;
-    const budget=document.getElementById('qs-budget').value;
     const p=new URLSearchParams();
-    if(area)p.set('area',area);
-    if(type)p.set('type',type);
-    if(budget)p.set('price',budget);
+    const a=document.getElementById('qs-area').value;
+    const t=document.getElementById('qs-type').value;
+    const b=document.getElementById('qs-budget').value;
+    if(a)p.set('area',a);if(t)p.set('type',t);if(b)p.set('price',b);
     window.location.href='properties.html'+(p.toString()?'?'+p.toString():'');
   });
 
-  // FAQ
   document.querySelectorAll('.faq-q').forEach(q=>{
     q.addEventListener('click',()=>{
       const item=q.parentElement,ans=item.querySelector('.faq-a'),open=item.classList.contains('open');
@@ -787,18 +811,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
-  // Hamburger
   const ham=document.getElementById('ham'),mob=document.getElementById('mob-menu');
   ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
 
-  // Theme
   const themeBtn=document.getElementById('theme-btn');
   const applyTheme=t=>{document.documentElement.setAttribute('data-theme',t);themeBtn.textContent=t==='dark'?'🌙':'☀️';localStorage.setItem('rt_theme',t);};
-  const saved=localStorage.getItem('rt_theme');
-  if(saved)applyTheme(saved);
+  const saved=localStorage.getItem('rt_theme');if(saved)applyTheme(saved);
   themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
 
-  // Scroll
   const stbtn=document.getElementById('stbtn');
   window.addEventListener('scroll',()=>{
     document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
@@ -806,14 +826,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   stbtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-  // AI Chat
-  let open=false,inited=false;
+  let chatOpen=false,chatInited=false;
   const panel=document.getElementById('chat-panel'),msgs=document.getElementById('chat-msgs');
   const botMsg=t=>{const d=document.createElement('div');d.className='msg bot';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;};
   const userMsg=t=>{const d=document.createElement('div');d.className='msg user';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;document.getElementById('chat-quick').style.display='none';};
   const sendChat=()=>{const inp=document.getElementById('chat-in'),m=inp.value.trim();if(!m)return;userMsg(m);inp.value='';setTimeout(()=>botMsg(reply(m)),650);};
   window.qAsk=t=>{document.getElementById('chat-in').value=t;sendChat();};
-  const toggleChat=()=>{open=!open;panel.classList.toggle('open',open);if(open&&!inited){inited=true;botMsg("👋 Hi! I'm Rentech AI. Ask me about any area, budget or property type in Nairobi!");}};
+  const toggleChat=()=>{chatOpen=!chatOpen;panel.classList.toggle('open',chatOpen);if(chatOpen&&!chatInited){chatInited=true;botMsg("👋 Hi! I'm Rentech AI. Ask me about any area, budget or property type in Nairobi!");}};
   document.getElementById('chat-trigger').addEventListener('click',toggleChat);
   document.getElementById('chat-close').addEventListener('click',toggleChat);
   document.getElementById('chat-send').addEventListener('click',sendChat);
