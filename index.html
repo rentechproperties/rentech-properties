@@ -2032,6 +2032,79 @@
             }
         }
     </script>
+    <!-- AI Chat Bot - Premium Single Version -->
+    <div class="ai-chat-trigger" onclick="toggleChatPanel()" style="position: fixed; bottom: 90px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), var(--emerald)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 9999; box-shadow: 0 8px 24px var(--gold-glow); transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.2);">
+        <span></span>
+        <span style="position: absolute; left: 70px; background: var(--card); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease; border: 1px solid var(--border);">AI Assistant</span>
+    </div>
+    
+    <div id="ai-chat-panel" style="position: fixed; bottom: 180px; left: 30px; width: 350px; height: 500px; background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 10000; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
+        <div style="background: linear-gradient(135deg, var(--gold), var(--emerald)); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h4 style="color: black; margin-bottom: 4px;"> Rentech AI</h4>
+                <p style="color: black; font-size: 0.8rem; opacity: 0.8;">Ask about properties in Nairobi</p>
+            </div>
+            <button onclick="toggleChatPanel()" style="background: transparent; border: none; color: black; font-size: 1.5rem; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"></button>
+        </div>
+        
+        <div id="ai-chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;"></div>
+        
+        <div style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px;">
+            <input id="ai-chat-input" type="text" placeholder="Ask me anything..." style="flex: 1; padding: 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: 'DM Sans', sans-serif;">
+            <button onclick="sendMessage()" style="width: 48px; background: var(--gold); color: black; border: none; border-radius: var(--radius); font-size: 1.2rem; cursor: pointer;"></button>
+        </div>
+        
+        <div class="ai-quick-replies" style="padding: 8px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--border);">
+            <button class="ai-quick-reply" onclick="sendQuickReply('Find a home')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> Find a Home</button>
+            <button class="ai-quick-reply" onclick="sendQuickReply('List my property')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> List Property</button>
+            <button class="ai-quick-reply" onclick="sendQuickReply('How it works')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> How It Works</button>
+            <button class="ai-quick-reply" onclick="sendQuickReply('Contact support')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> Contact</button>
+        </div>
+    </div>
+    <script>
+        // AI Chat Functions
+        window.toggleChatPanel = function() {
+            const panel = document.getElementById('ai-chat-panel');
+            if (panel) {
+                const isOpen = panel.style.opacity === '1';
+                panel.style.transform = isOpen ? 'translateY(20px)' : 'translateY(0)';
+                panel.style.opacity = isOpen ? '0' : '1';
+                panel.style.pointerEvents = isOpen ? 'none' : 'all';
+            }
+        };
+
+        window.sendMessage = function() {
+            const input = document.getElementById('ai-chat-input');
+            const message = input?.value.trim();
+            if (!message) return;
+            
+            const messages = document.getElementById('ai-chat-messages');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.style.cssText = 'background: var(--emerald); color: white; padding: 10px 14px; border-radius: 18px; border-bottom-right-radius: 4px; max-width: 85%; align-self: flex-end; margin-left: auto; margin-bottom: 12px;';
+            userMsg.textContent = message;
+            messages.appendChild(userMsg);
+            
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+            
+            // AI response
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.style.cssText = 'background: var(--card); color: var(--text); padding: 10px 14px; border-radius: 18px; border-bottom-left-radius: 4px; max-width: 85%; align-self: flex-start; border: 1px solid var(--border); margin-bottom: 12px;';
+                botMsg.innerHTML = "Thanks for your message! Our team will get back to you shortly. In the meantime, you can browse our <a href='properties.html' style='color: var(--gold);'>verified properties</a>.";
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
+        };
+
+        window.sendQuickReply = function(text) {
+            const input = document.getElementById('ai-chat-input');
+            input.value = text;
+            sendMessage();
+        };
+    </script>
 </body>
 </html>
 
