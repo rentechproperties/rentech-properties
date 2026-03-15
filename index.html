@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rentech Properties | AI-Verified Rentals in Nairobi</title>
     
-    <!-- Fonts -->
+    <!-- Fonts - Playfair Display & Outfit + Syne & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
@@ -18,1178 +21,22 @@
     <meta property="og:image" content="https://rentech-properties.vercel.app/assets/logo.png">
     <meta name="theme-color" content="#10B981">
     
-    <style>
-        /* ========== SMOOTH SCROLLING ========== */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        /* ========== ROOT VARIABLES ========== */
-        :root {
-            /* Dark mode (default) */
-            --bg: #0C0C0C;
-            --bg-2: #111111;
-            --card: #1A1A1A;
-            --card-hover: #222222;
-            --text: #FFFFFF;
-            --muted: #A0A0A0;
-            --dim: #666666;
-            --border: rgba(255,255,255,0.05);
-            --border-light: rgba(255,255,255,0.1);
-            
-            /* Brand colors - brighter! */
-            --emerald: #10B981;
-            --emerald-dim: rgba(16,185,129,0.1);
-            --emerald-glow: rgba(16,185,129,0.5);
-            --blue: #3b82f6;
-            --blue-dim: rgba(59,130,246,0.1);
-            --blue-glow: rgba(59,130,246,0.5);
-            --purple: #8b5cf6;
-            --purple-dim: rgba(139,92,246,0.1);
-            --purple-glow: rgba(139,92,246,0.5);
-            --pink: #ec4899;
-            --pink-glow: rgba(236,72,153,0.5);
-            --orange: #F59E0B;
-            --orange-glow: rgba(245,158,11,0.5);
-            --gold: #FFD700;
-            --gold-glow: rgba(255,215,0,0.5);
-            --wa-green: #25D366;
-            
-            /* Utils */
-            --radius: 12px;
-            --radius-lg: 24px;
-            --shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        :root.light-mode {
-            --bg: #F8FAFC;
-            --bg-2: #F1F5F9;
-            --card: #FFFFFF;
-            --card-hover: #F8FAFC;
-            --text: #0F172A;
-            --muted: #334155;
-            --dim: #64748B;
-            --border: rgba(0,0,0,0.1);
-            --border-light: rgba(0,0,0,0.15);
-        }
-
-        /* ========== RESET & BASE ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        /* Floating stars animation */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 4s ease-in-out infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.4; }
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section {
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-        }
-        
-        .glass-strong {
-            background: rgba(15,23,42,0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* Glow Effects - Brighter! */
-        .glow-emerald {
-            box-shadow: 0 0 30px var(--emerald-glow);
-        }
-        
-        .glow-blue {
-            box-shadow: 0 0 30px var(--blue-glow);
-        }
-        
-        .glow-purple {
-            box-shadow: 0 0 30px var(--purple-glow);
-        }
-        
-        .glow-pink {
-            box-shadow: 0 0 30px var(--pink-glow);
-        }
-        
-        .glow-orange {
-            box-shadow: 0 0 30px var(--orange-glow);
-        }
-        
-        .glow-gold {
-            box-shadow: 0 0 30px var(--gold-glow);
-        }
-        
-        .text-glow {
-            text-shadow: 0 0 30px var(--emerald-glow);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--emerald), var(--blue), var(--purple), var(--pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 300% 300%;
-            animation: gradient 6s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Gold hover effect */
-        .gold-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .gold-hover:hover {
-            border-color: var(--gold) !important;
-            box-shadow: 0 0 30px var(--gold-glow) !important;
-            transform: translateY(-5px) scale(1.02);
-        }
-
-        /* ========== SECTION GLOW EFFECTS ========== */
-        .section::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.15;
-        }
-
-        .hero-section::after {
-            background: radial-gradient(circle at 30% 50%, var(--blue) 0%, var(--emerald) 50%, transparent 70%);
-        }
-
-        .features-section::after {
-            background: radial-gradient(circle at 70% 30%, var(--purple) 0%, var(--blue) 50%, transparent 70%);
-        }
-
-        .properties-section::after {
-            background: radial-gradient(circle at 50% 50%, var(--emerald) 0%, var(--blue) 50%, transparent 70%);
-        }
-
-        .how-section::after {
-            background: radial-gradient(circle at 30% 70%, var(--orange) 0%, var(--pink) 50%, transparent 70%);
-        }
-
-        .ai-section::after {
-            background: radial-gradient(circle at 80% 20%, var(--blue) 0%, var(--purple) 50%, transparent 70%);
-        }
-
-        .calc-section::after {
-            background: radial-gradient(circle at 20% 80%, var(--purple) 0%, var(--pink) 50%, transparent 70%);
-        }
-
-        .areas-section::after {
-            background: radial-gradient(circle at 90% 90%, var(--gold) 0%, var(--emerald) 50%, transparent 70%);
-        }
-
-        .testimonials-section::after {
-            background: radial-gradient(circle at 10% 10%, var(--pink) 0%, var(--purple) 50%, transparent 70%);
-        }
-
-        .faq-section::after {
-            background: radial-gradient(circle at 40% 60%, var(--blue) 0%, var(--emerald) 50%, transparent 70%);
-        }
-
-        /* ========== BUTTONS ========== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-family: 'DM Sans', sans-serif;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--emerald);
-            color: white;
-            box-shadow: 0 8px 20px var(--emerald-glow);
-        }
-
-        .btn-primary:hover {
-            background: #0EA271;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px var(--emerald-glow);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1.5px solid var(--border-light);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--gold);
-            background: rgba(255,215,0,0.1);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 30px var(--gold-glow);
-        }
-
-        .btn-blue {
-            background: var(--blue);
-            color: white;
-        }
-
-        .btn-purple {
-            background: var(--purple);
-            color: white;
-        }
-
-        /* ========== NAVIGATION ========== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 16px 24px;
-            z-index: 1000;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(12, 12, 12, 0.85);
-            transition: all 0.3s ease;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .light-mode .navbar {
-            background: rgba(255, 255, 255, 0.85);
-        }
-
-        .navbar.scrolled {
-            background: rgba(12, 12, 12, 0.98);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .light-mode .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            animation: spinLogo 0.8s ease-in-out;
-            transition: all 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .logo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 12px var(--emerald-glow));
-        }
-
-        @keyframes spinLogo {
-            from { transform: rotate(0deg) scale(0.8); opacity: 0; }
-            to { transform: rotate(360deg) scale(1); opacity: 1; }
-        }
-
-        .logo-text {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-        }
-
-        .logo-text span {
-            font-size: 1rem;
-            margin-left: 6px;
-            letter-spacing: 1px;
-            color: var(--emerald);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--muted);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
-
-        .theme-toggle:hover {
-            color: var(--text);
-            background: var(--card);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 2px;
-            background: var(--text);
-            transition: all 0.2s ease;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: var(--bg-2);
-            backdrop-filter: blur(20px);
-            padding: 24px;
-            z-index: 999;
-            border-bottom: 1px solid var(--border);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .mobile-menu.open {
-            transform: translateY(0);
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 16px 0;
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .mobile-menu .btn {
-            margin-top: 20px;
-        }
-
-        /* ========== HERO SECTION ========== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 0 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--gold-glow) 0%, var(--emerald-glow) 40%, transparent 70%);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            pointer-events: none;
-            animation: pulse-glow 4s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
-            100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--gold);
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .pulse-dot::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: var(--gold);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.7; }
-            70% { transform: scale(2.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 0; }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            margin-bottom: 16px;
-        }
-
-        .hero-subheadline {
-            font-size: 1.2rem;
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        .search-card {
-            background: var(--card);
-            padding: 12px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            display: flex;
-            gap: 12px;
-            max-width: 780px;
-            margin: 40px auto 0;
-            box-shadow: var(--shadow);
-            flex-wrap: wrap;
-        }
-
-        .search-card select {
-            flex: 1;
-            min-width: 150px;
-            background: var(--bg-2);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 12px;
-            border-radius: var(--radius);
-            outline: none;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        /* ========== SECTIONS GRID ========== */
-        .sections-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .section-card {
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            padding: 40px 30px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 0 40px var(--gold-glow);
-        }
-
-        .section-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--emerald), var(--gold), var(--purple));
-        }
-
-        .section-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            color: var(--muted);
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            color: var(--emerald);
-            font-weight: 600;
-        }
-
-        /* ========== PROPERTY CARDS ========== */
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin: 32px 0;
-        }
-
-        .property-card {
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .property-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 0 30px var(--gold-glow);
-        }
-
-        .property-image {
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .property-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .property-card:hover .property-image img {
-            transform: scale(1.05);
-        }
-
-        .property-badges {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            display: flex;
-            gap: 8px;
-            z-index: 2;
-        }
-
-        .badge {
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
-            color: white;
-        }
-
-        .badge.featured {
-            background: var(--gold);
-            color: black;
-        }
-
-        .badge.verified {
-            background: var(--emerald);
-        }
-
-        .property-content {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .property-location {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--dim);
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-        }
-
-        .property-title {
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .property-price {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--emerald);
-            margin-bottom: 12px;
-        }
-
-        .property-price em {
-            font-size: 0.9rem;
-            color: var(--dim);
-            font-style: normal;
-        }
-
-        .property-specs {
-            display: flex;
-            gap: 16px;
-            color: var(--dim);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-
-        .property-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: auto;
-        }
-
-        .btn-wa {
-            background: var(--wa-green);
-            color: white;
-        }
-
-        .btn-wa:hover {
-            background: #128C7E;
-        }
-
-        /* ========== TRUST SECTION ========== */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .trust-card {
-            background: var(--card);
-            padding: 30px;
-            border-radius: var(--radius);
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .trust-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 0 30px var(--gold-glow);
-        }
-
-        .trust-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .trust-card h3 {
-            margin-bottom: 10px;
-        }
-
-        /* ========== LOCATIONS GRID ========== */
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin: 40px 0;
-        }
-
-        .location-tag {
-            background: var(--card);
-            padding: 15px;
-            border-radius: var(--radius);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-
-        .location-tag:hover {
-            transform: translateY(-3px);
-            border-color: var(--gold);
-            box-shadow: 0 0 20px var(--gold-glow);
-        }
-
-        /* ========== HOW IT WORKS ========== */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .step-card {
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .step-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 0 30px var(--gold-glow);
-        }
-
-        .step-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--emerald);
-            opacity: 0.3;
-            margin-bottom: 10px;
-        }
-
-        .step-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        /* ========== FLOATING ELEMENTS ========== */
-        .wa-float {
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--wa-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            animation: bounce 3s infinite ease-in-out;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .wa-float:hover {
-            transform: scale(1.15);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
-        }
-
-        .wa-tip {
-            position: absolute;
-            right: 75px;
-            background: var(--card);
-            color: white;
-            padding: 8px 16px;
-            border-radius: var(--radius);
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .wa-float:hover .wa-tip {
-            opacity: 1;
-            right: 85px;
-        }
-
-        .ai-fab {
-            position: fixed;
-            bottom: 90px;
-            left: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-            z-index: 100;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .ai-fab:hover {
-            transform: scale(1.15);
-            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
-        }
-
-        .ai-fab-lbl {
-            position: absolute;
-            left: 75px;
-            background: var(--card);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-
-        .ai-fab:hover .ai-fab-lbl {
-            opacity: 1;
-            left: 85px;
-        }
-
-        .scroll-top {
-            position: fixed;
-            bottom: 90px;
-            right: 100px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--emerald), var(--gold));
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 99;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px var(--gold-glow);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .scroll-top.visible {
-            display: flex;
-        }
-
-        .scroll-top:hover {
-            transform: scale(1.15);
-            box-shadow: 0 0 40px var(--gold-glow);
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* ========== AI MATCH FORM ========== */
-        .ai-match-form {
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .ai-mesh-1,
-        .ai-mesh-2 {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .ai-mesh-1 {
-            top: -100px;
-            left: -100px;
-            background: var(--blue);
-        }
-
-        .ai-mesh-2 {
-            bottom: -100px;
-            right: -100px;
-            background: var(--gold);
-        }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            background: var(--bg-2);
-            border-top: 1px solid var(--border);
-            padding: 60px 0 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 70%);
-            pointer-events: none;
-            opacity: 0.2;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-brand p {
-            color: var(--dim);
-            margin: 16px 0;
-        }
-
-        .footer-col h5 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .footer-col ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-col ul li a {
-            color: var(--dim);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            color: var(--dim);
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .social-row {
-            display: flex;
-            gap: 16px;
-        }
-
-        .social-row a {
-            color: var(--dim);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-row a:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        /* ========== UTILITIES ========== */
-        .text-center { text-align: center; }
-        .mt-4 { margin-top: 2rem; }
-        .mb-4 { margin-bottom: 2rem; }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ========== MEDIA QUERIES ========== */
-        @media (max-width: 1024px) {
-            .property-grid,
-            .sections-grid,
-            .trust-grid,
-            .locations-grid,
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .nav-links,
-            .navbar .btn {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .mobile-menu {
-                display: block;
-            }
-            .sections-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .property-grid,
-            .trust-grid,
-            .locations-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Floating Stars Background -->
-    <div class="stars" id="stars"></div>
+    <!-- LOADER ANIMATION -->
+    <div id="loader">
+        <div class="loader-logo-wrap">
+            <div class="loader-logo-icon">RT</div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring2"></div>
+            <div class="loader-shimmer"></div>
+        </div>
+        <div class="loader-name">RENTECH PROPERTIES</div>
+        <div class="loader-tagline">Nairobi's Trusted Property Marketplace</div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="nav">
@@ -1198,18 +45,18 @@
                 <div class="logo-img">
                     <img src="assets/logo.png" alt="Rentech Logo">
                 </div>
-                <div class="logo-text" style="display: flex; flex-direction: column; line-height: 1.2;">RENTECH<span style="font-size: 0.7rem; display: block; margin-left: 0;">PROPERTIES</span></div>
+                <div class="logo-text">RENTECH<span>PROPERTIES</span></div>
             </div>
             
             <div class="nav-links">
                 <a href="index.html" class="active">Home</a>
-                <a href="#browse">Browse</a>
+                <a href="properties.html">Browse</a>
                 <a href="#how">How It Works</a>
                 <a href="#locations">Areas</a>
                 <a href="#faq">FAQ</a>
             </div>
             
-            <div style="display: flex; gap: 8px; align-items: center;">
+            <div class="nav-right">
                 <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
                 <a href="list-property.html" class="btn btn-primary">List Property Free</a>
                 <div class="hamburger" id="ham">
@@ -1224,7 +71,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mob-menu">
         <a href="index.html">Home</a>
-        <a href="#browse">Browse</a>
+        <a href="properties.html">Browse</a>
         <a href="#how">How It Works</a>
         <a href="#locations">Areas</a>
         <a href="#faq">FAQ</a>
@@ -1232,46 +79,87 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero hero-section" id="hero">
+    <section class="hero" id="hero">
         <div class="hero-glow"></div>
         
-        <div class="container" style="position: relative; z-index: 2;">
+        <div class="container">
             <!-- Main Badge -->
-            <div class="reveal inline-flex items-center px-4 py-2 rounded-full glass border border-gold/30 mb-6 gold-hover" style="transition-delay: 0.2s;">
-                <span class="relative flex h-3 w-3 mr-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-gold"></span>
-                </span>
-                <span class="text-sm font-semibold text-gold tracking-wide">Verified Since 2025 🛡️</span>
+            <div class="hero-badge reveal">
+                <span class="pulse-dot"></span>
+                <span>AI-Verified Since 2025 🛡️</span>
             </div>
             
-            <!-- Main Headline - Powerful Branding -->
-            <h1 class="reveal text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4" style="transition-delay: 0.3s;">
-                <span class="block text-white mb-2">Find Verified Rental Homes</span>
-                <span class="block gradient-text text-glow">in Nairobi — Fast</span>
+            <!-- Main Headline -->
+            <h1 class="hero-headline reveal">
+                <span class="line">Find Verified Rental Homes</span>
+                <span class="line line-2">in Nairobi — Fast</span>
             </h1>
             
-            <!-- Subtext - Clear Value Prop -->
-            <p class="reveal text-xl text-muted max-w-2xl mx-auto mb-8" style="transition-delay: 0.4s;">
-                RENTECH connects serious tenants with verified landlords. No scams. No agents. Just real homes.
+            <!-- Subtext -->
+            <p class="hero-subtitle reveal">
+                Rentech connects serious tenants with verified landlords. No scams. No agents. Just real homes.
             </p>
             
             <!-- CTA Buttons -->
-            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.5s;">
-                <a href="#browse" class="btn btn-primary">Browse Homes</a>
+            <div class="hero-ctas reveal">
+                <a href="properties.html" class="btn btn-primary">Browse Homes</a>
                 <a href="list-property.html" class="btn btn-outline">List Your Property</a>
             </div>
         </div>
     </section>
 
+    <!-- TICKER - Moving Text -->
+    <div class="ticker-wrap">
+        <div class="ticker-inner">
+            <span class="ticker-item">GOVERNMENT TENDERS <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">NGO PROCUREMENT <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">REAL ESTATE <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">PROPERTY MANAGEMENT <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">INVESTMENT <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">CONSTRUCTION <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">TENANT SOURCING <span class="ticker-dot">✦</span></span>
+            <!-- Duplicate for seamless loop -->
+            <span class="ticker-item">GOVERNMENT TENDERS <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">NGO PROCUREMENT <span class="ticker-dot">✦</span></span>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Verified Properties</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Happy Tenants</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24hr</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Verified Landlords</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Sections Grid - For Tenants, For Landlords, Why Rentech -->
     <section class="section" id="browse">
         <div class="container">
-            <div class="sections-grid">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Built for Everyone</h2>
+            </div>
+            <div class="feature-grid">
                 <!-- For Tenants -->
-                <div class="section-card gold-hover reveal" data-rev>
-                    <div class="section-icon">🔍</div>
-                    <h2 class="section-title">Find Your Next Home</h2>
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">For Tenants</h3>
                     <ul class="feature-list">
                         <li>Search by location</li>
                         <li>Filter by price</li>
@@ -1282,9 +170,9 @@
                 </div>
                 
                 <!-- For Landlords -->
-                <div class="section-card gold-hover reveal" data-rev data-d1>
-                    <div class="section-icon">📋</div>
-                    <h2 class="section-title">List Your Property</h2>
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">For Landlords</h3>
                     <ul class="feature-list">
                         <li>Reach thousands of tenants</li>
                         <li>AI-generated descriptions</li>
@@ -1295,9 +183,9 @@
                 </div>
                 
                 <!-- Why Rentech -->
-                <div class="section-card gold-hover reveal" data-rev data-d2>
-                    <div class="section-icon">🛡️</div>
-                    <h2 class="section-title">Why Rentech</h2>
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Why Rentech</h3>
                     <ul class="feature-list">
                         <li>Verified listings</li>
                         <li>No scam agents</li>
@@ -1311,18 +199,18 @@
     </section>
 
     <!-- Property Listings -->
-    <section class="section properties-section">
+    <section class="section">
         <div class="container">
-            <div class="text-center mb-4">
-                <div class="section-tag">Featured Properties</div>
-                <h2>Available Homes in Nairobi</h2>
+            <div class="section-header">
+                <span class="section-tag">Featured Properties</span>
+                <h2 class="section-title">Available Homes in Nairobi</h2>
             </div>
             
             <div id="prop-grid" class="property-grid">
                 <!-- Properties loaded by JavaScript -->
             </div>
             
-            <div class="text-center mt-4">
+            <div class="text-center" style="margin-top: 40px;">
                 <a href="properties.html" class="btn btn-outline">View All Properties →</a>
             </div>
         </div>
@@ -1331,126 +219,128 @@
     <!-- Trust Section -->
     <section class="section" id="trust">
         <div class="container">
-            <div class="text-center mb-4">
-                <div class="section-tag">Why People Trust RENTECH</div>
-                <h2>No Scams. Just Real Homes.</h2>
+            <div class="section-header">
+                <span class="section-tag">Why Trust Us</span>
+                <h2 class="section-title">No Scams. Just Real Homes.</h2>
             </div>
             
-            <div class="trust-grid">
-                <div class="trust-card gold-hover reveal" data-rev>
-                    <div class="trust-icon">✅</div>
+            <div class="feature-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">✅</div>
                     <h3>Verified Landlords</h3>
-                    <p class="text-muted">Every landlord is ID and title deed verified</p>
+                    <p class="feature-desc">Every landlord is ID and title deed verified</p>
                 </div>
-                <div class="trust-card gold-hover reveal" data-rev data-d1>
-                    <div class="trust-icon">🚫</div>
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">🚫</div>
                     <h3>No Agent Scams</h3>
-                    <p class="text-muted">Zero tolerance for fake agents</p>
+                    <p class="feature-desc">Zero tolerance for fake agents</p>
                 </div>
-                <div class="trust-card gold-hover reveal" data-rev data-d2>
-                    <div class="trust-icon">📸</div>
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">📸</div>
                     <h3>Real Property Photos</h3>
-                    <p class="text-muted">All photos physically verified</p>
+                    <p class="feature-desc">All photos physically verified</p>
                 </div>
-                <div class="trust-card gold-hover reveal" data-rev data-d3>
-                    <div class="trust-icon">💬</div>
+                <div class="feature-card gold-hover">
+                    <div class="feature-icon">💬</div>
                     <h3>Direct Contact</h3>
-                    <p class="text-muted">Connect instantly via WhatsApp</p>
+                    <p class="feature-desc">Connect instantly via WhatsApp</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="section how-section" id="how">
+    <section class="section" id="how">
         <div class="container">
-            <div class="text-center mb-4">
-                <div class="section-tag">Simple Process</div>
-                <h2>How RENTECH Works</h2>
+            <div class="section-header">
+                <span class="section-tag">Simple Process</span>
+                <h2 class="section-title">How Rentech Works</h2>
             </div>
             
             <div class="steps-grid">
-                <div class="step-card gold-hover reveal" data-rev>
+                <div class="step-card">
                     <div class="step-number">01</div>
                     <div class="step-icon">🔍</div>
-                    <h3>Search Homes</h3>
-                    <p class="text-muted">Browse verified listings across Nairobi with smart filters.</p>
+                    <h3 class="step-title">Search Homes</h3>
+                    <p class="step-desc">Browse verified listings across Nairobi with smart filters.</p>
                 </div>
-                <div class="step-card gold-hover reveal" data-rev data-d1>
+                <div class="step-card">
                     <div class="step-number">02</div>
                     <div class="step-icon">💬</div>
-                    <h3>Contact Landlord</h3>
-                    <p class="text-muted">Chat instantly on WhatsApp with verified landlords.</p>
+                    <h3 class="step-title">Contact Landlord</h3>
+                    <p class="step-desc">Chat instantly on WhatsApp with verified landlords.</p>
                 </div>
-                <div class="step-card gold-hover reveal" data-rev data-d2>
+                <div class="step-card">
                     <div class="step-number">03</div>
                     <div class="step-icon">🏡</div>
-                    <h3>Schedule Viewing</h3>
-                    <p class="text-muted">Book a viewing and secure your new home.</p>
+                    <h3 class="step-title">Schedule Viewing</h3>
+                    <p class="step-desc">Book a viewing and secure your new home.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- AI Match Section -->
-    <section class="section ai-section">
+    <section class="section">
         <div class="container">
-            <div class="ai-match-form fade-up" data-rev>
+            <div class="ai-card">
                 <div class="ai-mesh-1"></div>
                 <div class="ai-mesh-2"></div>
-                <div class="text-center mb-4" style="position: relative; z-index: 1;">
-                    <div class="section-tag">🤖 AI Powered</div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Get AI-Matched Properties</h3>
-                    <p class="text-muted">Tell us what you're looking for and we'll find your perfect match</p>
+                <div class="ai-match-form">
+                    <div class="section-header" style="margin-bottom: 24px;">
+                        <span class="section-tag">🤖 AI Powered</span>
+                        <h2 class="ai-match-title">Get AI-Matched Properties</h2>
+                        <p class="ai-match-subtitle">Tell us what you're looking for and we'll find your perfect match</p>
+                    </div>
+                    
+                    <div class="grid-2" style="gap: 16px;">
+                        <div>
+                            <label class="text-muted" style="display: block; margin-bottom: 5px;">💰 Budget</label>
+                            <select id="match-budget" class="form-ctrl">
+                                <option>Under 15K</option>
+                                <option>15K–30K</option>
+                                <option>30K–60K</option>
+                                <option>60K–100K</option>
+                                <option>Over 100K</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-muted" style="display: block; margin-bottom: 5px;">📍 Area</label>
+                            <select id="match-area" class="form-ctrl">
+                                <option>Kilimani</option>
+                                <option>Westlands</option>
+                                <option>Kasarani</option>
+                                <option>South B/C</option>
+                                <option>Karen</option>
+                                <option>Eastleigh</option>
+                                <option>Lavington</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-muted" style="display: block; margin-bottom: 5px;">🛏️ Bedrooms</label>
+                            <select id="match-beds" class="form-ctrl">
+                                <option>Bedsitter</option>
+                                <option>Studio</option>
+                                <option>1 Bedroom</option>
+                                <option>2 Bedrooms</option>
+                                <option>3+ Bedrooms</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-muted" style="display: block; margin-bottom: 5px;">📅 Move-in</label>
+                            <select id="match-movein" class="form-ctrl">
+                                <option>Immediately</option>
+                                <option>This Month</option>
+                                <option>Next Month</option>
+                                <option>Just Looking</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="ai-match-btn" class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 14px;">
+                        🤖 Find My Matches →
+                    </button>
                 </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1;">
-                    <div>
-                        <label class="text-muted" style="display: block; margin-bottom: 5px;">💰 Budget</label>
-                        <select id="match-budget" class="form-ctrl">
-                            <option>Under 15K</option>
-                            <option>15K–30K</option>
-                            <option>30K–60K</option>
-                            <option>60K–100K</option>
-                            <option>Over 100K</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-muted" style="display: block; margin-bottom: 5px;">📍 Area</label>
-                        <select id="match-area" class="form-ctrl">
-                            <option>Kilimani</option>
-                            <option>Westlands</option>
-                            <option>Kasarani</option>
-                            <option>South B/C</option>
-                            <option>Karen</option>
-                            <option>Eastleigh</option>
-                            <option>Lavington</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-muted" style="display: block; margin-bottom: 5px;">🛏️ Bedrooms</label>
-                        <select id="match-beds" class="form-ctrl">
-                            <option>Bedsitter</option>
-                            <option>Studio</option>
-                            <option>1 Bedroom</option>
-                            <option>2 Bedrooms</option>
-                            <option>3+ Bedrooms</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-muted" style="display: block; margin-bottom: 5px;">📅 Move-in</label>
-                        <select id="match-movein" class="form-ctrl">
-                            <option>Immediately</option>
-                            <option>This Month</option>
-                            <option>Next Month</option>
-                            <option>Just Looking</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <button id="ai-match-btn" class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 14px;">
-                    🤖 Find My Matches →
-                </button>
             </div>
         </div>
     </section>
@@ -1458,322 +348,290 @@
     <!-- Nairobi Locations -->
     <section class="section" id="locations">
         <div class="container">
-            <div class="text-center mb-4">
-                <div class="section-tag">📍 Popular Areas</div>
-                <h2>Find Homes Across Nairobi</h2>
+            <div class="section-header">
+                <span class="section-tag">📍 Popular Areas</span>
+                <h2 class="section-title">Find Homes Across Nairobi</h2>
             </div>
             
-            <div class="locations-grid">
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Kilimani'">Kilimani</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Westlands'">Westlands</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Kileleshwa'">Kileleshwa</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=South B'">South B</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=South C'">South C</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Lavington'">Lavington</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Parklands'">Parklands</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Ngong Road'">Ngong Road</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Kasarani'">Kasarani</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Karen'">Karen</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Langata'">Lang'ata</div>
-                <div class="location-tag gold-hover" onclick="location.href='properties.html?area=Eastleigh'">Eastleigh</div>
-            </div>
-        </div>
-    </section>
-
-        <!-- FAQ Section - Premium Version -->
-    <section class="section faq-section" id="faq">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
-                <div class="section-tag"> Got Questions?</div>
-                <h2>We've Got <span class="gradient-text">Answers</span></h2>
-                <p style="max-width: 600px; margin: 12px auto 0; color: var(--muted);">Everything you need to know about renting with Rentech</p>
-            </div>
-            
-            <div class="faq-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                <!-- Left Column -->
-                <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
-                    <!-- FAQ Item 1 -->
-                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
-                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="width: 32px; height: 32px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
-                                <span style="font-weight: 600; color: var(--text);">How do you verify landlords?</span>
-                            </div>
-                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
-                        </div>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
-                                <p>Every landlord submits their National ID and property title deed. Our team cross-checks records with government databases and conducts a physical property inspection. We also run AI scam detection on every submission before it goes live.</p>
-                                <div style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;">
-                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--emerald);"> ID Verification</span>
-                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gold);"> Title Deed Check</span>
-                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--blue);"> Physical Inspection</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
-                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="width: 32px; height: 32px; background: var(--emerald-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); font-size: 1.2rem;"></span>
-                                <span style="font-weight: 600; color: var(--text);">Is Rentech free for tenants?</span>
-                            </div>
-                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
-                        </div>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
-                                <p><strong style="color: var(--emerald);">Yes  100% free for tenants!</strong> No application fees, no viewing fees, no hidden charges. You deal directly with the verified landlord. We only earn a 5% commission from the landlord when a tenant moves in successfully.</p>
-                                <div style="background: var(--emerald-dim); padding: 12px 16px; border-radius: 12px; margin-top: 16px; border-left: 3px solid var(--emerald);">
-                                    <span style="font-size: 0.9rem; color: var(--text);"> Tenant Promise: You never pay us a single shilling.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
-                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold-dim), var(--emerald-dim)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
-                                <span style="font-weight: 600; color: var(--text);">How do I contact a landlord?</span>
-                            </div>
-                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
-                        </div>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
-                                <p>Click the <strong style="color: var(--wa-green);"> WhatsApp button</strong> on any listing to connect directly with the verified landlord. No forms, no middlemen, no delays. You can also:</p>
-                                <ul style="margin-top: 12px; list-style: none;">
-                                    <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"> Call landlord directly via WhatsApp</li>
-                                    <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"> Schedule viewings instantly</li>
-                                    <li style="display: flex; align-items: center; gap: 8px;"> Get quick responses (avg 24hr)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div class="areas-grid">
+                <div class="area-tile" onclick="location.href='properties.html?area=Kilimani'">
+                    <div class="at-name">Kilimani</div>
+                    <div class="at-range">45K - 150K</div>
+                    <div class="at-count">12 properties</div>
                 </div>
-
-                <!-- Right Column -->
-                <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
-                    <!-- FAQ Item 4 -->
-                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
-                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(255,215,0,0.05), transparent);">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="width: 32px; height: 32px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
-                                <span style="font-weight: 600; color: var(--text);">Can I list my property today?</span>
-                            </div>
-                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
-                        </div>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
-                                <p><strong style="color: var(--gold);">Yes! Click "List Property Free"</strong> and complete our 4-step form in just 10 minutes. Your listing goes live within 24 hours after verification.</p>
-                                <div style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;">
-                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--emerald);"> Zero upfront cost</span>
-                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gold);"> 5% only on move-in</span>
-                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--blue);"> Free AI description</span>
-                                </div>
-                                <a href="list-property.html" style="display: inline-block; margin-top: 16px; padding: 10px 24px; background: var(--gold); color: black; border-radius: 50px; font-weight: 600; text-decoration: none;">Start Listing </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 5 -->
-                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
-                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(255,215,0,0.05), transparent);">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="width: 32px; height: 32px; background: var(--emerald-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); font-size: 1.2rem;"></span>
-                                <span style="font-weight: 600; color: var(--text);">What if I find a scam listing?</span>
-                            </div>
-                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
-                        </div>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
-                                <p>Report it immediately via WhatsApp (<strong>+254 723 783 337</strong>). We investigate within <span style="color: var(--gold); font-weight: 600;">2 hours</span> and remove the listing. Zero tolerance policy.</p>
-                                <div style="background: rgba(239,68,68,0.1); padding: 12px 16px; border-radius: 12px; margin-top: 16px; border-left: 3px solid var(--red);">
-                                    <span style="font-size: 0.9rem; color: var(--text);"> If you're ever a victim, we'll personally help you find an alternative verified property at no cost.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 6 -->
-                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
-                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold-dim), var(--emerald-dim)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
-                                <span style="font-weight: 600; color: var(--text);">Do you work with agents?</span>
-                            </div>
-                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
-                        </div>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
-                                <p>Only fully verified, licensed agents with valid Nairobi business registration. No anonymous agents. Every listing shows the verified landlord or agent's identity clearly.</p>
-                                <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
-                                    <span style="padding: 4px 12px; background: var(--gold-dim); border-radius: 50px; font-size: 0.8rem;"> Business Permit</span>
-                                    <span style="padding: 4px 12px; background: var(--emerald-dim); border-radius: 50px; font-size: 0.8rem;"> Agent ID Verified</span>
-                                    <span style="padding: 4px 12px; background: var(--blue-dim); border-radius: 50px; font-size: 0.8rem;"> Estate Agency License</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Westlands'">
+                    <div class="at-name">Westlands</div>
+                    <div class="at-range">35K - 200K</div>
+                    <div class="at-count">8 properties</div>
                 </div>
-            </div>
-
-            <!-- Extra Questions CTA -->
-            <div style="text-align: center; margin-top: 48px; padding: 32px; background: linear-gradient(135deg, var(--gold-dim), var(--emerald-dim)); border-radius: 50px;">
-                <p style="font-size: 1.1rem; margin-bottom: 20px;">Still have questions? We're here to help 24/7</p>
-                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://wa.me/254723783337" class="btn btn-whatsapp" style="padding: 14px 32px;"> Chat on WhatsApp</a>
-                    <a href="mailto:rentechproperties.ke@gmail.com" class="btn btn-outline" style="padding: 14px 32px;"> Email Us</a>
+                <div class="area-tile" onclick="location.href='properties.html?area=Kasarani'">
+                    <div class="at-name">Kasarani</div>
+                    <div class="at-range">12K - 45K</div>
+                    <div class="at-count">15 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=South B'">
+                    <div class="at-name">South B</div>
+                    <div class="at-range">25K - 60K</div>
+                    <div class="at-count">6 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=South C'">
+                    <div class="at-name">South C</div>
+                    <div class="at-range">18K - 55K</div>
+                    <div class="at-count">5 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Karen'">
+                    <div class="at-name">Karen</div>
+                    <div class="at-range">75K - 250K</div>
+                    <div class="at-count">9 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Eastleigh'">
+                    <div class="at-name">Eastleigh</div>
+                    <div class="at-range">8K - 25K</div>
+                    <div class="at-count">10 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Lavington'">
+                    <div class="at-name">Lavington</div>
+                    <div class="at-range">60K - 180K</div>
+                    <div class="at-count">7 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Langata'">
+                    <div class="at-name">Lang'ata</div>
+                    <div class="at-range">40K - 120K</div>
+                    <div class="at-count">6 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Parklands'">
+                    <div class="at-name">Parklands</div>
+                    <div class="at-range">50K - 140K</div>
+                    <div class="at-count">4 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Runda'">
+                    <div class="at-name">Runda</div>
+                    <div class="at-range">120K - 300K</div>
+                    <div class="at-count">3 properties</div>
+                </div>
+                <div class="area-tile" onclick="location.href='properties.html?area=Gigiri'">
+                    <div class="at-name">Gigiri</div>
+                    <div class="at-range">90K - 220K</div>
+                    <div class="at-count">4 properties</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
         <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Got Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-hdr" onclick="toggleFaq(this)">
+                        <span>How do you verify landlords?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        <p>Every landlord submits their National ID and property title deed. Our team cross-checks records with government databases and conducts a physical property inspection. We also run AI scam detection on every submission before it goes live.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-hdr" onclick="toggleFaq(this)">
+                        <span>Is Rentech free for tenants?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        <p><strong>Yes! 100% free for tenants!</strong> No application fees, no viewing fees, no hidden charges. You deal directly with the verified landlord. We only earn a 5% commission from the landlord when a tenant moves in successfully.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-hdr" onclick="toggleFaq(this)">
+                        <span>How do I contact a landlord?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        <p>Click the WhatsApp button on any listing to connect directly with the verified landlord. No forms, no middlemen, no delays. You can call, chat, and schedule viewings instantly.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-hdr" onclick="toggleFaq(this)">
+                        <span>Can I list my property today?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        <p>Yes! Click "List Property Free" and complete our 4-step form in just 10 minutes. Your listing goes live within 24 hours after verification. Zero upfront cost — we only earn 5% on confirmed move-in.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-hdr" onclick="toggleFaq(this)">
+                        <span>What if I find a scam listing?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        <p>Report it immediately via WhatsApp (+254 723 783 337). We investigate within 2 hours and remove the listing. Zero tolerance policy. We'll personally help you find an alternative verified property at no cost.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODERN FOOTER -->
+    <footer class="modern-footer">
+        <div class="footer-main">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo" style="margin-bottom: 18px;">
-                        <div class="logo-img" style="width: 50px; height: 50px;">
-                            <img src="assets/logo.png" alt="Rentech Logo">
+                <!-- Brand Column -->
+                <div class="footer-col footer-brand-col">
+                    <div class="footer-logo-wrapper">
+                        <div class="footer-logo-icon">RT</div>
+                        <div class="footer-logo-text">
+                            <span class="footer-logo-rentech">RENTECH</span>
+                            <span class="footer-logo-properties">PROPERTIES</span>
                         </div>
-                        <div class="logo-text" style="font-size: 1.4rem;">RENTECH<span style="font-size: 0.8rem;">PROPERTIES</span></div>
                     </div>
-                    <p>Nairobi's AI-powered rental marketplace. Verified landlords, serious tenants.</p>
-                    <p style="margin-top: 14px;">
-                        📞 +254 723 783 337<br>
-                        ✉️ rentechproperties.ke@gmail.com<br>
-                        📍 Nairobi, Kenya
-                    </p>
+                    <p>Nairobi's trusted property marketplace. Verified listings, serious tenants, zero scams.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/254723783337" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
+                
+                <!-- Quick Links -->
                 <div class="footer-col">
-                    <h5>Quick Links</h5>
+                    <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="properties.html">Browse Properties</a></li>
-                        <li><a href="list-property.html">List Property</a></li>
+                        <li><a href="list-property.html">List a Property</a></li>
                         <li><a href="#how">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
+                
+                <!-- Areas -->
                 <div class="footer-col">
-                    <h5>Popular Areas</h5>
+                    <h4>Popular Areas</h4>
                     <ul>
                         <li><a href="properties.html?area=Kilimani">Kilimani</a></li>
                         <li><a href="properties.html?area=Westlands">Westlands</a></li>
-                        <li><a href="properties.html?area=Kileleshwa">Kileleshwa</a></li>
-                        <li><a href="properties.html?area=Lavington">Lavington</a></li>
+                        <li><a href="properties.html?area=Kasarani">Kasarani</a></li>
+                        <li><a href="properties.html?area=Karen">Karen</a></li>
+                        <li><a href="properties.html?area=Eastleigh">Eastleigh</a></li>
                     </ul>
                 </div>
+                
+                <!-- Contact -->
                 <div class="footer-col">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Commission</a></li>
-                    </ul>
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+254723783337">+254 723 783 337</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:rentechproperties.ke@gmail.com">rentechproperties.ke@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/254723783337" target="_blank">WhatsApp Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div>© 2026 Rentech Properties. All rights reserved.</div>
-                <div class="social-row">
-                    <a href="https://wa.me/254723783337">💬</a>
-                    <a href="#">📸</a>
-                    <a href="#">👥</a>
-                </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Rentech Properties. Nairobi, Kenya. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
             </div>
         </div>
     </footer>
 
     <!-- Floating Elements -->
     <a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%20need%20help%20finding%20a%20rental%20in%20Nairobi." class="wa-float" target="_blank">
-        <span>💬</span>
+        <i class="fab fa-whatsapp"></i>
         <span class="wa-tip">Chat with us — always online</span>
     </a>
     
-    <div class="ai-fab" onclick="toggleChat()">
-        <span>🤖</span>
-        <span class="ai-fab-lbl">AI Help</span>
+    <div class="ai-chat-trigger" onclick="toggleChat()">
+        <div class="ai-chat-btn">
+            <i class="fas fa-robot"></i>
+        </div>
+        <span class="ai-chat-lbl">AI Assistant</span>
+    </div>
+    
+    <div class="ai-chat-panel" id="chatPanel">
+        <div class="ai-chat-header">
+            <div>
+                <h4><i class="fas fa-magic" style="margin-right: 8px;"></i> Rentech Assistant</h4>
+                <p>Ask about properties in Nairobi</p>
+            </div>
+            <button class="ai-chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="ai-chat-messages" id="chatBody">
+            <div class="ai-message bot">
+                <strong>Assistant</strong><br>
+                Hello! 👋 Welcome to Rentech Properties. How can I help you find your perfect home today?
+            </div>
+        </div>
+        
+        <div class="ai-quick-replies">
+            <button class="ai-quick-reply" onclick="chatAnswer('properties')">🔍 Browse Properties</button>
+            <button class="ai-quick-reply" onclick="chatAnswer('areas')">📍 Areas in Nairobi</button>
+            <button class="ai-quick-reply" onclick="chatAnswer('contact')">📞 Contact Info</button>
+            <button class="ai-quick-reply" onclick="chatAnswer('list')">📋 List Property</button>
+        </div>
+        
+        <div class="ai-chat-input-area">
+            <input type="text" class="ai-chat-input" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="ai-chat-send" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
     
     <button class="scroll-top" id="stbtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
-    <!-- AI Chat Panel -->
-    <div class="chat-panel" id="cpanel">
-        <div class="chat-hdr">
-            <h4>🤖 Rentech AI Assistant</h4>
-            <p>Ask about any property or area in Nairobi</p>
-        </div>
-        <div class="chat-msgs" id="cmsgs"></div>
-        <div class="chat-inp-row">
-            <input type="text" id="cinp" placeholder="e.g. 2BR in Kilimani under 70K">
-            <button id="csend">Send</button>
-        </div>
-        <div class="chat-qchips">
-            <span class="chip" onclick="quickChat('Find a home')">Find Home</span>
-            <span class="chip" onclick="quickChat('List my property')">List Property</span>
-            <span class="chip" onclick="quickChat('Verification')">Verification</span>
-            <span class="chip" onclick="quickChat('Contact Rentech')">Contact</span>
-        </div>
-    </div>
-
+    <!-- JavaScript -->
     <script>
-        // Generate Stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            if (!starsContainer) return;
-            
-            const starCount = 100;
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const size = Math.random() * 2 + 1;
-                const delay = Math.random() * 4;
-                const duration = Math.random() * 3 + 3;
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.animationDelay = `${delay}s`;
-                star.style.animationDuration = `${duration}s`;
-                star.style.opacity = Math.random() * 0.7 + 0.3;
-                starsContainer.appendChild(star);
-            }
-        }
-        
-        createStars();
-
         // ---------- PROPERTIES DATA ----------
         const PROPS = [
             {id:1, title:"Modern Apartment", area:"Kilimani", price:45000, beds:2, baths:1, size:85, type:"2BR", furnished:true, badge:"Featured", 
-             img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80", 
-             amenities:["Security","Parking"]},
+             img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80"},
             {id:2, title:"Executive Studio", area:"Westlands", price:35000, beds:1, baths:1, size:45, type:"Studio", furnished:true, badge:"New", 
-             img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80", 
-             amenities:["Security","Lift"]},
+             img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80"},
             {id:3, title:"Affordable Bedsitter", area:"Kasarani", price:12000, beds:1, baths:1, size:25, type:"Bedsitter", furnished:false, badge:"", 
-             img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80", 
-             amenities:["Parking"]},
+             img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80"},
             {id:4, title:"Family Home", area:"Lang'ata", price:85000, beds:3, baths:2, size:140, type:"Maisonette", furnished:false, badge:"Featured", 
-             img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80", 
-             amenities:["Security","Parking"]},
+             img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"},
             {id:5, title:"1BR Apartment", area:"South B", price:28000, beds:1, baths:1, size:55, type:"1BR", furnished:false, badge:"New", 
-             img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80", 
-             amenities:["Security"]},
+             img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80"},
             {id:6, title:"Luxury Studio", area:"Lavington", price:55000, beds:1, baths:1, size:50, type:"Studio", furnished:true, badge:"", 
-             img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=600&q=80", 
-             amenities:["Pool","Gym"]}
+             img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=600&q=80"}
         ];
 
-        const wa = (msg) => `https://wa.me/254723783337?text=${encodeURIComponent(msg)}`;
-        const fmt = (n) => `KSh ${Number(n).toLocaleString('en-KE')}`;
+        function formatKSh(n) {
+            return `KSh ${Number(n).toLocaleString('en-KE')}`;
+        }
 
         function buildCard(p) {
-            const msg = `Hi! I'm interested in ${p.title} in ${p.area} at ${fmt(p.price)}/month. Is it still available?`;
+            const msg = `Hi! I'm interested in ${p.title} in ${p.area} at ${formatKSh(p.price)}/month. Is it still available?`;
             
             return `
                 <div class="property-card">
@@ -1787,14 +645,14 @@
                     <div class="property-content">
                         <div class="property-location">📍 ${p.area}</div>
                         <h3 class="property-title">${p.title}</h3>
-                        <div class="property-price">${fmt(p.price)}<em>/month</em></div>
+                        <div class="property-price">${formatKSh(p.price)}<em>/month</em></div>
                         <div class="property-specs">
                             <span>🛏️ ${p.beds} Bed${p.beds > 1 ? 's' : ''}</span>
                             <span>🚿 ${p.baths} Bath</span>
                         </div>
                         <div class="property-actions">
-                            <a href="property-detail.html?id=${p.id}" class="btn btn-outline" style="font-size: 0.9rem;">View Details</a>
-                            <a href="${wa(msg)}" target="_blank" class="btn btn-wa" style="font-size: 0.9rem;">💬 WhatsApp</a>
+                            <a href="property-detail.html?id=${p.id}" class="btn-details">View Details</a>
+                            <a href="https://wa.me/254723783337?text=${encodeURIComponent(msg)}" target="_blank" class="btn-wa">💬 WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -1803,8 +661,9 @@
 
         function renderGrid() {
             const el = document.getElementById('prop-grid');
-            if (!el) return;
-            el.innerHTML = PROPS.slice(0, 6).map(p => buildCard(p)).join('');
+            if (el) {
+                el.innerHTML = PROPS.map(p => buildCard(p)).join('');
+            }
         }
 
         // AI Match Button
@@ -1819,37 +678,30 @@
             window.open(`https://wa.me/254723783337?text=${message}`, '_blank');
         });
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-hdr').forEach(header => {
-            header.addEventListener('click', function() {
-                const item = this.parentElement;
-                const body = item.querySelector('.faq-body');
-                const isOpen = item.classList.contains('open');
-                
-                document.querySelectorAll('.faq-item.open').forEach(i => {
-                    i.classList.remove('open');
-                    i.querySelector('.faq-body').style.maxHeight = '0';
-                });
-                
-                if (!isOpen) {
-                    item.classList.add('open');
-                    body.style.maxHeight = body.scrollHeight + 'px';
+        // FAQ Toggle
+        function toggleFaq(header) {
+            const item = header.closest('.faq-item');
+            const body = item.querySelector('.faq-body');
+            const icon = header.querySelector('.faq-icon');
+            const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+            
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.faq-body').style.maxHeight = '0';
+                    otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
                 }
             });
-        });
+            
+            if (isOpen) {
+                body.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+            }
+        }
 
-        // Scroll Reveal
-        const revObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('[data-rev], .reveal').forEach(el => revObs.observe(el));
-
-        // Navbar Scroll
+        // Scroll Effects
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (nav) {
@@ -1883,348 +735,94 @@
         // Theme Toggle
         const themeBtn = document.getElementById('theme-btn');
         function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.classList.toggle('light-mode', theme === 'light');
             themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
             localStorage.setItem('rt_theme', theme);
         }
         
         themeBtn?.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const current = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
             applyTheme(current === 'dark' ? 'light' : 'dark');
         });
         
-        const savedTheme = localStorage.getItem('rt_theme');
-        if (savedTheme) applyTheme(savedTheme);
+        const savedTheme = localStorage.getItem('rt_theme') || 'dark';
+        applyTheme(savedTheme);
+
+        // LOADER
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                loader.classList.add('gone');
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 800);
+            }, 2800);
+        });
+
+        // CHATBOT FUNCTIONS
+        function toggleChat() {
+            document.getElementById('chatPanel').classList.toggle('open');
+        }
+
+        const chatAnswers = {
+            properties: "We have properties across Nairobi:\n• Kilimani: 2BR from 65K\n• Westlands: Studios from 35K\n• Kasarani: Bedsitters from 12K\n• Karen: Luxury homes from 75K\n\nWhich area interests you?",
+            areas: "We cover all Nairobi:\n📍 Kilimani • Westlands • Kasarani\n📍 South B/C • Lang'ata • Lavington\n📍 Karen • Eastleigh • Embakasi\n📍 Ruaka • Parklands • Runda",
+            contact: "📞 +254 723 783 337\n📧 rentechproperties.ke@gmail.com\n💬 WhatsApp: wa.me/254723783337\n📍 Nairobi City, Kenya",
+            list: "To list your property:\n1. Click 'List Property Free'\n2. Fill the 4-step form\n3. Get verified in 24hrs\n4. Receive qualified tenants\n\nZero upfront cost! Only 5% on move-in."
+        };
+
+        function chatAnswer(type) {
+            const chatBody = document.getElementById('chatBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'ai-message bot';
+            msgDiv.innerHTML = '<strong>Assistant</strong><br>' + (chatAnswers[type] || "How can I help you?");
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendChat() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            if (!msg) return;
+            
+            const chatBody = document.getElementById('chatBody');
+            
+            const userDiv = document.createElement('div');
+            userDiv.className = 'ai-message user';
+            userDiv.textContent = msg;
+            chatBody.appendChild(userDiv);
+            input.value = '';
+            
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'ai-message bot';
+                let response = "Thanks for your message! Our team will respond shortly. For urgent help, WhatsApp +254 723 783 337";
+                
+                const lowerMsg = msg.toLowerCase();
+                if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
+                    response = "Hello! 👋 Welcome to Rentech Properties. Looking for a home or want to list your property?";
+                } else if (lowerMsg.includes('price') || lowerMsg.includes('cost')) {
+                    response = "Our properties range from KSh 8,000 (bedsitters) to KSh 180,000+ (luxury homes).";
+                } else if (lowerMsg.includes('kilimani') || lowerMsg.includes('westlands')) {
+                    response = "We have several properties in that area! Visit rentech.co.ke/properties.html to see available listings.";
+                }
+                
+                botDiv.innerHTML = '<strong>Assistant</strong><br>' + response;
+                chatBody.appendChild(botDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 800);
+        }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderGrid();
         });
-    </script>
-    <!-- AI Chat Bot - Premium Version -->
-    <div class="ai-chat-trigger" onclick="toggleChatPanel()" style="position: fixed; bottom: 100px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), var(--emerald)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 99; box-shadow: 0 8px 24px rgba(255,215,0,0.3); transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.2);">
-        <span></span>
-    </div>
-    
-    <div id="ai-chat-panel" class="ai-chat-panel" style="position: fixed; bottom: 180px; left: 30px; width: 350px; height: 500px; background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 100; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
-        <div style="background: linear-gradient(135deg, var(--gold), var(--emerald)); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <h4 style="color: black; margin-bottom: 4px;"> Rentech AI</h4>
-                <p style="color: black; font-size: 0.8rem; opacity: 0.8;">Ask about properties in Nairobi</p>
-            </div>
-            <button onclick="toggleChatPanel()" class="ai-chat-close" style="background: transparent; border: none; color: black; font-size: 1.5rem; cursor: pointer;"></button>
-        </div>
-        
-        <div id="ai-chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;">
-            <!-- Messages will appear here -->
-        </div>
-        
-        <div style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px;">
-            <input id="ai-chat-input" type="text" placeholder="Ask me anything..." style="flex: 1; padding: 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: 'DM Sans', sans-serif;">
-            <button id="ai-chat-send" onclick="sendMessage()" style="width: 48px; background: var(--gold); color: black; border: none; border-radius: var(--radius); font-size: 1.2rem; cursor: pointer;"></button>
-        </div>
-        
-        <div class="ai-quick-replies" style="padding: 8px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--border);">
-            <!-- Quick replies will be populated by JS -->
-        </div>
-    </div>
-    <script>
-        // Make toggleChatPanel globally available
-        window.toggleChatPanel = function() {
-            const panel = document.getElementById('ai-chat-panel');
-            const trigger = document.querySelector('.ai-chat-trigger');
-            
-            if (panel) {
-                panel.classList.toggle('open');
-                panel.style.transform = panel.classList.contains('open') ? 'translateY(0)' : 'translateY(20px)';
-                panel.style.opacity = panel.classList.contains('open') ? '1' : '0';
-                panel.style.pointerEvents = panel.classList.contains('open') ? 'all' : 'none';
-            }
-        };
 
-        // Make sendMessage globally available
-        window.sendMessage = function() {
-            const input = document.getElementById('ai-chat-input');
-            const message = input?.value.trim();
-            
-            if (!message) return;
-            
-            // Get messages container
-            const messagesContainer = document.getElementById('ai-chat-messages');
-            
-            // Add user message
-            const userMsg = document.createElement('div');
-            userMsg.style.background = 'var(--emerald)';
-            userMsg.style.color = 'white';
-            userMsg.style.padding = '10px 14px';
-            userMsg.style.borderRadius = '18px';
-            userMsg.style.borderBottomRightRadius = '4px';
-            userMsg.style.maxWidth = '85%';
-            userMsg.style.alignSelf = 'flex-end';
-            userMsg.style.marginLeft = 'auto';
-            userMsg.style.marginBottom = '12px';
-            userMsg.innerHTML = message;
-            messagesContainer.appendChild(userMsg);
-            
-            // Clear input
-            input.value = '';
-            
-            // Scroll to bottom
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            // Simulate AI response after delay
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.style.background = 'var(--card)';
-                botMsg.style.color = 'var(--text)';
-                botMsg.style.padding = '10px 14px';
-                botMsg.style.borderRadius = '18px';
-                botMsg.style.borderBottomLeftRadius = '4px';
-                botMsg.style.maxWidth = '85%';
-                botMsg.style.alignSelf = 'flex-start';
-                botMsg.style.border = '1px solid var(--border)';
-                botMsg.style.marginBottom = '12px';
-                botMsg.innerHTML = "Thanks for your message! Our team will get back to you shortly. In the meantime, you can browse our <a href='properties.html' style='color: var(--gold);'>verified properties</a> or <a href='list-property.html' style='color: var(--gold);'>list your property</a>.";
-                messagesContainer.appendChild(botMsg);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }, 1000);
-        };
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('AI Chat initialized');
-            
-            // Add click handler to trigger button if not using onclick
-            const triggerBtn = document.querySelector('.ai-chat-trigger');
-            if (triggerBtn && !triggerBtn.hasAttribute('onclick')) {
-                triggerBtn.addEventListener('click', window.toggleChatPanel);
-            }
-        });
-    </script>
-    <script>
-        // FAQ Toggle Function
-        function toggleFaq(header) {
-            const item = header.closest('.faq-item');
-            const body = item.querySelector('.faq-body');
-            const icon = header.querySelector('.faq-icon');
-            const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
-            
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-item').forEach(otherItem => {
-                if (otherItem !== item) {
-                    const otherBody = otherItem.querySelector('.faq-body');
-                    const otherIcon = otherItem.querySelector('.faq-icon');
-                    otherBody.style.maxHeight = '0';
-                    otherIcon.style.transform = 'rotate(0deg)';
-                    otherItem.style.borderColor = 'var(--border)';
-                }
-            });
-            
-            // Toggle current item
-            if (isOpen) {
-                body.style.maxHeight = '0';
-                icon.style.transform = 'rotate(0deg)';
-                item.style.borderColor = 'var(--border)';
-            } else {
-                body.style.maxHeight = body.scrollHeight + 'px';
-                icon.style.transform = 'rotate(45deg)';
-                item.style.borderColor = 'var(--gold)';
-            }
-        }
-    </script>
-    <!-- AI Chat Bot - Premium Single Version -->
-    <div class="ai-chat-trigger" onclick="toggleChatPanel()" style="position: fixed; bottom: 90px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), var(--emerald)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 9999; box-shadow: 0 8px 24px var(--gold-glow); transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.2);">
-        <span></span>
-        <span style="position: absolute; left: 70px; background: var(--card); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease; border: 1px solid var(--border);">AI Assistant</span>
-    </div>
-    
-    <div id="ai-chat-panel" style="position: fixed; bottom: 180px; left: 30px; width: 350px; height: 500px; background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 10000; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
-        <div style="background: linear-gradient(135deg, var(--gold), var(--emerald)); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <h4 style="color: black; margin-bottom: 4px;"> Rentech AI</h4>
-                <p style="color: black; font-size: 0.8rem; opacity: 0.8;">Ask about properties in Nairobi</p>
-            </div>
-            <button onclick="toggleChatPanel()" style="background: transparent; border: none; color: black; font-size: 1.5rem; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"></button>
-        </div>
-        
-        <div id="ai-chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;"></div>
-        
-        <div style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px;">
-            <input id="ai-chat-input" type="text" placeholder="Ask me anything..." style="flex: 1; padding: 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: 'DM Sans', sans-serif;">
-            <button onclick="sendMessage()" style="width: 48px; background: var(--gold); color: black; border: none; border-radius: var(--radius); font-size: 1.2rem; cursor: pointer;"></button>
-        </div>
-        
-        <div class="ai-quick-replies" style="padding: 8px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--border);">
-            <button class="ai-quick-reply" onclick="sendQuickReply('Find a home')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> Find a Home</button>
-            <button class="ai-quick-reply" onclick="sendQuickReply('List my property')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> List Property</button>
-            <button class="ai-quick-reply" onclick="sendQuickReply('How it works')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> How It Works</button>
-            <button class="ai-quick-reply" onclick="sendQuickReply('Contact support')" style="padding: 8px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 50px; color: var(--muted); font-size: 0.8rem; cursor: pointer;"> Contact</button>
-        </div>
-    </div>
-    <script>
-        // AI Chat Functions
-        window.toggleChatPanel = function() {
-            const panel = document.getElementById('ai-chat-panel');
-            if (panel) {
-                const isOpen = panel.style.opacity === '1';
-                panel.style.transform = isOpen ? 'translateY(20px)' : 'translateY(0)';
-                panel.style.opacity = isOpen ? '0' : '1';
-                panel.style.pointerEvents = isOpen ? 'none' : 'all';
-            }
-        };
-
-        window.sendMessage = function() {
-            const input = document.getElementById('ai-chat-input');
-            const message = input?.value.trim();
-            if (!message) return;
-            
-            const messages = document.getElementById('ai-chat-messages');
-            
-            // Add user message
-            const userMsg = document.createElement('div');
-            userMsg.style.cssText = 'background: var(--emerald); color: white; padding: 10px 14px; border-radius: 18px; border-bottom-right-radius: 4px; max-width: 85%; align-self: flex-end; margin-left: auto; margin-bottom: 12px;';
-            userMsg.textContent = message;
-            messages.appendChild(userMsg);
-            
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-            
-            // AI response
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.style.cssText = 'background: var(--card); color: var(--text); padding: 10px 14px; border-radius: 18px; border-bottom-left-radius: 4px; max-width: 85%; align-self: flex-start; border: 1px solid var(--border); margin-bottom: 12px;';
-                botMsg.innerHTML = "Thanks for your message! Our team will get back to you shortly. In the meantime, you can browse our <a href='properties.html' style='color: var(--gold);'>verified properties</a>.";
-                messages.appendChild(botMsg);
-                messages.scrollTop = messages.scrollHeight;
-            }, 1000);
-        };
-
-        window.sendQuickReply = function(text) {
-            const input = document.getElementById('ai-chat-input');
-            input.value = text;
-            sendMessage();
-        };
-    </script>
-    <!-- WhatsApp Float Button - Always Visible -->
-    <a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%20need%20help%20finding%20a%20rental%20in%20Nairobi." 
-       class="wa-float" 
-       target="_blank"
-       style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; text-decoration: none; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 9999; border: 3px solid rgba(255,255,255,0.3); transition: all 0.3s ease; animation: bounce 2s infinite;">
-        
-        <span style="position: absolute; right: 75px; background: #1E293B; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease; border: 1px solid #25D366;">Chat with us</span>
-    </a>
-    
-    <style>
-        .wa-float:hover {
-            transform: scale(1.15);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
-        }
-        .wa-float:hover span {
-            opacity: 1;
-            right: 85px;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-    </style>
-    <!-- Simple AI Chat - Perfect Size & Working -->
-    <div id="simple-chat-trigger" onclick="toggleSimpleChat()" style="position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, #10B981, #FFD700); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 9998; box-shadow: 0 8px 25px rgba(255,215,0,0.4); border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;">
-        
-        <span style="position: absolute; left: 70px; background: #1E293B; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease;">AI Help</span>
-    </div>
-    
-    <div id="simple-chat-panel" style="position: fixed; bottom: 100px; left: 30px; width: 320px; height: 450px; background: #1E293B; border-radius: 20px; border: 2px solid #FFD700; box-shadow: 0 20px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 9999; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
-        <!-- Header -->
-        <div style="background: linear-gradient(135deg, #FFD700, #10B981); padding: 15px; display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="background: #0F172A; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
-                <div>
-                    <div style="font-weight: 700; color: #0F172A;">Rentech AI</div>
-                    <div style="font-size: 0.7rem; color: #0F172A;">Online</div>
-                </div>
-            </div>
-            <button onclick="toggleSimpleChat()" style="background: rgba(0,0,0,0.1); border: none; color: #0F172A; font-size: 1.3rem; cursor: pointer; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></button>
-        </div>
-        
-        <!-- Messages -->
-        <div id="simple-chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;"></div>
-        
-        <!-- Input -->
-        <div style="padding: 15px; border-top: 1px solid rgba(255,215,0,0.2); display: flex; gap: 8px;">
-            <input id="simple-chat-input" type="text" placeholder="Ask about properties..." style="flex: 1; padding: 10px 12px; background: #0F172A; border: 1px solid #FFD700; border-radius: 10px; color: white; font-size: 0.9rem;">
-            <button onclick="sendSimpleMessage()" style="padding: 10px 16px; background: #FFD700; border: none; border-radius: 10px; color: #0F172A; font-weight: 600; cursor: pointer;">Send</button>
-        </div>
-    </div>
-    
-    <script>
-        function toggleSimpleChat() {
-            const panel = document.getElementById('simple-chat-panel');
-            const trigger = document.getElementById('simple-chat-trigger');
-            
-            if (panel.style.opacity === '1') {
-                panel.style.opacity = '0';
-                panel.style.transform = 'translateY(20px)';
-                panel.style.pointerEvents = 'none';
-            } else {
-                panel.style.opacity = '1';
-                panel.style.transform = 'translateY(0)';
-                panel.style.pointerEvents = 'all';
-                
-                // Add welcome message if empty
-                const messages = document.getElementById('simple-chat-messages');
-                if (messages.children.length === 0) {
-                    addBotMessage(" Hi! I'm Rentech AI. Ask me about properties in Kilimani, Westlands, Kasarani, or any Nairobi area!");
-                }
-            }
-        }
-        
-        function addUserMessage(text) {
-            const messages = document.getElementById('simple-chat-messages');
-            const msg = document.createElement('div');
-            msg.style.cssText = 'background: #10B981; color: white; padding: 10px 14px; border-radius: 15px; border-bottom-right-radius: 4px; max-width: 80%; align-self: flex-end; margin-bottom: 8px; font-size: 0.9rem;';
-            msg.textContent = text;
-            messages.appendChild(msg);
-            messages.scrollTop = messages.scrollHeight;
-        }
-        
-        function addBotMessage(text) {
-            const messages = document.getElementById('simple-chat-messages');
-            const msg = document.createElement('div');
-            msg.style.cssText = 'background: #0F172A; color: #CBD5E1; padding: 10px 14px; border-radius: 15px; border-bottom-left-radius: 4px; max-width: 80%; align-self: flex-start; border: 1px solid #FFD700; margin-bottom: 8px; font-size: 0.9rem;';
-            msg.textContent = text;
-            messages.appendChild(msg);
-            messages.scrollTop = messages.scrollHeight;
-        }
-        
-        function sendSimpleMessage() {
-            const input = document.getElementById('simple-chat-input');
-            const message = input.value.trim();
-            if (!message) return;
-            
-            addUserMessage(message);
-            input.value = '';
-            
-            // Simple responses
-            setTimeout(() => {
-                const lower = message.toLowerCase();
-                if (lower.includes('kilimani')) {
-                    addBotMessage("Kilimani has great 1BR and 2BR apartments from KSh 45,000 to 120,000. Would you like to see available listings?");
-                } else if (lower.includes('westlands')) {
-                    addBotMessage("Westlands offers studios and apartments from KSh 35,000 to 150,000. Popular for professionals!");
-                } else if (lower.includes('kasarani')) {
-                    addBotMessage("Kasarani has affordable bedsitters from KSh 12,000. Great for students and young professionals!");
-                } else if (lower.includes('2br') || lower.includes('2 bed')) {
-                    addBotMessage("2BR apartments are available in Kilimani (KSh 65K+), Westlands (KSh 75K+), and Lang'ata (KSh 85K+).");
-                } else if (lower.includes('budget') || lower.includes('under')) {
-                    addBotMessage("What's your budget? We have options from KSh 8,000 in Eastleigh to KSh 180,000 in Karen.");
-                } else {
-                    addBotMessage("I can help you find properties! Try asking: '2BR in Kilimani' or 'Budget under 30K'");
-                }
-            }, 600);
-        }
+        // Make functions global
+        window.toggleChat = toggleChat;
+        window.chatAnswer = chatAnswer;
+        window.sendChat = sendChat;
+        window.toggleFaq = toggleFaq;
     </script>
 </body>
 </html>
-
-<!-- Final version with all features - 03/15/2026 04:58:52 -->
