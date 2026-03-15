@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apartments for Rent in Westlands Nairobi | Rentech Properties</title>
+<meta name="description" content="Find verified apartments for rent in Westlands Nairobi. 1BR, 2BR, studios. Direct WhatsApp with landlords. No agents, no scams. KSh 35,000–150,000/month.">
+<meta name="keywords" content="apartments Westlands, rentals Westlands Nairobi, 2 bedroom Westlands, studio Westlands, houses Westlands rent">
+<link rel="canonical" href="https://rentech-properties.vercel.app/westlands-apartments.html">
+<link rel="icon" href="favicon-32x32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.area-hero{padding:130px 0 60px;background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);}
+.area-breadcrumb{display:flex;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:20px;flex-wrap:wrap;}
+.area-breadcrumb a{color:var(--muted);text-decoration:none;}
+.area-breadcrumb a:hover{color:var(--gold);}
+.area-h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;margin-bottom:12px;line-height:1.15;}
+.area-h1 span{color:var(--gold);}
+.area-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:600px;margin-bottom:28px;}
+.area-meta{display:flex;gap:20px;flex-wrap:wrap;}
+.area-meta-item{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:100px;padding:6px 14px;}
+.area-meta-item strong{color:var(--text);}
+.area-body{padding:56px 0 80px;}
+.area-layout{display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start;}
+.area-sidebar{position:sticky;top:90px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;}
+.area-sidebar h3{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:16px;}
+.filter-group{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+.filter-group:last-of-type{border-bottom:none;margin-bottom:0;}
+.filter-label{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;}
+.filter-input{width:100%;padding:9px 12px;background:var(--bg-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;}
+.filter-input:focus{border-color:var(--gold);}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{padding:5px 12px;font-size:.76rem;border-radius:100px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .18s;}
+.chip:hover{border-color:var(--gold);color:var(--gold);}
+.chip.active{background:var(--gold);border-color:var(--gold);color:#0a0a0a;font-weight:700;}
+.results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.results-count{font-size:.9rem;color:var(--muted);}
+.results-count strong{color:var(--text);}
+.sort-sel{padding:8px 12px;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.82rem;cursor:pointer;outline:none;}
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.prop-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:transform .28s,border-color .28s,box-shadow .28s;}
+.prop-card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 10px 30px rgba(255,215,0,.1);}
+.pc-img{position:relative;height:195px;overflow:hidden;}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s;}
+.prop-card:hover .pc-img img{transform:scale(1.05);}
+.pc-badges{position:absolute;top:10px;left:10px;display:flex;gap:5px;}
+.bdg{padding:3px 9px;border-radius:5px;font-size:.67rem;font-weight:700;backdrop-filter:blur(6px);}
+.bdg-v{background:rgba(16,185,129,.92);color:#fff;}
+.bdg-f{background:rgba(255,215,0,.96);color:#0a0a0a;}
+.bdg-n{background:rgba(99,102,241,.92);color:#fff;}
+.pc-body{padding:16px 18px 18px;}
+.pc-loc{font-size:.78rem;color:var(--muted);margin-bottom:5px;}
+.pc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:5px;line-height:1.3;}
+.pc-price{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--emerald);margin-bottom:9px;}
+.pc-price em{font-style:normal;font-family:'DM Sans',sans-serif;font-weight:400;font-size:.75rem;color:var(--muted);}
+.pc-specs{display:flex;gap:12px;color:var(--muted);font-size:.78rem;margin-bottom:11px;flex-wrap:wrap;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;}
+.ptag{font-size:.68rem;padding:2px 8px;background:var(--bg-2);border:1px solid var(--border);border-radius:100px;color:var(--muted);}
+.pc-actions{display:flex;gap:7px;}
+.btn-det{flex:1;padding:9px;background:transparent;border:1px solid var(--border);color:var(--text);border-radius:var(--radius);text-decoration:none;font-size:.82rem;text-align:center;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .18s;}
+.btn-det:hover{border-color:var(--gold);color:var(--gold);}
+.btn-wa{flex:1;padding:9px;background:#25D366;color:#fff;border:none;border-radius:var(--radius);text-decoration:none;font-size:.82rem;text-align:center;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:4px;}
+.btn-wa:hover{background:#128C7E;}
+.area-info-section{padding:56px 0;background:var(--bg-2);}
+.area-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;}
+.info-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:12px;}
+.info-card p,.info-card li{color:var(--muted);font-size:.88rem;line-height:1.7;}
+.info-card ul{padding-left:16px;}
+.price-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.price-table th{text-align:left;padding:10px 12px;background:var(--bg-2);font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border);}
+.price-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);}
+.price-table td:first-child{color:var(--text);font-weight:500;}
+.price-table td.price{color:var(--emerald);font-family:'Syne',sans-serif;font-weight:700;}
+.other-areas{padding:56px 0;}
+.other-areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.other-area-chip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-decoration:none;color:var(--text);display:flex;justify-content:space-between;align-items:center;font-size:.86rem;font-weight:500;transition:all .2s;}
+.other-area-chip:hover{border-color:var(--gold);color:var(--gold);}
+.cnt{font-size:.7rem;color:var(--muted);background:var(--bg-2);padding:2px 8px;border-radius:100px;}
+@media(max-width:960px){.area-layout{grid-template-columns:1fr;}.area-sidebar{display:none;}}
+@media(max-width:768px){.area-info-grid{grid-template-columns:1fr;}.other-areas-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><div class="logo-img"><img src="assets/logo.png" alt="Rentech Properties" width="40" height="40"></div><div class="logo-text">RENTECH<span>PROPERTIES</span></div></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="properties.html" class="active">Browse</a><a href="index.html#how">How It Works</a><a href="index.html#locations">Areas</a><a href="index.html#faq">FAQ</a></div>
+    <div class="nav-actions"><button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button><a href="list-property.html" class="btn btn-primary">List Property Free</a><button class="hamburger" id="ham"><span></span><span></span><span></span></button></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob-menu"><a href="index.html">Home</a><a href="properties.html">Browse</a><a href="index.html#how">How It Works</a><a href="index.html#locations">Areas</a><a href="index.html#faq">FAQ</a><a href="list-property.html" class="btn btn-primary" style="margin-top:10px;">List Property Free</a></div>
+
+<!-- HERO -->
+<section class="area-hero">
+  <div class="container">
+    <div class="area-breadcrumb"><a href="index.html">Home</a><span>›</span><a href="properties.html">Browse</a><span>›</span><span>Westlands Apartments</span></div>
+    <h1 class="area-h1">Apartments for Rent in <span>Westlands</span>, Nairobi</h1>
+    <p class="area-sub">Browse verified rental apartments in Westlands — Nairobi's premier residential area. Studios, 1BR, 2BR and 3BR available. Direct WhatsApp contact with verified landlords. No agents, no scam fees.</p>
+    <div class="area-meta">
+      <div class="area-meta-item">🏠 <strong>18</strong> Active Listings</div>
+      <div class="area-meta-item">💰 From <strong>KSh 35,000</strong>/month</div>
+      <div class="area-meta-item">✓ <strong>100%</strong> Verified Landlords</div>
+      <div class="area-meta-item">🆓 <strong>Free</strong> for Tenants</div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section class="area-body">
+  <div class="container">
+    <div class="area-layout">
+      <aside class="area-sidebar">
+        <h3>⚙️ Filter Westlands</h3>
+        <div class="filter-group">
+          <label class="filter-label">💰 Max Price</label>
+          <input type="range" id="f-price" min="5000" max="200000" step="5000" value="200000" style="width:100%;accent-color:var(--gold)">
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:.78rem;"><span style="color:var(--muted)">KSh 5K</span><span style="color:var(--emerald);font-weight:700;" id="price-val">KSh 200K</span></div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">🏢 Type</label>
+          <div class="chip-row">
+            <button class="chip tc active" data-v="All">All</button>
+            <button class="chip tc" data-v="Studio">Studio</button>
+            <button class="chip tc" data-v="1BR">1BR</button>
+            <button class="chip tc" data-v="2BR">2BR</button>
+            <button class="chip tc" data-v="3BR">3BR+</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">✨ Amenities</label>
+          <label style="display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:.85rem;color:var(--muted);cursor:pointer;"><input type="checkbox" class="ac" value="Furnished" style="accent-color:var(--gold)"> Furnished</label>
+          <label style="display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:.85rem;color:var(--muted);cursor:pointer;"><input type="checkbox" class="ac" value="Parking" style="accent-color:var(--gold)"> Parking</label>
+          <label style="display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:.85rem;color:var(--muted);cursor:pointer;"><input type="checkbox" class="ac" value="Security" style="accent-color:var(--gold)"> Security</label>
+        </div>
+        <button id="reset-btn" class="btn btn-outline" style="width:100%;font-size:.82rem;">↺ Reset</button>
+      </aside>
+      <div>
+        <div class="results-bar">
+          <div class="results-count">Showing <strong id="res-count">0</strong> Westlands properties</div>
+          <select id="sort-sel" class="sort-sel"><option value="featured">⭐ Featured First</option><option value="price-low">💰 Price: Low → High</option><option value="price-high">💰 Price: High → Low</option></select>
+        </div>
+        <div class="prop-grid" id="grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA INFO -->
+<section class="area-info-section">
+  <div class="container">
+    <h2 style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:32px;">About <span style="color:var(--gold)">Westlands</span> Rentals</h2>
+    <div class="area-info-grid">
+      <div class="info-card">
+        <h3>📍 About Westlands</h3>
+        <p>Westlands is one of Nairobi's most sought-after residential neighbourhoods, known for its central location, excellent infrastructure, and cosmopolitan atmosphere. Situated just minutes from the CBD and major shopping centres like Junction Mall and Yaya Centre, Westlands offers residents a premium urban lifestyle.</p>
+        <p style="margin-top:10px;">The area is popular with young professionals, expats, and families who value security, proximity to work, and access to lifestyle amenities. High-quality apartment buildings dominate the neighbourhood, with modern finishes and 24hr security as standard.</p>
+      </div>
+      <div class="info-card">
+        <h3>💰 Westlands Rental Prices 2026</h3>
+        <table class="price-table">
+          <thead><tr><th>Property Type</th><th>Price Range</th></tr></thead>
+          <tbody>
+            <tr><td>Bedsitter</td><td class="price">KSh 20,000–35,000</td></tr>
+            <tr><td>Studio</td><td class="price">KSh 35,000–55,000</td></tr>
+            <tr><td>1 Bedroom</td><td class="price">KSh 45,000–80,000</td></tr>
+            <tr><td>2 Bedrooms</td><td class="price">KSh 60,000–130,000</td></tr>
+            <tr><td>3 Bedrooms</td><td class="price">KSh 100,000–200,000</td></tr>
+            <tr><td>Penthouse</td><td class="price">KSh 180,000–350,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-card">
+        <h3>🏫 Nearby Amenities</h3>
+        <ul>
+          <li>Junction Mall — 5 min walk</li>
+          <li>Yaya Centre — 7 min drive</li>
+          <li>Westlands Primary School</li>
+          <li>Nairobi Hospital — 10 min drive</li>
+          <li>CBD — 15 min drive</li>
+          <li>Capital Centre, Adams Arcade</li>
+          <li>Multiple supermarkets (Carrefour, Naivas)</li>
+          <li>Restaurants, gyms, and coffee shops</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>✅ Why Rent in Westlands</h3>
+        <ul>
+          <li>Central location — close to CBD</li>
+          <li>Excellent road infrastructure</li>
+          <li>High security estates and compounds</li>
+          <li>Strong expat and professional community</li>
+          <li>Good public transport links (matatu routes)</li>
+          <li>Wide range of property types and budgets</li>
+          <li>Premium lifestyle amenities nearby</li>
+          <li>Strong fibre internet infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER AREAS -->
+<section class="other-areas">
+  <div class="container">
+    <h2 style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:20px;">Explore Other <span style="color:var(--gold)">Nairobi Areas</span></h2>
+    <div class="other-areas-grid">
+      <a href="kilimani-apartments.html" class="other-area-chip">📍 Kilimani <span class="cnt">14</span></a>
+      <a href="properties.html?area=Kasarani" class="other-area-chip">📍 Kasarani <span class="cnt">22</span></a>
+      <a href="properties.html?area=South+B" class="other-area-chip">📍 South B <span class="cnt">11</span></a>
+      <a href="properties.html?area=Karen" class="other-area-chip">📍 Karen <span class="cnt">8</span></a>
+      <a href="properties.html?area=Lavington" class="other-area-chip">📍 Lavington <span class="cnt">7</span></a>
+      <a href="properties.html?area=Eastleigh" class="other-area-chip">📍 Eastleigh <span class="cnt">16</span></a>
+      <a href="properties.html?area=Kileleshwa" class="other-area-chip">📍 Kileleshwa <span class="cnt">10</span></a>
+      <a href="properties.html?area=Parklands" class="other-area-chip">📍 Parklands <span class="cnt">5</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo" style="margin-bottom:18px;"><div class="logo-img" style="width:40px;height:40px;"><img src="assets/logo.png" alt="Rentech Properties" width="40" height="40"></div><div class="logo-text" style="font-size:1.1rem;">RENTECH<span style="font-size:.65rem;">PROPERTIES</span></div></div><p style="color:var(--muted);font-size:.88rem;">Nairobi's AI-powered rental marketplace. No scams. No agents.</p></div><div class="footer-col"><h5>Areas</h5><ul><li><a href="westlands-apartments.html">Westlands</a></li><li><a href="westlands-rentals.html">Westlands</a></li><li><a href="properties.html?area=Kasarani">Kasarani</a></li><li><a href="properties.html?area=Karen">Karen</a></li></ul></div><div class="footer-col"><h5>Quick Links</h5><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Browse All</a></li><li><a href="list-property.html">List Property</a></li></ul></div><div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div></div><div class="footer-bottom"><div>© 2026 Rentech Properties. All rights reserved.</div><div class="social-row"><a href="https://wa.me/254723783337" target="_blank">💬</a><a href="https://x.com/rentech_ke" target="_blank">𝕏</a><a href="https://tiktok.com/@mohamudunshaken" target="_blank">🎵</a></div></div></div></footer>
+<a href="https://wa.me/254723783337?text=Hi%20Rentech!%20I%27m%20looking%20for%20an%20apartment%20in%20Westlands." class="wa-float" target="_blank">💬</a>
+
+<script>
+const KILIMANI = [
+  {id:1,title:"Modern 2BR Apartment",area:"Westlands",price:65000,beds:2,baths:2,type:"2BR",tags:["Furnished","Security","Parking"],badge:"Featured",img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80"},
+  {id:101,title:"1BR Westlands Heights",area:"Westlands",price:48000,beds:1,baths:1,type:"1BR",tags:["Security","Parking","Elevator"],badge:"New",img:"https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80"},
+  {id:102,title:"Studio – Ngong Road",area:"Westlands",price:36000,beds:1,baths:1,type:"Studio",tags:["Furnished","Internet Ready"],badge:"",img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80"},
+  {id:103,title:"3BR Penthouse",area:"Westlands",price:145000,beds:3,baths:3,type:"3BR",tags:["Furnished","Security","Gym","Pool"],badge:"Featured",img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80"},
+  {id:104,title:"2BR Near Junction Mall",area:"Westlands",price:72000,beds:2,baths:2,type:"2BR",tags:["Security","Parking","CCTV"],badge:"",img:"https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=700&q=80"},
+  {id:105,title:"Budget 1BR Apartment",area:"Westlands",price:42000,beds:1,baths:1,type:"1BR",tags:["Security","Borehole"],badge:"New",img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80"},
+];
+
+const wa=p=>`https://wa.me/254723783337?text=${encodeURIComponent(`Hi! Interested in ${p.title} in ${p.area} at KSh ${p.price.toLocaleString()}/month on Rentech Properties. Still available?`)}`;
+
+function card(p){
+  const badges=`<span class="bdg bdg-v">✓ Verified</span>${p.badge==='Featured'?'<span class="bdg bdg-f">⭐ Featured</span>':''}${p.badge==='New'?'<span class="bdg bdg-n">🆕 New</span>':''}`;
+  const tags=p.tags.slice(0,3).map(t=>`<span class="ptag">${t}</span>`).join('');
+  return `<div class="prop-card"><div class="pc-img"><img src="${p.img}" alt="${p.title}" loading="lazy"><div class="pc-badges">${badges}</div></div><div class="pc-body"><div class="pc-loc">📍 ${p.area}</div><h3 class="pc-title">${p.title}</h3><div class="pc-price">KSh ${p.price.toLocaleString()} <em>/month</em></div><div class="pc-specs"><span>🛏️ ${p.beds} Bed</span><span>🚿 ${p.baths} Bath</span></div><div class="pc-tags">${tags}</div><div class="pc-actions"><a href="property-detail.html?id=${p.id}" class="btn-det">View Details</a><a href="${wa(p)}" target="_blank" class="btn-wa">💬 WhatsApp</a></div></div></div>`;
+}
+
+let activeType='All';
+function render(){
+  const maxP=+document.getElementById('f-price').value;
+  const sort=document.getElementById('sort-sel').value;
+  const amen=[...document.querySelectorAll('.ac:checked')].map(c=>c.value);
+  let list=KILIMANI.filter(p=>{
+    if(p.price>maxP)return false;
+    if(activeType!=='All'&&p.type!==activeType)return false;
+    if(amen.length&&!amen.every(a=>p.tags.includes(a)))return false;
+    return true;
+  });
+  if(sort==='price-low')list.sort((a,b)=>a.price-b.price);
+  if(sort==='price-high')list.sort((a,b)=>b.price-a.price);
+  if(sort==='featured')list.sort((a,b)=>(b.badge==='Featured'?1:0)-(a.badge==='Featured'?1:0));
+  document.getElementById('res-count').textContent=list.length;
+  document.getElementById('grid').innerHTML=list.length?list.map(card).join(''):`<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);">No properties match your filters. <button onclick="resetF()" style="background:none;border:none;color:var(--gold);cursor:pointer;">Reset filters</button></div>`;
+}
+function resetF(){document.getElementById('f-price').value=200000;document.getElementById('price-val').textContent='KSh 200K';activeType='All';document.querySelectorAll('.tc').forEach(c=>c.classList.toggle('active',c.dataset.v==='All'));document.querySelectorAll('.ac').forEach(c=>c.checked=false);render();}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  render();
+  document.getElementById('f-price').addEventListener('input',function(){const v=+this.value;document.getElementById('price-val').textContent=`KSh ${(v/1000).toFixed(0)}K`;render();});
+  document.getElementById('sort-sel').addEventListener('change',render);
+  document.querySelectorAll('.tc').forEach(btn=>btn.addEventListener('click',()=>{activeType=btn.dataset.v;document.querySelectorAll('.tc').forEach(c=>c.classList.toggle('active',c===btn));render();}));
+  document.querySelectorAll('.ac').forEach(c=>c.addEventListener('change',render));
+  document.getElementById('reset-btn').addEventListener('click',resetF);
+  const ham=document.getElementById('ham'),mob=document.getElementById('mob-menu');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+  const themeBtn=document.getElementById('theme-btn');
+  const applyTheme=t=>{document.documentElement.setAttribute('data-theme',t);themeBtn.textContent=t==='dark'?'🌙':'☀️';localStorage.setItem('rt_theme',t);};
+  const saved=localStorage.getItem('rt_theme');if(saved)applyTheme(saved);
+  themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50));
+});
+</script>
+</body>
+</html>
