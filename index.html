@@ -1480,41 +1480,152 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+        <!-- FAQ Section - Premium Version -->
     <section class="section faq-section" id="faq">
         <div class="container">
-            <div class="text-center mb-4">
-                <div class="section-tag">❓ FAQ</div>
-                <h2>Frequently Asked Questions</h2>
+            <div style="text-align: center; margin-bottom: 48px;" class="fade-up" data-rev>
+                <div class="section-tag"> Got Questions?</div>
+                <h2>We've Got <span class="gradient-text">Answers</span></h2>
+                <p style="max-width: 600px; margin: 12px auto 0; color: var(--muted);">Everything you need to know about renting with Rentech</p>
             </div>
             
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>How do you verify landlords?</span>
-                        <span class="faq-icon">+</span>
+            <div class="faq-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <!-- Left Column -->
+                <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
+                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 32px; height: 32px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
+                                <span style="font-weight: 600; color: var(--text);">How do you verify landlords?</span>
+                            </div>
+                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
+                                <p>Every landlord submits their National ID and property title deed. Our team cross-checks records with government databases and conducts a physical property inspection. We also run AI scam detection on every submission before it goes live.</p>
+                                <div style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;">
+                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--emerald);"> ID Verification</span>
+                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gold);"> Title Deed Check</span>
+                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--blue);"> Physical Inspection</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-body">
-                        <p>Every landlord submits their National ID and property title deed. Our team cross-checks records and conducts a physical property inspection.</p>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
+                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 32px; height: 32px; background: var(--emerald-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); font-size: 1.2rem;"></span>
+                                <span style="font-weight: 600; color: var(--text);">Is Rentech free for tenants?</span>
+                            </div>
+                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
+                                <p><strong style="color: var(--emerald);">Yes  100% free for tenants!</strong> No application fees, no viewing fees, no hidden charges. You deal directly with the verified landlord. We only earn a 5% commission from the landlord when a tenant moves in successfully.</p>
+                                <div style="background: var(--emerald-dim); padding: 12px 16px; border-radius: 12px; margin-top: 16px; border-left: 3px solid var(--emerald);">
+                                    <span style="font-size: 0.9rem; color: var(--text);"> Tenant Promise: You never pay us a single shilling.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
+                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold-dim), var(--emerald-dim)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
+                                <span style="font-weight: 600; color: var(--text);">How do I contact a landlord?</span>
+                            </div>
+                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
+                                <p>Click the <strong style="color: var(--wa-green);"> WhatsApp button</strong> on any listing to connect directly with the verified landlord. No forms, no middlemen, no delays. You can also:</p>
+                                <ul style="margin-top: 12px; list-style: none;">
+                                    <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"> Call landlord directly via WhatsApp</li>
+                                    <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"> Schedule viewings instantly</li>
+                                    <li style="display: flex; align-items: center; gap: 8px;"> Get quick responses (avg 24hr)</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>Is Rentech free for tenants?</span>
-                        <span class="faq-icon">+</span>
+
+                <!-- Right Column -->
+                <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
+                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(255,215,0,0.05), transparent);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 32px; height: 32px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
+                                <span style="font-weight: 600; color: var(--text);">Can I list my property today?</span>
+                            </div>
+                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
+                                <p><strong style="color: var(--gold);">Yes! Click "List Property Free"</strong> and complete our 4-step form in just 10 minutes. Your listing goes live within 24 hours after verification.</p>
+                                <div style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;">
+                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--emerald);"> Zero upfront cost</span>
+                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gold);"> 5% only on move-in</span>
+                                    <span style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--blue);"> Free AI description</span>
+                                </div>
+                                <a href="list-property.html" style="display: inline-block; margin-top: 16px; padding: 10px 24px; background: var(--gold); color: black; border-radius: 50px; font-weight: 600; text-decoration: none;">Start Listing </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-body">
-                        <p>Yes — 100% free for tenants. No application fees, no viewing fees, no hidden charges.</p>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
+                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(255,215,0,0.05), transparent);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 32px; height: 32px; background: var(--emerald-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); font-size: 1.2rem;"></span>
+                                <span style="font-weight: 600; color: var(--text);">What if I find a scam listing?</span>
+                            </div>
+                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
+                                <p>Report it immediately via WhatsApp (<strong>+254 723 783 337</strong>). We investigate within <span style="color: var(--gold); font-weight: 600;">2 hours</span> and remove the listing. Zero tolerance policy.</p>
+                                <div style="background: rgba(239,68,68,0.1); padding: 12px 16px; border-radius: 12px; margin-top: 16px; border-left: 3px solid var(--red);">
+                                    <span style="font-size: 0.9rem; color: var(--text);"> If you're ever a victim, we'll personally help you find an alternative verified property at no cost.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item" style="background: var(--card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease;">
+                        <div class="faq-hdr" onclick="toggleFaq(this)" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(90deg, rgba(16,185,129,0.05), transparent);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold-dim), var(--emerald-dim)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.2rem;"></span>
+                                <span style="font-weight: 600; color: var(--text);">Do you work with agents?</span>
+                            </div>
+                            <span class="faq-icon" style="font-size: 1.5rem; color: var(--gold); transition: transform 0.3s ease;">+</span>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div style="padding: 0 24px 20px 68px; color: var(--muted); line-height: 1.7;">
+                                <p>Only fully verified, licensed agents with valid Nairobi business registration. No anonymous agents. Every listing shows the verified landlord or agent's identity clearly.</p>
+                                <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+                                    <span style="padding: 4px 12px; background: var(--gold-dim); border-radius: 50px; font-size: 0.8rem;"> Business Permit</span>
+                                    <span style="padding: 4px 12px; background: var(--emerald-dim); border-radius: 50px; font-size: 0.8rem;"> Agent ID Verified</span>
+                                    <span style="padding: 4px 12px; background: var(--blue-dim); border-radius: 50px; font-size: 0.8rem;"> Estate Agency License</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-hdr">
-                        <span>How do I contact a landlord?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-body">
-                        <p>Click the WhatsApp button on any listing to connect directly with the verified landlord.</p>
-                    </div>
+            </div>
+
+            <!-- Extra Questions CTA -->
+            <div style="text-align: center; margin-top: 48px; padding: 32px; background: linear-gradient(135deg, var(--gold-dim), var(--emerald-dim)); border-radius: 50px;">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">Still have questions? We're here to help 24/7</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/254723783337" class="btn btn-whatsapp" style="padding: 14px 32px;"> Chat on WhatsApp</a>
+                    <a href="mailto:rentechproperties.ke@gmail.com" class="btn btn-outline" style="padding: 14px 32px;"> Email Us</a>
                 </div>
             </div>
         </div>
@@ -1790,5 +1901,137 @@
             renderGrid();
         });
     </script>
+    <!-- AI Chat Bot - Premium Version -->
+    <div class="ai-chat-trigger" onclick="toggleChatPanel()" style="position: fixed; bottom: 100px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), var(--emerald)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 99; box-shadow: 0 8px 24px rgba(255,215,0,0.3); transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.2);">
+        <span></span>
+    </div>
+    
+    <div id="ai-chat-panel" class="ai-chat-panel" style="position: fixed; bottom: 180px; left: 30px; width: 350px; height: 500px; background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 100; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
+        <div style="background: linear-gradient(135deg, var(--gold), var(--emerald)); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h4 style="color: black; margin-bottom: 4px;"> Rentech AI</h4>
+                <p style="color: black; font-size: 0.8rem; opacity: 0.8;">Ask about properties in Nairobi</p>
+            </div>
+            <button onclick="toggleChatPanel()" class="ai-chat-close" style="background: transparent; border: none; color: black; font-size: 1.5rem; cursor: pointer;"></button>
+        </div>
+        
+        <div id="ai-chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;">
+            <!-- Messages will appear here -->
+        </div>
+        
+        <div style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px;">
+            <input id="ai-chat-input" type="text" placeholder="Ask me anything..." style="flex: 1; padding: 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: 'DM Sans', sans-serif;">
+            <button id="ai-chat-send" onclick="sendMessage()" style="width: 48px; background: var(--gold); color: black; border: none; border-radius: var(--radius); font-size: 1.2rem; cursor: pointer;"></button>
+        </div>
+        
+        <div class="ai-quick-replies" style="padding: 8px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--border);">
+            <!-- Quick replies will be populated by JS -->
+        </div>
+    </div>
+    <script>
+        // Make toggleChatPanel globally available
+        window.toggleChatPanel = function() {
+            const panel = document.getElementById('ai-chat-panel');
+            const trigger = document.querySelector('.ai-chat-trigger');
+            
+            if (panel) {
+                panel.classList.toggle('open');
+                panel.style.transform = panel.classList.contains('open') ? 'translateY(0)' : 'translateY(20px)';
+                panel.style.opacity = panel.classList.contains('open') ? '1' : '0';
+                panel.style.pointerEvents = panel.classList.contains('open') ? 'all' : 'none';
+            }
+        };
+
+        // Make sendMessage globally available
+        window.sendMessage = function() {
+            const input = document.getElementById('ai-chat-input');
+            const message = input?.value.trim();
+            
+            if (!message) return;
+            
+            // Get messages container
+            const messagesContainer = document.getElementById('ai-chat-messages');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.style.background = 'var(--emerald)';
+            userMsg.style.color = 'white';
+            userMsg.style.padding = '10px 14px';
+            userMsg.style.borderRadius = '18px';
+            userMsg.style.borderBottomRightRadius = '4px';
+            userMsg.style.maxWidth = '85%';
+            userMsg.style.alignSelf = 'flex-end';
+            userMsg.style.marginLeft = 'auto';
+            userMsg.style.marginBottom = '12px';
+            userMsg.innerHTML = message;
+            messagesContainer.appendChild(userMsg);
+            
+            // Clear input
+            input.value = '';
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Simulate AI response after delay
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.style.background = 'var(--card)';
+                botMsg.style.color = 'var(--text)';
+                botMsg.style.padding = '10px 14px';
+                botMsg.style.borderRadius = '18px';
+                botMsg.style.borderBottomLeftRadius = '4px';
+                botMsg.style.maxWidth = '85%';
+                botMsg.style.alignSelf = 'flex-start';
+                botMsg.style.border = '1px solid var(--border)';
+                botMsg.style.marginBottom = '12px';
+                botMsg.innerHTML = "Thanks for your message! Our team will get back to you shortly. In the meantime, you can browse our <a href='properties.html' style='color: var(--gold);'>verified properties</a> or <a href='list-property.html' style='color: var(--gold);'>list your property</a>.";
+                messagesContainer.appendChild(botMsg);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+        };
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('AI Chat initialized');
+            
+            // Add click handler to trigger button if not using onclick
+            const triggerBtn = document.querySelector('.ai-chat-trigger');
+            if (triggerBtn && !triggerBtn.hasAttribute('onclick')) {
+                triggerBtn.addEventListener('click', window.toggleChatPanel);
+            }
+        });
+    </script>
+    <script>
+        // FAQ Toggle Function
+        function toggleFaq(header) {
+            const item = header.closest('.faq-item');
+            const body = item.querySelector('.faq-body');
+            const icon = header.querySelector('.faq-icon');
+            const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherBody = otherItem.querySelector('.faq-body');
+                    const otherIcon = otherItem.querySelector('.faq-icon');
+                    otherBody.style.maxHeight = '0';
+                    otherIcon.style.transform = 'rotate(0deg)';
+                    otherItem.style.borderColor = 'var(--border)';
+                }
+            });
+            
+            // Toggle current item
+            if (isOpen) {
+                body.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+                item.style.borderColor = 'var(--border)';
+            } else {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+                item.style.borderColor = 'var(--gold)';
+            }
+        }
+    </script>
 </body>
 </html>
+
