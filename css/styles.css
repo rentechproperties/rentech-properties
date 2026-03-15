@@ -1170,3 +1170,8 @@
         --gold: #FFD700;
         --gold-dim: rgba(255,215,0,0.1);
         --gold-glow: rgba(255,215,0,0.3);
+
+        /* Gold brand colors */
+        --gold: #FFD700;
+        --gold-dim: rgba(255,215,0,0.1);
+        --gold-glow: rgba(255,215,0,0.3);
