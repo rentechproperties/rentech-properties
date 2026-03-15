@@ -549,6 +549,35 @@
     <a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%20need%20help%20finding%20a%20rental%20in%20Nairobi." class="wa-float" target="_blank">💬</a>
     <button class="scroll-top" id="stbtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
+    <!-- AI Chat Bot - Premium Version -->
+    <div class="ai-chat-trigger" onclick="toggleChatPanel()" style="position: fixed; bottom: 100px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), var(--emerald)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 99; box-shadow: 0 8px 24px rgba(255,215,0,0.3); transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.2);">
+        <span>🤖</span>
+    </div>
+    
+    <div id="ai-chat-panel" class="ai-chat-panel" style="position: fixed; bottom: 180px; left: 30px; width: 350px; height: 500px; background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 100; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
+        <div style="background: linear-gradient(135deg, var(--gold), var(--emerald)); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h4 style="color: black; margin-bottom: 4px;">🤖 Rentech AI</h4>
+                <p style="color: black; font-size: 0.8rem; opacity: 0.8;">Ask about properties in Nairobi</p>
+            </div>
+            <button onclick="toggleChatPanel()" class="ai-chat-close" style="background: transparent; border: none; color: black; font-size: 1.5rem; cursor: pointer;">✕</button>
+        </div>
+        
+        <div id="ai-chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;">
+            <!-- Messages will appear here -->
+        </div>
+        
+        <div style="padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px;">
+            <input id="ai-chat-input" type="text" placeholder="Ask me anything..." style="flex: 1; padding: 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: 'DM Sans', sans-serif;">
+            <button id="ai-chat-send" onclick="sendMessage()" style="width: 48px; background: var(--gold); color: black; border: none; border-radius: var(--radius); font-size: 1.2rem; cursor: pointer;">→</button>
+        </div>
+        
+        <div class="ai-quick-replies" style="padding: 8px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--border);">
+            <!-- Quick replies will be populated by JS -->
+        </div>
+    </div>
+
+    <script src="js/ai-chat.js"></script>
     <script>
         // ---------- SAMPLE PROPERTY DATA ----------
         const properties = [
