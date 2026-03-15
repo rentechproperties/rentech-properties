@@ -2105,6 +2105,125 @@
             sendMessage();
         };
     </script>
+    <!-- WhatsApp Float Button - Always Visible -->
+    <a href="https://wa.me/254723783337?text=Hello%20Rentech%20Properties!%20I%20need%20help%20finding%20a%20rental%20in%20Nairobi." 
+       class="wa-float" 
+       target="_blank"
+       style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; text-decoration: none; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 9999; border: 3px solid rgba(255,255,255,0.3); transition: all 0.3s ease; animation: bounce 2s infinite;">
+        
+        <span style="position: absolute; right: 75px; background: #1E293B; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease; border: 1px solid #25D366;">Chat with us</span>
+    </a>
+    
+    <style>
+        .wa-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+        }
+        .wa-float:hover span {
+            opacity: 1;
+            right: 85px;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+    <!-- Simple AI Chat - Perfect Size & Working -->
+    <div id="simple-chat-trigger" onclick="toggleSimpleChat()" style="position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, #10B981, #FFD700); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-size: 2rem; cursor: pointer; z-index: 9998; box-shadow: 0 8px 25px rgba(255,215,0,0.4); border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;">
+        
+        <span style="position: absolute; left: 70px; background: #1E293B; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.3s ease;">AI Help</span>
+    </div>
+    
+    <div id="simple-chat-panel" style="position: fixed; bottom: 100px; left: 30px; width: 320px; height: 450px; background: #1E293B; border-radius: 20px; border: 2px solid #FFD700; box-shadow: 0 20px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; z-index: 9999; overflow: hidden; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s ease;">
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, #FFD700, #10B981); padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="background: #0F172A; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
+                <div>
+                    <div style="font-weight: 700; color: #0F172A;">Rentech AI</div>
+                    <div style="font-size: 0.7rem; color: #0F172A;">Online</div>
+                </div>
+            </div>
+            <button onclick="toggleSimpleChat()" style="background: rgba(0,0,0,0.1); border: none; color: #0F172A; font-size: 1.3rem; cursor: pointer; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></button>
+        </div>
+        
+        <!-- Messages -->
+        <div id="simple-chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;"></div>
+        
+        <!-- Input -->
+        <div style="padding: 15px; border-top: 1px solid rgba(255,215,0,0.2); display: flex; gap: 8px;">
+            <input id="simple-chat-input" type="text" placeholder="Ask about properties..." style="flex: 1; padding: 10px 12px; background: #0F172A; border: 1px solid #FFD700; border-radius: 10px; color: white; font-size: 0.9rem;">
+            <button onclick="sendSimpleMessage()" style="padding: 10px 16px; background: #FFD700; border: none; border-radius: 10px; color: #0F172A; font-weight: 600; cursor: pointer;">Send</button>
+        </div>
+    </div>
+    
+    <script>
+        function toggleSimpleChat() {
+            const panel = document.getElementById('simple-chat-panel');
+            const trigger = document.getElementById('simple-chat-trigger');
+            
+            if (panel.style.opacity === '1') {
+                panel.style.opacity = '0';
+                panel.style.transform = 'translateY(20px)';
+                panel.style.pointerEvents = 'none';
+            } else {
+                panel.style.opacity = '1';
+                panel.style.transform = 'translateY(0)';
+                panel.style.pointerEvents = 'all';
+                
+                // Add welcome message if empty
+                const messages = document.getElementById('simple-chat-messages');
+                if (messages.children.length === 0) {
+                    addBotMessage(" Hi! I'm Rentech AI. Ask me about properties in Kilimani, Westlands, Kasarani, or any Nairobi area!");
+                }
+            }
+        }
+        
+        function addUserMessage(text) {
+            const messages = document.getElementById('simple-chat-messages');
+            const msg = document.createElement('div');
+            msg.style.cssText = 'background: #10B981; color: white; padding: 10px 14px; border-radius: 15px; border-bottom-right-radius: 4px; max-width: 80%; align-self: flex-end; margin-bottom: 8px; font-size: 0.9rem;';
+            msg.textContent = text;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        function addBotMessage(text) {
+            const messages = document.getElementById('simple-chat-messages');
+            const msg = document.createElement('div');
+            msg.style.cssText = 'background: #0F172A; color: #CBD5E1; padding: 10px 14px; border-radius: 15px; border-bottom-left-radius: 4px; max-width: 80%; align-self: flex-start; border: 1px solid #FFD700; margin-bottom: 8px; font-size: 0.9rem;';
+            msg.textContent = text;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        function sendSimpleMessage() {
+            const input = document.getElementById('simple-chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            addUserMessage(message);
+            input.value = '';
+            
+            // Simple responses
+            setTimeout(() => {
+                const lower = message.toLowerCase();
+                if (lower.includes('kilimani')) {
+                    addBotMessage("Kilimani has great 1BR and 2BR apartments from KSh 45,000 to 120,000. Would you like to see available listings?");
+                } else if (lower.includes('westlands')) {
+                    addBotMessage("Westlands offers studios and apartments from KSh 35,000 to 150,000. Popular for professionals!");
+                } else if (lower.includes('kasarani')) {
+                    addBotMessage("Kasarani has affordable bedsitters from KSh 12,000. Great for students and young professionals!");
+                } else if (lower.includes('2br') || lower.includes('2 bed')) {
+                    addBotMessage("2BR apartments are available in Kilimani (KSh 65K+), Westlands (KSh 75K+), and Lang'ata (KSh 85K+).");
+                } else if (lower.includes('budget') || lower.includes('under')) {
+                    addBotMessage("What's your budget? We have options from KSh 8,000 in Eastleigh to KSh 180,000 in Karen.");
+                } else {
+                    addBotMessage("I can help you find properties! Try asking: '2BR in Kilimani' or 'Budget under 30K'");
+                }
+            }, 600);
+        }
+    </script>
 </body>
 </html>
 
