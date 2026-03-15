@@ -2150,4 +2150,27 @@ a:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}/* FIX CHATBOT SIZE */
+.ai-chat-panel {
+    width: 300px !important;
+    height: 450px !important;
+    max-height: 80vh !important;
+    max-width: 90vw !important;
+    bottom: 180px !important;
+    left: 30px !important;
+}
+
+.ai-chat-messages {
+    height: 280px !important;
+    max-height: 280px !important;
+    overflow-y: auto !important;
+}
+
+@media (max-width: 768px) {
+    .ai-chat-panel {
+        width: 280px !important;
+        height: 400px !important;
+        bottom: 160px !important;
+        left: 20px !important;
+    }
 }
