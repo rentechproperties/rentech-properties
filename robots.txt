@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /Allow: /
+Sitemap: https://rentech.co.ke/sitemap.xml
+Sitemap: https://rentech-properties.vercel.app/sitemap.xml
