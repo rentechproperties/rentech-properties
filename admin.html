@@ -1,156 +1,792 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rentech Admin Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            font-family:'DM Sans',sans-serif;
-            background:#0F172A;
-            color:white;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            min-height:100vh;
-        }
-        .login-container{max-width:400px;width:90%;}
-        .login-card{
-            background:#1E293B;
-            border-radius:24px;
-            padding:40px;
-            border:1px solid rgba(255,255,255,0.07);
-            box-shadow:0 20px 50px rgba(0,0,0,0.5);
-        }
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:15px;
-            margin-bottom:30px;
-        }
-        .logo-img{
-            width:60px;
-            height:60px;
-            background:linear-gradient(135deg,#10B981,#FFD700);
-            border-radius:9px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-weight:800;
-            font-size:1.4rem;
-            color:black;
-        }
-        .logo-text{
-            display:flex;
-            flex-direction:column;
-            font-family:'Syne',sans-serif;
-            font-weight:800;
-            font-size:1.3rem;
-            line-height:1.2;
-        }
-        .logo-text span{
-            font-size:0.7rem;
-            color:#FFD700;
-        }
-        h2{font-family:'Syne',sans-serif;margin-bottom:10px;}
-        .input-group{margin-bottom:20px;}
-        label{
-            display:block;
-            margin-bottom:8px;
-            color:#CBD5E1;
-            font-size:0.9rem;
-        }
-        input{
-            width:100%;
-            padding:14px;
-            background:#0F172A;
-            border:1px solid rgba(255,255,255,0.1);
-            border-radius:12px;
-            color:white;
-            font-family:'DM Sans',sans-serif;
-        }
-        input:focus{
-            outline:none;
-            border-color:#FFD700;
-        }
-        .btn{
-            width:100%;
-            padding:14px;
-            background:#FFD700;
-            color:black;
-            border:none;
-            border-radius:12px;
-            font-weight:600;
-            font-size:1rem;
-            cursor:pointer;
-            transition:all 0.2s;
-            margin-top:10px;
-        }
-        .btn:hover{
-            background:#e6c200;
-            transform:translateY(-2px);
-            box-shadow:0 0 20px rgba(255,215,0,0.3);
-        }
-        .error{
-            color:#EF4444;
-            font-size:0.85rem;
-            margin-top:15px;
-            text-align:center;
-        }
-        .note{
-            color:#64748B;
-            font-size:0.8rem;
-            text-align:center;
-            margin-top:20px;
-        }
-    </style>
+    <title>Admin Dashboard - RENTECH</title>
+    <meta name="description" content="Admin dashboard for managing listings, verifying landlords, and moderating content.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-card">
+    <!-- Admin Navbar -->
+    <nav class="admin-navbar">
+        <div class="nav-container">
             <div class="logo">
-                <div class="logo-img">RT</div>
-                <div class="logo-text">RENTECH<span>ADMIN</span></div>
-            </div>
-            <h2>Secure Access</h2>
-            <p style="color:#64748B;margin-bottom:30px;">Enter your credentials to continue</p>
-            
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" id="username" placeholder="admin">
+                <img src="/assets/logo.png" alt="RENTECH Logo" height="40">
+                <span class="logo-text">RENTECH ADMIN</span>
             </div>
             
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" id="password" placeholder="">
+            <div class="admin-user">
+                <span class="admin-email">admin@rentech.co.ke</span>
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
             </div>
-            
-            <button class="btn" onclick="login()">Login to Dashboard</button>
-            <div id="error" class="error"></div>
-            <div class="note">Username: admin / Password: abohassan</div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="menu-item" data-tab="listings">
+                    <i class="fas fa-building"></i>
+                    <span>Listings</span>
+                    <span class="badge pending-count" id="pendingListingsCount">0</span>
+                </li>
+                <li class="menu-item" data-tab="landlords">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Landlords</span>
+                    <span class="badge pending-count" id="pendingLandlordsCount">0</span>
+                </li>
+                <li class="menu-item" data-tab="tenants">
+                    <i class="fas fa-users"></i>
+                    <span>Tenants</span>
+                </li>
+                <li class="menu-item" data-tab="reports">
+                    <i class="fas fa-flag"></i>
+                    <span>Reports</span>
+                    <span class="badge pending-count" id="pendingReportsCount">0</span>
+                </li>
+                <li class="menu-item" data-tab="verification">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Verification</span>
+                </li>
+                <li class="menu-item" data-tab="payments">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Payments</span>
+                </li>
+                <li class="menu-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="admin-tab active">
+                <h1>Dashboard Overview</h1>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalListings">0</span>
+                            <span class="stat-label">Total Listings</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="pendingListings">0</span>
+                            <span class="stat-label">Pending Approval</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalLandlords">0</span>
+                            <span class="stat-label">Verified Landlords</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalTenants">0</span>
+                            <span class="stat-label">Active Tenants</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalReports">0</span>
+                            <span class="stat-label">Open Reports</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="monthlyRevenue">KSh 0</span>
+                            <span class="stat-label">Monthly Revenue</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts -->
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>Listings by Status</h3>
+                        <canvas id="listingsChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Monthly Revenue</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="recentActivity">
+                        <!-- Activity items will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listings Tab -->
+            <div id="listings" class="admin-tab">
+                <div class="tab-header">
+                    <h2>Manage Listings</h2>
+                    <div class="tab-actions">
+                        <button class="btn-refresh" onclick="loadListings()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <select id="listingStatusFilter" onchange="filterListings()">
+                        <option value="all">All Listings</option>
+                        <option value="pending">Pending Approval</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                        <option value="flagged">Flagged</option>
+                    </select>
+                    
+                    <input type="text" id="listingSearch" placeholder="Search by ID, title, or landlord...">
+                    
+                    <button class="btn-filter" onclick="searchListings()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                
+                <!-- Listings Table -->
+                <div class="table-container">
+                    <table class="admin-table" id="listingsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Property</th>
+                                <th>Landlord</th>
+                                <th>Price</th>
+                                <th>Location</th>
+                                <th>Submitted</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listingsTableBody">
+                            <tr>
+                                <td colspan="8" class="loading-row">Loading listings...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination" id="listingsPagination"></div>
+            </div>
+
+            <!-- Landlords Tab -->
+            <div id="landlords" class="admin-tab">
+                <div class="tab-header">
+                    <h2>Manage Landlords</h2>
+                    <div class="tab-actions">
+                        <button class="btn-refresh" onclick="loadLandlords()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <select id="landlordStatusFilter" onchange="filterLandlords()">
+                        <option value="all">All Landlords</option>
+                        <option value="pending">Pending Verification</option>
+                        <option value="verified">Verified</option>
+                        <option value="suspended">Suspended</option>
+                    </select>
+                    
+                    <input type="text" id="landlordSearch" placeholder="Search by name, phone, or ID...">
+                    
+                    <button class="btn-filter" onclick="searchLandlords()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                
+                <!-- Landlords Table -->
+                <div class="table-container">
+                    <table class="admin-table" id="landlordsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Properties</th>
+                                <th>Joined</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="landlordsTableBody">
+                            <tr>
+                                <td colspan="8" class="loading-row">Loading landlords...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="admin-tab">
+                <div class="tab-header">
+                    <h2>Manage Reports</h2>
+                    <div class="tab-actions">
+                        <button class="btn-refresh" onclick="loadReports()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Reports Table -->
+                <div class="table-container">
+                    <table class="admin-table" id="reportsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Reported Listing</th>
+                                <th>Reported By</th>
+                                <th>Reason</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportsTableBody">
+                            <tr>
+                                <td colspan="7" class="loading-row">Loading reports...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    
+    <!-- View/Edit Listing Modal -->
+    <div id="listingModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Listing Details</h3>
+                <span class="close" onclick="closeModal('listingModal')">&times;</span>
+            </div>
+            <div class="modal-body" id="listingModalBody">
+                <!-- Content will be loaded dynamically -->
+            </div>
         </div>
     </div>
 
+    <!-- Verify Landlord Modal -->
+    <div id="verifyLandlordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Verify Landlord</h3>
+                <span class="close" onclick="closeModal('verifyLandlordModal')">&times;</span>
+            </div>
+            <div class="modal-body" id="verifyLandlordModalBody">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin JavaScript -->
+    <script src="/js/admin.js"></script>
+    
     <script>
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+        // Initialize admin dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            checkAdminAuth();
             
-            // ✅ UPDATED PASSWORD TO 'abohassan'
-            if (username === 'admin' && password === 'abohassan') {
-                sessionStorage.setItem('admin_logged_in', 'true');
-                window.location.href = 'admin-dashboard.html';
-            } else {
-                document.getElementById('error').textContent = 'Invalid username or password';
+            // Load dashboard data
+            loadDashboardData();
+            
+            // Setup tab switching
+            setupTabs();
+        });
+        
+        function checkAdminAuth() {
+            // In production, verify admin session
+            const isAdmin = localStorage.getItem('adminAuthenticated');
+            if (!isAdmin) {
+                // Redirect to login page if not authenticated
+                // window.location.href = '/admin-login.html';
             }
         }
         
-        // Redirect if already logged in
-        if (sessionStorage.getItem('admin_logged_in') === 'true') {
-            window.location.href = 'admin-dashboard.html';
+        function setupTabs() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all menu items and tabs
+                    menuItems.forEach(mi => mi.classList.remove('active'));
+                    document.querySelectorAll('.admin-tab').forEach(tab => tab.classList.remove('active'));
+                    
+                    // Add active class to clicked menu item
+                    this.classList.add('active');
+                    
+                    // Show corresponding tab
+                    const tabId = this.dataset.tab;
+                    document.getElementById(tabId).classList.add('active');
+                    
+                    // Load tab data if needed
+                    loadTabData(tabId);
+                });
+            });
         }
+        
+        function loadDashboardData() {
+            // Simulate loading data
+            setTimeout(() => {
+                document.getElementById('totalListings').textContent = '156';
+                document.getElementById('pendingListings').textContent = '12';
+                document.getElementById('totalLandlords').textContent = '48';
+                document.getElementById('totalTenants').textContent = '523';
+                document.getElementById('totalReports').textContent = '3';
+                document.getElementById('monthlyRevenue').textContent = 'KSh 142,500';
+                
+                document.getElementById('pendingListingsCount').textContent = '12';
+                document.getElementById('pendingLandlordsCount').textContent = '5';
+                document.getElementById('pendingReportsCount').textContent = '3';
+                
+                // Initialize charts
+                initCharts();
+                
+                // Load recent activity
+                loadRecentActivity();
+            }, 500);
+        }
+        
+        function initCharts() {
+            // Listings by status chart
+            const ctx1 = document.getElementById('listingsChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Approved', 'Pending', 'Rejected', 'Flagged'],
+                    datasets: [{
+                        data: [124, 12, 8, 12],
+                        backgroundColor: ['#10B981', '#F59E0B', '#EF4444', '#6B7280']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            
+            // Revenue chart
+            const ctx2 = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Monthly Revenue (KSh)',
+                        data: [85000, 92000, 118000, 125000, 138000, 142500],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+        
+        function loadRecentActivity() {
+            const activities = [
+                { time: '5 min ago', action: 'New listing submitted', user: '2BR in Kilimani', status: 'pending' },
+                { time: '12 min ago', action: 'Landlord verified', user: 'James Mwangi', status: 'success' },
+                { time: '34 min ago', action: 'Report filed', user: 'Suspected scam listing', status: 'warning' },
+                { time: '1 hour ago', action: 'Listing approved', user: 'Studio in Westlands', status: 'success' },
+                { time: '2 hours ago', action: 'New tenant registered', user: 'Amina Odhiambo', status: 'info' }
+            ];
+            
+            const activityList = document.getElementById('recentActivity');
+            activityList.innerHTML = activities.map(a => `
+                <div class="activity-item">
+                    <span class="activity-time">${a.time}</span>
+                    <span class="activity-action">${a.action}</span>
+                    <span class="activity-user">${a.user}</span>
+                    <span class="activity-status status-${a.status}">${a.status}</span>
+                </div>
+            `).join('');
+        }
+        
+        function loadListings() {
+            const tbody = document.getElementById('listingsTableBody');
+            tbody.innerHTML = '<tr><td colspan="8" class="loading-row">Loading listings...</td></tr>';
+            
+            // Simulate API call
+            setTimeout(() => {
+                const listings = [
+                    { id: 'prop-001', title: 'Modern 2BR Apartment', landlord: 'James Mwangi', price: '65,000', location: 'Kilimani', submitted: '2026-03-15', status: 'approved' },
+                    { id: 'prop-002', title: 'Executive Studio', landlord: 'Sarah Kimani', price: '38,000', location: 'Westlands', submitted: '2026-03-14', status: 'pending' },
+                    { id: 'prop-003', title: 'Affordable Bedsitter', landlord: 'Peter Omondi', price: '12,000', location: 'Kasarani', submitted: '2026-03-13', status: 'flagged' },
+                    { id: 'prop-004', title: 'Spacious Family Home', landlord: 'Grace Wanjiku', price: '90,000', location: "Lang'ata", submitted: '2026-03-12', status: 'approved' },
+                    { id: 'prop-005', title: '1BR Cosy Apartment', landlord: 'David Mbuvi', price: '28,000', location: 'South B', submitted: '2026-03-11', status: 'pending' },
+                    { id: 'prop-006', title: 'Luxury Studio', landlord: 'Michael Kamau', price: '58,000', location: 'Lavington', submitted: '2026-03-10', status: 'approved' },
+                    { id: 'prop-007', title: 'Garden View 2BR', landlord: 'Elizabeth Njoroge', price: '110,000', location: 'Karen', submitted: '2026-03-09', status: 'rejected' },
+                    { id: 'prop-008', title: 'Budget Bedsitter', landlord: 'Abdul Hassan', price: '8,500', location: 'Eastleigh', submitted: '2026-03-08', status: 'approved' },
+                    { id: 'prop-009', title: '1BR Kileleshwa Gem', landlord: 'Lucy Wairimu', price: '42,000', location: 'Kileleshwa', submitted: '2026-03-07', status: 'pending' },
+                    { id: 'prop-010', title: '3BR Townhouse', landlord: 'Robert Kiprono', price: '85,000', location: 'Parklands', submitted: '2026-03-06', status: 'approved' }
+                ];
+                
+                let html = '';
+                listings.forEach(listing => {
+                    html += `
+                        <tr>
+                            <td>${listing.id}</td>
+                            <td>${listing.title}</td>
+                            <td>${listing.landlord}</td>
+                            <td>KSh ${listing.price}</td>
+                            <td>${listing.location}</td>
+                            <td>${listing.submitted}</td>
+                            <td><span class="status-badge status-${listing.status}">${listing.status}</span></td>
+                            <td>
+                                <button class="btn-icon" onclick="viewListing('${listing.id}')" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="editListing('${listing.id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" onclick="approveListing('${listing.id}')" title="Approve"><i class="fas fa-check-circle"></i></button>
+                                <button class="btn-icon" onclick="rejectListing('${listing.id}')" title="Reject"><i class="fas fa-times-circle"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                tbody.innerHTML = html;
+            }, 1000);
+        }
+        
+        function loadLandlords() {
+            const tbody = document.getElementById('landlordsTableBody');
+            tbody.innerHTML = '<tr><td colspan="8" class="loading-row">Loading landlords...</td></tr>';
+            
+            // Simulate API call
+            setTimeout(() => {
+                const landlords = [
+                    { id: 'land-001', name: 'James Mwangi', phone: '0712345678', email: 'james@email.com', properties: 3, joined: '2025-01-15', status: 'verified' },
+                    { id: 'land-002', name: 'Sarah Kimani', phone: '0723456789', email: 'sarah@email.com', properties: 2, joined: '2025-02-20', status: 'verified' },
+                    { id: 'land-003', name: 'Peter Omondi', phone: '0734567890', email: 'peter@email.com', properties: 5, joined: '2025-03-10', status: 'pending' },
+                    { id: 'land-004', name: 'Grace Wanjiku', phone: '0745678901', email: 'grace@email.com', properties: 2, joined: '2024-11-05', status: 'verified' },
+                    { id: 'land-005', name: 'David Mbuvi', phone: '0756789012', email: 'david@email.com', properties: 1, joined: '2025-02-28', status: 'pending' }
+                ];
+                
+                let html = '';
+                landlords.forEach(landlord => {
+                    html += `
+                        <tr>
+                            <td>${landlord.id}</td>
+                            <td>${landlord.name}</td>
+                            <td>${landlord.phone}</td>
+                            <td>${landlord.email}</td>
+                            <td>${landlord.properties}</td>
+                            <td>${landlord.joined}</td>
+                            <td><span class="status-badge status-${landlord.status}">${landlord.status}</span></td>
+                            <td>
+                                <button class="btn-icon" onclick="viewLandlord('${landlord.id}')" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="verifyLandlord('${landlord.id}')" title="Verify"><i class="fas fa-check-circle"></i></button>
+                                <button class="btn-icon" onclick="suspendLandlord('${landlord.id}')" title="Suspend"><i class="fas fa-ban"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                tbody.innerHTML = html;
+            }, 1000);
+        }
+        
+        function loadReports() {
+            const tbody = document.getElementById('reportsTableBody');
+            tbody.innerHTML = '<tr><td colspan="7" class="loading-row">Loading reports...</td></tr>';
+            
+            // Simulate API call
+            setTimeout(() => {
+                const reports = [
+                    { id: 'rep-001', listing: 'Luxury Studio (prop-006)', reportedBy: 'Anonymous', reason: 'Suspected fake photos', date: '2026-03-15', status: 'pending' },
+                    { id: 'rep-002', listing: '1BR Cosy Apartment (prop-005)', reportedBy: 'User 12345', reason: 'Wrong price listed', date: '2026-03-14', status: 'reviewing' },
+                    { id: 'rep-003', listing: 'Budget Bedsitter (prop-008)', reportedBy: 'User 67890', reason: 'Duplicate listing', date: '2026-03-13', status: 'resolved' }
+                ];
+                
+                let html = '';
+                reports.forEach(report => {
+                    html += `
+                        <tr>
+                            <td>${report.id}</td>
+                            <td>${report.listing}</td>
+                            <td>${report.reportedBy}</td>
+                            <td>${report.reason}</td>
+                            <td>${report.date}</td>
+                            <td><span class="status-badge status-${report.status}">${report.status}</span></td>
+                            <td>
+                                <button class="btn-icon" onclick="viewReport('${report.id}')" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="resolveReport('${report.id}')" title="Resolve"><i class="fas fa-check"></i></button>
+                                <button class="btn-icon" onclick="deleteReport('${report.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                tbody.innerHTML = html;
+            }, 1000);
+        }
+        
+        function loadTabData(tabId) {
+            switch(tabId) {
+                case 'listings':
+                    loadListings();
+                    break;
+                case 'landlords':
+                    loadLandlords();
+                    break;
+                case 'reports':
+                    loadReports();
+                    break;
+            }
+        }
+        
+        // Listing actions
+        function viewListing(id) {
+            openModal('listingModal');
+            document.getElementById('listingModalBody').innerHTML = '<p>Loading listing details...</p>';
+            
+            // Simulate loading
+            setTimeout(() => {
+                document.getElementById('listingModalBody').innerHTML = `
+                    <div class="listing-detail-view">
+                        <div class="detail-row">
+                            <strong>ID:</strong> ${id}
+                        </div>
+                        <div class="detail-row">
+                            <strong>Title:</strong> Modern 2BR Apartment
+                        </div>
+                        <div class="detail-row">
+                            <strong>Landlord:</strong> James Mwangi (0712345678)
+                        </div>
+                        <div class="detail-row">
+                            <strong>Price:</strong> KSh 65,000/month
+                        </div>
+                        <div class="detail-row">
+                            <strong>Location:</strong> Kilimani, Nairobi
+                        </div>
+                        <div class="detail-row">
+                            <strong>Description:</strong> Beautiful 2-bedroom apartment with balcony...
+                        </div>
+                        <div class="detail-row">
+                            <strong>Documents:</strong>
+                            <div class="document-links">
+                                <a href="#" target="_blank"><i class="fas fa-id-card"></i> ID Document</a>
+                                <a href="#" target="_blank"><i class="fas fa-file-contract"></i> Title Deed</a>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <strong>AI Scam Score:</strong> <span class="score-low">12/100 - Low Risk</span>
+                        </div>
+                    </div>
+                `;
+            }, 500);
+        }
+        
+        function editListing(id) {
+            alert('Edit listing: ' + id);
+        }
+        
+        function approveListing(id) {
+            if(confirm('Approve this listing? It will go live immediately.')) {
+                alert('Listing approved: ' + id);
+                loadListings();
+            }
+        }
+        
+        function rejectListing(id) {
+            const reason = prompt('Please provide a reason for rejection:');
+            if(reason) {
+                alert('Listing rejected: ' + id);
+                loadListings();
+            }
+        }
+        
+        // Landlord actions
+        function viewLandlord(id) {
+            openModal('verifyLandlordModal');
+            document.getElementById('verifyLandlordModalBody').innerHTML = '<p>Loading landlord details...</p>';
+            
+            setTimeout(() => {
+                document.getElementById('verifyLandlordModalBody').innerHTML = `
+                    <div class="landlord-detail-view">
+                        <h4>Landlord Information</h4>
+                        <div class="detail-row">
+                            <strong>Name:</strong> James Mwangi
+                        </div>
+                        <div class="detail-row">
+                            <strong>Phone:</strong> 0712345678
+                        </div>
+                        <div class="detail-row">
+                            <strong>Email:</strong> james@email.com
+                        </div>
+                        <div class="detail-row">
+                            <strong>ID Number:</strong> 12345678
+                        </div>
+                        <div class="detail-row">
+                            <strong>ID Document:</strong> <a href="#" target="_blank">View ID</a>
+                        </div>
+                        <div class="detail-row">
+                            <strong>Status:</strong> <span class="status-badge status-pending">Pending</span>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button class="btn btn-success" onclick="verifyLandlordConfirm('${id}')">
+                                <i class="fas fa-check-circle"></i> Verify Landlord
+                            </button>
+                            <button class="btn btn-danger" onclick="rejectLandlord('${id}')">
+                                <i class="fas fa-times-circle"></i> Reject
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }, 500);
+        }
+        
+        function verifyLandlord(id) {
+            viewLandlord(id);
+        }
+        
+        function verifyLandlordConfirm(id) {
+            alert('Landlord verified: ' + id);
+            closeModal('verifyLandlordModal');
+            loadLandlords();
+        }
+        
+        function rejectLandlord(id) {
+            const reason = prompt('Please provide a reason for rejection:');
+            if(reason) {
+                alert('Landlord rejected: ' + id);
+                closeModal('verifyLandlordModal');
+                loadLandlords();
+            }
+        }
+        
+        function suspendLandlord(id) {
+            if(confirm('Suspend this landlord? They will not be able to list properties.')) {
+                alert('Landlord suspended: ' + id);
+                loadLandlords();
+            }
+        }
+        
+        // Report actions
+        function viewReport(id) {
+            alert('View report: ' + id);
+        }
+        
+        function resolveReport(id) {
+            if(confirm('Mark this report as resolved?')) {
+                alert('Report resolved: ' + id);
+                loadReports();
+            }
+        }
+        
+        function deleteReport(id) {
+            if(confirm('Delete this report?')) {
+                alert('Report deleted: ' + id);
+                loadReports();
+            }
+        }
+        
+        // Filter functions
+        function filterListings() {
+            const status = document.getElementById('listingStatusFilter').value;
+            console.log('Filtering by status:', status);
+            loadListings();
+        }
+        
+        function searchListings() {
+            const search = document.getElementById('listingSearch').value;
+            console.log('Searching for:', search);
+            loadListings();
+        }
+        
+        function filterLandlords() {
+            const status = document.getElementById('landlordStatusFilter').value;
+            console.log('Filtering landlords by:', status);
+            loadLandlords();
+        }
+        
+        function searchLandlords() {
+            const search = document.getElementById('landlordSearch').value;
+            console.log('Searching landlords:', search);
+            loadLandlords();
+        }
+        
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+        
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if(confirm('Logout of admin dashboard?')) {
+                localStorage.removeItem('adminAuthenticated');
+                window.location.href = '/admin-login.html';
+            }
+        });
     </script>
 </body>
 </html>

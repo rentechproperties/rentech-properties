@@ -1,75 +1,2730 @@
-/* ============================================================
-   RENTECH PROPERTIES — properties.js
-   Powers properties.html — filterAndSort + getSaved + toggleSave
-   ============================================================ */
-
-let _allProps = [];
-
-// ── LOAD DATA ──────────────────────────────────────────────
-(async function init() {
-  try {
-    const r = await fetch('data/properties.json');
-    _allProps = await r.json();
-    applyFilters();           // called by properties.html after this script loads
-  } catch(e) {
-    document.getElementById('props-grid').innerHTML = `
-      <div class="no-results">
-        <div class="no-results-icon">😔</div>
-        <h3>Couldn't load properties</h3>
-        <p style="margin-bottom:24px;color:var(--muted)">Check your connection and try again.</p>
-        <button onclick="location.reload()" class="btn btn-primary">↺ Try Again</button>
-      </div>`;
-    document.getElementById('results-count').textContent = '0 properties found';
-  }
-})();
-
-// ── FILTER + SORT (called by properties.html) ──────────────
-function filterAndSort(state) {
-  let results = _allProps.filter(p => {
-    if (state.text) {
-      const haystack = `${p.title} ${p.area} ${p.type} ${p.description || ''}`.toLowerCase();
-      if (!haystack.includes(state.text)) return false;
+{
+  "properties": [
+    {
+      "id": "prop-001",
+      "title": "Modern 2BR Apartment with City View",
+      "price": 65000,
+      "location": "Kilimani",
+      "area": "Kilimani",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 850,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 234,
+      "whatsapp": "254712345678",
+      "phone": "+254712345678",
+      "listedDate": "2026-03-10",
+      "description": "Stunning 2-bedroom apartment in the heart of Kilimani. Features include modern finishes, spacious living area, fully fitted kitchen with granite countertops, and a private balcony with breathtaking city views. The building offers 24-hour security, backup generator, high-speed elevators, and a shared rooftop terrace. Walking distance to Junction Mall, supermarkets, and restaurants. Perfect for professionals or small families.",
+      "amenities": [
+        "24/7 Security",
+        "Backup Generator",
+        "Elevator",
+        "Balcony",
+        "Fitted Kitchen",
+        "Hot Water",
+        "Wardrobes",
+        "Tiled Floors",
+        "Internet Ready",
+        "Rooftop Access"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800",
+        "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800",
+        "https://images.unsplash.com/photo-1560448075-bb485b067938?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2872,
+        "lng": 36.8047
+      },
+      "landlord": {
+        "name": "James Mwangi",
+        "phone": "+254712345678",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Nairobi International School", "Kilimani Academy", "St. Mary's School"],
+        "transport": ["Bus stops (2 min)", "Matatu stage (5 min)", "Taxi services"],
+        "shopping": ["Junction Mall", "Kilimani Market", "Quickmart"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-002",
+      "title": "Executive Studio Apartment",
+      "price": 38000,
+      "location": "Westlands",
+      "area": "Westlands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 450,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 89,
+      "whatsapp": "254723456789",
+      "phone": "+254723456789",
+      "listedDate": "2026-03-15",
+      "description": "Modern studio apartment in the vibrant Westlands area. Perfect for young professionals or students. The unit features an open-plan layout with a fully equipped kitchen, comfortable sleeping area, and a sleek bathroom with modern fixtures. The building amenities include a gym, swimming pool, and 24-hour concierge service. Located minutes from Sarit Centre, Westgate Mall, and numerous restaurants and nightlife options.",
+      "amenities": [
+        "24/7 Security",
+        "Swimming Pool",
+        "Gym Access",
+        "Furnished",
+        "Smart TV",
+        "WiFi Included",
+        "Washing Machine",
+        "Microwave",
+        "Refrigerator",
+        "Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+        "https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=800",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2675,
+        "lng": 36.8036
+      },
+      "landlord": {
+        "name": "Sarah Kimani",
+        "phone": "+254723456789",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Westlands Primary", "Nairobi Academy", "Brookhouse"],
+        "transport": ["Westlands Bus Station", "Matatu terminus", "Uber/Available"],
+        "shopping": ["Sarit Centre", "Westgate Mall", "Westlands Square"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-003",
+      "title": "Affordable Bedsitter in Kasarani",
+      "price": 12000,
+      "location": "Kasarani",
+      "area": "Kasarani",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 280,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 567,
+      "whatsapp": "254734567890",
+      "phone": "+254734567890",
+      "listedDate": "2026-02-20",
+      "description": "Clean, secure bedsitter in a quiet Kasarani neighborhood. Ideal for students or individuals on a budget. The room is freshly painted with ceramic tiles, large windows for natural light, and has access to shared bathroom and kitchen facilities. The compound has reliable water supply, electricity with backup, and 24-hour security askari. Close to Kasarani Stadium, Mwiki market, and public transport.",
+      "amenities": [
+        "24/7 Security",
+        "Water Included",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Backup",
+        "Compound Parking",
+        "Near Transport",
+        "Water Tank"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800",
+        "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=800",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2189,
+        "lng": 36.8947
+      },
+      "landlord": {
+        "name": "Peter Omondi",
+        "phone": "+254734567890",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 3 hours",
+        "properties": 5
+      },
+      "nearby": {
+        "schools": ["Kasarani Primary", "Mwiki Secondary", "Kenyatta University"],
+        "transport": ["Kasarani Bus Stop", "Matatu stage", "Boda boda"],
+        "shopping": ["Mwiki Market", "Kasarani Mall", "Naivas"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-004",
+      "title": "Spacious 3BR Family Home",
+      "price": 90000,
+      "location": "Lang'ata",
+      "area": "Langata",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "size": 1800,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 145,
+      "whatsapp": "254745678901",
+      "phone": "+254745678901",
+      "listedDate": "2026-03-05",
+      "description": "Beautiful family home in a quiet Lang'ata estate. This spacious property features 3 large bedrooms with built-in wardrobes, 2 bathrooms (1 ensuite), a separate living and dining area, and a well-appointed kitchen with ample storage. The property sits on a quarter-acre plot with a manicured garden, covered patio for outdoor entertaining, and secure parking for 2 cars. Close to Lang'ata Road, Nairobi National Park, and top schools.",
+      "amenities": [
+        "Large Garden",
+        "Covered Patio",
+        "2 Car Parking",
+        "DSL Internet",
+        "Borehole Water",
+        "Electric Fence",
+        "Askari Security",
+        "Staff Quarters",
+        "Built-in Wardrobes",
+        "Kitchen Cabinets"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3547,
+        "lng": 36.7423
+      },
+      "landlord": {
+        "name": "Grace Wanjiku",
+        "phone": "+254745678901",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Lang'ata Primary", "St. Mary's", "Nairobi Academy"],
+        "transport": ["Lang'ata Road", "Matatu stage", "Bus stops"],
+        "shopping": ["The Hub Karen", "Galleria Mall", "Lang'ata Market"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-005",
+      "title": "1BR Cosy Apartment in South B",
+      "price": 28000,
+      "location": "South B",
+      "area": "South B",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 520,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 78,
+      "whatsapp": "254756789012",
+      "phone": "+254756789012",
+      "listedDate": "2026-03-14",
+      "description": "Charming 1-bedroom apartment in the desirable South B neighborhood. The unit has been recently renovated with modern finishes, including a stylish kitchen with breakfast bar, cozy living area, and a comfortable bedroom with ample closet space. The complex offers secure parking, 24/7 CCTV surveillance, and a backup generator. Walking distance to South B Shopping Centre, restaurants, and easy access to Mombasa Road.",
+      "amenities": [
+        "24/7 CCTV",
+        "Backup Generator",
+        "Secure Parking",
+        "Modern Kitchen",
+        "Breakfast Bar",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water 24/7",
+        "Intercom System",
+        "Visitor Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3056,
+        "lng": 36.8458
+      },
+      "landlord": {
+        "name": "David Mbuvi",
+        "phone": "+254756789012",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 1 hour",
+        "properties": 1
+      },
+      "nearby": {
+        "schools": ["South B Primary", "Our Lady of Mercy", "Nairobi Muslim"],
+        "transport": ["South B Shopping Centre", "Matatu stage", "Bus stops"],
+        "shopping": ["South B Mall", "Quickmart", "Local shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-006",
+      "title": "Luxury Studio in Lavington",
+      "price": 58000,
+      "location": "Lavington",
+      "area": "Lavington",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 500,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 312,
+      "whatsapp": "254767890123",
+      "phone": "+254767890123",
+      "listedDate": "2026-02-28",
+      "description": "Luxury studio apartment in an exclusive Lavington complex. This premium unit features high-end finishes, a fully equipped kitchen with stainless steel appliances, smart home technology, and access to world-class amenities. The building offers a swimming pool, fully equipped gym, sauna, and 24-hour concierge service. Perfect for executives or professionals seeking a luxurious lifestyle in a prime Nairobi location.",
+      "amenities": [
+        "Swimming Pool",
+        "Fully Equipped Gym",
+        "Sauna",
+        "Steam Room",
+        "Concierge Service",
+        "Smart Home System",
+        "Premium Appliances",
+        "Walk-in Closet",
+        "Rain Shower",
+        "Private Balcony"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800",
+        "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2798,
+        "lng": 36.7712
+      },
+      "landlord": {
+        "name": "Michael Kamau",
+        "phone": "+254767890123",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 30 min",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["Lavington Primary", "Brookhouse", "Kenton College"],
+        "transport": ["Lavington Green", "Matatu stage", "Taxi services"],
+        "shopping": ["Lavington Mall", "Yaya Centre", "Nakumatt"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-007",
+      "title": "Garden View 2BR in Karen",
+      "price": 110000,
+      "location": "Karen",
+      "area": "Karen",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 1100,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 167,
+      "whatsapp": "254778901234",
+      "phone": "+254778901234",
+      "listedDate": "2026-03-01",
+      "description": "Elegant 2-bedroom apartment in the prestigious Karen area. Overlooking beautifully landscaped gardens, this ground-floor unit offers a serene living environment. The apartment features an open-plan living and dining area that flows onto a private patio, perfect for outdoor dining. Both bedrooms are generously sized with ensuite bathrooms and ample storage. The complex includes a clubhouse, tennis court, and children's play area.",
+      "amenities": [
+        "Garden View",
+        "Private Patio",
+        "Ensuite Bathrooms",
+        "Clubhouse Access",
+        "Tennis Court",
+        "Children's Playground",
+        "24/7 Security",
+        "Borehole Water",
+        "Solar Backup",
+        "Visitor Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3333,
+        "lng": 36.7083
+      },
+      "landlord": {
+        "name": "Elizabeth Njoroge",
+        "phone": "+254778901234",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Karen Primary", "International School of Kenya", "Banda School"],
+        "transport": ["Karen Shopping Centre", "Matatu stage", "Uber available"],
+        "shopping": ["The Hub Karen", "Karen Shopping Centre", "Waterfront"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-008",
+      "title": "Budget Bedsitter in Eastleigh",
+      "price": 8500,
+      "location": "Eastleigh",
+      "area": "Eastleigh",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 280,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 423,
+      "whatsapp": "254789012345",
+      "phone": "+254789012345",
+      "listedDate": "2026-03-12",
+      "description": "Affordable bedsitter in the bustling Eastleigh business district. Perfect for students or individuals on a tight budget. The room is clean and well-maintained with access to shared amenities. The location is ideal for those working or studying in Eastleigh, with close proximity to shopping centers, restaurants, and public transportation. Great value for money in a prime location.",
+      "amenities": [
+        "24/7 Security",
+        "Water Access",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Included",
+        "Near Market",
+        "Near Mosque",
+        "Boda Boda Stage"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2767,
+        "lng": 36.8536
+      },
+      "landlord": {
+        "name": "Abdul Hassan",
+        "phone": "+254789012345",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 4 hours",
+        "properties": 8
+      },
+      "nearby": {
+        "schools": ["Eastleigh High", "Muslim Academy", "Nairobi Aviation College"],
+        "transport": ["Eastleigh Bus Station", "Matatu terminus", "Boda boda"],
+        "shopping": ["Eastleigh Mall", "Garissa Lodge", "Naivas"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-009",
+      "title": "1BR Kileleshwa Gem",
+      "price": 42000,
+      "location": "Kileleshwa",
+      "area": "Kileleshwa",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 520,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 198,
+      "whatsapp": "254790123456",
+      "phone": "+254790123456",
+      "listedDate": "2026-03-08",
+      "description": "Charming 1-bedroom apartment in the leafy suburb of Kileleshwa. This well-maintained unit features a bright living area, modern kitchen with granite countertops, and a comfortable bedroom with built-in wardrobes. The building is secure with CCTV and askari, and offers reliable utilities including backup generator and borehole water. Located near shopping centers, restaurants, and with easy access to the CBD.",
+      "amenities": [
+        "24/7 CCTV",
+        "Backup Generator",
+        "Borehole Water",
+        "Fitted Kitchen",
+        "Granite Countertops",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water",
+        "Visitor Parking",
+        "Elevator"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800",
+        "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2895,
+        "lng": 36.7923
+      },
+      "landlord": {
+        "name": "Lucy Wairimu",
+        "phone": "+254790123456",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Kileleshwa Primary", "Nairobi Waldorf", "Strathmore"],
+        "transport": ["Kileleshwa stage", "Matatu route 46", "Uber available"],
+        "shopping": ["Kileleshwa Market", "Quickmart", "Rhapto Road shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-010",
+      "title": "3BR Townhouse in Parklands",
+      "price": 85000,
+      "location": "Parklands",
+      "area": "Parklands",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "size": 1600,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 92,
+      "whatsapp": "254701234567",
+      "phone": "+254701234567",
+      "listedDate": "2026-02-25",
+      "description": "Spacious townhouse in a quiet Parklands cul-de-sac. This two-story home features 3 bedrooms (master ensuite), a large living area, separate dining room, and a well-appointed kitchen. The property includes a private courtyard, roof terrace, and covered parking for 2 cars. The gated community offers 24-hour security and a children's play area. Ideal for families seeking space and tranquility close to the city.",
+      "amenities": [
+        "Gated Community",
+        "Private Courtyard",
+        "Roof Terrace",
+        "2 Car Parking",
+        "DSL Internet",
+        "Borehole Water",
+        "24/7 Security",
+        "Children's Play Area",
+        "Built-in Wardrobes",
+        "Staff Toilet"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2639,
+        "lng": 36.8203
+      },
+      "landlord": {
+        "name": "Robert Kiprono",
+        "phone": "+254701234567",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Parklands Primary", "Aga Khan Academy", "Nairobi Primary"],
+        "transport": ["Parklands Road", "Matatu stage", "Bus stops"],
+        "shopping": ["Westgate Mall", "Sarit Centre", "Diamond Plaza"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-011",
+      "title": "Modern 2BR with Balcony - Kilimani",
+      "price": 72000,
+      "location": "Kilimani",
+      "area": "Kilimani",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 900,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 56,
+      "whatsapp": "254712348765",
+      "phone": "+254712348765",
+      "listedDate": "2026-03-16",
+      "description": "Contemporary 2-bedroom apartment with a spacious balcony overlooking the Kilimani skyline. The unit features modern interiors, high-end finishes, and premium appliances. The open-plan living area is perfect for entertaining, while the bedrooms offer peaceful retreats with comfortable finishes. The building includes a rooftop lounge, gym, and 24-hour concierge.",
+      "amenities": [
+        "Large Balcony",
+        "City Views",
+        "Rooftop Lounge",
+        "Gym Access",
+        "Concierge",
+        "Smart TV",
+        "Premium Appliances",
+        "Walk-in Wardrobes",
+        "Rain Shower",
+        "Guest Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2878,
+        "lng": 36.8029
+      },
+      "landlord": {
+        "name": "Thomas Odhiambo",
+        "phone": "+254712348765",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 30 min",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Kilimani Academy", "Nairobi International", "Consolata"],
+        "transport": ["Argwings Kodhek Road", "Matatu stage", "Uber"],
+        "shopping": ["AdLife Center", "Junction Mall", "Yaya Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-012",
+      "title": "Studio Apartment - Westlands",
+      "price": 35000,
+      "location": "Westlands",
+      "area": "Westlands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 400,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 178,
+      "whatsapp": "254723456123",
+      "phone": "+254723456123",
+      "listedDate": "2026-03-05",
+      "description": "Compact and efficient studio apartment perfect for professionals. Located in the heart of Westlands, this unit offers everything you need in a stylish package. The open-plan design maximizes space, with clever storage solutions and modern furnishings. The building features a ground-floor cafe, co-working space, and 24-hour security.",
+      "amenities": [
+        "Co-working Space",
+        "Cafe on Site",
+        "24/7 Security",
+        "High-speed WiFi",
+        "Smart TV",
+        "Mini Fridge",
+        "Microwave",
+        "Work Desk",
+        "Wardrobe",
+        "Secure Entry"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2682,
+        "lng": 36.8045
+      },
+      "landlord": {
+        "name": "Jane Wanjiru",
+        "phone": "+254723456123",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 5
+      },
+      "nearby": {
+        "schools": ["Westlands Primary", "Nairobi Academy"],
+        "transport": ["Westlands Bus Station", "Matatu stage"],
+        "shopping": ["Sarit Centre", "Westgate Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-013",
+      "title": "2BR Apartment near Southfield Mall",
+      "price": 48000,
+      "location": "South C",
+      "area": "South C",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 800,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 43,
+      "whatsapp": "254734567123",
+      "phone": "+254734567123",
+      "listedDate": "2026-03-14",
+      "description": "Spacious 2-bedroom apartment in the well-planned South C estate. The unit offers generous living spaces, a functional kitchen, and two bathrooms. Located close to Southfield Mall, this apartment is ideal for families seeking convenience and a established neighborhood. The compound has children's play areas and community gardens.",
+      "amenities": [
+        "Children's Play Area",
+        "Community Garden",
+        "Car Wash Bay",
+        "Backup Generator",
+        "Borehole Water",
+        "24/7 Security",
+        "Visitor Parking",
+        "DSL Internet",
+        "Tiled Floors",
+        "Built-in Wardrobes"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3115,
+        "lng": 36.8339
+      },
+      "landlord": {
+        "name": "Mary Akinyi",
+        "phone": "+254734567123",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 3 hours",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["South C Primary", "Lang'ata High", "Madrasa"],
+        "transport": ["Mombasa Road", "Matatu stage", "Bus stop"],
+        "shopping": ["Southfield Mall", "Tuskys", "Local shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-014",
+      "title": "3BR Maisonette in Lavington",
+      "price": 120000,
+      "location": "Lavington",
+      "area": "Lavington",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "size": 2000,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 87,
+      "whatsapp": "254745678123",
+      "phone": "+254745678123",
+      "listedDate": "2026-02-18",
+      "description": "Elegant 3-bedroom maisonette in a prime Lavington location. This spacious home features a large living room, separate dining area, and a modern kitchen with island. All bedrooms are generously sized with built-in wardrobes, and the master suite includes a walk-in closet and ensuite bathroom. Outside, a landscaped garden and covered patio provide space for outdoor entertaining.",
+      "amenities": [
+        "Landscaped Garden",
+        "Covered Patio",
+        "Kitchen Island",
+        "Walk-in Closet",
+        "Ensuite Master",
+        "DSL Internet",
+        "Electric Fence",
+        "Staff Quarters",
+        "Double Garage",
+        "Water Tank"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2769,
+        "lng": 36.7698
+      },
+      "landlord": {
+        "name": "Catherine Muthoni",
+        "phone": "+254745678123",
+        "verified": true,
+        "memberSince": "2022",
+        "responseRate": "< 1 hour",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["Lavington Primary", "Brookhouse", "St. Christopher's"],
+        "transport": ["Lavington Green", "Matatu", "Taxi"],
+        "shopping": ["Lavington Mall", "Yaya Centre", "Nakumatt"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-015",
+      "title": "1BR Fully Furnished - Kileleshwa",
+      "price": 45000,
+      "location": "Kileleshwa",
+      "area": "Kileleshwa",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 550,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 134,
+      "whatsapp": "254756789123",
+      "phone": "+254756789123",
+      "listedDate": "2026-03-07",
+      "description": "Beautifully furnished 1-bedroom apartment in Kileleshwa. Move-in ready with quality furniture and appliances throughout. The unit features a comfortable living area, modern kitchen, and a serene bedroom with queen-sized bed. The building offers reliable utilities and a responsive management team.",
+      "amenities": [
+        "Fully Furnished",
+        "Queen Bed",
+        "Sofa Set",
+        "Dining Table",
+        "Fridge & Freezer",
+        "Washing Machine",
+        "Microwave",
+        "TV Unit",
+        "Bedding Included",
+        "Cookware"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2912,
+        "lng": 36.7915
+      },
+      "landlord": {
+        "name": "Joseph Maina",
+        "phone": "+254756789123",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Kileleshwa Primary", "Nairobi Waldorf"],
+        "transport": ["Rhapto Road", "Matatu 46"],
+        "shopping": ["Quickmart", "Kileleshwa Market"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-016",
+      "title": "Bedsitter in Kasarani - Near Mwiki",
+      "price": 10000,
+      "location": "Kasarani",
+      "area": "Kasarani",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 250,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 289,
+      "whatsapp": "254767890456",
+      "phone": "+254767890456",
+      "listedDate": "2026-03-15",
+      "description": "Clean and affordable bedsitter near Mwiki in Kasarani. Perfect for students or young professionals on a budget. The room receives good natural light and has access to shared facilities. The location is convenient with easy access to Kenyatta University and local amenities.",
+      "amenities": [
+        "24/7 Security",
+        "Water Included",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Backup",
+        "Near University",
+        "Boda Boda Stage",
+        "Market Nearby"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2198,
+        "lng": 36.8965
+      },
+      "landlord": {
+        "name": "Paul Otieno",
+        "phone": "+254767890456",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 4 hours",
+        "properties": 6
+      },
+      "nearby": {
+        "schools": ["Kenyatta University", "Mwiki Primary"],
+        "transport": ["Mwiki stage", "Boda boda"],
+        "shopping": ["Mwiki Market", "Local kiosks"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-017",
+      "title": "2BR with Garden - Karen",
+      "price": 95000,
+      "location": "Karen",
+      "area": "Karen",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 1200,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 67,
+      "whatsapp": "254778901567",
+      "phone": "+254778901567",
+      "listedDate": "2026-02-22",
+      "description": "Ground-floor apartment with private garden access in Karen. This spacious 2-bedroom unit offers direct access to a lovely garden, perfect for pet owners or those who love outdoor space. The interior is well-designed with large windows that bring in plenty of natural light. The complex has a peaceful, resort-like atmosphere.",
+      "amenities": [
+        "Private Garden Access",
+        "Pet Friendly",
+        "Large Windows",
+        "Natural Light",
+        "Gated Community",
+        "Children's Playground",
+        "24/7 Security",
+        "Borehole Water",
+        "Solar Backup",
+        "Visitor Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3356,
+        "lng": 36.7054
+      },
+      "landlord": {
+        "name": "Anne Wambui",
+        "phone": "+254778901567",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Karen Primary", "Banda School"],
+        "transport": ["Karen Road", "Matatu"],
+        "shopping": ["The Hub Karen", "Karen Shopping Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-018",
+      "title": "Studio near Strathmore - South C",
+      "price": 25000,
+      "location": "South C",
+      "area": "South C",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 350,
+      "type": "studio",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 112,
+      "whatsapp": "254789012678",
+      "phone": "+254789012678",
+      "listedDate": "2026-03-13",
+      "description": "Compact studio apartment perfect for a student or single professional. Located close to Strathmore University, this unit offers convenience and affordability. The room is clean and well-maintained with basic amenities included. Ideal for those who want to be close to campus without breaking the bank.",
+      "amenities": [
+        "Near University",
+        "Water Included",
+        "Electricity Included",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "24/7 Security",
+        "Borehole Water",
+        "Laundry Area"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3089,
+        "lng": 36.8367
+      },
+      "landlord": {
+        "name": "Stephen Kariuki",
+        "phone": "+254789012678",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 3 hours",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["Strathmore University", "South C Primary"],
+        "transport": ["Mombasa Road", "Bus stop"],
+        "shopping": ["Southfield Mall", "Tuskys"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-019",
+      "title": "3BR Executive Apartment - Westlands",
+      "price": 130000,
+      "location": "Westlands",
+      "area": "Westlands",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "size": 1800,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": true,
+      "views": 34,
+      "whatsapp": "254790123789",
+      "phone": "+254790123789",
+      "listedDate": "2026-03-15",
+      "description": "Luxurious 3-bedroom executive apartment in the heart of Westlands. This premium unit offers the ultimate in urban living with high-end finishes, smart home technology, and breathtaking city views from the 20th floor. The building features a rooftop infinity pool, gym, spa, and 24-hour butler service. Perfect for CEOs, diplomats, or executives seeking the finest living experience.",
+      "amenities": [
+        "Rooftop Infinity Pool",
+        "Spa & Sauna",
+        "Fully Equipped Gym",
+        "24hr Butler Service",
+        "Smart Home System",
+        "City Views",
+        "Private Elevator",
+        "Wine Cellar",
+        "Home Theater",
+        "Secure Underground Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2654,
+        "lng": 36.8021
+      },
+      "landlord": {
+        "name": "Victoria Mwangi",
+        "phone": "+254790123789",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 15 min",
+        "properties": 5
+      },
+      "nearby": {
+        "schools": ["Nairobi Academy", "Brookhouse"],
+        "transport": ["Westlands Bus Station", "CBD 5 min"],
+        "shopping": ["Westgate Mall", "Sarit Centre", "Two Rivers"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-020",
+      "title": "Bedsitter in South B - Near Shopping Centre",
+      "price": 11000,
+      "location": "South B",
+      "area": "South B",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 260,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 345,
+      "whatsapp": "254701234890",
+      "phone": "+254701234890",
+      "listedDate": "2026-02-28",
+      "description": "Budget-friendly bedsitter in South B, just a short walk from the main shopping center. The room is clean and secure, with access to shared amenities. The neighborhood is well-established with good transport links and plenty of local shops. Great value for money in a convenient location.",
+      "amenities": [
+        "24/7 Security",
+        "Water Access",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Near Shopping",
+        "Transport Nearby",
+        "Landlord Onsite"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3044,
+        "lng": 36.8467
+      },
+      "landlord": {
+        "name": "Josephine Achieng",
+        "phone": "+254701234890",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 4 hours",
+        "properties": 7
+      },
+      "nearby": {
+        "schools": ["South B Primary", "Our Lady of Mercy"],
+        "transport": ["South B Shopping Centre", "Matatu"],
+        "shopping": ["South B Mall", "Quickmart"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-021",
+      "title": "1BR with Parking - Parklands",
+      "price": 38000,
+      "location": "Parklands",
+      "area": "Parklands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 600,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 89,
+      "whatsapp": "254712345901",
+      "phone": "+254712345901",
+      "listedDate": "2026-03-09",
+      "description": "Well-maintained 1-bedroom apartment in Parklands with dedicated parking. The unit features a spacious living area, functional kitchen, and a comfortable bedroom with built-in wardrobe. The compound is clean and secure, with responsive management. Located near shops and restaurants.",
+      "amenities": [
+        "Dedicated Parking",
+        "24/7 Security",
+        "Built-in Wardrobe",
+        "Tiled Floors",
+        "Hot Water",
+        "DSL Ready",
+        "Intercom",
+        "Visitor Parking",
+        "Laundry Area",
+        "Water Included"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2628,
+        "lng": 36.8214
+      },
+      "landlord": {
+        "name": "Francis Kamau",
+        "phone": "+254712345901",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Parklands Primary", "Aga Khan Academy"],
+        "transport": ["Parklands Road", "Matatu 23"],
+        "shopping": ["Diamond Plaza", "Westgate Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-022",
+      "title": "2BR Apartment near T-Mall - Kasarani",
+      "price": 35000,
+      "location": "Kasarani",
+      "area": "Kasarani",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "size": 750,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 56,
+      "whatsapp": "254723456012",
+      "phone": "+254723456012",
+      "listedDate": "2026-03-12",
+      "description": "Spacious 2-bedroom apartment in Kasarani, just a short distance from T-Mall. The unit offers good space, with a comfortable living area and functional kitchen. The bedrooms are decently sized with built-in wardrobes. The compound has secure parking and reliable utilities. Good family home in a growing neighborhood.",
+      "amenities": [
+        "Secure Parking",
+        "24/7 Security",
+        "Backup Generator",
+        "Borehole Water",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Children's Play Area",
+        "DSL Internet",
+        "Visitor Parking",
+        "Water Tank"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2181,
+        "lng": 36.8912
+      },
+      "landlord": {
+        "name": "Samuel Mutua",
+        "phone": "+254723456012",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 3 hours",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["Kasarani Primary", "Mwiki Secondary"],
+        "transport": ["Kasarani Road", "Matatu stage"],
+        "shopping": ["T-Mall", "Naivas", "Kasarani Market"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-023",
+      "title": "Studio in Kilimani - Near Junction Mall",
+      "price": 42000,
+      "location": "Kilimani",
+      "area": "Kilimani",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 400,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 167,
+      "whatsapp": "254734567123",
+      "phone": "+254734567123",
+      "listedDate": "2026-03-04",
+      "description": "Modern studio apartment in Kilimani, walking distance to Junction Mall. The unit is fully furnished with contemporary pieces and includes all utilities in the rent. Perfect for a professional who wants a hassle-free living experience. The building has a gym and rooftop lounge.",
+      "amenities": [
+        "Fully Furnished",
+        "Utilities Included",
+        "Gym Access",
+        "Rooftop Lounge",
+        "High-speed WiFi",
+        "Smart TV",
+        "Washing Machine",
+        "Microwave",
+        "Fridge",
+        "Secure Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2865,
+        "lng": 36.8056
+      },
+      "landlord": {
+        "name": "Kibet Rono",
+        "phone": "+254734567123",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Kilimani Academy", "Nairobi International"],
+        "transport": ["Argwings Kodhek", "Matatu"],
+        "shopping": ["Junction Mall", "AdLife Center"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-024",
+      "title": "3BR House with Garden - Lang'ata",
+      "price": 75000,
+      "location": "Lang'ata",
+      "area": "Langata",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "size": 1500,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 78,
+      "whatsapp": "254745678234",
+      "phone": "+254745678234",
+      "listedDate": "2026-02-20",
+      "description": "Charming 3-bedroom house in Lang'ata with a lovely garden. The property offers generous living spaces, a separate dining area, and a kitchen with ample storage. The garden is well-maintained and provides space for children to play. Located in a quiet neighborhood close to schools and shopping.",
+      "amenities": [
+        "Large Garden",
+        "Covered Patio",
+        "2 Car Parking",
+        "Staff Quarters",
+        "Borehole Water",
+        "Electric Fence",
+        "24/7 Security",
+        "DSL Internet",
+        "Built-in Wardrobes",
+        "Kitchen Cabinets"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3567,
+        "lng": 36.7411
+      },
+      "landlord": {
+        "name": "Beatrice Njeri",
+        "phone": "+254745678234",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Lang'ata Primary", "St. Mary's"],
+        "transport": ["Lang'ata Road", "Matatu"],
+        "shopping": ["The Hub Karen", "Galleria"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-025",
+      "title": "Bedsitter in Eastleigh - Near 1st Avenue",
+      "price": 9000,
+      "location": "Eastleigh",
+      "area": "Eastleigh",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 240,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 201,
+      "whatsapp": "254756789345",
+      "phone": "+254756789345",
+      "listedDate": "2026-03-14",
+      "description": "Very affordable bedsitter in Eastleigh near the busy 1st Avenue. Perfect for individuals on a tight budget. The room is basic but clean and secure. The location is unbeatable for those who work or study in Eastleigh, with everything within walking distance.",
+      "amenities": [
+        "24/7 Security",
+        "Water Access",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Near Market",
+        "Near Mosque",
+        "Bus Stop Nearby"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2758,
+        "lng": 36.8542
+      },
+      "landlord": {
+        "name": "Ahmed Ibrahim",
+        "phone": "+254756789345",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 5 hours",
+        "properties": 10
+      },
+      "nearby": {
+        "schools": ["Eastleigh High", "Muslim Academy"],
+        "transport": ["Eastleigh Bus Station"],
+        "shopping": ["Eastleigh Mall", "Garissa Lodge"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-026",
+      "title": "2BR with Balcony - Kileleshwa",
+      "price": 55000,
+      "location": "Kileleshwa",
+      "area": "Kileleshwa",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 900,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 112,
+      "whatsapp": "254767890456",
+      "phone": "+254767890456",
+      "listedDate": "2026-03-01",
+      "description": "Lovely 2-bedroom apartment in Kileleshwa with a private balcony. The unit offers good cross-ventilation and natural light throughout. Both bedrooms are well-sized with built-in wardrobes. The kitchen is functional with space for appliances. The compound has good security and reliable utilities.",
+      "amenities": [
+        "Private Balcony",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water 24/7",
+        "Backup Generator",
+        "Borehole Water",
+        "24/7 Security",
+        "Visitor Parking",
+        "DSL Internet",
+        "Intercom System"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2901,
+        "lng": 36.7908
+      },
+      "landlord": {
+        "name": "Eunice Atieno",
+        "phone": "+254767890456",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Kileleshwa Primary", "Nairobi Waldorf"],
+        "transport": ["Rhapto Road", "Matatu"],
+        "shopping": ["Quickmart", "Kileleshwa Market"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-027",
+      "title": "Studio Apartment - Lavington",
+      "price": 48000,
+      "location": "Lavington",
+      "area": "Lavington",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 380,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 89,
+      "whatsapp": "254778901567",
+      "phone": "+254778901567",
+      "listedDate": "2026-02-25",
+      "description": "Elegant studio apartment in a boutique building in Lavington. The unit has been beautifully designed with high-end finishes and furniture. Every detail has been considered, from the lighting to the storage solutions. The building has a small gym and rooftop terrace with city views.",
+      "amenities": [
+        "Designer Furniture",
+        "Boutique Building",
+        "Rooftop Terrace",
+        "Small Gym",
+        "High-speed WiFi",
+        "Smart TV",
+        "Nespresso Machine",
+        "Premium Bedding",
+        "Rain Shower",
+        "Secure Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2789,
+        "lng": 36.7705
+      },
+      "landlord": {
+        "name": "Ian Mburu",
+        "phone": "+254778901567",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 1 hour",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Lavington Primary", "Brookhouse"],
+        "transport": ["Lavington Green"],
+        "shopping": ["Lavington Mall", "Yaya Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-028",
+      "title": "1BR in South C - Near Airport",
+      "price": 27000,
+      "location": "South C",
+      "area": "South C",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 500,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 134,
+      "whatsapp": "254789012678",
+      "phone": "+254789012678",
+      "listedDate": "2026-03-06",
+      "description": "Practical 1-bedroom apartment in South C, convenient for airport access. The unit is well-maintained with good space. The living area is comfortable, and the bedroom is quiet. The compound has secure parking and reliable security. Good option for frequent travelers or airport workers.",
+      "amenities": [
+        "Near Airport",
+        "Secure Parking",
+        "24/7 Security",
+        "Backup Generator",
+        "Borehole Water",
+        "Built-in Wardrobe",
+        "Tiled Floors",
+        "Hot Water",
+        "Visitor Parking",
+        "DSL Internet"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3102,
+        "lng": 36.8356
+      },
+      "landlord": {
+        "name": "Peter Nduati",
+        "phone": "+254789012678",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 3 hours",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["South C Primary"],
+        "transport": ["Mombasa Road", "Airport 15 min"],
+        "shopping": ["Southfield Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-029",
+      "title": "Bedsitter in Kasarani - Clay City",
+      "price": 9500,
+      "location": "Kasarani",
+      "area": "Kasarani",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 250,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 178,
+      "whatsapp": "254790123789",
+      "phone": "+254790123789",
+      "listedDate": "2026-03-15",
+      "description": "Budget bedsitter in Clay City area of Kasarani. The room is basic but clean and secure. The area is developing fast with new amenities coming up. Close to Kenyatta University and T-Mall. Good option for students or those on a tight budget.",
+      "amenities": [
+        "24/7 Security",
+        "Water Access",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Near University",
+        "Boda Boda Stage",
+        "Water Tank"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2165,
+        "lng": 36.8934
+      },
+      "landlord": {
+        "name": "Catherine Wanjiku",
+        "phone": "+254790123789",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 4 hours",
+        "properties": 8
+      },
+      "nearby": {
+        "schools": ["Kenyatta University", "Kasarani Primary"],
+        "transport": ["Clay City stage"],
+        "shopping": ["T-Mall", "Local shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-030",
+      "title": "2BR Apartment with Balcony - Westlands",
+      "price": 78000,
+      "location": "Westlands",
+      "area": "Westlands",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 950,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 145,
+      "whatsapp": "254701234901",
+      "phone": "+254701234901",
+      "listedDate": "2026-02-18",
+      "description": "Stunning 2-bedroom apartment in a prime Westlands location with a spacious balcony. The unit is fully furnished with modern, high-quality furniture. The open-plan living area flows onto the balcony, perfect for relaxing or entertaining. The building has excellent amenities including a gym and pool.",
+      "amenities": [
+        "Large Balcony",
+        "Fully Furnished",
+        "Swimming Pool",
+        "Gym Access",
+        "Concierge",
+        "Smart TV",
+        "Premium Appliances",
+        "Walk-in Wardrobes",
+        "Rain Shower",
+        "Secure Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2667,
+        "lng": 36.8034
+      },
+      "landlord": {
+        "name": "William Kipchoge",
+        "phone": "+254701234901",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 1 hour",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["Westlands Primary", "Nairobi Academy"],
+        "transport": ["Westlands Bus Station"],
+        "shopping": ["Sarit Centre", "Westgate Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-031",
+      "title": "1BR Garden Apartment - Karen",
+      "price": 65000,
+      "location": "Karen",
+      "area": "Karen",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 700,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 45,
+      "whatsapp": "254712345012",
+      "phone": "+254712345012",
+      "listedDate": "2026-03-13",
+      "description": "Charming 1-bedroom garden apartment in Karen. This ground-floor unit offers direct access to a private garden, perfect for those who love outdoor space. The interior is bright and airy with large windows. The kitchen has been recently updated. The complex is peaceful and secure.",
+      "amenities": [
+        "Private Garden",
+        "Pet Friendly",
+        "Large Windows",
+        "Updated Kitchen",
+        "Granite Countertops",
+        "Built-in Wardrobes",
+        "24/7 Security",
+        "Borehole Water",
+        "Solar Backup",
+        "Visitor Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3345,
+        "lng": 36.7067
+      },
+      "landlord": {
+        "name": "Margaret Wairimu",
+        "phone": "+254712345012",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 1
+      },
+      "nearby": {
+        "schools": ["Karen Primary", "Banda School"],
+        "transport": ["Karen Road"],
+        "shopping": ["The Hub Karen", "Karen Shopping Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-032",
+      "title": "Bedsitter in Kileleshwa - Near Strathmore",
+      "price": 14000,
+      "location": "Kileleshwa",
+      "area": "Kileleshwa",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 270,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 223,
+      "whatsapp": "254723456123",
+      "phone": "+254723456123",
+      "listedDate": "2026-02-22",
+      "description": "Affordable bedsitter in Kileleshwa, walking distance to Strathmore University. The room is clean and well-maintained with good natural light. Shared facilities are kept clean. The location is ideal for students who want to be close to campus without paying high rents.",
+      "amenities": [
+        "Near University",
+        "24/7 Security",
+        "Water Included",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Backup",
+        "Laundry Area",
+        "Landlord Onsite"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2925,
+        "lng": 36.7934
+      },
+      "landlord": {
+        "name": "Susan Mbithe",
+        "phone": "+254723456123",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 3 hours",
+        "properties": 5
+      },
+      "nearby": {
+        "schools": ["Strathmore University", "Kileleshwa Primary"],
+        "transport": ["Rhapto Road", "Matatu"],
+        "shopping": ["Quickmart", "Local shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-033",
+      "title": "3BR Townhouse - South B",
+      "price": 62000,
+      "location": "South B",
+      "area": "South B",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "size": 1400,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 67,
+      "whatsapp": "254734567234",
+      "phone": "+254734567234",
+      "listedDate": "2026-03-02",
+      "description": "Spacious 3-bedroom townhouse in a quiet South B cul-de-sac. The home features a generous living area, separate dining space, and a kitchen with ample storage. Upstairs, the bedrooms are comfortable with built-in wardrobes. Small backyard for children or pets. Good family home.",
+      "amenities": [
+        "Small Backyard",
+        "2 Car Parking",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "DSL Internet",
+        "24/7 Security",
+        "Borehole Water",
+        "Staff Toilet",
+        "Water Tank",
+        "Children's Play Area"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3065,
+        "lng": 36.8449
+      },
+      "landlord": {
+        "name": "Josphat Ndirangu",
+        "phone": "+254734567234",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["South B Primary", "Our Lady of Mercy"],
+        "transport": ["South B Shopping Centre"],
+        "shopping": ["South B Mall", "Quickmart"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-034",
+      "title": "Studio in Kilimani - Near Yaya",
+      "price": 40000,
+      "location": "Kilimani",
+      "area": "Kilimani",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 380,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 89,
+      "whatsapp": "254745678345",
+      "phone": "+254745678345",
+      "listedDate": "2026-03-14",
+      "description": "Compact studio apartment in Kilimani, just a short walk from Yaya Centre. The unit is well-designed to maximize space and is fully furnished. Everything you need is provided, from cookware to linens. The building has a small gym and co-working space. Ideal for a professional.",
+      "amenities": [
+        "Fully Furnished",
+        "Co-working Space",
+        "Small Gym",
+        "High-speed WiFi",
+        "Smart TV",
+        "Washing Machine",
+        "Microwave",
+        "Fridge",
+        "Cookware Included",
+        "Secure Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2881,
+        "lng": 36.8033
+      },
+      "landlord": {
+        "name": "Nancy Wanjeri",
+        "phone": "+254745678345",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Kilimani Academy"],
+        "transport": ["Argwings Kodhek"],
+        "shopping": ["Yaya Centre", "Junction Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-035",
+      "title": "2BR in Lang'ata - Near Nairobi National Park",
+      "price": 55000,
+      "location": "Lang'ata",
+      "area": "Langata",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "size": 850,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 78,
+      "whatsapp": "254756789456",
+      "phone": "+254756789456",
+      "listedDate": "2026-02-28",
+      "description": "Nice 2-bedroom apartment in Lang'ata, close to Nairobi National Park. The unit offers good space with a comfortable living area and functional kitchen. The bedrooms are decently sized with built-in wardrobes. The compound has good security and is well-maintained.",
+      "amenities": [
+        "Near National Park",
+        "Secure Parking",
+        "24/7 Security",
+        "Backup Generator",
+        "Borehole Water",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water",
+        "Visitor Parking",
+        "Children's Play Area"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3534,
+        "lng": 36.7445
+      },
+      "landlord": {
+        "name": "Richard Otieno",
+        "phone": "+254756789456",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 3 hours",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Lang'ata Primary"],
+        "transport": ["Lang'ata Road"],
+        "shopping": ["The Hub Karen", "Galleria"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-036",
+      "title": "Bedsitter in Parklands - Near Hospital",
+      "price": 11500,
+      "location": "Parklands",
+      "area": "Parklands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 260,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 156,
+      "whatsapp": "254767890567",
+      "phone": "+254767890567",
+      "listedDate": "2026-03-12",
+      "description": "Affordable bedsitter in Parklands, close to MP Shah Hospital. The room is clean and secure, with access to shared facilities. The location is convenient for hospital workers or students. The neighborhood has all amenities within walking distance.",
+      "amenities": [
+        "Near Hospital",
+        "24/7 Security",
+        "Water Included",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Laundry Area",
+        "Near Shops"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2641,
+        "lng": 36.8209
+      },
+      "landlord": {
+        "name": "Fatma Said",
+        "phone": "+254767890567",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 4 hours",
+        "properties": 6
+      },
+      "nearby": {
+        "schools": ["Parklands Primary"],
+        "transport": ["Parklands Road"],
+        "shopping": ["Diamond Plaza", "Westgate"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-037",
+      "title": "1BR Furnished - Westlands",
+      "price": 50000,
+      "location": "Westlands",
+      "area": "Westlands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 600,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 98,
+      "whatsapp": "254778901678",
+      "phone": "+254778901678",
+      "listedDate": "2026-02-20",
+      "description": "Beautifully furnished 1-bedroom apartment in Westlands. Move-in ready with high-quality furniture and appliances. The unit has a modern design with thoughtful touches throughout. The building has excellent amenities including a pool and gym. Perfect for a professional seeking a premium living experience.",
+      "amenities": [
+        "Fully Furnished",
+        "Swimming Pool",
+        "Gym Access",
+        "High-speed WiFi",
+        "Smart TV",
+        "Premium Appliances",
+        "Walk-in Wardrobe",
+        "Rain Shower",
+        "Secure Parking",
+        "24/7 Concierge"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2679,
+        "lng": 36.8041
+      },
+      "landlord": {
+        "name": "Lydia Njoki",
+        "phone": "+254778901678",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 1 hour",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Westlands Primary"],
+        "transport": ["Westlands Bus Station"],
+        "shopping": ["Sarit Centre", "Westgate"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-038",
+      "title": "3BR House - Kileleshwa",
+      "price": 95000,
+      "location": "Kileleshwa",
+      "area": "Kileleshwa",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "size": 1700,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 67,
+      "whatsapp": "254789012789",
+      "phone": "+254789012789",
+      "listedDate": "2026-03-05",
+      "description": "Spacious 3-bedroom house in Kileleshwa on a good plot. The property offers generous living spaces, a large kitchen, and three good-sized bedrooms. Outside, there's a garden and covered patio. The house has been well-maintained and is ready for a family. Located in a quiet street.",
+      "amenities": [
+        "Large Garden",
+        "Covered Patio",
+        "2 Car Parking",
+        "Staff Quarters",
+        "Borehole Water",
+        "Electric Fence",
+        "24/7 Security",
+        "DSL Internet",
+        "Built-in Wardrobes",
+        "Kitchen Cabinets"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2934,
+        "lng": 36.7912
+      },
+      "landlord": {
+        "name": "Charles Mwangi",
+        "phone": "+254789012789",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 2 hours",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Kileleshwa Primary", "Nairobi Waldorf"],
+        "transport": ["Rhapto Road"],
+        "shopping": ["Quickmart", "Kileleshwa Market"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-039",
+      "title": "Studio - South B Near Mombasa Road",
+      "price": 22000,
+      "location": "South B",
+      "area": "South B",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 320,
+      "type": "studio",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 112,
+      "whatsapp": "254790123890",
+      "phone": "+254790123890",
+      "listedDate": "2026-03-15",
+      "description": "Compact studio apartment in South B, convenient for access to Mombasa Road. The unit is clean and well-maintained, with basic amenities included. The building has good security and is well-managed. Ideal for a single person who needs easy access to the highway.",
+      "amenities": [
+        "Near Highway",
+        "24/7 Security",
+        "Water Included",
+        "Electricity Backup",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Laundry Area",
+        "DSL Internet"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3078,
+        "lng": 36.8423
+      },
+      "landlord": {
+        "name": "Patrick Kilonzo",
+        "phone": "+254790123890",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 3 hours",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["South B Primary"],
+        "transport": ["Mombasa Road"],
+        "shopping": ["Southfield Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-040",
+      "title": "2BR with Parking - Kilimani",
+      "price": 68000,
+      "location": "Kilimani",
+      "area": "Kilimani",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 820,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 134,
+      "whatsapp": "254701234012",
+      "phone": "+254701234012",
+      "listedDate": "2026-02-25",
+      "description": "Practical 2-bedroom apartment in Kilimani with dedicated parking. The unit offers good living space, a functional kitchen, and two comfortable bedrooms. The compound has good security and reliable utilities. Good value for money in a prime location.",
+      "amenities": [
+        "Dedicated Parking",
+        "24/7 Security",
+        "Backup Generator",
+        "Borehole Water",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water",
+        "Visitor Parking",
+        "DSL Internet",
+        "Intercom System"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-c5ca9d2c045d?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2871,
+        "lng": 36.8039
+      },
+      "landlord": {
+        "name": "Veronica Mueni",
+        "phone": "+254701234012",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Kilimani Academy"],
+        "transport": ["Argwings Kodhek"],
+        "shopping": ["Junction Mall", "Yaya Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-041",
+      "title": "Bedsitter - Lang'ata Near Otiende",
+      "price": 10500,
+      "location": "Lang'ata",
+      "area": "Langata",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 240,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": true,
+      "views": 189,
+      "whatsapp": "254712345123",
+      "phone": "+254712345123",
+      "listedDate": "2026-03-13",
+      "description": "Affordable bedsitter in Lang'ata near Otiende area. The room is clean and secure, with access to shared amenities. The neighborhood is established with good access to shops and transport. Good option for those on a budget.",
+      "amenities": [
+        "24/7 Security",
+        "Water Access",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Near Shops",
+        "Boda Boda Stage",
+        "Water Tank"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3522,
+        "lng": 36.7431
+      },
+      "landlord": {
+        "name": "Alice Akinyi",
+        "phone": "+254712345123",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 4 hours",
+        "properties": 7
+      },
+      "nearby": {
+        "schools": ["Lang'ata Primary"],
+        "transport": ["Otiende stage"],
+        "shopping": ["Otiende Market", "Local shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-042",
+      "title": "1BR Garden Apartment - Lavington",
+      "price": 52000,
+      "location": "Lavington",
+      "area": "Lavington",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 580,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 56,
+      "whatsapp": "254723456234",
+      "phone": "+254723456234",
+      "listedDate": "2026-02-22",
+      "description": "Ground-floor apartment in Lavington with a private garden. The unit has a lovely flow, with the living area opening onto the garden. The bedroom is quiet and comfortable with good storage. The kitchen is functional. The complex is well-maintained with good security.",
+      "amenities": [
+        "Private Garden",
+        "Pet Friendly",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water",
+        "24/7 Security",
+        "Borehole Water",
+        "Solar Backup",
+        "Visitor Parking",
+        "DSL Internet"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2776,
+        "lng": 36.7719
+      },
+      "landlord": {
+        "name": "Joseph Karanja",
+        "phone": "+254723456234",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Lavington Primary", "Brookhouse"],
+        "transport": ["Lavington Green"],
+        "shopping": ["Lavington Mall", "Yaya Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-043",
+      "title": "Studio in Westlands - Near Sarit",
+      "price": 36000,
+      "location": "Westlands",
+      "area": "Westlands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 380,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 145,
+      "whatsapp": "254734567345",
+      "phone": "+254734567345",
+      "listedDate": "2026-03-07",
+      "description": "Modern studio apartment in Westlands, walking distance to Sarit Centre. The unit is fully furnished with contemporary pieces. The open-plan layout makes the most of the space. The building has a gym and rooftop lounge. Great for a professional who wants to be in the heart of Westlands.",
+      "amenities": [
+        "Fully Furnished",
+        "Gym Access",
+        "Rooftop Lounge",
+        "High-speed WiFi",
+        "Smart TV",
+        "Washing Machine",
+        "Microwave",
+        "Fridge",
+        "Cookware Included",
+        "Secure Parking"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2671,
+        "lng": 36.8048
+      },
+      "landlord": {
+        "name": "Monica Achieng",
+        "phone": "+254734567345",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Westlands Primary"],
+        "transport": ["Westlands Bus Station"],
+        "shopping": ["Sarit Centre", "Westgate"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-044",
+      "title": "3BR Apartment - South C",
+      "price": 68000,
+      "location": "South C",
+      "area": "South C",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "size": 1300,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 78,
+      "whatsapp": "254745678456",
+      "phone": "+254745678456",
+      "listedDate": "2026-02-18",
+      "description": "Spacious 3-bedroom apartment in a well-established South C block. The unit offers good living space, a functional kitchen, and three bedrooms with built-in wardrobes. The building has good security and reliable utilities. Good family home in a convenient location.",
+      "amenities": [
+        "Secure Parking",
+        "24/7 Security",
+        "Backup Generator",
+        "Borehole Water",
+        "Built-in Wardrobes",
+        "Tiled Floors",
+        "Hot Water",
+        "Visitor Parking",
+        "Children's Play Area",
+        "DSL Internet"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3095,
+        "lng": 36.8345
+      },
+      "landlord": {
+        "name": "Simon Kiprop",
+        "phone": "+254745678456",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 3 hours",
+        "properties": 4
+      },
+      "nearby": {
+        "schools": ["South C Primary"],
+        "transport": ["Mombasa Road"],
+        "shopping": ["Southfield Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-045",
+      "title": "Bedsitter - Kasarani Near KU",
+      "price": 9800,
+      "location": "Kasarani",
+      "area": "Kasarani",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 240,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": true,
+      "isNew": true,
+      "views": 267,
+      "whatsapp": "254756789567",
+      "phone": "+254756789567",
+      "listedDate": "2026-03-14",
+      "description": "Popular bedsitter near Kenyatta University, always in high demand. The room is clean and secure, with access to shared facilities. The location is ideal for students, with the university within walking distance. The landlord is responsive and maintains the property well.",
+      "amenities": [
+        "Near University",
+        "24/7 Security",
+        "Water Included",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Laundry Area",
+        "Student Friendly"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2178,
+        "lng": 36.8942
+      },
+      "landlord": {
+        "name": "Beatrice Aoko",
+        "phone": "+254756789567",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 4 hours",
+        "properties": 9
+      },
+      "nearby": {
+        "schools": ["Kenyatta University", "Kasarani Primary"],
+        "transport": ["KU stage"],
+        "shopping": ["T-Mall", "Local shops"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-046",
+      "title": "1BR in Parklands - Near Hospital",
+      "price": 32000,
+      "location": "Parklands",
+      "area": "Parklands",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 520,
+      "type": "apartment",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 89,
+      "whatsapp": "254767890678",
+      "phone": "+254767890678",
+      "listedDate": "2026-03-01",
+      "description": "Good-sized 1-bedroom apartment in Parklands, close to Aga Khan Hospital. The unit offers a comfortable living area, functional kitchen, and a good-sized bedroom with built-in wardrobe. The compound has secure parking and good security. Convenient for hospital workers.",
+      "amenities": [
+        "Near Hospital",
+        "Secure Parking",
+        "24/7 Security",
+        "Backup Generator",
+        "Borehole Water",
+        "Built-in Wardrobe",
+        "Tiled Floors",
+        "Hot Water",
+        "Visitor Parking",
+        "DSL Internet"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2621,
+        "lng": 36.8221
+      },
+      "landlord": {
+        "name": "Hellen Wanjiku",
+        "phone": "+254767890678",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 2 hours",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Parklands Primary"],
+        "transport": ["Parklands Road"],
+        "shopping": ["Diamond Plaza", "Westgate"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-047",
+      "title": "2BR with Pool - Kilimani",
+      "price": 75000,
+      "location": "Kilimani",
+      "area": "Kilimani",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "size": 880,
+      "type": "apartment",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": false,
+      "views": 112,
+      "whatsapp": "254778901789",
+      "phone": "+254778901789",
+      "listedDate": "2026-02-20",
+      "description": "Luxury 2-bedroom apartment in Kilimani with swimming pool access. The unit is tastefully furnished and well-appointed. The living area is spacious, and both bedrooms are comfortable with good storage. The building has a pool, gym, and 24-hour security. Premium living in a prime location.",
+      "amenities": [
+        "Swimming Pool",
+        "Gym Access",
+        "Fully Furnished",
+        "High-speed WiFi",
+        "Smart TV",
+        "Premium Appliances",
+        "Walk-in Wardrobes",
+        "Rain Shower",
+        "Secure Parking",
+        "24/7 Concierge"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2884,
+        "lng": 36.8025
+      },
+      "landlord": {
+        "name": "Cynthia Muthoni",
+        "phone": "+254778901789",
+        "verified": true,
+        "memberSince": "2023",
+        "responseRate": "< 1 hour",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Kilimani Academy"],
+        "transport": ["Argwings Kodhek"],
+        "shopping": ["Junction Mall", "Yaya Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-048",
+      "title": "Bedsitter - Eastleigh Near Mosque",
+      "price": 8800,
+      "location": "Eastleigh",
+      "area": "Eastleigh",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 230,
+      "type": "bedsitter",
+      "furnished": false,
+      "parking": false,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 234,
+      "whatsapp": "254789012890",
+      "phone": "+254789012890",
+      "listedDate": "2026-03-08",
+      "description": "Very affordable bedsitter in Eastleigh, close to the main mosque. The room is basic but clean and secure. The location is convenient for those who work or study in Eastleigh. Great value for money in a busy neighborhood.",
+      "amenities": [
+        "Near Mosque",
+        "24/7 Security",
+        "Water Access",
+        "Shared Kitchen",
+        "Shared Bathroom",
+        "Electricity Prepaid",
+        "Near Market",
+        "Bus Stop Nearby"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2762,
+        "lng": 36.8531
+      },
+      "landlord": {
+        "name": "Omar Hassan",
+        "phone": "+254789012890",
+        "verified": true,
+        "memberSince": "2024",
+        "responseRate": "< 5 hours",
+        "properties": 12
+      },
+      "nearby": {
+        "schools": ["Eastleigh High"],
+        "transport": ["Eastleigh Bus Station"],
+        "shopping": ["Eastleigh Mall"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-049",
+      "title": "3BR House - Karen Near The Hub",
+      "price": 115000,
+      "location": "Karen",
+      "area": "Karen",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "size": 2000,
+      "type": "house",
+      "furnished": false,
+      "parking": true,
+      "verified": true,
+      "featured": true,
+      "isNew": true,
+      "views": 45,
+      "whatsapp": "254790123901",
+      "phone": "+254790123901",
+      "listedDate": "2026-03-15",
+      "description": "Beautiful 3-bedroom house in Karen, close to The Hub shopping center. The property has been recently renovated and features modern finishes throughout. The open-plan living area flows onto a covered patio overlooking the garden. The kitchen is modern with granite countertops. All bedrooms are generous with built-in wardrobes. Prime Karen living.",
+      "amenities": [
+        "Recently Renovated",
+        "Large Garden",
+        "Covered Patio",
+        "Modern Kitchen",
+        "Granite Countertops",
+        "Walk-in Wardrobes",
+        "Ensuite Master",
+        "Staff Quarters",
+        "Double Garage",
+        "Borehole Water"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.3338,
+        "lng": 36.7071
+      },
+      "landlord": {
+        "name": "Francis Njoroge",
+        "phone": "+254790123901",
+        "verified": true,
+        "memberSince": "2022",
+        "responseRate": "< 1 hour",
+        "properties": 3
+      },
+      "nearby": {
+        "schools": ["Karen Primary", "Banda School"],
+        "transport": ["Karen Road"],
+        "shopping": ["The Hub Karen", "Karen Shopping Centre"]
+      },
+      "titleDeed": true
+    },
+    {
+      "id": "prop-050",
+      "title": "Studio - Lavington Near Strathmore",
+      "price": 35000,
+      "location": "Lavington",
+      "area": "Lavington",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "size": 350,
+      "type": "studio",
+      "furnished": true,
+      "parking": true,
+      "verified": true,
+      "featured": false,
+      "isNew": false,
+      "views": 78,
+      "whatsapp": "254701234123",
+      "phone": "+254701234123",
+      "listedDate": "2026-02-28",
+      "description": "Convenient studio apartment in Lavington, close to Strathmore University. The unit is fully furnished and well-maintained. The open-plan layout is efficient and comfortable. The building has good security and a responsive landlord. Ideal for a student or young professional.",
+      "amenities": [
+        "Near University",
+        "Fully Furnished",
+        "High-speed WiFi",
+        "Smart TV",
+        "Washing Machine",
+        "Microwave",
+        "Fridge",
+        "Cookware Included",
+        "Secure Parking",
+        "24/7 Security"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800"
+      ],
+      "coordinates": {
+        "lat": -1.2801,
+        "lng": 36.7728
+      },
+      "landlord": {
+        "name": "Emily Chepkoech",
+        "phone": "+254701234123",
+        "verified": true,
+        "memberSince": "2025",
+        "responseRate": "< 2 hours",
+        "properties": 2
+      },
+      "nearby": {
+        "schools": ["Strathmore University", "Lavington Primary"],
+        "transport": ["Lavington Green"],
+        "shopping": ["Lavington Mall"]
+      },
+      "titleDeed": true
     }
-    if (state.area !== 'All' && p.area !== state.area) return false;
-    if (state.type !== 'All' && p.type !== state.type) return false;
-    if (p.price > state.maxPrice) return false;
-    if (state.beds !== 'Any') {
-      if (state.beds === '4+') { if (p.beds < 4) return false; }
-      else if (p.beds !== parseInt(state.beds)) return false;
-    }
-    if (state.furnished !== 'Any') {
-      const isFurn = p.furnished === true || p.furnished === 'Furnished';
-      if (state.furnished === 'Furnished' && !isFurn) return false;
-      if (state.furnished === 'Unfurnished' && isFurn) return false;
-    }
-    if (state.amenities.length) {
-      const hasAll = state.amenities.every(a => p.amenities && p.amenities.includes(a));
-      if (!hasAll) return false;
-    }
-    return true;
-  });
-
-  switch(state.sort) {
-    case 'newest':    results.sort((a,b) => new Date(b.postedDate) - new Date(a.postedDate)); break;
-    case 'price-asc': results.sort((a,b) => a.price - b.price); break;
-    case 'price-desc':results.sort((a,b) => b.price - a.price); break;
-    default:          results.sort((a,b) => (b.featured?1:0) - (a.featured?1:0) || b.views - a.views);
-  }
-  return results;
-}
-
-// ── SAVED PROPERTIES ───────────────────────────────────────
-function getSaved() {
-  try { return JSON.parse(localStorage.getItem('rt_saved') || '[]'); } catch { return []; }
-}
-function toggleSave(id, btn) {
-  let saved = getSaved();
-  if (saved.includes(id)) {
-    saved = saved.filter(x => x !== id);
-    btn.classList.remove('saved');
-  } else {
-    saved.push(id);
-    btn.classList.add('saved');
-  }
-  localStorage.setItem('rt_saved', JSON.stringify(saved));
+  ]
 }
