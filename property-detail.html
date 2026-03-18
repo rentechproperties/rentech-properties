@@ -1,474 +1,151 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Property Details | Rentech Properties Nairobi</title>
-<meta name="description" content="View full details, photos, amenities and contact the verified landlord directly via WhatsApp.">
-<link rel="icon" href="favicon-32x32.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<style>
-.detail-wrap{padding:120px 0 80px;}
-.detail-grid{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start;}
-
-/* Gallery */
-.gallery{margin-bottom:32px;}
-.gallery-main{position:relative;height:480px;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:10px;background:var(--card);}
-.gallery-main img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;}
-.gallery-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
-.gallery-thumb{height:80px;border-radius:var(--radius);overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s;}
-.gallery-thumb.active{border-color:var(--gold);}
-.gallery-thumb img{width:100%;height:100%;object-fit:cover;}
-.gallery-badge{position:absolute;top:16px;left:16px;display:flex;gap:8px;}
-.bdg{padding:4px 10px;border-radius:6px;font-size:.7rem;font-weight:700;backdrop-filter:blur(6px);}
-.bdg-v{background:rgba(16,185,129,.92);color:#fff;}
-.bdg-f{background:rgba(255,215,0,.96);color:#0a0a0a;}
-.bdg-n{background:rgba(99,102,241,.92);color:#fff;}
-.photo-count{position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,.6);color:#fff;padding:6px 12px;border-radius:100px;font-size:.8rem;backdrop-filter:blur(4px);}
-
-/* Detail sections */
-.detail-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;margin-bottom:20px;}
-.detail-section h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
-.prop-header{margin-bottom:8px;}
-.prop-title-big{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:8px;line-height:1.2;}
-.prop-location-line{color:var(--muted);font-size:.9rem;display:flex;align-items:center;gap:6px;margin-bottom:16px;}
-.price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
-.price-main{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--emerald);}
-.price-per{color:var(--muted);font-size:.9rem;}
-.price-details{display:flex;gap:20px;flex-wrap:wrap;}
-.price-detail-item{text-align:center;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:12px 20px;}
-.price-detail-item .pdl{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:4px;}
-.price-detail-item .pdv{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);}
-
-/* Specs grid */
-.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.spec-box{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center;}
-.spec-ico{font-size:1.4rem;margin-bottom:6px;}
-.spec-val{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;}
-.spec-lbl{font-size:.72rem;color:var(--muted);margin-top:2px;}
-
-/* Amenities */
-.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.amenity-chip{display:flex;align-items:center;gap:9px;padding:11px 14px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);font-size:.85rem;}
-.amenity-chip.has{border-color:rgba(16,185,129,.3);color:var(--text);}
-.amenity-chip.has .ach{color:var(--emerald);}
-.amenity-chip.no{opacity:.4;}
-.amenity-chip.no .ach{color:var(--muted);}
-
-/* Map */
-.map-frame{width:100%;height:300px;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;background:var(--bg-2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--muted);}
-.map-frame .map-icon{font-size:2.5rem;}
-
-/* Sidebar */
-.detail-sidebar{position:sticky;top:100px;}
-.contact-card{background:var(--card);border:1px solid var(--gold);border-radius:var(--radius-lg);padding:28px;margin-bottom:16px;position:relative;}
-.contact-card::before{content:'';position:absolute;top:-1px;left:30px;right:30px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-.landlord-row{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border);}
-.landlord-av{width:52px;height:52px;border-radius:50%;background:rgba(255,215,0,.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
-.landlord-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;}
-.landlord-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(16,185,129,.1);color:var(--emerald);border:1px solid rgba(16,185,129,.2);padding:2px 9px;border-radius:100px;font-size:.68rem;font-weight:700;margin-top:4px;}
-.btn-wa-big{width:100%;padding:15px;background:#25D366;color:#fff;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin-bottom:10px;transition:all .2s;}
-.btn-wa-big:hover{background:#128C7E;transform:translateY(-1px);}
-.btn-call{width:100%;padding:13px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:all .2s;}
-.btn-call:hover{border-color:var(--gold);color:var(--gold);}
-.contact-note{text-align:center;font-size:.75rem;color:var(--muted);margin-top:12px;line-height:1.6;}
-
-.similar-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:14px;}
-.similar-card{display:flex;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px;text-decoration:none;color:var(--text);transition:border-color .2s;}
-.similar-card:hover{border-color:var(--gold);}
-.sim-img{width:80px;height:80px;flex-shrink:0;overflow:hidden;}
-.sim-img img{width:100%;height:100%;object-fit:cover;}
-.sim-body{padding:10px 12px 10px 0;flex:1;}
-.sim-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;margin-bottom:3px;}
-.sim-price{color:var(--emerald);font-weight:700;font-size:.82rem;}
-.sim-area{color:var(--muted);font-size:.75rem;}
-
-/* Breadcrumb */
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:24px;flex-wrap:wrap;}
-.breadcrumb a{color:var(--muted);text-decoration:none;transition:color .2s;}
-.breadcrumb a:hover{color:var(--gold);}
-.breadcrumb .sep{opacity:.4;}
-
-/* Lightbox */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:var(--radius);}
-.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;font-size:1.8rem;cursor:pointer;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.lb-nav:hover{background:rgba(255,255,255,.2);}
-.lb-prev{left:20px;}
-.lb-next{right:20px;}
-.lb-counter{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:12px;}
-
-@media(max-width:960px){
-  .detail-grid{grid-template-columns:1fr;}
-  .detail-sidebar{position:relative;top:0;}
-  .specs-grid{grid-template-columns:repeat(2,1fr);}
-  .amenities-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-main{height:300px;}
-}
-@media(max-width:600px){
-  .gallery-thumbs{grid-template-columns:repeat(4,1fr);}
-  .specs-grid{grid-template-columns:repeat(2,1fr);}
-  .price-main{font-size:1.6rem;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Detail | Rentech Properties</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .detail-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+    .hero-main img { width: 100%; border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; }
+    .detail-price { font-size: 2rem; font-weight: 800; color: var(--primary, #2563eb); }
+    .detail-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+    .detail-meta span { background: #f0f4ff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; }
+    .amenities-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0; }
+    .cta-box { position: sticky; top: 100px; background: var(--card-bg,#fff); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.1); border: 1px solid var(--border,#e8e8e8); }
+    .layout-cols { display: grid; grid-template-columns: 1fr 360px; gap: 2rem; align-items: start; }
+    .trust-badges { display: flex; flex-direction: column; gap: 8px; margin: 1rem 0; }
+    .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+    @media(max-width:768px){ .layout-cols,.detail-hero{ grid-template-columns:1fr; } .cta-box { position:static; } }
+  </style>
 </head>
 <body>
+  <nav><!-- your existing nav --></nav>
 
-<!-- NAV -->
-<nav class="navbar" id="nav">
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <div class="logo-img"><img src="assets/logo.png" alt="Rentech Properties" width="40" height="40"></div>
-      <div class="logo-text">RENTECH<span>PROPERTIES</span></div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="properties.html" class="active">Browse</a>
-      <a href="index.html#how">How It Works</a>
-      <a href="index.html#locations">Areas</a>
-      <a href="index.html#faq">FAQ</a>
+  <div class="container" style="max-width:1100px;margin:0 auto;padding:1rem 1.5rem">
+    <div id="breadcrumb" style="font-size:0.85rem;color:#6b7280;margin-bottom:1rem">
+      <a href="index.html">Home</a> › <a href="properties.html">Browse</a> › <span id="bcTitle">Loading...</span>
     </div>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
-      <a href="list-property.html" class="btn btn-primary">List Property Free</a>
-      <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+
+    <div id="detailRoot">
+      <!-- Rendered by property-detail.js -->
+      <div style="text-align:center;padding:4rem">
+        <div style="font-size:2rem">⏳</div>
+        <p>Loading property...</p>
+      </div>
     </div>
   </div>
-</nav>
-<div class="mobile-menu" id="mob-menu">
-  <a href="index.html">Home</a>
-  <a href="properties.html">Browse</a>
-  <a href="index.html#how">How It Works</a>
-  <a href="index.html#locations">Areas</a>
-  <a href="index.html#faq">FAQ</a>
-  <a href="list-property.html" class="btn btn-primary" style="margin-top:10px;">List Property Free</a>
-</div>
 
-<div class="container detail-wrap">
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="sep">›</span>
-    <a href="properties.html">Browse</a>
-    <span class="sep">›</span>
-    <span id="bc-area">Kilimani</span>
-    <span class="sep">›</span>
-    <span id="bc-title">Modern 2BR Apartment</span>
-  </div>
+  <script>
+  (async () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (!id) { document.getElementById('detailRoot').innerHTML = '<p style="text-align:center;padding:4rem">Property not found. <a href="properties.html">Browse all →</a></p>'; return; }
 
-  <div class="detail-grid">
-    <!-- LEFT -->
-    <div>
-      <!-- Gallery -->
-      <div class="gallery">
-        <div class="gallery-main" id="main-img-wrap">
-          <img id="main-img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85" alt="Property photo">
-          <div class="gallery-badge">
-            <span class="bdg bdg-v">✓ Verified</span>
-            <span class="bdg bdg-f" id="badge-featured">⭐ Featured</span>
-          </div>
-          <div class="photo-count" id="photo-count">📷 1 / 5</div>
-        </div>
-        <div class="gallery-thumbs" id="thumbs"></div>
-      </div>
+    try {
+      const res = await fetch('data/properties.json');
+      const all = await res.json();
+      const p = all.find(x => x.id === id);
+      if (!p) throw new Error('Not found');
 
-      <!-- Title & Price -->
-      <div class="detail-section">
-        <div class="prop-header">
-          <h1 class="prop-title-big" id="prop-title">Modern 2BR Apartment</h1>
-          <div class="prop-location-line">📍 <span id="prop-area">Kilimani</span>, <span id="prop-address">Ngong Road, Milimani Estate</span>, Nairobi</div>
-        </div>
-        <div class="price-row">
-          <div class="price-main" id="prop-price">KSh 65,000</div>
-          <div class="price-per">/ month</div>
-        </div>
-        <div class="price-details">
-          <div class="price-detail-item"><div class="pdl">Monthly Rent</div><div class="pdv" id="pd-rent">KSh 65,000</div></div>
-          <div class="price-detail-item"><div class="pdl">Deposit</div><div class="pdv" id="pd-deposit">KSh 130,000</div></div>
-          <div class="price-detail-item"><div class="pdl">Service Charge</div><div class="pdv" id="pd-service">KSh 5,000</div></div>
-        </div>
-      </div>
+      document.title = `${p.title} — ${p.area} | Rentech Properties`;
+      document.getElementById('bcTitle').textContent = p.title;
 
-      <!-- Property Specs -->
-      <div class="detail-section">
-        <h2>📐 Property Details</h2>
-        <div class="specs-grid">
-          <div class="spec-box"><div class="spec-ico">🏢</div><div class="spec-val" id="sp-type">Apartment</div><div class="spec-lbl">Property Type</div></div>
-          <div class="spec-box"><div class="spec-ico">🛏️</div><div class="spec-val" id="sp-beds">2</div><div class="spec-lbl">Bedrooms</div></div>
-          <div class="spec-box"><div class="spec-ico">🚿</div><div class="spec-val" id="sp-baths">2</div><div class="spec-lbl">Bathrooms</div></div>
-          <div class="spec-box"><div class="spec-ico">📏</div><div class="spec-val" id="sp-sqft">850 sqft</div><div class="spec-lbl">Floor Area</div></div>
-        </div>
-      </div>
+      const waMsg = encodeURIComponent(`Hi Rentech! I'm interested in: ${p.title} in ${p.area} at KSh ${p.price.toLocaleString()}/mo (ID: ${p.id}). Please arrange a viewing.`);
+      const amenityIcons = { 'Parking':'🚗','24hr Security':'🛡️','Borehole Water':'💧','Furnished':'🛋️','Gym':'💪','Balcony':'🌇','Garden':'🌿' };
+      const marketAvg = p.price * 1.12;
+      const saving = Math.round(((marketAvg - p.price) / marketAvg) * 100);
 
-      <!-- Description -->
-      <div class="detail-section">
-        <h2>📝 Description</h2>
-        <div id="prop-desc" style="color:var(--muted);font-size:.92rem;line-height:1.8;"></div>
-      </div>
-
-      <!-- Amenities -->
-      <div class="detail-section">
-        <h2>✨ Amenities</h2>
-        <div class="amenities-grid" id="amenities-grid"></div>
-      </div>
-
-      <!-- Location & Map -->
-      <div class="detail-section">
-        <h2>📍 Location</h2>
-        <div style="margin-bottom:14px;">
-          <div style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">📍 <strong id="map-address">Ngong Road, Milimani Estate, Kilimani, Nairobi</strong></div>
-          <div style="font-size:.82rem;color:var(--muted);">Near: <span id="map-near">Junction Mall, Yaya Centre, Kilimani Primary School</span></div>
-        </div>
-        <div class="map-frame" id="map-frame">
-          <div class="map-icon">🗺️</div>
-          <div style="font-size:.9rem;font-weight:600;" id="map-label">Kilimani, Nairobi</div>
-          <a id="map-link" href="https://maps.google.com/?q=Kilimani,Nairobi" target="_blank" rel="noopener"
-             style="padding:10px 20px;background:var(--gold);color:#0a0a0a;border-radius:var(--radius);font-size:.85rem;font-weight:700;text-decoration:none;margin-top:4px;">
-            📍 Open in Google Maps
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SIDEBAR -->
-    <div class="detail-sidebar">
-      <!-- Contact Card -->
-      <div class="contact-card">
-        <div class="landlord-row">
-          <div class="landlord-av">👨</div>
+      document.getElementById('detailRoot').innerHTML = `
+        <div class="layout-cols">
           <div>
-            <div class="landlord-name" id="ll-name">John Kamau</div>
-            <div class="landlord-badge">✓ Verified Landlord</div>
+            <div class="detail-hero">
+              <div class="hero-main"><img src="${p.images[0]}" alt="${p.title}"></div>
+            </div>
+
+            <span class="badge badge-verified">✓ ID Verified Landlord</span>
+            <span class="badge badge-verified" style="background:#3b82f6;margin-left:6px">✓ Property Inspected</span>
+            ${p.featured ? '<span class="badge badge-featured" style="margin-left:6px">⭐ Featured</span>' : ''}
+
+            <h1 style="margin:1rem 0 0.25rem;font-size:1.8rem">${p.title}</h1>
+            <div style="color:#6b7280;margin-bottom:0.5rem">📍 ${p.area}, Nairobi</div>
+            <div class="detail-price">KSh ${p.price.toLocaleString()}<span style="font-size:1rem;font-weight:400;color:#6b7280">/month</span></div>
+            ${saving > 0 ? `<div style="color:#10b981;font-size:0.85rem;margin-top:4px">💡 ${saving}% below market average — great deal!</div>` : ''}
+
+            <div class="detail-meta" style="margin-top:1rem">
+              <span>🛏 ${p.bedrooms} Bedroom${p.bedrooms>1?'s':''}</span>
+              <span>🚿 ${p.bathrooms} Bathroom${p.bathrooms>1?'s':''}</span>
+              <span>${p.furnished ? '🛋️ Furnished' : '🏠 Unfurnished'}</span>
+              <span>📐 ${p.type}</span>
+            </div>
+
+            <h3>About This Property</h3>
+            <p style="line-height:1.7;color:#374151">${p.description}</p>
+
+            <h3>Amenities</h3>
+            <div class="amenities-grid">
+              ${p.amenities.map(a => `<span class="amenity-tag" style="padding:6px 14px;font-size:0.85rem">${amenityIcons[a]||'✓'} ${a}</span>`).join('')}
+            </div>
+
+            <h3>📍 Location</h3>
+            <a href="https://maps.google.com/?q=${p.coords.lat},${p.coords.lng}" target="_blank"
+               style="display:block;background:#f0f4ff;border-radius:12px;padding:1.5rem;text-align:center;text-decoration:none;color:#2563eb;font-weight:600;margin-bottom:2rem">
+              🗺️ View on Google Maps — ${p.area}, Nairobi
+            </a>
+
+            <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:12px;padding:1rem;font-size:0.85rem;color:#92400e">
+              ⚠️ <strong>Safety tip:</strong> Never pay deposit before physically viewing the property. RENTECH landlords never ask for payment before a viewing.
+            </div>
+          </div>
+
+          <div>
+            <div class="cta-box">
+              <div style="font-size:1.5rem;font-weight:800;color:#2563eb">KSh ${p.price.toLocaleString()}<span style="font-size:0.9rem;font-weight:400;color:#6b7280">/mo</span></div>
+              <div style="color:#6b7280;font-size:0.82rem;margin-bottom:1rem">${p.area} · ${p.type}</div>
+
+              <a href="https://wa.me/${p.landlord.phone}?text=${waMsg}"
+                 style="display:block;background:#25d366;color:white;text-align:center;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:0.8rem">
+                💬 WhatsApp Landlord
+              </a>
+              <a href="tel:+${p.landlord.phone}"
+                 style="display:block;background:#f0f4ff;color:#2563eb;text-align:center;padding:12px;border-radius:12px;font-weight:600;text-decoration:none;margin-bottom:1.5rem">
+                📞 Call Landlord
+              </a>
+
+              <div class="trust-badges">
+                <div class="trust-badge">✅ <span>National ID Verified</span></div>
+                <div class="trust-badge">✅ <span>Title Deed Checked</span></div>
+                <div class="trust-badge">✅ <span>Physical Inspection Done</span></div>
+                <div class="trust-badge">✅ <span>No Agent — Direct Owner</span></div>
+              </div>
+
+              <hr style="margin:1rem 0;border:none;border-top:1px solid #e8e8e8">
+              <div style="font-size:0.8rem;color:#6b7280">
+                👁 ${p.views} people viewed this · Posted ${new Date(p.postedDate).toLocaleDateString('en-KE',{day:'numeric',month:'short'})}
+              </div>
+            </div>
           </div>
         </div>
-        <a id="wa-btn" href="#" target="_blank" rel="noopener" class="btn-wa-big">
-          💬 WhatsApp Landlord
-        </a>
-        <a id="call-btn" href="tel:+254723783337" class="btn-call">
-          📞 Call +254 723 783 337
-        </a>
-        <div class="contact-note">
-          ✓ Verified landlord — contact is direct<br>
-          ✓ No agent fees, no middlemen, ever
+
+        <div style="margin-top:3rem">
+          <h3>Similar Properties</h3>
+          <div id="similarGrid" class="properties-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            ${all.filter(x => x.id !== id && x.area === p.area).slice(0,3).map(s => `
+              <div class="property-card" onclick="location.href='property-detail.html?id=${s.id}'" style="cursor:pointer">
+                <div class="card-img-wrap"><img src="${s.images[0]}" alt="${s.title}" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover"></div>
+                <div class="card-body">
+                  <div class="card-price">KSh ${s.price.toLocaleString()}<span>/mo</span></div>
+                  <div class="card-title">${s.title}</div>
+                  <div class="card-location">📍 ${s.area}</div>
+                </div>
+              </div>`).join('')}
+          </div>
         </div>
-      </div>
-
-      <!-- Share / Save -->
-      <div class="detail-section" style="padding:20px 24px;">
-        <h2 style="font-size:.9rem;margin-bottom:14px;">🔗 Share This Property</h2>
-        <div style="display:flex;gap:8px;">
-          <button onclick="shareWA()" style="flex:1;padding:10px;background:#25D366;color:#fff;border:none;border-radius:var(--radius);font-size:.82rem;font-weight:600;cursor:pointer;">WhatsApp</button>
-          <button onclick="copyLink()" style="flex:1;padding:10px;background:var(--bg-2);color:var(--text);border:1px solid var(--border);border-radius:var(--radius);font-size:.82rem;cursor:pointer;" id="copy-btn">Copy Link</button>
-        </div>
-      </div>
-
-      <!-- Similar Properties -->
-      <div>
-        <div class="similar-title">🏠 Similar Properties</div>
-        <div id="similar-list"></div>
-        <a href="properties.html" style="display:block;text-align:center;padding:10px;color:var(--gold);font-size:.82rem;text-decoration:none;border:1px solid var(--border);border-radius:var(--radius);margin-top:4px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">View All Properties →</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" onclick="closeLB()">✕</button>
-  <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
-  <img id="lb-img" src="" alt="Property photo">
-  <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
-  <div class="lb-counter" id="lb-counter">1 / 5</div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo" style="margin-bottom:18px;">
-          <div class="logo-img" style="width:40px;height:40px;"><img src="assets/logo.png" alt="Rentech Properties" width="40" height="40"></div>
-          <div class="logo-text" style="font-size:1.1rem;">RENTECH<span style="font-size:.65rem;">PROPERTIES</span></div>
-        </div>
-        <p style="color:var(--muted);font-size:.88rem;line-height:1.7;">Nairobi's AI-powered rental marketplace. No scams. No agents. Ever.</p>
-        <p style="color:var(--muted);font-size:.84rem;line-height:2;">📞 +254 723 783 337<br>✉️ rentechproperties.ke@gmail.com</p>
-      </div>
-      <div class="footer-col"><h5>Quick Links</h5><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Browse Properties</a></li><li><a href="list-property.html">List Property</a></li></ul></div>
-      <div class="footer-col"><h5>Popular Areas</h5><ul><li><a href="kilimani-apartments.html">Kilimani</a></li><li><a href="westlands-rentals.html">Westlands</a></li><li><a href="properties.html?area=Kasarani">Kasarani</a></li><li><a href="properties.html?area=Karen">Karen</a></li></ul></div>
-      <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li><li><a href="#">Commission</a></li></ul></div>
-    </div>
-    <div class="footer-bottom"><div>© 2026 Rentech Properties. All rights reserved.</div><div class="social-row"><a href="https://wa.me/254723783337" target="_blank">💬</a><a href="https://x.com/rentech_ke" target="_blank">𝕏</a><a href="https://tiktok.com/@mohamudunshaken" target="_blank">🎵</a><a href="https://instagram.com/rentech.ke" target="_blank">📸</a></div></div>
-  </div>
-</footer>
-
-<a href="https://wa.me/254723783337" class="wa-float" target="_blank" rel="noopener">💬</a>
-<button id="stbtn" style="position:fixed;bottom:28px;left:28px;width:42px;height:42px;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:50%;font-size:1.1rem;cursor:pointer;z-index:898;opacity:0;pointer-events:none;transition:all .25s;display:flex;align-items:center;justify-content:center;" aria-label="Back to top">↑</button>
-
-<script>
-// ── ALL PROPERTIES DATA ──
-const PROPERTIES = [
-  {id:1,title:"Modern 2BR Apartment",area:"Kilimani",address:"Ngong Road, Milimani Estate",near:"Junction Mall, Yaya Centre",type:"Apartment",beds:2,baths:2,sqft:"850 sqft",price:65000,deposit:130000,service:5000,badge:"Featured",landlord:"John Kamau",phone:"+254723783337",desc:"A stunning modern 2-bedroom apartment in the heart of Kilimani. Features an open-plan kitchen with granite countertops, spacious master bedroom with en-suite bathroom, and a private balcony with city views. The building has 24hr security, CCTV, and a backup generator. Walking distance to Junction Mall and Yaya Centre.",amenities:{Furnished:true,Parking:true,Security:true,Elevator:true,Balcony:true,"Internet Ready":true,Generator:true,CCTV:true,Borehole:false,"Swimming Pool":false,"Gym":false,"DSQ":true},imgs:["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85","https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=85","https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=1200&q=85"]},
-  {id:2,title:"Executive Studio",area:"Westlands",address:"Waiyaki Way, Westlands",near:"Sarit Centre, The Hub, Westgate Mall",type:"Studio",beds:1,baths:1,sqft:"450 sqft",price:38000,deposit:76000,service:3500,badge:"New",landlord:"Mary Wanjiku",phone:"+254723783337",desc:"Fully furnished executive studio in the heart of Westlands. Perfect for young professionals. Features high-speed fibre internet, modern kitchen appliances, and a private balcony. The building has 24hr security, elevator, and is walking distance to Sarit Centre.",amenities:{Furnished:true,Parking:true,Security:true,Elevator:true,Balcony:true,"Internet Ready":true,Generator:false,CCTV:true,Borehole:true,"Swimming Pool":false,"Gym":false,"DSQ":false},imgs:["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85","https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=85","https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?w=1200&q=85"]},
-  {id:3,title:"Affordable Bedsitter",area:"Kasarani",address:"Thika Road, Kasarani Estate",near:"Kasarani Stadium, TRM Mall",type:"Bedsitter",beds:1,baths:1,sqft:"280 sqft",price:12000,deposit:24000,service:1000,badge:"",landlord:"Peter Mwangi",phone:"+254723783337",desc:"Clean and affordable bedsitter in a secure compound in Kasarani. Ideal for students and young professionals. The compound has 24hr security and is well served by matatus to the CBD. Borehole water supply ensures no interruptions.",amenities:{Furnished:false,Parking:false,Security:true,Elevator:false,Balcony:false,"Internet Ready":false,Generator:false,CCTV:false,Borehole:true,"Swimming Pool":false,"Gym":false,"DSQ":false},imgs:["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=85","https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=85","https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1200&q=85","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85"]},
-  {id:4,title:"Spacious Family Home",area:"Lang'ata",address:"Langata Road, Hardy Estate",near:"Nairobi National Park, Karen Hospital",type:"House",beds:4,baths:3,sqft:"2400 sqft",price:90000,deposit:180000,service:8000,badge:"Featured",landlord:"Grace Kariuki",phone:"+254723783337",desc:"Spacious 4-bedroom standalone home in the leafy Hardy Estate in Langata. Features a large garden, DSQ, and ample secure parking for 3 cars. The estate has 24hr guard security and CCTV. Close to Nairobi National Park and Karen Shopping Centre.",amenities:{Furnished:false,Parking:true,Security:true,Elevator:false,Balcony:true,"Internet Ready":true,Generator:true,CCTV:true,Borehole:false,"Swimming Pool":false,"Gym":false,"DSQ":true},imgs:["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85","https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=1200&q=85","https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1200&q=85","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85"]},
-  {id:5,title:"1BR Cosy Apartment",area:"South B",address:"South B Shopping Centre Road",near:"South B Shopping Centre, City Stadium",type:"Apartment",beds:1,baths:1,sqft:"520 sqft",price:28000,deposit:56000,service:2500,badge:"New",landlord:"James Odhiambo",phone:"+254723783337",desc:"Well-maintained 1-bedroom apartment in a quiet compound in South B. Borehole water supply, 24hr security guard, and easy access to public transport. Perfect for a single professional or young couple.",amenities:{Furnished:false,Parking:true,Security:true,Elevator:false,Balcony:false,"Internet Ready":true,Generator:false,CCTV:false,Borehole:true,"Swimming Pool":false,"Gym":false,"DSQ":false},imgs:["https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=85","https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=85","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85"]},
-  {id:6,title:"Luxury Studio",area:"Lavington",address:"Gitanga Road, Lavington",near:"Lavington Green Mall, ABC Place",type:"Studio",beds:1,baths:1,sqft:"500 sqft",price:58000,deposit:116000,service:4500,badge:"",landlord:"Sandra Njoroge",phone:"+254723783337",desc:"Premium fully furnished studio in the quiet leafy suburb of Lavington. High-end finishes throughout, private parking, and rooftop terrace access. Ideal for diplomats, NGO workers, and executives seeking peace and quality.",amenities:{Furnished:true,Parking:true,Security:true,Elevator:true,Balcony:true,"Internet Ready":true,Generator:true,CCTV:true,Borehole:false,"Swimming Pool":false,"Gym":false,"DSQ":false},imgs:["https://images.unsplash.com/photo-1630699144339-420f59b4747a?w=1200&q=85","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85","https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=85"]},
-  {id:7,title:"Garden View 2BR",area:"Karen",address:"Karen Hardy Road, Karen",near:"Karen Shopping Centre, Nairobi National Park",type:"Apartment",beds:2,baths:2,sqft:"1100 sqft",price:110000,deposit:220000,service:9000,badge:"Featured",landlord:"Tom Mutua",phone:"+254723783337",desc:"Beautiful 2-bedroom apartment with stunning garden views in the prestigious Karen suburb. Features include a large private balcony, fully fitted kitchen, DSQ, and 2 parking spaces. The gated complex has a backup generator, CCTV, and manicured grounds.",amenities:{Furnished:true,Parking:true,Security:true,Elevator:false,Balcony:true,"Internet Ready":true,Generator:true,CCTV:true,Borehole:false,"Swimming Pool":false,"Gym":false,"DSQ":true},imgs:["https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=1200&q=85","https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85","https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1200&q=85"]},
-];
-
-const ALL_AMENITIES = ["Furnished","Parking","Security","Elevator","Balcony","Internet Ready","Generator","CCTV","Borehole","Swimming Pool","Gym","DSQ"];
-
-let currentProp = null;
-let lbIndex = 0;
-
-function getPropById(id) { return PROPERTIES.find(p=>p.id===id) || PROPERTIES[0]; }
-
-function loadProp(p) {
-  currentProp = p;
-  document.title = `${p.title} – ${p.area} | Rentech Properties`;
-
-  // Breadcrumb
-  document.getElementById('bc-area').textContent = p.area;
-  document.getElementById('bc-title').textContent = p.title;
-
-  // Header
-  document.getElementById('prop-title').textContent = p.title;
-  document.getElementById('prop-area').textContent = p.area;
-  document.getElementById('prop-address').textContent = p.address;
-  document.getElementById('prop-price').textContent = `KSh ${p.price.toLocaleString()}`;
-  document.getElementById('pd-rent').textContent = `KSh ${p.price.toLocaleString()}`;
-  document.getElementById('pd-deposit').textContent = `KSh ${p.deposit.toLocaleString()}`;
-  document.getElementById('pd-service').textContent = `KSh ${p.service.toLocaleString()}`;
-
-  // Badge
-  if (p.badge !== 'Featured') document.getElementById('badge-featured').style.display = 'none';
-
-  // Specs
-  document.getElementById('sp-type').textContent = p.type;
-  document.getElementById('sp-beds').textContent = p.beds;
-  document.getElementById('sp-baths').textContent = p.baths;
-  document.getElementById('sp-sqft').textContent = p.sqft;
-
-  // Description
-  document.getElementById('prop-desc').textContent = p.desc;
-
-  // Gallery
-  const mainImg = document.getElementById('main-img');
-  mainImg.src = p.imgs[0];
-  mainImg.alt = p.title;
-  mainImg.onclick = () => openLB(0);
-  document.getElementById('photo-count').textContent = `📷 1 / ${p.imgs.length}`;
-
-  const thumbsWrap = document.getElementById('thumbs');
-  thumbsWrap.innerHTML = p.imgs.map((img,i)=>`
-    <div class="gallery-thumb ${i===0?'active':''}" onclick="setImg(${i})">
-      <img src="${img.replace('w=1200','w=200')}" alt="Photo ${i+1}" loading="lazy">
-    </div>`).join('');
-
-  // Amenities
-  document.getElementById('amenities-grid').innerHTML = ALL_AMENITIES.map(a=>{
-    const has = p.amenities[a];
-    return `<div class="amenity-chip ${has?'has':'no'}"><span class="ach">${has?'✓':'✗'}</span><span>${a}</span></div>`;
-  }).join('');
-
-  // Map
-  document.getElementById('map-address').textContent = `${p.address}, ${p.area}, Nairobi`;
-  document.getElementById('map-near').textContent = p.near;
-  document.getElementById('map-label').textContent = `${p.area}, Nairobi`;
-  document.getElementById('map-link').href = `https://maps.google.com/?q=${encodeURIComponent(p.address+','+p.area+',Nairobi')}`;
-
-  // Sidebar
-  document.getElementById('ll-name').textContent = p.landlord;
-  const waMsg = `Hi ${p.landlord}! I found your ${p.title} in ${p.area} on Rentech Properties at KSh ${p.price.toLocaleString()}/month. Is it still available for viewing?`;
-  document.getElementById('wa-btn').href = `https://wa.me/${p.phone.replace(/\D/g,'')}?text=${encodeURIComponent(waMsg)}`;
-  document.getElementById('call-btn').href = `tel:${p.phone}`;
-
-  // Similar
-  const similar = PROPERTIES.filter(x=>x.id!==p.id && (x.area===p.area || x.type===p.type)).slice(0,3);
-  document.getElementById('similar-list').innerHTML = similar.map(s=>`
-    <a href="property-detail.html?id=${s.id}" class="similar-card">
-      <div class="sim-img"><img src="${s.imgs[0].replace('w=1200','w=200')}" alt="${s.title}" loading="lazy"></div>
-      <div class="sim-body">
-        <div class="sim-title">${s.title}</div>
-        <div class="sim-price">KSh ${s.price.toLocaleString()}/mo</div>
-        <div class="sim-area">📍 ${s.area}</div>
-      </div>
-    </a>`).join('');
-}
-
-window.setImg = function(i) {
-  if(!currentProp) return;
-  lbIndex = i;
-  const mainImg = document.getElementById('main-img');
-  mainImg.src = currentProp.imgs[i];
-  document.getElementById('photo-count').textContent = `📷 ${i+1} / ${currentProp.imgs.length}`;
-  document.querySelectorAll('.gallery-thumb').forEach((t,idx)=>t.classList.toggle('active',idx===i));
-};
-
-window.openLB = function(i) {
-  lbIndex = i;
-  document.getElementById('lb-img').src = currentProp.imgs[i];
-  document.getElementById('lb-counter').textContent = `${i+1} / ${currentProp.imgs.length}`;
-  document.getElementById('lightbox').classList.add('open');
-};
-
-window.closeLB = function() { document.getElementById('lightbox').classList.remove('open'); };
-
-window.lbNav = function(dir) {
-  lbIndex = (lbIndex + dir + currentProp.imgs.length) % currentProp.imgs.length;
-  document.getElementById('lb-img').src = currentProp.imgs[lbIndex];
-  document.getElementById('lb-counter').textContent = `${lbIndex+1} / ${currentProp.imgs.length}`;
-};
-
-window.shareWA = function() {
-  if(!currentProp) return;
-  window.open(`https://wa.me/?text=${encodeURIComponent(`Check out this ${currentProp.title} in ${currentProp.area} at KSh ${currentProp.price.toLocaleString()}/month on Rentech Properties: ${window.location.href}`)}`,'_blank');
-};
-
-window.copyLink = function() {
-  navigator.clipboard.writeText(window.location.href).then(()=>{
-    const btn = document.getElementById('copy-btn');
-    btn.textContent = '✓ Copied!';
-    setTimeout(()=>btn.textContent='Copy Link',2000);
-  });
-};
-
-document.addEventListener('DOMContentLoaded',()=>{
-  const id = parseInt(new URLSearchParams(location.search).get('id')) || 1;
-  loadProp(getPropById(id));
-
-  // Keyboard lightbox
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape') closeLB();
-    if(e.key==='ArrowRight') lbNav(1);
-    if(e.key==='ArrowLeft') lbNav(-1);
-  });
-
-  // Hamburger
-  const ham=document.getElementById('ham'),mob=document.getElementById('mob-menu');
-  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
-
-  // Theme
-  const themeBtn=document.getElementById('theme-btn');
-  const applyTheme=t=>{document.documentElement.setAttribute('data-theme',t);themeBtn.textContent=t==='dark'?'🌙':'☀️';localStorage.setItem('rt_theme',t);};
-  const saved=localStorage.getItem('rt_theme');
-  if(saved)applyTheme(saved);
-  themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
-
-  const stbtn=document.getElementById('stbtn');
-  window.addEventListener('scroll',()=>{
-    document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
-    stbtn.classList.toggle('show',scrollY>400);
-    stbtn.style.opacity=scrollY>400?'1':'0';
-    stbtn.style.pointerEvents=scrollY>400?'all':'none';
-  });
-  stbtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-});
-</script>
+      `;
+    } catch(e) {
+      document.getElementById('detailRoot').innerHTML = `<div style="text-align:center;padding:4rem"><h3>Property not found</h3><a href="properties.html">← Browse all properties</a></div>`;
+    }
+  })();
+  </script>
 </body>
 </html>

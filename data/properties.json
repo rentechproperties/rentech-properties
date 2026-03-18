@@ -1,0 +1,75 @@
+/* ============================================================
+   RENTECH PROPERTIES — properties.js
+   Powers properties.html — filterAndSort + getSaved + toggleSave
+   ============================================================ */
+
+let _allProps = [];
+
+// ── LOAD DATA ──────────────────────────────────────────────
+(async function init() {
+  try {
+    const r = await fetch('data/properties.json');
+    _allProps = await r.json();
+    applyFilters();           // called by properties.html after this script loads
+  } catch(e) {
+    document.getElementById('props-grid').innerHTML = `
+      <div class="no-results">
+        <div class="no-results-icon">😔</div>
+        <h3>Couldn't load properties</h3>
+        <p style="margin-bottom:24px;color:var(--muted)">Check your connection and try again.</p>
+        <button onclick="location.reload()" class="btn btn-primary">↺ Try Again</button>
+      </div>`;
+    document.getElementById('results-count').textContent = '0 properties found';
+  }
+})();
+
+// ── FILTER + SORT (called by properties.html) ──────────────
+function filterAndSort(state) {
+  let results = _allProps.filter(p => {
+    if (state.text) {
+      const haystack = `${p.title} ${p.area} ${p.type} ${p.description || ''}`.toLowerCase();
+      if (!haystack.includes(state.text)) return false;
+    }
+    if (state.area !== 'All' && p.area !== state.area) return false;
+    if (state.type !== 'All' && p.type !== state.type) return false;
+    if (p.price > state.maxPrice) return false;
+    if (state.beds !== 'Any') {
+      if (state.beds === '4+') { if (p.beds < 4) return false; }
+      else if (p.beds !== parseInt(state.beds)) return false;
+    }
+    if (state.furnished !== 'Any') {
+      const isFurn = p.furnished === true || p.furnished === 'Furnished';
+      if (state.furnished === 'Furnished' && !isFurn) return false;
+      if (state.furnished === 'Unfurnished' && isFurn) return false;
+    }
+    if (state.amenities.length) {
+      const hasAll = state.amenities.every(a => p.amenities && p.amenities.includes(a));
+      if (!hasAll) return false;
+    }
+    return true;
+  });
+
+  switch(state.sort) {
+    case 'newest':    results.sort((a,b) => new Date(b.postedDate) - new Date(a.postedDate)); break;
+    case 'price-asc': results.sort((a,b) => a.price - b.price); break;
+    case 'price-desc':results.sort((a,b) => b.price - a.price); break;
+    default:          results.sort((a,b) => (b.featured?1:0) - (a.featured?1:0) || b.views - a.views);
+  }
+  return results;
+}
+
+// ── SAVED PROPERTIES ───────────────────────────────────────
+function getSaved() {
+  try { return JSON.parse(localStorage.getItem('rt_saved') || '[]'); } catch { return []; }
+}
+function toggleSave(id, btn) {
+  let saved = getSaved();
+  if (saved.includes(id)) {
+    saved = saved.filter(x => x !== id);
+    btn.classList.remove('saved');
+  } else {
+    saved.push(id);
+    btn.classList.add('saved');
+  }
+  localStorage.setItem('rt_saved', JSON.stringify(saved));
+}
