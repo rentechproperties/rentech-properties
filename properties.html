@@ -579,7 +579,18 @@ document.getElementById('list-btn').addEventListener('click', () => { isListView
 document.getElementById('load-more-btn').addEventListener('click', () => { visibleCount += 6; applyFilters(); });
 
 // ── INIT ──────────────────────────────────────────────
-applyFilters();
+// Wait for properties.js async fetch before first render
+function applyFilters() {
+  if (!window._allPropsReady) return; // guard — data not loaded yet
+  const results = filterAndSort(state);
+  const toShow = results.slice(0, visibleCount);
+  renderProps(toShow);
+  document.getElementById('results-count').innerHTML =
+    `Showing <strong>${toShow.length}</strong> of <strong>${results.length}</strong> verified properties`;
+  document.getElementById('load-more-wrap').style.display =
+    results.length > visibleCount ? 'block' : 'none';
+  buildPills();
+  updateActiveCount();
+  closeSidebar();
+}
 </script>
-</body>
-</html>

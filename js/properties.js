@@ -1,17 +1,34 @@
-[
-  {"id":"p001","title":"Modern 2BR Apartment","area":"Kilimani","type":"2BR","beds":2,"baths":2,"size":85,"price":75000,"furnished":true,"badge":"Featured","emoji":"🏢","status":"Available now","amenities":["Parking","Security","Borehole","Gym","CCTV"],"verified":true,"featured":true,"postedDate":"2026-03-15","views":142,"description":"Stunning 2-bedroom apartment in the heart of Kilimani. Modern finishes, city views, 5 min from Junction Mall.","landlord":{"name":"James Mwangi","phone":"254723783337","verified":true}},
-  {"id":"p002","title":"Cosy Studio Apartment","area":"Westlands","type":"Studio","beds":1,"baths":1,"size":42,"price":38000,"furnished":true,"badge":"New","emoji":"🏠","status":"Available now","amenities":["Security","Borehole","Gym","Lift"],"verified":true,"featured":true,"postedDate":"2026-03-14","views":98,"description":"Fully furnished studio in Westlands. Walking distance to Sarit Centre and Westgate Mall.","landlord":{"name":"Margaret Kariuki","phone":"254723783337","verified":true}},
-  {"id":"p003","title":"Spacious 1BR Apartment","area":"South B","type":"1BR","beds":1,"baths":1,"size":58,"price":28000,"furnished":false,"badge":"","emoji":"🏡","status":"Available now","amenities":["Parking","Borehole","CCTV"],"verified":true,"featured":false,"postedDate":"2026-03-13","views":67,"description":"Clean 1-bedroom in South B. Quiet estate, ample parking, borehole water.","landlord":{"name":"Hassan Omondi","phone":"254723783337","verified":true}},
-  {"id":"p004","title":"Executive Bedsitter","area":"Kasarani","type":"Bedsitter","beds":1,"baths":1,"size":28,"price":14000,"furnished":false,"badge":"New","emoji":"🛏️","status":"Available now","amenities":["Security","CCTV"],"verified":true,"featured":false,"postedDate":"2026-03-12","views":201,"description":"Clean bedsitter near Kasarani stadium. Great transport links, safe estate.","landlord":{"name":"Grace Wanjiku","phone":"254723783337","verified":true}},
-  {"id":"p005","title":"3BR Family Home","area":"Karen","type":"3BR","beds":3,"baths":2,"size":180,"price":120000,"furnished":true,"badge":"Featured","emoji":"🏘️","status":"Available now","amenities":["Parking","Security","Garden","Borehole","CCTV"],"verified":true,"featured":true,"postedDate":"2026-03-11","views":89,"description":"Beautiful 3-bedroom home in Karen with garden. Perfect for families, near Karen Hospital.","landlord":{"name":"Peter Kamau","phone":"254723783337","verified":true}},
-  {"id":"p006","title":"Luxury 2BR with Gym","area":"Lavington","type":"2BR","beds":2,"baths":2,"size":95,"price":95000,"furnished":true,"badge":"Featured","emoji":"🏢","status":"Available now","amenities":["Parking","Security","Gym","Borehole","Pool","Lift"],"verified":true,"featured":true,"postedDate":"2026-03-10","views":113,"description":"Premium 2BR in Lavington with gym access. Gated compound, backup generator, stunning finishes.","landlord":{"name":"Amina Odhiambo","phone":"254723783337","verified":true}},
-  {"id":"p007","title":"Budget Bedsitter","area":"Eastleigh","type":"Bedsitter","beds":1,"baths":1,"size":22,"price":10000,"furnished":false,"badge":"","emoji":"🛏️","status":"Available now","amenities":["Security"],"verified":true,"featured":false,"postedDate":"2026-03-10","views":188,"description":"Affordable bedsitter in Eastleigh. Close to bus terminus and market.","landlord":{"name":"Ali Hassan","phone":"254723783337","verified":true}},
-  {"id":"p008","title":"Modern 1BR Studio","area":"Kileleshwa","type":"1BR","beds":1,"baths":1,"size":55,"price":45000,"furnished":true,"badge":"","emoji":"🏠","status":"Available now","amenities":["Parking","Security","Borehole","CCTV"],"verified":true,"featured":false,"postedDate":"2026-03-09","views":76,"description":"Stylish 1BR in Kileleshwa. Peaceful neighbourhood, well-maintained building.","landlord":{"name":"Sarah Njeri","phone":"254723783337","verified":true}},
-  {"id":"p009","title":"2BR Penthouse View","area":"Westlands","type":"2BR","beds":2,"baths":2,"size":110,"price":88000,"furnished":true,"badge":"Featured","emoji":"🌆","status":"Available now","amenities":["Parking","Security","Gym","Pool","Lift","Generator"],"verified":true,"featured":true,"postedDate":"2026-03-08","views":221,"description":"Penthouse 2BR with panoramic Westlands views. Top-floor unit, private terrace.","landlord":{"name":"David Njoroge","phone":"254723783337","verified":true}},
-  {"id":"p010","title":"Affordable 1BR Flat","area":"South C","type":"1BR","beds":1,"baths":1,"size":50,"price":22000,"furnished":false,"badge":"","emoji":"🏡","status":"Available now","amenities":["Borehole","Security","CCTV"],"verified":true,"featured":false,"postedDate":"2026-03-08","views":134,"description":"Value 1BR in South C. Easy access to Mombasa Road, Likoni Link Mall nearby.","landlord":{"name":"Lucy Waweru","phone":"254723783337","verified":true}},
-  {"id":"p011","title":"Executive 3BR Maisonette","area":"Kilimani","type":"Maisonette","beds":3,"baths":3,"size":200,"price":145000,"furnished":true,"badge":"Featured","emoji":"🏘️","status":"Available now","amenities":["Parking","Security","Garden","Borehole","Gym","DSQ"],"verified":true,"featured":true,"postedDate":"2026-03-07","views":95,"description":"Stunning 3BR maisonette in prime Kilimani. Private garden, double parking, fully furnished.","landlord":{"name":"Robert Githinji","phone":"254723783337","verified":true}},
-  {"id":"p012","title":"Studio near Sarit","area":"Westlands","type":"Studio","beds":1,"baths":1,"size":38,"price":32000,"furnished":false,"badge":"New","emoji":"🏠","status":"Available now","amenities":["Security","Parking","CCTV"],"verified":true,"featured":false,"postedDate":"2026-03-07","views":88,"description":"Neat studio 200m from Sarit Centre. Perfect for young professionals.","landlord":{"name":"Faith Muthoni","phone":"254723783337","verified":true}},
-  {"id":"p013","title":"Budget 1BR Kasarani","area":"Kasarani","type":"1BR","beds":1,"baths":1,"size":48,"price":18000,"furnished":false,"badge":"","emoji":"🏡","status":"Available now","amenities":["Borehole","CCTV"],"verified":true,"featured":false,"postedDate":"2026-03-06","views":159,"description":"Affordable 1BR in Kasarani Mwiki Road. Quiet street, new paint, water 24/7.","landlord":{"name":"Joseph Maina","phone":"254723783337","verified":true}},
-  {"id":"p014","title":"Parklands 2BR","area":"Parklands","type":"2BR","beds":2,"baths":1,"size":78,"price":55000,"furnished":false,"badge":"","emoji":"🏢","status":"Available now","amenities":["Parking","Security","Garden"],"verified":true,"featured":false,"postedDate":"2026-03-06","views":72,"description":"Spacious 2BR in Parklands. Near Aga Khan Hospital, quiet compound.","landlord":{"name":"Priya Patel","phone":"254723783337","verified":true}},
-  {"id":"p015","title":"Lang'ata Family 3BR","area":"Lang'ata","type":"3BR","beds":3,"baths":2,"size":160,"price":65000,"furnished":false,"badge":"","emoji":"🏘️","status":"Available now","amenities":["Parking","Garden","Borehole","DSQ"],"verified":true,"featured":false,"postedDate":"2026-03-05","views":61,"description":"Spacious 3BR bungalow in Lang'ata. Near Ngong Road, large compound for kids.","landlord":{"name":"Daniel Ochieng","phone":"254723783337","verified":true}}
-]
+let _allProps = [];
+(async function init() {
+  try {
+    const r = await fetch('data/properties.json');
+    if (!r.ok) throw new Error('Failed');
+    _allProps = await r.json();
+    window._allPropsReady = true;
+    applyFilters();
+  } catch(e) {
+    const grid = document.getElementById('props-grid');
+    if (grid) grid.innerHTML = '<div class="no-results"><div class="no-results-icon">😔</div><h3>Could not load properties</h3><p style="color:var(--muted)">Please refresh the page.</p></div>';
+  }
+})();
+function filterAndSort(state) {
+  let results = _allProps.filter(p => {
+    if (state.text) { const h = (p.title+' '+p.area+' '+p.type+' '+(p.description||'')).toLowerCase(); if (!h.includes(state.text)) return false; }
+    if (state.area !== 'All' && p.area !== state.area) return false;
+    if (state.type !== 'All' && p.type !== state.type) return false;
+    if (p.price > state.maxPrice) return false;
+    if (state.beds !== 'Any') { if (state.beds === '4+') { if (p.beds < 4) return false; } else if (p.beds !== parseInt(state.beds)) return false; }
+    if (state.furnished !== 'Any') { const f = p.furnished === true; if (state.furnished === 'Furnished' && !f) return false; if (state.furnished === 'Unfurnished' && f) return false; }
+    if (state.amenities && state.amenities.length) { if (!state.amenities.every(a => p.amenities && p.amenities.includes(a))) return false; }
+    return true;
+  });
+  switch(state.sort) {
+    case 'newest': results.sort((a,b) => new Date(b.postedDate)-new Date(a.postedDate)); break;
+    case 'price-asc': results.sort((a,b) => a.price-b.price); break;
+    case 'price-desc': results.sort((a,b) => b.price-a.price); break;
+    default: results.sort((a,b) => (b.featured?1:0)-(a.featured?1:0)||b.views-a.views);
+  }
+  return results;
+}
+function getSaved() { try { return JSON.parse(localStorage.getItem('rt_saved')||'[]'); } catch { return []; } }
+function toggleSave(id, btn) { let s = getSaved(); if (s.includes(id)) { s = s.filter(x=>x!==id); btn.classList.remove('saved'); } else { s.push(id); btn.classList.add('saved'); } localStorage.setItem('rt_saved', JSON.stringify(s)); }
